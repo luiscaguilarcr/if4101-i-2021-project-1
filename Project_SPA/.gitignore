@@ -1,0 +1,61 @@
+# From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+
+Project_SPA/.vs/Project_SPA/config/applicationhost.config
+Project_SPA/.vs/Project_SPA/v16/.suo
+Project_SPA/Project_SPA/bin/Debug/netcoreapp3.1/Project_SPA.dll
+Project_SPA/Project_SPA/bin/Debug/netcoreapp3.1/Project_SPA.pdb
+Project_SPA/Project_SPA/bin/Debug/netcoreapp3.1/Project_SPA.runtimeconfig.dev.json
+Project_SPA/Project_SPA/bin/Debug/netcoreapp3.1/Project_SPA.Views.dll
+Project_SPA/Project_SPA/bin/Debug/netcoreapp3.1/Project_SPA.Views.pdb
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.assets.cache
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.csprojAssemblyReference.cache
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.dll
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.genruntimeconfig.cache
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.pdb
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.Views.dll
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.Views.pdb
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
+Project_SPA/Project_SPA/obj/project.assets.json
+Project_SPA/Project_SPA/obj/project.nuget.cache
+Project_SPA/Project_SPA/obj/Project_SPA.csproj.nuget.dgspec.json
+Project_SPA/Project_SPA/obj/Project_SPA.csproj.nuget.g.props
+Project_SPA/Project_SPA/obj/Debug/netcoreapp3.1/Project_SPA.assets.cache
