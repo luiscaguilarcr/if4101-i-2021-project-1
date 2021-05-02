@@ -118,12 +118,12 @@ https://templatemo.com/tm-516-known
   }
 
   .entry-form {
-    background: #252020;
-    border-radius: 100%;
+    background: #0973BB;
+    border-radius: 5%;
     text-align: center;
     padding: 6em;
     width: 450px;
-    height: 450px;
+    height: 550px;
   }
 
   .entry-form h2 {
@@ -140,6 +140,8 @@ https://templatemo.com/tm-516-known
     height: 45px;
     margin: 10px 0;
   }
+
+  .entry-form ::placeholder{color:white}
 
   .entry-form .submit-btn {
     background: #ffffff;
@@ -256,9 +258,9 @@ https://templatemo.com/tm-516-known
       MENU              
   -----------------------------------------*/
 
-  .custom-navbar {
+.custom-navbar {
     background: #ffffff;
-    border-top: 5px solid #29ca8e;
+    border-top: 5px solid #30ADD1;
     border-bottom: 0;
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
@@ -266,10 +268,10 @@ https://templatemo.com/tm-516-known
     padding: 12px 0;
     margin-bottom: 0;
     padding: 0;
-  }
+}
 
   .custom-navbar .navbar-brand {
-    color: #454545;
+    color: #30ADD1;
     font-size: 18px;
     font-weight: bold;
     line-height: 40px;
@@ -284,17 +286,17 @@ https://templatemo.com/tm-516-known
     padding-left: 12px;
   }
 
-  .custom-navbar .navbar-nav.navbar-right li a .fa {
-    background: #29ca8e;
-    border-radius: 100%;
-    color: #ffffff;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    display: inline-block;
-    margin-right: 5px;
-  }
+    .custom-navbar .navbar-nav.navbar-right li a .fa {
+        background: #30ADD1;
+        border-radius: 100%;
+        color: #ffffff;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        display: inline-block;
+        margin-right: 5px;
+    }
 
   .custom-navbar .nav li a {
     line-height: 40px;
@@ -308,15 +310,15 @@ https://templatemo.com/tm-516-known
     background-color: transparent;
   }
 
-  .custom-navbar .nav li a:hover {
-    background-color: #29ca8e;
-    color: #ffffff;
-  }
+    .custom-navbar .nav li a:hover {
+        background-color: #30ADD1;
+        color: #ffffff;
+    }
 
-  .custom-navbar .nav li.active > a {
-    background-color: #29ca8e;
-    color: #ffffff;
-  }
+    .custom-navbar .nav li.active > a {
+        background-color: #30ADD1;
+        color: #ffffff;
+    }
 
   .custom-navbar .navbar-toggle {
     border: none;
@@ -327,10 +329,10 @@ https://templatemo.com/tm-516-known
     background-color: transparent;
   }
 
-  .custom-navbar .navbar-toggle .icon-bar {
-    background: #252525;
-    border-color: transparent;
-  }
+    .custom-navbar .navbar-toggle .icon-bar {
+        background: #30ADD1;
+        border-color: transparent;
+    }
 
 
 
@@ -394,7 +396,16 @@ https://templatemo.com/tm-516-known
     background-image: url(../images/slider-image3.jpg);
   }
 
+.home-slider .item-fourth {
+    background-image: url(../images/slider-image4.jpg);
+}
+.home-slider .item-fifth {
+    background-image: url(../images/slider-image5.jpg);
+}
 
+.home-slider .item-sixth {
+    background-image: url(../images/slider-image6.jpg);
+}
 
   /*---------------------------------------
       FEATURE              
