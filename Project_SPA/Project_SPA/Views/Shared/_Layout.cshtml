@@ -173,15 +173,15 @@
                 <div class="col-md-4 col-sm-2">
                     <div class="feature-thumb">
                         <span>Nombre de usuario</span>
-                        <br />
+                        <br><br/>
                         <input type="text" id="userName" name="userName" class="form-control" placeholder="Ingrese su Nombre de Usuario" required="required" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
                     <div class="feature-thumb">
-
                         <span>Contraseña</span>
+                        <br><br />
                         <input type="text" id="userPassword" name="userPassword" class="form-control" placeholder="Ingrese su Contraseña" required="required" autocomplete="off">
                     </div>
                 </div>
@@ -221,15 +221,15 @@
                         <h2>Registre su nuevo usuario</h2>
                         <label id="message" align="center">Registrese como estudiante</label>
                         <figure>
-                            <span><i class="material-icons">g_translate</i></span>
+                            <span><i class="fa fa-university"></i></span>
                             <figcaption>
-                                <h3>Professional Trainers</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
+                                <h3>Informatica Empresarial</h3>
+                                <p>La carrera de informatica Empresarial en proceso de acreditacion por SINAES </p>
                             </figcaption>
                         </figure>
 
                         <figure>
-                            <span><i class="fa fa-certificate"></i></span>
+                            <span><i class="fa fa-graduation-cap"></i></span>
                             <figcaption>
                                 <h3>International Certifications</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -237,7 +237,7 @@
                         </figure>
 
                         <figure>
-                            <span><i class="fa fa-bar-chart-o"></i></span>
+                            <span><i class="fa fas fa-desktop"></i></span>
                             <figcaption>
                                 <h3>Free for 3 months</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
@@ -258,7 +258,7 @@
 
                             <input type="password" name="repeatpassword" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
 
-                            <button class="submit-btn form-control" id="form-submit">Registrar</button>
+                            <button class="submit-btn form-control" id="btn_register_student">Registrar</button>
                         </form>
                     </div>
                 </div>
@@ -303,7 +303,9 @@
                     <div class="entry-form">
                         <form action="#" method="post">
                             <h2>Nuevo Profesor</h2>
-                            <input type="text" name="full name P" class="form-control" placeholder="Nombre completo de profesor" required="">
+                            <input type="text" name="full name P" class="form-control" placeholder="Nombre del profesor" required="">
+
+                            <input type="text" name="codeP" class="form-control" placeholder="Codigo profesor" required="">
 
                             <input type="email" name="emailP" class="form-control" placeholder="Correo electronico" required="">
 
@@ -311,7 +313,7 @@
 
                             <input type="password" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
 
-                            <button class="submit-btn form-control" id="form-submit">Registrar</button>
+                            <button class="submit-btn form-control" id="btn_register_professor">Registrar</button>
                         </form>
                     </div>
                 </div>
@@ -327,15 +329,15 @@
                     <div class="entry-form">
                         <form action="#" method="post">
                             <h2>Nuevo Curso</h2>
-                            <input type="text" name="full name P" class="form-control" placeholder="Nombre completo de curso" required="">
+                            <input type="text" name="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
 
-                            <input type="email" name="emailP" class="form-control" placeholder="Correo electronico" required="">
+                            <input type="text" name="emailP" class="form-control" placeholder="Codigo Curso" required="">
 
-                            <input type="password" name="passwordP" class="form-control" placeholder="Contraseña" required="">
+                            <input type="text" name="passwordP" class="form-control" placeholder="Creditos" required="">
 
-                            <input type="password" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
+                            <input type="text" name="repeatpasswordP" class="form-control" placeholder="Semestre" required="">
 
-                            <button class="submit-btn form-control" id="form-submit">Registrar</button>
+                            <button class="submit-btn form-control" id="btn_register_curse">Registrar</button>
                         </form>
                     </div>
                 </div>
