@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Project_SPA.Models.Data;
+using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,79 +11,49 @@ namespace Project_SPA.Controllers
 {
     public class CourseController : Controller
     {
-        // GET: CourseController
+        private readonly IF4101_2021_SPAContext _context;
+        CourseDAO courseDAO;
+
+        public CourseController(IF4101_2021_SPAContext context)
+        {
+            _context = context;
+        }
+         
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: CourseController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetEF()
         {
-            return View();
+            courseDAO = new CourseDAO(_context);
+            return Ok(courseDAO.GetEF());
         }
 
-        // GET: CourseController/Create
-        public ActionResult Create()
+        public ActionResult GetCourse()
         {
-            return View();
+            courseDAO = new CourseDAO(_context);
+            return Ok(courseDAO.GetCourse());
         }
 
-        // POST: CourseController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Add([FromBody] Course course)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            courseDAO = new CourseDAO(_context);
+            return Ok(courseDAO.Add(course));
         }
 
-        // GET: CourseController/Edit/5
-        public ActionResult Edit(int id)
+
+        public ActionResult Edit([FromBody] Course course)
         {
-            return View();
+            courseDAO = new CourseDAO(_context);
+            return Ok(courseDAO.Edit(course));
         }
 
-        // POST: CourseController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: CourseController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Remove([FromBody] Course course)
         {
-            return View();
-        }
-
-        // POST: CourseController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            courseDAO = new CourseDAO(_context);
+            return Ok(courseDAO.Remove(course));
         }
     }
 }

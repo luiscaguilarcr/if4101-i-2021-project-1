@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,10 @@ namespace Project_SPA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-        }
+            services.AddDbContext<IF4101_2021_SPAContext>(options =>
+options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        
+    }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

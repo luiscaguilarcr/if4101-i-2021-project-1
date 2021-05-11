@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Project_SPA.Models.Data;
+using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,79 +11,49 @@ namespace Project_SPA.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: StudentController
+        private readonly IF4101_2021_SPAContext _context;
+        StudentDAO studentDAO;
+
+        public StudentController(IF4101_2021_SPAContext context)
+        {
+            _context = context;
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: StudentController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetEF()
         {
-            return View();
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.GetEF());
         }
 
-        // GET: StudentController/Create
-        public ActionResult Create()
+        public ActionResult GetStudents()
         {
-            return View();
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.GetStudents());
         }
 
-        // POST: StudentController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Add([FromBody] Student student)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.Add(student));
         }
 
-        // GET: StudentController/Edit/5
-        public ActionResult Edit(int id)
+
+        public ActionResult Edit([FromBody] Student student)
         {
-            return View();
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.Edit(student));
         }
 
-        // POST: StudentController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: StudentController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Remove(int id) //DISTINTA AL PROFE
         {
-            return View();
-        }
-
-        // POST: StudentController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.Remove(id));
         }
     }
 }
