@@ -180,6 +180,21 @@ https://templatemo.com/tm-516-known
     height: 390px;
   }
 
+.marca-de-agua {
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+    .marca-de-agua img {
+        padding: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0.4;
+    }
 
 
   /*---------------------------------------
@@ -202,13 +217,44 @@ https://templatemo.com/tm-516-known
     border-color: transparent;
   }
 
+#btn_Sign {
+    background: #ffffff;
+    border-radius: 50px;
+    border: 5;
+    border-color:black;
+    color: #252020;
+    width: 50%;
+    height: 50px;
+    margin: 30px auto;
+    margin-bottom: 10px;
+}
 
+    #btn_Sign:hover {
+        background: #0973BB;
+        color: #ffffff;
+    }
 
-  /*---------------------------------------
+#btn_signout {
+    background: #ffffff;
+    border-radius: 50px;
+    border: 5;
+    border-color: black;
+    color: #252020;
+    width: 50%;
+    height: 50px;
+    margin: 30px auto;
+    margin-bottom: 10px;
+}
+
+    #btn_signout:hover {
+        background: #0973BB;
+        color: #ffffff;
+    }
+
+/*---------------------------------------
        PRE LOADER              
   -----------------------------------------*/
-
-  .preloader {
+.preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -220,7 +266,7 @@ https://templatemo.com/tm-516-known
     justify-content: center;
     align-items: center;
     background: none repeat scroll 0 0 #ffffff;
-  }
+}
 
   .spinner {
     border: 1px solid transparent;
@@ -377,7 +423,7 @@ https://templatemo.com/tm-516-known
     background-repeat: no-repeat;
     background-attachment: local;
     background-size: cover;
-    height: 650px;
+    height: 625px;
   }
   
   .caption h3 a { color: #FFF; }
@@ -388,24 +434,26 @@ https://templatemo.com/tm-516-known
 	background-position: center;
   }
 
-  .home-slider .item-second {
+.home-slider .item-second {
     background-image: url(../images/slider-image2.jpg);
-  }
+    background-position: center;
+}
 
-  .home-slider .item-third {
+.home-slider .item-third {
     background-image: url(../images/slider-image3.jpg);
-  }
+    background-position: center;
+}
 
 .home-slider .item-fourth {
     background-image: url(../images/slider-image4.jpg);
+    background-position: center;
 }
 .home-slider .item-fifth {
     background-image: url(../images/slider-image5.jpg);
+    background-position: center;
 }
 
-.home-slider .item-sixth {
-    background-image: url(../images/slider-image6.jpg);
-}
+
 
 
 /*---------------------------------------
@@ -418,7 +466,7 @@ https://templatemo.com/tm-516-known
 }
 
     .feature-thumb span {
-        background: #3f51b5;
+        background: #0973BB;
         border-radius: 50px;
         color: #ffffff;
         font-size: 15px;
@@ -448,7 +496,8 @@ https://templatemo.com/tm-516-known
     margin-left: 15px;
   }
 
-  #about figure span {
+  #about figure 
+  {
     float: left;
     margin-left: -15px;
     padding: 15px 20px;
@@ -456,16 +505,16 @@ https://templatemo.com/tm-516-known
     top: 20px;
   }
 
-  #about figure span i {
-    background: #29ca8e;
-    border-radius: 50px;
-    color: #ffffff;
-    font-size: 25px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-  }
+    #about figure span i {
+        background: #0973BB;
+        border-radius: 50px;
+        color: #ffffff;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
 
 
 
