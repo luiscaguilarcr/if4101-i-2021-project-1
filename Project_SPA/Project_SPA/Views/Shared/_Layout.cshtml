@@ -28,11 +28,11 @@
 
 </head>
 
-<div class="container">
+<!--<div class="container">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
-</div>
+</div>-->
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -64,12 +64,12 @@
             <!-- MENU LINKS -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-first">
-                    <li><a href="#top" class="smoothScroll">Home</a></li>
-                    <li><a href="#about" class="smoothScroll">New User</a></li>
-                    <li><a href="#team" class="smoothScroll">Our Teachers</a></li>
-                    <li><a href="#courses" class="smoothScroll">Courses</a></li>
-                    <li><a href="#testimonial" class="smoothScroll">Reviews</a></li>
-                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                    <li><a href="#top" id="#top" class="smoothScroll">Inicio</a></li>
+                    <li><a href="#about" id="#about" class="smoothScroll">Nuevo estudiante</a></li>
+                    <li><a href="#team" id="#team" class="smoothScroll">Nuevos cursos</a></li>
+                    <li><a href="#courses" id="#courses" class="smoothScroll">Courses</a></li>
+                    <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
+                    <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -90,9 +90,9 @@
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
-                                <h1>Rodrigo Facio</h1>
-                                <h3>Sede principal de la UCR, se encuentra ubicado en San Pedro</h3>
-                                <!-- <a href="#feature" class="section-btn btn btn-default smoothScroll">Discover more</a>-->
+                                <h1>Bienvenidos</h1>
+                                <h3></h3>
+
                             </div>
                         </div>
                     </div>
@@ -102,9 +102,9 @@
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
-                                <h1>Sede del occidente</h1>
-                                <h3>Esta compuesta por los recintos </h3>
-                                <!--  <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a course</a>-->
+                                <h1></h1>
+                                <h3> </h3>
+
                             </div>
                         </div>
                     </div>
@@ -114,9 +114,9 @@
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
-                                <h1>Sede del caribe</h1>
-                                <h3>Esta compuesta por los recintos <a rel="nofollow" href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
-                                <!--  <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>-->
+                                <h1></h1>
+                                <h3></h3>
+
                             </div>
                         </div>
                     </div>
@@ -126,9 +126,9 @@
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
-                                <h1>Sede de Guanacaste</h1>
-                                <h3>Esta compuesta por  <a rel="nofollow" href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
-                                <!--  <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>-->
+                                <h1></h1>
+                                <h3> </h3>
+
                             </div>
                         </div>
                     </div>
@@ -138,26 +138,13 @@
                     <div class="caption">
                         <div class="container">
                             <div class="col-md-6 col-sm-12">
-                                <h1>Sede del Atlantico</h1>
-                                <h3>Esta compuesta por  <a rel="nofollow" href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
-                                <!--  <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>-->
+                                <h1></h1>
+                                <h3></h3>
+
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="item item-sixth">
-                    <div class="caption">
-                        <div class="container">
-                            <div class="col-md-6 col-sm-12">
-                                <h1>Sede del Sur </h1>
-                                <h3>Esta compuesta por  <a rel="nofollow" href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
-                                <!--  <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
 
             </div>
@@ -173,7 +160,7 @@
                 <div class="col-md-4 col-sm-2">
                     <div class="feature-thumb">
                         <span>Nombre de usuario</span>
-                        <br><br/>
+                        <br><br />
                         <input type="text" id="userName" name="userName" class="form-control" placeholder="Ingrese su Nombre de Usuario" required="required" autocomplete="off">
                     </div>
                 </div>
@@ -182,14 +169,14 @@
                     <div class="feature-thumb">
                         <span>Contraseña</span>
                         <br><br />
-                        <input type="text" id="userPassword" name="userPassword" class="form-control" placeholder="Ingrese su Contraseña" required="required" autocomplete="off">
+                        <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="Ingrese su Contraseña" required="required" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-4">
                     <div class="feature-thumb">
 
-                        <button class="submit-btn form-control" onclick="return validateAdmin()" id="btn-signin">Ingresar</button>
+                        <button class="submit-btn form-control" id="btn_Sign" onclick="return validateAdmin()" id="btn-signin">Ingresar</button>
                     </div>
                 </div>
 
@@ -201,7 +188,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="feature-thumb">
 
-                        <button class="submit-btn form-control" onclick="return sign_out_admin()" id="btn-sign_out_admin">Cerrar sesión</button>
+                        <button class="submit-btn form-control" id="btn_signout" onclick="return sign_out_admin()" id="btn-sign_out_admin">Cerrar sesión</button>
                     </div>
                 </div>
             </div>
@@ -250,6 +237,8 @@
                     <div class="entry-form">
                         <form action="#" method="post">
                             <h2>Nuevo estudiante</h2>
+                            <input type="text" id="code" name="code" class="form-control" placeholder="Carnet" required="">
+
                             <input type="text" id="full name" name="full name" class="form-control" placeholder="Nombre completo" required="">
 
                             <input type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required="">
@@ -268,38 +257,7 @@
         <!-------------------------------------------------------Profe-->
         <div id="obj2" class="container">
             <div class="row">
-
                 <div class="col-md-6 col-sm-12">
-                    <div class="about-info">
-                        <h2>Registre su nuevo profesor</h2>
-                        <label id="message" align="center">Registrese como estudiante</label>
-                        <figure>
-                            <span><i class="material-icons">g_translate</i></span>
-                            <figcaption>
-                                <h3>Professional Trainers</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
-                            </figcaption>
-                        </figure>
-
-                        <figure>
-                            <span><i class="fa fa-certificate"></i></span>
-                            <figcaption>
-                                <h3>International Certifications</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
-                            </figcaption>
-                        </figure>
-
-                        <figure>
-                            <span><i class="fa fa-bar-chart-o"></i></span>
-                            <figcaption>
-                                <h3>Free for 3 months</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-
-                <div class="col-md-offset-1 col-md-4 col-sm-12">
                     <div class="entry-form">
                         <form action="#" method="post">
                             <h2>Nuevo Profesor</h2>
@@ -313,125 +271,138 @@
 
                             <input type="password" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
 
-                            <button class="submit-btn form-control" id="btn_register_professor">Registrar</button>
+                            <button class="submit-btn form-control" id="btn_register_professor">Registrar profesor</button>
                         </form>
+
                     </div>
                 </div>
 
+                <div class="col-md-offset-1 col-md-4 col-sm-12">
+                    <div class="marca-de-agua">
+                        <img alt="" src="~/images/logo.png" />
+
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-------------------------------------------------------Cursos-->
-        <div id="obj3" class="container">
-            <div class="row">
 
-                <div class="col-md-offset-1 col-md-5 col-sm-13">
-                    <div class="entry-form">
-                        <form action="#" method="post">
-                            <h2>Nuevo Curso</h2>
-                            <input type="text" name="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
-
-                            <input type="text" name="emailP" class="form-control" placeholder="Codigo Curso" required="">
-
-                            <input type="text" name="passwordP" class="form-control" placeholder="Creditos" required="">
-
-                            <input type="text" name="repeatpasswordP" class="form-control" placeholder="Semestre" required="">
-
-                            <button class="submit-btn form-control" id="btn_register_curse">Registrar</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
     </section>
 
 
-    <!-- TEAM -->
+    <!-- TEAM-->
     <section id="team">
         <div class="container">
             <div class="row">
 
-                <div class="col-md-12 col-sm-12">
-                    <div class="section-title">
-                        <h2>Teachers <small>Meet Professional Trainers</small></h2>
+                <div id="obj3" class="container">
+                    <div class="row">
+
+                        <div class="col-md-offset-1 col-md-6 col-sm-12">
+                            <div class="entry-form">
+                                <form action="#" method="post">
+                                    <h2>Nuevo Curso</h2>
+                                    <input type="text" name="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
+
+                                    <input type="text" name="emailP" class="form-control" placeholder="Codigo Curso" required="">
+
+                                    <input type="text" name="passwordP" class="form-control" placeholder="Creditos" required="">
+
+                                    <input type="text" name="semester" class="form-control" placeholder="Semestre" required="">
+
+                                    <input type="text" name="Year" class="form-control" placeholder="Año de carrera" required="">
+
+                                    <button class="submit-btn form-control" id="btn_register_curse">Registrar curso</button>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="team-thumb">
-                        <div class="team-image">
-                            <img src="images/author-image1.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3>Mark Wilson</h3>
-                            <span>I love Teaching</span>
-                        </div>
-                        <ul class="social-icon">
-                            <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                            <li><a href="#" class="fa fa-twitter"></a></li>
-                            <li><a href="#" class="fa fa-instagram"></a></li>
-                        </ul>
-                    </div>
-                </div>
+                <!--
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="team-thumb">
-                        <div class="team-image">
-                            <img src="images/author-image2.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3>Catherine</h3>
-                            <span>Education is the key!</span>
-                        </div>
-                        <ul class="social-icon">
-                            <li><a href="#" class="fa fa-google"></a></li>
-                            <li><a href="#" class="fa fa-instagram"></a></li>
-                        </ul>
-                    </div>
-                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="section-title">
+                                        <h2>Teachers <small>Meet Professional Trainers</small></h2>
+                                    </div>
+                                </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="team-thumb">
-                        <div class="team-image">
-                            <img src="images/author-image3.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3>Jessie Ca</h3>
-                            <span>I like Online Courses</span>
-                        </div>
-                        <ul class="social-icon">
-                            <li><a href="#" class="fa fa-twitter"></a></li>
-                            <li><a href="#" class="fa fa-envelope-o"></a></li>
-                            <li><a href="#" class="fa fa-linkedin"></a></li>
-                        </ul>
-                    </div>
-                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="team-thumb">
+                                        <div class="team-image">
+                                            <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="team-info">
+                                            <h3>Mark Wilson</h3>
+                                            <span>I love Teaching</span>
+                                        </div>
+                                        <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                            <li><a href="#" class="fa fa-twitter"></a></li>
+                                            <li><a href="#" class="fa fa-instagram"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="team-thumb">
-                        <div class="team-image">
-                            <img src="images/author-image4.jpg" class="img-responsive" alt="">
-                        </div>
-                        <div class="team-info">
-                            <h3>Andrew Berti</h3>
-                            <span>Learning is fun</span>
-                        </div>
-                        <ul class="social-icon">
-                            <li><a href="#" class="fa fa-twitter"></a></li>
-                            <li><a href="#" class="fa fa-google"></a></li>
-                            <li><a href="#" class="fa fa-behance"></a></li>
-                        </ul>
-                    </div>
-                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="team-thumb">
+                                        <div class="team-image">
+                                            <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="team-info">
+                                            <h3>Catherine</h3>
+                                            <span>Education is the key!</span>
+                                        </div>
+                                        <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-google"></a></li>
+                                            <li><a href="#" class="fa fa-instagram"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="team-thumb">
+                                        <div class="team-image">
+                                            <img src="images/author-image3.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="team-info">
+                                            <h3>Jessie Ca</h3>
+                                            <span>I like Online Courses</span>
+                                        </div>
+                                        <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-twitter"></a></li>
+                                            <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                            <li><a href="#" class="fa fa-linkedin"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="team-thumb">
+                                        <div class="team-image">
+                                            <img src="images/author-image4.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="team-info">
+                                            <h3>Andrew Berti</h3>
+                                            <span>Learning is fun</span>
+                                        </div>
+                                        <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-twitter"></a></li>
+                                            <li><a href="#" class="fa fa-google"></a></li>
+                                            <li><a href="#" class="fa fa-behance"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                -->
             </div>
         </div>
     </section>
 
-
-    <!-- Courses -->
+    <!-- Courses
     <section id="courses">
         <div class="container">
             <div class="row">
@@ -602,9 +573,8 @@
                 </div>
             </div>
     </section>
-
-
-    <!-- TESTIMONIAL -->
+        -->
+    <!-- TESTIMONIAL
     <section id="testimonial">
         <div class="container">
             <div class="row">
@@ -696,9 +666,8 @@
                 </div>
             </div>
     </section>
-
-
-    <!-- CONTACT -->
+        -->
+    <!-- CONTACT
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -733,8 +702,7 @@
             </div>
         </div>
     </section>
-
-
+         -->
     <!-- FOOTER -->
     <footer id="footer">
         <div class="container">
@@ -743,12 +711,13 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="footer-info">
                         <div class="section-title">
-                            <h2>Headquarter</h2>
+                            <h2>Dirección Recinto de Paraíso</h2>
                         </div>
                         <address>
-                            <p>1800 dapibus a tortor pretium,<br> Integer nisl dui, ABC 12000</p>
+                            <p> 224, Provincia de Cartago, Paraíso</p>
                         </address>
-
+                        <br />
+                        <h2>Nuestras redes sociales</h2>
                         <ul class="social-icon">
                             <li><a href="https://www.facebook.com/UniversidadCostaRica" class="fa fa-facebook-square" attr="facebook icon"></a></li>
                             <li><a href="https://twitter.com/UniversidadCR" class="fa fa-twitter"></a></li>
@@ -756,26 +725,25 @@
                             <li><a href="https://www.youtube.com/user/UniversidadDeCR" class="fa fa-youtube-play"></a></li>
                         </ul>
 
-                        <div class="copyright-text">
-                            <p>Copyright &copy; 2019 Company Name</p>
+                        <!--  <div class="copyright-text">
+        <p>Copyright &copy; 2019 Company Name</p>
 
-                            <p>Design: TemplateMo</p>
-                        </div>
+        <p>Design: TemplateMo</p>
+    </div>-->
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
                     <div class="footer-info">
                         <div class="section-title">
-                            <h2>Contact Info</h2>
+                            <h2>Contactenos</h2>
                         </div>
                         <address>
-                            <p>+506 2511 4000 +66 1800 1100</p>
-                            <p><a href="https://www.ucr.ac.cr/estudiantes/admision/">Proceso de admision</a></p>
+                            <p>+506  2511 7550</p>
                         </address>
 
                         <div class="footer_menu">
-                            <h2>Quick Links</h2>
+                            <h2>Links de información</h2>
                             <ul>
                                 <li><a href="https://www.ucr.ac.cr/">UCR</a></li>
                                 <li><a href="https://becas.ucr.ac.cr/">OBAS</a></li>
@@ -788,7 +756,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-12">
+            <!--    <div class="col-md-4 col-sm-12">
                     <div class="footer-info newsletter-form">
                         <div class="section-title">
                             <h2>Newsletter Signup</h2>
@@ -804,7 +772,7 @@
                         </div>
                     </div>
                 </div>
-
+                -->
             </div>
         </div>
     </footer>
