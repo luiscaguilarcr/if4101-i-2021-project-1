@@ -26,6 +26,7 @@ function ocultarEstud() {
 }
 
 function ocultarAdmin() {
+    document.getElementById('#register').style.display = 'none';
     document.getElementById('obj2').style.display = 'none';
     document.getElementById('obj3').style.display = 'none';
     document.getElementById('sign_out_admin').style.display = 'none';
@@ -33,28 +34,65 @@ function ocultarAdmin() {
     document.getElementById('#courses').style.display = 'none';
     document.getElementById('#testimonial').style.display = 'none';
     document.getElementById('#contact').style.display = 'none';
-
+    document.getElementById('team').style.display = 'none';
+    document.getElementById('students').style.display = 'none';
+    document.getElementById('Teachers').style.display = 'none';
+    document.getElementById('courses').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
+   
 }
 function aparecerAdmin() {
     
     document.getElementById('obj2').style.display = 'block';
     document.getElementById('obj3').style.display = 'block';
     document.getElementById('sign_out_admin').style.display = 'block';
-    document.getElementById('#about').innerHTML = "Nuevo profesor";
+    document.getElementById('#about').style.display = 'none';
+    document.getElementById('about').style.display = 'none';
     document.getElementById('#team').style.display = 'block';
-
+    document.getElementById('#feature').style.display = 'none';
+    document.getElementById('register').style.display = 'block';
+    document.getElementById('#register').style.display = 'block';
 }
 
 function sign_out_admin() {
-    document.getElementById('#about').innerHTML = "Nuevo estudiante";
-    document.getElementById('userName').innerHTML = " ";
-    document.getElementById('userPassword').innerHTML = " ";
+    document.getElementById('#about').style.display = 'block';
+    document.getElementById('#register').style.display = 'none';
     document.getElementById('#team').style.display = 'none';
+    document.getElementById('#feature').style.display = 'block';
     document.getElementById('obj1').style.display = 'block';
     document.getElementById('sign_in').style.display = 'block';
-
-
+    document.getElementById('about').style.display = 'block';
+    document.getElementById('register').style.display = 'none';
     document.getElementById('obj2').style.display = 'none';
     document.getElementById('obj3').style.display = 'none';
     document.getElementById('sign_out_admin').style.display = 'none';
+}
+
+function registerOnClick() {
+    document.getElementById('register').style.display = 'block';
+    document.getElementById('team').style.display = 'none';
+}
+
+
+function TeachersOnClick() {
+    document.getElementById('team').style.display = 'block';
+    document.getElementById('Teachers').style.display = 'block';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('courses').style.display = 'none';
+    document.getElementById('students').style.display = 'none';
+}
+function studentsOnClick() {
+    document.getElementById('team').style.display = 'block';
+    document.getElementById('students').style.display = 'block';
+    document.getElementById('Teachers').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('courses').style.display = 'none';
+    
+}
+function coursesOnClick() {
+    document.getElementById('team').style.display = 'block';
+    document.getElementById('courses').style.display = 'block';
+    document.getElementById('Teachers').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('students').style.display = 'none';
 }
