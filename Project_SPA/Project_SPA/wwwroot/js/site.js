@@ -3,10 +3,11 @@
 
 // Write your JavaScript code.
 
+
 $(document).ready(function () { //DOM cargado, siempre va 
     ocultarAdmin();
+    
 });
-
 
 function validateAdmin() {
 
@@ -20,10 +21,12 @@ function validateAdmin() {
     }
 
 }
+
 function ocultarEstud() {
     document.getElementById('obj1').style.display = 'none';
     document.getElementById('sign_in').style.display = 'none';
 }
+
 
 function ocultarAdmin() {
     document.getElementById('#register').style.display = 'none';
@@ -39,10 +42,10 @@ function ocultarAdmin() {
     document.getElementById('Teachers').style.display = 'none';
     document.getElementById('courses').style.display = 'none';
     document.getElementById('register').style.display = 'none';
-   
+
 }
+
 function aparecerAdmin() {
-    
     document.getElementById('obj2').style.display = 'block';
     document.getElementById('obj3').style.display = 'block';
     document.getElementById('sign_out_admin').style.display = 'block';
@@ -73,26 +76,78 @@ function registerOnClick() {
     document.getElementById('team').style.display = 'none';
 }
 
-
-function TeachersOnClick() {
+function studentsOnClick() {
+    LoadDataStudent();
     document.getElementById('team').style.display = 'block';
-    document.getElementById('Teachers').style.display = 'block';
+    document.getElementById('students').style.display = 'block';
+    document.getElementById('teachers').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('courses').style.display = 'none';
+}
+
+function teachersOnClick() {
+    document.getElementById('team').style.display = 'block';
+    document.getElementById('teachers').style.display = 'block';
     document.getElementById('register').style.display = 'none';
     document.getElementById('courses').style.display = 'none';
     document.getElementById('students').style.display = 'none';
 }
-function studentsOnClick() {
-    document.getElementById('team').style.display = 'block';
-    document.getElementById('students').style.display = 'block';
-    document.getElementById('Teachers').style.display = 'none';
-    document.getElementById('register').style.display = 'none';
-    document.getElementById('courses').style.display = 'none';
-    
-}
+
 function coursesOnClick() {
     document.getElementById('team').style.display = 'block';
     document.getElementById('courses').style.display = 'block';
-    document.getElementById('Teachers').style.display = 'none';
+    document.getElementById('teachers').style.display = 'none';
     document.getElementById('register').style.display = 'none';
     document.getElementById('students').style.display = 'none';
 }
+
+function LoadDataStudent() {
+    $.ajax({
+        url: "/Student/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.email + '</td>';
+                html += '<td>' + item.password + '</td>';
+                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Editar</a> | <a href="#" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+            });
+            $('.tbodyStudent').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function LoadDataProfessor() {
+    $.ajax({
+        url: "/Professor/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.email + '</td>';
+                html += '<td>' + item.password + '</td>';
+                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Editar</a> | <a href="#" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+            });
+            $('.tbodyStudent').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+

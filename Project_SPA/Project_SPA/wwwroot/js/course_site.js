@@ -2,14 +2,14 @@
     LoadData();
 });
 
-function Add() {
+function AddCourse() {
 
     var course = {
-        code: $('#code').val(),
-        name: $('#name').val(),
-        credits: parseInt($('#credits').val()),
-        semester: $('#semester').val(),
-        year: parseInt($('#year').val()),
+        code: $('#codeC').val(),
+        name: $('#nameC').val(),
+        credits: parseInt($('#creditsC').val()),
+        semester: $('#semesterC').val(),
+        year: parseInt($('#yearC').val()),
     };
 
     $.ajax({

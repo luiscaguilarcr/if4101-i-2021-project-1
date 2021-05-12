@@ -42,6 +42,8 @@ namespace Project_SPA.Controllers
             }
         }
 
+       
+
         // GET: ProfessorController/Edit/5
         public ActionResult Edit(int id)
         {
@@ -83,5 +85,7 @@ namespace Project_SPA.Controllers
                 return View();
             }
         }
+
+        
     }
 }

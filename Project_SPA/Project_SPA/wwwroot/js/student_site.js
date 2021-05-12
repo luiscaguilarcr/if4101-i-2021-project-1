@@ -4,16 +4,16 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
-    
+    LoadData();
 });
 
 function Add() { //PISTAS DE AUDITORÍA
 
     var student = {
-        code: $('#code').val(),
-        name: $('#name').val(),
-        email: $('#email').val(),
-        password: $('#password').val()
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
     };
 
     $.ajax({
@@ -33,6 +33,7 @@ function Add() { //PISTAS DE AUDITORÍA
 }
 
 function LoadData() {
+    studentsOnClick();
     $.ajax({
         url: "/Student/GetEF", //DUDA CUAL GET ES 
         type: "GET",
@@ -49,7 +50,7 @@ function LoadData() {
                 html += '<td>' + item.password + '</td>';
                 html += '<td><a href="#" onclick="return Get(' + item.id + ')">Editar</a> | <a href="#" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
             });
-            $('.tbody').html(html);
+            $('.tbodyStudent').html(html);
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
@@ -58,7 +59,6 @@ function LoadData() {
 }
 
 //UPDATE Y DELETE
-
 function Remove(id) { //DISTINTA AL PROFE
 
     var id;
@@ -83,7 +83,7 @@ function Remove(id) { //DISTINTA AL PROFE
 
 //DEBEMOS CREA UNA NUEVA SECCIÓN PARA UPDATE
 
-/*
+
  function GetStudentsById(id) { //llame al controlador home
 
     var id;

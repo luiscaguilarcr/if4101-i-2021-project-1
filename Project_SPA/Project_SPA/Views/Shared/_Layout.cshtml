@@ -72,8 +72,10 @@
                         <li>
                             <a href="#team" id="#team" class="smoothScroll">Tablas</a>
                             <ul>
-                                <li><a href="#Teachers" onclick="TeachersOnClick()">Profesor</a></li>
+                                <li><a href="#teachers" onclick="teachersOnClick()">Profesor</a></li>
+
                                 <li><a href="#students" onclick="studentsOnClick()">Estudiante</a></li>
+
                                 <li><a href="#courses" onclick="coursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
@@ -247,17 +249,17 @@
                     <div class="entry-form">
 
                         <h2>Nuevo estudiante</h2>
-                        <input type="text" id="code" name="code" class="form-control" placeholder="Carnet" required="">
+                        <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="">
 
-                        <input type="text" id="full name" name="full name" class="form-control" placeholder="Nombre completo" required="">
+                        <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="">
 
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required="">
+                        <input type="email" id="emailS" name="email" class="form-control" placeholder="Correo electronico" required="">
 
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
+                        <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="">
 
-                        <input type="password" name="repeatpassword" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
+                        <input type="password" name="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
 
-                        <button class="submit-btn form-control" onclick="return Add()" id="btn_register_student">Registrar</button>
+                        <button class="submit-btn form-controlS" onclick="return Add()" id="btn_register_student">Registrar</button>
 
                     </div>
                 </div>
@@ -274,7 +276,7 @@
                     <div class="entry-form">
 
                         <h2>Nuevo Profesor</h2>
-                        <input type="text" name="full name P" class="form-control" placeholder="Nombre del profesor" required="">
+                        <input type="text" name="nameP" class="form-control" placeholder="Nombre del profesor" required="">
 
                         <input type="text" name="codeP" class="form-control" placeholder="Codigo profesor" required="">
 
@@ -294,18 +296,19 @@
                     <div class="col-md-offset-1 col-md-4 col-sm-12">
                         <div class="row">
                             <div class="entry-form">
+
                                 <h2>Nuevo Curso</h2>
-                                <input type="text" name="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
+                                <input type="text" name="nameC" id="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
 
-                                <input type="text" name="emailP" class="form-control" placeholder="Codigo Curso" required="">
+                                <input type="text" name="codeC" id="codeC" class="form-control" placeholder="Codigo Curso" required="">
 
-                                <input type="text" name="passwordP" class="form-control" placeholder="Creditos" required="">
+                                <input type="text" name="creditC" id="creditsC" class="form-control" placeholder="Creditos" required="">
 
-                                <input type="text" name="semester" class="form-control" placeholder="Semestre" required="">
+                                <input type="text" name="semesterC"  id="semesterC" class="form-control" placeholder="Semestre" required="">
 
-                                <input type="text" name="Year" class="form-control" placeholder="Año de carrera" required="">
+                                <input type="text" name="yearC" id="yearC" class="form-control" placeholder="Año de carrera" required="">
 
-                                <button class="submit-btn form-control" id="btn_register_curse">Registrar curso</button>
+                                <button class="submit-btn form-control" onclick="return AddCourse()" id="btn_register_curse">Registrar curso</button>
 
                             </div>
 
@@ -334,23 +337,27 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                carnet
+                                                #
+                                            </th>
+
+                                            <th>
+                                                Carnet
                                             </th>
                                             <th>
-                                                nombre completo
+                                                Nombre completo
                                             </th>
                                             <th>
-                                                correo electronico
+                                                Correo electrónico
                                             </th>
                                             <th>
-                                                contraseña
+                                                Contraseña
                                             </th>
                                             <th>
-                                                Action
+                                                Acción
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="tbody">
+                                    <tbody class="tbodyStudent">
                                     </tbody>
                                 </table>
 
@@ -361,7 +368,7 @@
                     </div>
                 </div>
 
-                <div id="Teachers" class="container">
+                <div id="teachers" class="container">
                     <div class="row">
                         <div class="section-title">
                             <h2>Profesores</h2>
@@ -373,23 +380,27 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                Codigo profesor
+                                                #
+                                            </th>
+
+                                            <th>
+                                                Código profesor
                                             </th>
                                             <th>
                                                 Nombre del profesor
                                             </th>
                                             <th>
-                                                Correo electronico
+                                                Correo electrónico
                                             </th>
                                             <th>
                                                 Contraseña
                                             </th>
                                             <th>
-                                                Action
+                                                Acción
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="tbody">
+                                    <tbody class="tbodyProfessor">
                                     </tbody>
                                 </table>
                             </div>
@@ -409,14 +420,17 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                Codigo Curso
+                                                #
+                                            </th>
 
+                                            <th>
+                                                Cédigo curso
                                             </th>
                                             <th>
                                                 Nombre completo de curso
                                             </th>
                                             <th>
-                                                Creditos
+                                                Créditos
                                             </th>
                                             <th>
                                                 Semestre
@@ -425,11 +439,11 @@
                                                 Año de carrera
                                             </th>
                                             <th>
-                                                Action
+                                                Acción
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="tbody">
+                                    <tbody class="tbodyCourse">
                                     </tbody>
                                 </table>
                             </div>
@@ -442,7 +456,7 @@
         </div>
     </section>  -->
 
-    <!--    <section id="courses">
+    <!--    <section id="Courses">
            <div class="container">
                <div class="row">
 
@@ -716,7 +730,7 @@
                         </div>
 
                         <div class="col-md-12 col-sm-12">
-                            <input type="text" class="form-control" placeholder="Enter full name" name="name" required="">
+                            <input type="text" class="form-control" placeholder="Enter name" name="name" required="">
 
                             <input type="email" class="form-control" placeholder="Enter email address" name="email" required="">
 
@@ -823,6 +837,7 @@
     <script src="js/custom.js"></script>
     <script src="js/site.js"></script>
     <script src="js/student_site.js"></script>
+    <script src="js/course_site.js"></script>
 
 </body>
 </html>
