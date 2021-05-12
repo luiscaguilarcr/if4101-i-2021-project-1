@@ -11,13 +11,9 @@ function Add() { //PISTAS DE AUDITORÍA
 
     var student = {
         code: $('#code').val(),
-        name: $('#full name').val(),
+        name: $('#name').val(),
         email: $('#email').val(),
-        password: $('#password').val(),
-        creationUser: "Luis",
-        creationDate: "2021-05=01 18:09:20.357",
-        updateUser: "Luis",
-        updateDate: "2021-05=01 18:09:20.357"
+        password: $('#password').val()
     };
 
     $.ajax({
