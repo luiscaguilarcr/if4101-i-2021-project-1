@@ -235,7 +235,7 @@
 
                 <div class="col-md-offset-1 col-md-4 col-sm-12">
                     <div class="entry-form">
-                        <form action="#" method="post">
+                        
                             <h2>Nuevo estudiante</h2>
                             <input type="text" id="code" name="code" class="form-control" placeholder="Carnet" required="">
 
@@ -243,12 +243,12 @@
 
                             <input type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required="">
 
-                            <input type="password" name="password" class="form-control" placeholder="Contraseña" required="">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
 
                             <input type="password" name="repeatpassword" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
 
-                            <button class="submit-btn form-control" id="btn_register_student">Registrar</button>
-                        </form>
+                            <button class="submit-btn form-control" onclick="return Add()" id="btn_register_student">Registrar</button>
+                        
                     </div>
                 </div>
 
@@ -726,10 +726,10 @@
                         </ul>
 
                         <!--  <div class="copyright-text">
-        <p>Copyright &copy; 2019 Company Name</p>
+                            <p>Copyright &copy; 2019 Company Name</p>
 
-        <p>Design: TemplateMo</p>
-    </div>-->
+                            <p>Design: TemplateMo</p>
+                        </div>-->
                     </div>
                 </div>
 
@@ -756,23 +756,23 @@
                     </div>
                 </div>
 
-            <!--    <div class="col-md-4 col-sm-12">
-                    <div class="footer-info newsletter-form">
-                        <div class="section-title">
-                            <h2>Newsletter Signup</h2>
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <form action="#" method="get">
-                                    <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
-                                    <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
-                                </form>
-                                <span><sup>*</sup> Please note - we do not spam your email.</span>
+                <!--    <div class="col-md-4 col-sm-12">
+                        <div class="footer-info newsletter-form">
+                            <div class="section-title">
+                                <h2>Newsletter Signup</h2>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <form action="#" method="get">
+                                        <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
+                                        <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
+                                    </form>
+                                    <span><sup>*</sup> Please note - we do not spam your email.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                -->
+                    -->
             </div>
         </div>
     </footer>
@@ -785,6 +785,7 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/site.js"></script>
+    <script src="js/student_site.js"></script>
 
 </body>
 </html>
