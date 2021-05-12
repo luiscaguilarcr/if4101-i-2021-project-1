@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\UCR\\Lenguajes\\Proyecto #1\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj": {}
+    "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj": {}
   },
   "projects": {
-    "E:\\UCR\\Lenguajes\\Proyecto #1\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj": {
+    "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\UCR\\Lenguajes\\Proyecto #1\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
+        "projectUniqueName": "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
         "projectName": "Project_SPA",
-        "projectPath": "E:\\UCR\\Lenguajes\\Proyecto #1\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "E:\\UCR\\Lenguajes\\Proyecto #1\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\obj\\",
+        "projectPath": "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
+        "packagesPath": "C:\\Users\\manit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\manit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
