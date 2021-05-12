@@ -64,14 +64,24 @@
             <!-- MENU LINKS -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-first">
-                    <li><a href="#top" id="#top" class="smoothScroll">Inicio</a></li>
-                    <li><a href="#about" id="#about" class="smoothScroll">Nuevo estudiante</a></li>
-                    <li><a href="#team" id="#team" class="smoothScroll">Nuevos cursos</a></li>
-                    <li><a href="#courses" id="#courses" class="smoothScroll">Courses</a></li>
-                    <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
-                    <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
+                    <ul class="nav">
+                        <li><a href="#top" id="#top" class="smoothScroll">Inicio</a></li>
+                        <li><a href="#feature" id="#feature" class="smoothScroll">Iniciar sesión</a></li>
+                        <li><a href="#about" id="#about" class="smoothScroll">Nuevo estudiante</a></li>
+                        <li><a href="#register" id="#register" onclick="registerOnClick()" class="smoothScroll">Registro</a></li>
+                        <li>
+                            <a href="#team" id="#team" class="smoothScroll">Tablas</a>
+                            <ul>
+                                <li><a href="#Teachers" onclick="TeachersOnClick()">Profesor</a></li>
+                                <li><a href="#students" onclick="studentsOnClick()">Estudiante</a></li>
+                                <li><a href="#courses" onclick="coursesOnClick()">Curso</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#courses" id="#courses" class="smoothScroll">Courses</a></li>
+                        <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
+                        <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
+                    </ul>
                 </ul>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><i class="fa fa-phone"></i> +65 2244 1100</a></li>
                 </ul>
@@ -235,345 +245,372 @@
 
                 <div class="col-md-offset-1 col-md-4 col-sm-12">
                     <div class="entry-form">
-                        
-                            <h2>Nuevo estudiante</h2>
-                            <input type="text" id="code" name="code" class="form-control" placeholder="Carnet" required="">
 
-                            <input type="text" id="name" name="full name" class="form-control" placeholder="Nombre completo" required="">
+                        <h2>Nuevo estudiante</h2>
+                        <input type="text" id="code" name="code" class="form-control" placeholder="Carnet" required="">
 
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required="">
+                        <input type="text" id="full name" name="full name" class="form-control" placeholder="Nombre completo" required="">
 
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required="">
 
-                            <input type="password" name="repeatpassword" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
 
-                            <button class="submit-btn form-control" onclick="return Add()" id="btn_register_student">Registrar</button>
-                        
+                        <input type="password" name="repeatpassword" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
+
+                        <button class="submit-btn form-control" onclick="return Add()" id="btn_register_student">Registrar</button>
+
                     </div>
                 </div>
 
             </div>
-        </div>
+        </div>  
+    </section>
+
+    <section id="register">  
         <!-------------------------------------------------------Profe-->
         <div id="obj2" class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="entry-form">
-                        <form action="#" method="post">
-                            <h2>Nuevo Profesor</h2>
-                            <input type="text" name="full name P" class="form-control" placeholder="Nombre del profesor" required="">
 
-                            <input type="text" name="codeP" class="form-control" placeholder="Codigo profesor" required="">
+                        <h2>Nuevo Profesor</h2>
+                        <input type="text" name="full name P" class="form-control" placeholder="Nombre del profesor" required="">
 
-                            <input type="email" name="emailP" class="form-control" placeholder="Correo electronico" required="">
+                        <input type="text" name="codeP" class="form-control" placeholder="Codigo profesor" required="">
 
-                            <input type="password" name="passwordP" class="form-control" placeholder="Contraseña" required="">
+                        <input type="email" name="emailP" class="form-control" placeholder="Correo electronico" required="">
 
-                            <input type="password" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
+                        <input type="password" name="passwordP" class="form-control" placeholder="Contraseña" required="">
 
-                            <button class="submit-btn form-control" id="btn_register_professor">Registrar profesor</button>
-                        </form>
+                        <input type="password" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
+
+                        <button class="submit-btn form-control" id="btn_register_professor">Registrar profesor</button>
+
 
                     </div>
                 </div>
+                <!-------------------------------------------------------Cursos-->
+                <div id="obj3" class="container">
+                    <div class="col-md-offset-1 col-md-4 col-sm-12">
+                        <div class="row">
+                            <div class="entry-form">
+                                <h2>Nuevo Curso</h2>
+                                <input type="text" name="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
 
-                <div class="col-md-offset-1 col-md-4 col-sm-12">
-                    <div class="marca-de-agua">
-                        <img alt="" src="~/images/logo.png" />
+                                <input type="text" name="emailP" class="form-control" placeholder="Codigo Curso" required="">
+
+                                <input type="text" name="passwordP" class="form-control" placeholder="Creditos" required="">
+
+                                <input type="text" name="semester" class="form-control" placeholder="Semestre" required="">
+
+                                <input type="text" name="Year" class="form-control" placeholder="Año de carrera" required="">
+
+                                <button class="submit-btn form-control" id="btn_register_curse">Registrar curso</button>
+
+                            </div>
+
+                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-------------------------------------------------------Cursos-->
-
-
     </section>
 
-
-    <!-- TEAM-->
+    <!--   TEAM-->
     <section id="team">
         <div class="container">
             <div class="row">
 
-                <div id="obj3" class="container">
+                <div id="students" class="container">
                     <div class="row">
+                        <div class="section-title">
+                            <h2>Estudiantes</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover" id="table">
 
-                        <div class="col-md-offset-1 col-md-6 col-sm-12">
-                            <div class="entry-form">
-                                <form action="#" method="post">
-                                    <h2>Nuevo Curso</h2>
-                                    <input type="text" name="nameC" class="form-control" placeholder="Nombre completo de curso" required="">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                carnet
+                                            </th>
+                                            <th>
+                                                nombre completo
+                                            </th>
+                                            <th>
+                                                correo electronico
+                                            </th>
+                                            <th>
+                                                contraseña
+                                            </th>
+                                            <th>
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tbody">
+                                    </tbody>
+                                </table>
 
-                                    <input type="text" name="emailP" class="form-control" placeholder="Codigo Curso" required="">
-
-                                    <input type="text" name="passwordP" class="form-control" placeholder="Creditos" required="">
-
-                                    <input type="text" name="semester" class="form-control" placeholder="Semestre" required="">
-
-                                    <input type="text" name="Year" class="form-control" placeholder="Año de carrera" required="">
-
-                                    <button class="submit-btn form-control" id="btn_register_curse">Registrar curso</button>
-                                </form>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
 
-                <!--
+                <div id="Teachers" class="container">
+                    <div class="row">
+                        <div class="section-title">
+                            <h2>Profesores</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover" id="table">
 
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="section-title">
-                                        <h2>Teachers <small>Meet Professional Trainers</small></h2>
-                                    </div>
-                                </div>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Codigo profesor
+                                            </th>
+                                            <th>
+                                                Nombre del profesor
+                                            </th>
+                                            <th>
+                                                Correo electronico
+                                            </th>
+                                            <th>
+                                                Contraseña
+                                            </th>
+                                            <th>
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="team-thumb">
-                                        <div class="team-image">
-                                            <img src="images/author-image1.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="team-info">
-                                            <h3>Mark Wilson</h3>
-                                            <span>I love Teaching</span>
-                                        </div>
-                                        <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                            <li><a href="#" class="fa fa-twitter"></a></li>
-                                            <li><a href="#" class="fa fa-instagram"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                <div id="courses" class="container">
+                    <div class="row">
+                        <div class="section-title">
+                            <h2>Cursos</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover" id="table">
 
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="team-thumb">
-                                        <div class="team-image">
-                                            <img src="images/author-image2.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="team-info">
-                                            <h3>Catherine</h3>
-                                            <span>Education is the key!</span>
-                                        </div>
-                                        <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-google"></a></li>
-                                            <li><a href="#" class="fa fa-instagram"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Codigo Curso
 
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="team-thumb">
-                                        <div class="team-image">
-                                            <img src="images/author-image3.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="team-info">
-                                            <h3>Jessie Ca</h3>
-                                            <span>I like Online Courses</span>
-                                        </div>
-                                        <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-twitter"></a></li>
-                                            <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                            <li><a href="#" class="fa fa-linkedin"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                            </th>
+                                            <th>
+                                                Nombre completo de curso
+                                            </th>
+                                            <th>
+                                                Creditos
+                                            </th>
+                                            <th>
+                                                Semestre
+                                            </th>
+                                            <th>
+                                                Año de carrera
+                                            </th>
+                                            <th>
+                                                Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="team-thumb">
-                                        <div class="team-image">
-                                            <img src="images/author-image4.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="team-info">
-                                            <h3>Andrew Berti</h3>
-                                            <span>Learning is fun</span>
-                                        </div>
-                                        <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-twitter"></a></li>
-                                            <li><a href="#" class="fa fa-google"></a></li>
-                                            <li><a href="#" class="fa fa-behance"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                -->
             </div>
         </div>
-    </section>
+    </section>  -->
 
-    <!-- Courses
-    <section id="courses">
-        <div class="container">
-            <div class="row">
+    <!--    <section id="courses">
+           <div class="container">
+               <div class="row">
 
-                <div class="col-md-12 col-sm-12">
-                    <div class="section-title">
-                        <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
-                    </div>
+                   <div class="col-md-12 col-sm-12">
+                   <div class="section-title">
+                       <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
+                   </div>
 
-                    <div class="owl-carousel owl-theme owl-courses">
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item">
-                                <div class="courses-thumb">
-                                    <div class="courses-top">
-                                        <div class="courses-image">
-                                            <img src="images/courses-image1.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="courses-date">
-                                            <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
-                                            <span><i class="fa fa-clock-o"></i> 7 Hours</span>
-                                        </div>
-                                    </div>
+                   <div class="owl-carousel owl-theme owl-courses">
+                       <div class="col-md-4 col-sm-4">
+                           <div class="item">
+                               <div class="courses-thumb">
+                                   <div class="courses-top">
+                                       <div class="courses-image">
+                                           <img src="images/courses-image1.jpg" class="img-responsive" alt="">
+                                       </div>
+                                       <div class="courses-date">
+                                           <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
+                                           <span><i class="fa fa-clock-o"></i> 7 Hours</span>
+                                       </div>
+                                   </div>
 
-                                    <div class="courses-detail">
-                                        <h3><a href="#">Social Media Management</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                   <div class="courses-detail">
+                                       <h3><a href="#">Social Media Management</a></h3>
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                   </div>
 
-                                    <div class="courses-info">
-                                        <div class="courses-author">
-                                            <img src="images/author-image1.jpg" class="img-responsive" alt="">
-                                            <span>Mark Wilson</span>
-                                        </div>
-                                        <div class="courses-price">
-                                            <a href="#"><span>USD 25</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                   <div class="courses-info">
+                                       <div class="courses-author">
+                                           <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                                           <span>Mark Wilson</span>
+                                       </div>
+                                       <div class="courses-price">
+                                           <a href="#"><span>USD 25</span></a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
 
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item">
-                                <div class="courses-thumb">
-                                    <div class="courses-top">
-                                        <div class="courses-image">
-                                            <img src="images/courses-image2.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="courses-date">
-                                            <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
-                                            <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
-                                        </div>
-                                    </div>
+                       <div class="col-md-4 col-sm-4">
+                           <div class="item">
+                               <div class="courses-thumb">
+                                   <div class="courses-top">
+                                       <div class="courses-image">
+                                           <img src="images/courses-image2.jpg" class="img-responsive" alt="">
+                                       </div>
+                                       <div class="courses-date">
+                                           <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
+                                           <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
+                                       </div>
+                                   </div>
 
-                                    <div class="courses-detail">
-                                        <h3><a href="#">Graphic & Web Design</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                   <div class="courses-detail">
+                                       <h3><a href="#">Graphic & Web Design</a></h3>
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                   </div>
 
-                                    <div class="courses-info">
-                                        <div class="courses-author">
-                                            <img src="images/author-image2.jpg" class="img-responsive" alt="">
-                                            <span>Jessica</span>
-                                        </div>
-                                        <div class="courses-price">
-                                            <a href="#"><span>USD 80</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                   <div class="courses-info">
+                                       <div class="courses-author">
+                                           <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                           <span>Jessica</span>
+                                       </div>
+                                       <div class="courses-price">
+                                           <a href="#"><span>USD 80</span></a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
 
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item">
-                                <div class="courses-thumb">
-                                    <div class="courses-top">
-                                        <div class="courses-image">
-                                            <img src="images/courses-image3.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="courses-date">
-                                            <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
-                                            <span><i class="fa fa-clock-o"></i> 6 Hours</span>
-                                        </div>
-                                    </div>
+                       <div class="col-md-4 col-sm-4">
+                           <div class="item">
+                               <div class="courses-thumb">
+                                   <div class="courses-top">
+                                       <div class="courses-image">
+                                           <img src="images/courses-image3.jpg" class="img-responsive" alt="">
+                                       </div>
+                                       <div class="courses-date">
+                                           <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
+                                           <span><i class="fa fa-clock-o"></i> 6 Hours</span>
+                                       </div>
+                                   </div>
 
-                                    <div class="courses-detail">
-                                        <h3><a href="#">Marketing Communication</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                   <div class="courses-detail">
+                                       <h3><a href="#">Marketing Communication</a></h3>
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                   </div>
 
-                                    <div class="courses-info">
-                                        <div class="courses-author">
-                                            <img src="images/author-image3.jpg" class="img-responsive" alt="">
-                                            <span>Catherine</span>
-                                        </div>
-                                        <div class="courses-price free">
-                                            <a href="#"><span>Free</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                   <div class="courses-info">
+                                       <div class="courses-author">
+                                           <img src="images/author-image3.jpg" class="img-responsive" alt="">
+                                           <span>Catherine</span>
+                                       </div>
+                                       <div class="courses-price free">
+                                           <a href="#"><span>Free</span></a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
 
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item">
-                                <div class="courses-thumb">
-                                    <div class="courses-top">
-                                        <div class="courses-image">
-                                            <img src="images/courses-image4.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="courses-date">
-                                            <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
-                                            <span><i class="fa fa-clock-o"></i> 8 Hours</span>
-                                        </div>
-                                    </div>
+                       <div class="col-md-4 col-sm-4">
+                           <div class="item">
+                               <div class="courses-thumb">
+                                   <div class="courses-top">
+                                       <div class="courses-image">
+                                           <img src="images/courses-image4.jpg" class="img-responsive" alt="">
+                                       </div>
+                                       <div class="courses-date">
+                                           <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
+                                           <span><i class="fa fa-clock-o"></i> 8 Hours</span>
+                                       </div>
+                                   </div>
 
-                                    <div class="courses-detail">
-                                        <h3><a href="#">Summer Kids</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                   <div class="courses-detail">
+                                       <h3><a href="#">Summer Kids</a></h3>
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                   </div>
 
-                                    <div class="courses-info">
-                                        <div class="courses-author">
-                                            <img src="images/author-image1.jpg" class="img-responsive" alt="">
-                                            <span>Mark Wilson</span>
-                                        </div>
-                                        <div class="courses-price">
-                                            <a href="#"><span>USD 45</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                   <div class="courses-info">
+                                       <div class="courses-author">
+                                           <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                                           <span>Mark Wilson</span>
+                                       </div>
+                                       <div class="courses-price">
+                                           <a href="#"><span>USD 45</span></a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
 
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item">
-                                <div class="courses-thumb">
-                                    <div class="courses-top">
-                                        <div class="courses-image">
-                                            <img src="images/courses-image5.jpg" class="img-responsive" alt="">
-                                        </div>
-                                        <div class="courses-date">
-                                            <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
-                                            <span><i class="fa fa-clock-o"></i> 10 Hours</span>
-                                        </div>
-                                    </div>
+                       <div class="col-md-4 col-sm-4">
+                           <div class="item">
+                               <div class="courses-thumb">
+                                   <div class="courses-top">
+                                       <div class="courses-image">
+                                           <img src="images/courses-image5.jpg" class="img-responsive" alt="">
+                                       </div>
+                                       <div class="courses-date">
+                                           <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
+                                           <span><i class="fa fa-clock-o"></i> 10 Hours</span>
+                                       </div>
+                                   </div>
 
-                                    <div class="courses-detail">
-                                        <h3><a href="#">Business &amp; Management</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                   <div class="courses-detail">
+                                       <h3><a href="#">Business &amp; Management</a></h3>
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                   </div>
 
-                                    <div class="courses-info">
-                                        <div class="courses-author">
-                                            <img src="images/author-image2.jpg" class="img-responsive" alt="">
-                                            <span>Jessica</span>
-                                        </div>
-                                        <div class="courses-price free">
-                                            <a href="#"><span>Free</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                   <div class="courses-info">
+                                       <div class="courses-author">
+                                           <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                           <span>Jessica</span>
+                                       </div>
+                                       <div class="courses-price free">
+                                           <a href="#"><span>Free</span></a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
 
-                    </div>
-
-                </div>
-            </div>
-    </section>
-        -->
+                   </div>
+    </div>
+    </div>
+    </section-->
     <!-- TESTIMONIAL
     <section id="testimonial">
         <div class="container">
@@ -757,22 +794,22 @@
                 </div>
 
                 <!--    <div class="col-md-4 col-sm-12">
-                        <div class="footer-info newsletter-form">
-                            <div class="section-title">
-                                <h2>Newsletter Signup</h2>
-                            </div>
-                            <div>
-                                <div class="form-group">
-                                    <form action="#" method="get">
-                                        <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
-                                        <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
-                                    </form>
-                                    <span><sup>*</sup> Please note - we do not spam your email.</span>
-                                </div>
+                    <div class="footer-info newsletter-form">
+                        <div class="section-title">
+                            <h2>Newsletter Signup</h2>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <form action="#" method="get">
+                                    <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
+                                    <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
+                                </form>
+                                <span><sup>*</sup> Please note - we do not spam your email.</span>
                             </div>
                         </div>
                     </div>
-                    -->
+                </div>
+                -->
             </div>
         </div>
     </footer>
