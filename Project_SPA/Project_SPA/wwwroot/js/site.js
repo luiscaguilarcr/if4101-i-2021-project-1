@@ -12,8 +12,7 @@ $(document).ready(function () { //DOM cargado, siempre va
 function validateAdmin() {
 
     if ((document.getElementById("userName").value == "admin") && (document.getElementById("userPassword").value == "admin2021")) {
-
-        alert("Exito");       
+     
         ocultarEstud();
         aparecerAdmin();
     } else {
@@ -30,24 +29,20 @@ function ocultarEstud() {
 
 function ocultarAdmin() {
     document.getElementById('#register').style.display = 'none';
-    document.getElementById('obj2').style.display = 'none';
-    document.getElementById('obj3').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
     document.getElementById('sign_out_admin').style.display = 'none';
     document.getElementById('#team').style.display = 'none';
     document.getElementById('#courses').style.display = 'none';
     document.getElementById('#testimonial').style.display = 'none';
     document.getElementById('#contact').style.display = 'none';
     document.getElementById('team').style.display = 'none';
-    document.getElementById('students').style.display = 'none';
-    document.getElementById('Teachers').style.display = 'none';
-    document.getElementById('courses').style.display = 'none';
-    document.getElementById('register').style.display = 'none';
+    document.getElementById('register').style.display = 'none'; 
+    document.getElementById('edit').style.display = 'none';
 
 }
 
 function aparecerAdmin() {
-    document.getElementById('obj2').style.display = 'block';
-    document.getElementById('obj3').style.display = 'block';
+    document.getElementById('register').style.display = 'block';
     document.getElementById('sign_out_admin').style.display = 'block';
     document.getElementById('#about').style.display = 'none';
     document.getElementById('about').style.display = 'none';
@@ -66,8 +61,6 @@ function sign_out_admin() {
     document.getElementById('sign_in').style.display = 'block';
     document.getElementById('about').style.display = 'block';
     document.getElementById('register').style.display = 'none';
-    document.getElementById('obj2').style.display = 'none';
-    document.getElementById('obj3').style.display = 'none';
     document.getElementById('sign_out_admin').style.display = 'none';
 }
 
@@ -100,6 +93,31 @@ function coursesOnClick() {
     document.getElementById('register').style.display = 'none';
     document.getElementById('students').style.display = 'none';
 }
+function AddStudent() { //PISTAS DE AUDITORÍA
+
+    var student = {
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
+    };
+
+    $.ajax({
+        url: "/Student/Add",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+           
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 
 function LoadDataStudent() {
     $.ajax({
@@ -116,7 +134,7 @@ function LoadDataStudent() {
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
                 html += '<td>' + item.password + '</td>';
-                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Editar</a> | <a href="#" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#students" onclick="return GetStudentsById(' + item.id + ')">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
         },
@@ -124,6 +142,83 @@ function LoadDataStudent() {
             alert(errorMessage.responseText);
         }
     })
+}
+
+function Remove(id) { //DISTINTA AL PROFE
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Student/Remove",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            alert("ELIMINADO");
+            LoadDataStudent();
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+function GetStudentsById(id) { //llame al controlador home
+
+    var id;
+    document.getElementById("getById").style.visibility = 'visible'; //NUEVA SECCIÓN DE EDITAR EN HTML
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Home/GetStudentsById",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            document.getElementById("edit").style.display = 'block';
+            document.getElementById("editStud").style.display = 'block';
+            document.getElementById("editProf").style.display = 'none';
+            document.getElementById("editCourse").style.display = 'none';
+
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function closeedit() {
+    document.getElementById("edit").style.display = 'none';
+}
+
+function Update() {
+
+    var student = {
+        id: parseInt($('#id_update').val()),  // TODO: Load state from previously suspended application
+        code: $('#code').val(),
+        name: $('#name').val(),
+        email: $('#email').val(),
+        password: $('#password').val()
+    };
+
+    $.ajax({
+        url: "/Home/Update",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            
+            LoadData();
+            closeedit()
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
 }
 
 function LoadDataProfessor() {

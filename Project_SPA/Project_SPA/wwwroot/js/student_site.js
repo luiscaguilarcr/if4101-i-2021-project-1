@@ -7,33 +7,9 @@ $(document).ready(function () {
     LoadData();
 });
 
-function Add() { //PISTAS DE AUDITORÍA
-
-    var student = {
-        code: $('#codeS').val(),
-        name: $('#nameS').val(),
-        email: $('#emailS').val(),
-        password: $('#passwordS').val()
-    };
-
-    $.ajax({
-        url: "/Student/Add",
-        data: JSON.stringify(student),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            
-        },
-        error: function (errorMessage) {
-            // alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
-}
 
 function LoadData() {
-    studentsOnClick();
+    
     $.ajax({
         url: "/Student/GetEF", //DUDA CUAL GET ES 
         type: "GET",
@@ -59,27 +35,6 @@ function LoadData() {
 }
 
 //UPDATE Y DELETE
-function Remove(id) { //DISTINTA AL PROFE
-
-    var id;
-
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Student/Delete",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
-            LoadData();
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
-}
 
 //DEBEMOS CREA UNA NUEVA SECCIÓN PARA UPDATE
 
@@ -113,17 +68,16 @@ function Remove(id) { //DISTINTA AL PROFE
  
 
 //UPDATE
-function Update() { 
+function Update() {
 
-     var student = {
-         id: parseInt($('#id_update').val()),  // TODO: Load state from previously suspended application
-         code: $('#code').val(),
-         name: $('#name').val(),
-         email: $('#email').val(),
-         password: $('#password').val()
-     };
-
-    $.ajax({ 
+    var student = {
+        id: parseInt($('#id_update').val()),  // TODO: Load state from previously suspended application
+        code: $('#code').val(),
+        name: $('#name').val(),
+        email: $('#email').val(),
+        password: $('#password').val()
+    };
+=    $.ajax({ 
         url: "/Student/Update",
         data: JSON.stringify(student),
         type: "POST",
