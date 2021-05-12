@@ -50,10 +50,10 @@ namespace Project_SPA.Controllers
         }
 
 
-        public ActionResult Remove([FromBody] Course course)
+        public ActionResult Remove([FromBody] int id)
         {
             courseDAO = new CourseDAO(_context);
-            return Ok(courseDAO.Remove(course));
+            return Ok(courseDAO.Remove(id));
         }
     }
 }

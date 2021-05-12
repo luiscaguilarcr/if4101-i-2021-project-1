@@ -90,7 +90,7 @@ function Remove(id) { //DISTINTA AL PROFE
     document.getElementById("getById").style.visibility = 'visible'; //NUEVA SECCIÓN DE EDITAR EN HTML
 
     $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Home/GetStudentsById",
+        url: "/Student/GetStudents",
         data: JSON.stringify(id),
         type: "PUT", //Put trae y pone
         contentType: "application/json;charset=utf-8",
@@ -110,7 +110,7 @@ function Remove(id) { //DISTINTA AL PROFE
         }
     });
 }
- */
+ 
 
 //UPDATE
 function Update() { 
@@ -124,7 +124,7 @@ function Update() {
      };
 
     $.ajax({ 
-        url: "/Home/Update",
+        url: "/Student/Update",
         data: JSON.stringify(student),
         type: "POST",
         contentType: "application/json;charset=utf-8",

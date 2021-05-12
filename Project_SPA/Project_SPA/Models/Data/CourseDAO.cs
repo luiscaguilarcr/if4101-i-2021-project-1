@@ -68,10 +68,10 @@ namespace Project_SPA.Models.Data
 
         }
 
-        public int Remove(Entities.Course course)
+        public int Remove(int id)
         {
             int resultToReturn;
-            var courseToRemove = _context.Courses.Find(course.Id);
+            var courseToRemove = _context.Courses.Find(id);
             _context.Courses.Remove(courseToRemove);
             resultToReturn = _context.SaveChangesAsync().Result;
             return resultToReturn;

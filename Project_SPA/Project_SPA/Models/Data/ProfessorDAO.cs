@@ -1,4 +1,5 @@
-﻿using Project_SPA.Models.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,90 @@ namespace Project_SPA.Models.Data
 
         }
 
-        public IEnumerable<Entities.Student> GetEF()
+        public List<Entities.Professor> GetProfessor()
         {
-            var students = _context.Students;
-            return students.ToList();
+            List<Entities.Professor> professor = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                professor = context.Professors.Select(professorItem => new Entities.Professor()
+                {
+                    Id = professorItem.Id,
+                    Code = professorItem.Code,
+                    Name = professorItem.Name,
+                    Email = professorItem.Email,
+                    Password = professorItem.Password,
+                    AcademicDegreeId = professorItem.AcademicDegreeId
+
+                }).ToList<Entities.Professor>();
+            }
+
+            return professor;
+        }
+
+        public IEnumerable<Entities.Professor> GetEF()
+        {
+            var professor = _context.Professors;
+            return professor.ToList();
+        }
+
+        public int Add(Entities.Professor professor)
+        {
+            int resultToReturn;
+            try
+            {
+                _context.Add(professor);
+                resultToReturn = _context.SaveChangesAsync().Result;
+            }
+
+            catch (DbUpdateException)
+            {
+
+                throw;
+
+            }
+            return resultToReturn;
+
+        }
+
+        public int Remove(int id) //PRUEBA DISTINTA AL PROFE
+        {
+            int resultToReturn;
+            var professorToRemove = _context.Professors.Find(id);
+            _context.Professors.Remove(professorToRemove);
+            resultToReturn = _context.SaveChangesAsync().Result;
+
+            return resultToReturn;
+
+        }
+
+        public int Edit(Entities.Professor professor)
+        {
+            int resultToReturn = 0;
+
+            try
+            {
+                if (!ProfessorExists(professor.Id))
+                {
+                    _context.Update(professor);
+                    resultToReturn = _context.SaveChangesAsync().Result;
+                }
+
+            }
+            catch (DbUpdateException)
+            {
+
+                throw;
+
+            }
+
+            return resultToReturn;
+
+        }
+        private bool ProfessorExists(int id)
+        {
+            return _context.Professors.Any(e => e.Id == id);
         }
     }
 }
+

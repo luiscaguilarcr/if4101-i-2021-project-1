@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Project_SPA.Models.Data;
+using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,82 +11,54 @@ namespace Project_SPA.Controllers
 {
     public class ProfessorController : Controller
     {
+
+        private readonly IF4101_2021_SPAContext _context;
+        ProfessorDAO professorDAO;
+
+        public ProfessorController(IF4101_2021_SPAContext context)
+        {
+            _context = context;
+        }
+
         // GET: ProfessorController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: ProfessorController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetEF()
         {
-            return View();
+            professorDAO = new ProfessorDAO(_context);
+            return Ok(professorDAO.GetEF());
         }
 
-        // GET: ProfessorController/Create
-        public ActionResult Create()
+        public ActionResult GetProfessor()
         {
-            return View();
+            professorDAO = new ProfessorDAO(_context);
+            return Ok(professorDAO.GetProfessor());
         }
 
-        // POST: ProfessorController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Add([FromBody] Professor professor)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            professorDAO = new ProfessorDAO(_context);
+            return Ok(professorDAO.Add(professor));
         }
 
-       
 
-        // GET: ProfessorController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit([FromBody] Professor professor)
         {
-            return View();
+            professorDAO = new ProfessorDAO(_context);
+            return Ok(professorDAO.Edit(professor));
         }
 
-        // POST: ProfessorController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+
+        public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            professorDAO = new ProfessorDAO(_context);
+            return Ok(professorDAO.Remove(id));
         }
 
-        // GET: ProfessorController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ProfessorController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+ 
 
         
     }
