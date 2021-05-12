@@ -112,29 +112,24 @@ function Remove(id) { //DISTINTA AL PROFE
 }
  */
 
-//METODO UPDATE
+//UPDATE
+function Update() { 
 
-/*
- function Update() { //llame al controlador home
+     var student = {
+         id: parseInt($('#id_update').val()),  // TODO: Load state from previously suspended application
+         code: $('#code').val(),
+         name: $('#name').val(),
+         email: $('#email').val(),
+         password: $('#password').val()
+     };
 
-    var student = { //var tipo de variable genetica (no tiene tipo especifico) OBJETO ESTUDIANTE
-        id: parseInt($('#id_update').val()),
-        name: $('#name_update').val(), //Obtenemos el valor que la persona digita en el formulario
-        email: $('#email_update').val(),
-        id_major: parseInt($('#major_update').val()),
-        password: $('#password_update').val(),
-        id_nationality: parseInt($('#nationality_update').val())
-    };
-
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/Home/Update",
         data: JSON.stringify(student),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("Updated User");
             Cancel();
             LoadData();
         },
@@ -144,6 +139,3 @@ function Remove(id) { //DISTINTA AL PROFE
         }
     });
 }
-
-
- */
