@@ -117,17 +117,17 @@ https://templatemo.com/tm-516-known
     height: 100%;
   }
 
-  .entry-form {
-    background: #0973BB;
+.entry-form {
+    background: #6FA6E9;
     border-radius: 5%;
     text-align: center;
     padding: 6em;
     width: 450px;
     height: 550px;
-  }
+}
 
   .entry-form h2 {
-    color: #ffffff;
+    color: #000000;
     margin: 0;
   }
 
@@ -141,9 +141,11 @@ https://templatemo.com/tm-516-known
     margin: 10px 0;
   }
 
-  .entry-form ::placeholder{color:white}
+  .entry-form ::placeholder{color: #000000;}
 
-  .entry-form .submit-btn {
+
+
+.entry-form .submit-btn {
     background: #ffffff;
     border-radius: 50px;
     border: 0;
@@ -152,7 +154,7 @@ https://templatemo.com/tm-516-known
     height: 50px;
     margin: 30px auto;
     margin-bottom: 10px;
-  }
+}
 
   .entry-form .submit-btn:hover {
     background: #3f51b5;
@@ -524,17 +526,14 @@ ul, ol {
     }
 
 
-
-
-  /*---------------------------------------
+/*---------------------------------------
       ABOUT              
   -----------------------------------------*/
-
-  #about figure {
+#about figure {
     display: inline-block;
     vertical-align: top;
     margin-left: 15px;
-  }
+}
 
   #about figure 
   {
@@ -556,18 +555,20 @@ ul, ol {
         text-align: center;
     }
 
+.form-control {
+    color: #000000;
+}
 
 
-  /*---------------------------------------
+/*---------------------------------------
       TEAM              
   -----------------------------------------*/
-
-  .team-thumb {
+.team-thumb {
     background: #ffffff;
     position: relative;
     overflow: hidden;
     text-align: left;
-  }
+}
 
   .team-info {
     padding: 20px 30px;
