@@ -304,9 +304,31 @@
 
                                 <input type="text" name="creditC" id="creditsC" class="form-control" placeholder="Creditos" required="">
 
-                                <input type="text" name="semesterC"  id="semesterC" class="form-control" placeholder="Semestre" required="">
+                                <!--<input type="text" name="semesterC"  id="semesterC" class="form-control" placeholder="Semestre" required="">-->
 
-                                <input type="text" name="yearC" id="yearC" class="form-control" placeholder="Año de carrera" required="">
+                                <select name="semesterC" class="form-control" id="semesterC">
+
+                                    <option>1</option>
+
+                                    <option>2</option>
+
+                                    <option>3</option>
+
+                                </select>
+
+                                <!--<input type="text" name="yearC" id="yearC" class="form-control" placeholder="Año de carrera" required="">-->
+
+                                <select name="yearC" class="form-control" id="yearC" placeholder="Año de carrera">
+
+                                    <option>1</option>
+
+                                    <option>2</option>
+
+                                    <option>3</option>
+
+                                    <option>4</option>
+
+                                </select>
 
                                 <button class="submit-btn form-control" onclick="return AddCourse()" id="btn_register_curse">Registrar curso</button>
 
