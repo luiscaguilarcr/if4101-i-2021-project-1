@@ -15,6 +15,7 @@ function validateAdmin() {
      
         ocultarEstud();
         aparecerAdmin();
+        Clean_lognin();
     } else {
         alert("error");
     }
@@ -113,7 +114,7 @@ function AddStudent() { //PISTAS DE AUDITORÍA
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-           
+            Clean_student();
         },
         error: function (errorMessage) {
             // alert("Error");
@@ -243,6 +244,7 @@ function AddCourse() {
         dataType: "json",
         success: function (result) {
             alert("insertado con exito");
+            Clean_curses();
         },
         error: function (errorMessage) {
             // alert("Error");
@@ -316,6 +318,7 @@ function AddProfessor() {
         dataType: "json",
         success: function (result) {
             alert("insertado con exito");
+            Clean_professor();
         },
         error: function (errorMessage) {
             // alert("Error");
@@ -364,4 +367,36 @@ function RemoveProfessor(id) { //DISTINTA AL PROFE
             alert(errorMessage.responseText);
         }
     });
+}
+
+function Clean_lognin() {
+    document.getElementById("userName").value = "";
+    document.getElementById("userPassword").value = "";
+}
+
+function Clean_student() {
+    document.getElementById("codeS").value = "";
+    document.getElementById("nameS").value = "";
+    document.getElementById("emailS").value = "";
+    document.getElementById("passwordS").value = "";
+    document.getElementById("repeatpasswordS").value = "";
+}
+
+function Clean_professor() {
+    document.getElementById("nameP").value = "";
+    document.getElementById("codeP").value = "";
+    document.getElementById("emailP").value = "";
+    document.getElementById("AcadGradeP").value = "Grado Académico";
+    document.getElementById("passwordP").value = "";
+    document.getElementById("repeatpasswordP").value = "";
+
+}
+
+function Clean_curses() {
+    document.getElementById("nameC").value = "";
+    document.getElementById("codeC").value = "";
+    document.getElementById("creditsC").value = "";
+    document.getElementById("semesterC").value = "Semestre";
+    document.getElementById("yearC").value = "Año de carrera";
+
 }
