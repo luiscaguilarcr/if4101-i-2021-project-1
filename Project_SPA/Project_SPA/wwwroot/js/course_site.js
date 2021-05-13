@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    LoadData();
+ 
 });
 
 function AddCourse() {
@@ -28,7 +28,7 @@ function AddCourse() {
     });
 }
 
-function LoadData() {
+function LoadDataCourse() {
     $.ajax({
         url: "/Course/GetEF", //DUDA CUAL GET ES 
         type: "GET",
@@ -44,7 +44,7 @@ function LoadData() {
                 html += '<td>' + item.credits + '</td>';
                 html += '<td>' + item.semester + '</td>';
                 html += '<td>' + item.year + '</td>';
-                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Edit</a> | <a href="#" onclick="Delete(' + item.id + ')">Delete</a></td>';
+                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Edit</a> | <a href="#" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
             });
             $('.tbody').html(html);
         },
@@ -185,7 +185,7 @@ function LoadDataProfessor() {
     })
 }
 
-function RemoveCourse(id) { //DISTINTA AL PROFE
+function RemoveProfessor(id) { //DISTINTA AL PROFE
 
     $.ajax({ //Simbolo de dolar todo lo de jquery
         url: "/Professor/Remove",
