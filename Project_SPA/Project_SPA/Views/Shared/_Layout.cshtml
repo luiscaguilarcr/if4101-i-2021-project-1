@@ -265,10 +265,10 @@
                 </div>
 
             </div>
-        </div>  
+        </div>
     </section>
 
-    <section id="register">  
+    <section id="register">
         <!-------------------------------------------------------Profe-->
         <div id="obj2" class="container">
             <div class="row">
@@ -276,17 +276,28 @@
                     <div class="entry-form">
 
                         <h2>Nuevo Profesor</h2>
-                        <input type="text" name="nameP" class="form-control" placeholder="Nombre del profesor" required="">
+                        <input type="text" name="nameP" id="nameP" class="form-control" placeholder="Nombre del profesor" required="">
 
-                        <input type="text" name="codeP" class="form-control" placeholder="Codigo profesor" required="">
+                        <input type="text" name="codeP" id="codeP" class="form-control" placeholder="Codigo profesor" required="">
 
-                        <input type="email" name="emailP" class="form-control" placeholder="Correo electronico" required="">
+                        <input type="email" name="emailP" id="emailP" class="form-control" placeholder="Correo electronico" required="">
 
-                        <input type="password" name="passwordP" class="form-control" placeholder="Contraseña" required="">
+                        <select name="AcadGradeP" class="form-control" id="AcadGradeP" required="">
+                            <option disabled selected>Grado Académico</option>
+
+                            <option value="1" >Bachillerato</option>
+
+                            <option value="2">Licenciatura</option>
+
+                            <option value="3">Maestría</option>
+
+                        </select>
+
+                        <input type="password" name="passwordP" id="passwordP" class="form-control" placeholder="Contraseña" required="">
 
                         <input type="password" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">
 
-                        <button class="submit-btn form-control" id="btn_register_professor">Registrar profesor</button>
+                        <button class="submit-btn form-control" onclick="return AddProfessor()" id="btn_register_professor">Registrar profesor</button>
 
 
                     </div>
@@ -304,9 +315,8 @@
 
                                 <input type="text" name="creditC" id="creditsC" class="form-control" placeholder="Creditos" required="">
 
-                                <!--<input type="text" name="semesterC"  id="semesterC" class="form-control" placeholder="Semestre" required="">-->
-
-                                <select name="semesterC" class="form-control" id="semesterC">
+                                <select name="semesterC" class="form-control" id="semesterC" required="">
+                                    <option disabled selected>Semestre</option>
 
                                     <option>1</option>
 
@@ -316,9 +326,8 @@
 
                                 </select>
 
-                                <!--<input type="text" name="yearC" id="yearC" class="form-control" placeholder="Año de carrera" required="">-->
-
-                                <select name="yearC" class="form-control" id="yearC" placeholder="Año de carrera">
+                                <select name="yearC" class="form-control" id="yearC" required="">
+                                    <option disabled selected>Año de carrera</option>
 
                                     <option>1</option>
 
@@ -366,14 +375,12 @@
                                                 Carnet
                                             </th>
                                             <th>
-                                                Nombre completo
+                                                Nombre Completo
                                             </th>
                                             <th>
-                                                Correo electrónico
+                                                Correo Electrónico
                                             </th>
-                                            <th>
-                                                Contraseña
-                                            </th>
+                                            
                                             <th>
                                                 Acción
                                             </th>
@@ -406,16 +413,13 @@
                                             </th>
 
                                             <th>
-                                                Código profesor
+                                                Código Profesor
                                             </th>
                                             <th>
-                                                Nombre del profesor
+                                                Nombre del Profesor
                                             </th>
                                             <th>
-                                                Correo electrónico
-                                            </th>
-                                            <th>
-                                                Contraseña
+                                                Correo Electrónico
                                             </th>
                                             <th>
                                                 Acción
@@ -446,10 +450,10 @@
                                             </th>
 
                                             <th>
-                                                Cédigo curso
+                                                Código Curso
                                             </th>
                                             <th>
-                                                Nombre completo de curso
+                                                Nombre Completo de Curso
                                             </th>
                                             <th>
                                                 Créditos
@@ -458,7 +462,7 @@
                                                 Semestre
                                             </th>
                                             <th>
-                                                Año de carrera
+                                                Año de Carrera
                                             </th>
                                             <th>
                                                 Acción
@@ -516,6 +520,18 @@
 
                         <input type="email" id="EditemailP" name="EditemailP" class="form-control" placeholder="Correo electronico" required="">
 
+
+                        <select name="EditAcadGradeP" class="form-control" id="EditAcadGradeP" required="">
+                            <option disabled selected>Grado Académico</option>
+
+                            <option>Bachillerato</option>
+
+                            <option>Licenciatura</option>
+
+                            <option>Maestría</option>
+
+                        </select>
+
                         <input type="password" id="EditpasswordP" name="EditpasswordP" class="form-control" placeholder="Contraseña" required="">
 
                         <!--   <input type="password" id="repeatpasswordP" name="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="">-->
@@ -540,10 +556,30 @@
 
                         <input type="text" name="EditcreditC" id="EditcreditsC" class="form-control" placeholder="Creditos" required="">
 
-                        <input type="text" name="EditsemesterC" id="EditsemesterC" class="form-control" placeholder="Semestre" required="">
 
-                        <input type="text" name="EdityearC" id="EdityearC" class="form-control" placeholder="Año de carrera" required="">
+                        <select name="EditsemesterC" class="form-control" id="EditsemesterC" required="">
+                            <option disabled selected>Semestre</option>
 
+                            <option>1</option>
+
+                            <option>2</option>
+
+                            <option>3</option>
+
+                        </select>
+
+                        <select name="EdityearC" class="form-control" id="EdityearC" required="">
+                            <option disabled selected>Año de carrera</option>
+
+                            <option>1</option>
+
+                            <option>2</option>
+
+                            <option>3</option>
+
+                            <option>4</option>
+
+                        </select>
                         <button class="submit-btn form-control" onclick="return " id="btn_edit_curse">Aceptar</button>
 
                     </div>
@@ -555,7 +591,7 @@
 
 
     </section>
-    
+
     <!-- FOOTER -->
     <footer id="footer">
         <div class="container">
@@ -638,8 +674,8 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/site.js"></script>
-    <script src="js/student_site.js"></script>
-    <script src="js/course_site.js"></script>
+    <!-- <script src="js/student_site.js"></script>
+     <script src="js/course_site.js"></script>-->
 
 </body>
 </html>
