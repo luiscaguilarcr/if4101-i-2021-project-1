@@ -44,6 +44,7 @@ function ocultarAdmin() {
     document.getElementById('edit').style.display = 'none';
     document.getElementById('#studentProfile').style.display = 'none';
     document.getElementById('studentProfile').style.display = 'none';
+    document.getElementById('sign_out_student').style.display = 'none';
 }
 
 function aparecerAdmin() {
