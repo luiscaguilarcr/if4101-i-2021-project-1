@@ -6,15 +6,18 @@
 
 $(document).ready(function () { //DOM cargado, siempre va 
     ocultarAdmin();
-    
 });
 
 function validateAdmin() {
 
     if ((document.getElementById("userName").value == "admin") && (document.getElementById("userPassword").value == "admin2021")) {
-     
+
         ocultarEstud();
         aparecerAdmin();
+        Clean_lognin();
+    } else if ((document.getElementById("userName").value == "s") && (document.getElementById("userPassword").value == "s21")) {
+        alert("exito student!!!");
+        student_singin();
         Clean_lognin();
     } else {
         alert("error");
@@ -39,7 +42,8 @@ function ocultarAdmin() {
     document.getElementById('team').style.display = 'none';
     document.getElementById('register').style.display = 'none'; 
     document.getElementById('edit').style.display = 'none';
-
+    document.getElementById('#studentProfile').style.display = 'none';
+    document.getElementById('studentProfile').style.display = 'none';
 }
 
 function aparecerAdmin() {
@@ -65,6 +69,18 @@ function sign_out_admin() {
     document.getElementById('team').style.display = 'none';
     document.getElementById('edit').style.display = 'none';
     document.getElementById('sign_out_admin').style.display = 'none';
+    
+}
+
+function sign_out_student() {
+    document.getElementById('#studentProfile').style.display = 'none';
+    document.getElementById('studentProfile').style.display = 'none';
+    document.getElementById('#about').style.display = 'block';
+    document.getElementById('#feature').style.display = 'block';
+    document.getElementById('obj1').style.display = 'block';
+    document.getElementById('sign_in').style.display = 'block';
+    document.getElementById('about').style.display = 'block';
+    document.getElementById('sign_out_student').style.display = 'none';
 }
 
 function registerOnClick() {
@@ -98,6 +114,24 @@ function coursesOnClick() {
     document.getElementById('register').style.display = 'none';
     document.getElementById('students').style.display = 'none';
 }
+
+function studentProfileOnClick() {
+    document.getElementById('#studentProfile').style.display = 'block';
+    document.getElementById('studentProfile').style.display = 'block';
+
+}
+
+
+function student_singin() {
+    document.getElementById('#about').style.display = 'none';
+    document.getElementById('about').style.display = 'none';
+    document.getElementById('sign_in').style.display = 'none';
+    document.getElementById('sign_out_student').style.display = 'block';
+    document.getElementById('#feature').style.display = 'none';
+    document.getElementById('#studentProfile').style.display = 'block';
+}
+
+
 function AddStudent() { //PISTAS DE AUDITORÍA
 
     var student = {
@@ -400,3 +434,4 @@ function Clean_curses() {
     document.getElementById("yearC").value = "Año de carrera";
 
 }
+
