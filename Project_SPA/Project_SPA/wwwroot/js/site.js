@@ -6,6 +6,7 @@
 
 $(document).ready(function () { //DOM cargado, siempre va 
     ocultarAdmin();
+
 });
 
 function validateAdmin() {
@@ -40,11 +41,13 @@ function ocultarAdmin() {
     document.getElementById('#testimonial').style.display = 'none';
     document.getElementById('#contact').style.display = 'none';
     document.getElementById('team').style.display = 'none';
-    document.getElementById('register').style.display = 'none'; 
+    document.getElementById('register').style.display = 'none';
     document.getElementById('edit').style.display = 'none';
     document.getElementById('#studentProfile').style.display = 'none';
     document.getElementById('studentProfile').style.display = 'none';
     document.getElementById('sign_out_student').style.display = 'none';
+    document.getElementById('#newNot').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
 }
 
 function aparecerAdmin() {
@@ -56,6 +59,10 @@ function aparecerAdmin() {
     document.getElementById('#feature').style.display = 'none';
     document.getElementById('register').style.display = 'block';
     document.getElementById('#register').style.display = 'block';
+    document.getElementById('#newNot').style.display = 'block';
+    document.getElementById('#notice').style.display = 'none';
+    document.getElementById('notice').style.display = 'none';
+    
 }
 
 function sign_out_admin() {
@@ -70,7 +77,10 @@ function sign_out_admin() {
     document.getElementById('team').style.display = 'none';
     document.getElementById('edit').style.display = 'none';
     document.getElementById('sign_out_admin').style.display = 'none';
-    
+    document.getElementById('#newNot').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
+    document.getElementById('#notice').style.display = 'block';
+    document.getElementById('notice').style.display = 'block';
 }
 
 function sign_out_student() {
@@ -87,6 +97,7 @@ function sign_out_student() {
 function registerOnClick() {
     document.getElementById('register').style.display = 'block';
     document.getElementById('team').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
 }
 
 function studentsOnClick() {
@@ -96,6 +107,7 @@ function studentsOnClick() {
     document.getElementById('teachers').style.display = 'none';
     document.getElementById('register').style.display = 'none';
     document.getElementById('courses').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
 }
 
 function teachersOnClick() {
@@ -105,6 +117,7 @@ function teachersOnClick() {
     document.getElementById('register').style.display = 'none';
     document.getElementById('courses').style.display = 'none';
     document.getElementById('students').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
 }
 
 function coursesOnClick() {
@@ -114,6 +127,7 @@ function coursesOnClick() {
     document.getElementById('teachers').style.display = 'none';
     document.getElementById('register').style.display = 'none';
     document.getElementById('students').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
 }
 
 function studentProfileOnClick() {
@@ -132,6 +146,31 @@ function student_singin() {
     document.getElementById('#studentProfile').style.display = 'block';
 }
 
+function newNotOnClick() {
+    document.getElementById('newNot').style.display = 'block';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('team').style.display = 'none';
+}
+
+//------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
+function previewFile() {
+    var preview = document.querySelector('img');
+    var file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function () {
+        preview.src = reader.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+    }
+}
+//------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
 
 function AddStudent() { //PISTAS DE AUDITORÍA
 
