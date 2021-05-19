@@ -42,7 +42,6 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.Add(student));
         }
 
-
         public ActionResult Edit([FromBody] Student student)
         {
             studentDAO = new StudentDAO(_context);

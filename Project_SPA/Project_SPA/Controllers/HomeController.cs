@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Project_SPA.Models;
+using Project_SPA.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,6 +23,9 @@ namespace Project_SPA.Controllers
 
         public IActionResult Index()
         {
+            var user = new User() { Code = "B90127", Paswword = "12345" };
+            //Set user information into session
+            HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
             return View();
         }
 

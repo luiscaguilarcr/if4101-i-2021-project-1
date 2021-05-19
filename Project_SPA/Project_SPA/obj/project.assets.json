@@ -5797,19 +5797,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\manit\\.nuget\\packages\\": {}
+    "C:\\Users\\luis1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
+      "projectUniqueName": "C:\\Users\\luis1\\OneDrive - ucr.ac.cr\\PC\\Documentos\\GitHub\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
       "projectName": "Project_SPA",
-      "projectPath": "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
-      "packagesPath": "C:\\Users\\manit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manit\\Desktop\\ProyectoAlgoritmos\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\obj\\",
+      "projectPath": "C:\\Users\\luis1\\OneDrive - ucr.ac.cr\\PC\\Documentos\\GitHub\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\Project_SPA.csproj",
+      "packagesPath": "C:\\Users\\luis1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\luis1\\OneDrive - ucr.ac.cr\\PC\\Documentos\\GitHub\\if4001-i-2021-proyecto-1\\Project_SPA\\Project_SPA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\manit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\luis1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5864,7 +5864,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
