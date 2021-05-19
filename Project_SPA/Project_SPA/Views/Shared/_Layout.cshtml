@@ -69,7 +69,7 @@
                         <li><a href="#feature" id="#feature" class="smoothScroll">Iniciar sesión</a></li>
                         <li><a href="#about" id="#about" class="smoothScroll">Nuevo estudiante</a></li>
                         <li><a href="#register" id="#register" onclick="registerOnClick()" class="smoothScroll">Registro</a></li>
-                        <li><a href="#studentProfile" id="#studentProfile" onclick="studentProfileOnClick()" class="smoothScroll">Informacion</a></li>
+                        <li><a href="#studentProfile" id="#studentProfile" onclick="studentProfileOnClick()" class="smoothScroll">Información</a></li>
                         <li>
                             <a href="#team" id="#team" class="smoothScroll">Tablas</a>
                             <ul>
@@ -84,6 +84,8 @@
                         <li><a href="#courses" id="#courses" class="smoothScroll">Courses</a></li>
                         <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
                         <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
+                        <li><a href="#notice" id="#notice" class="smoothScroll">Noticias</a></li>
+                        <li><a href="#newNot" id="#newNot" onclick="newNotOnClick()"  class="smoothScroll">Nuevas noticias</a></li>
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -93,6 +95,7 @@
 
         </div>
     </section>
+
 
 
     <!-- HOME -->
@@ -520,7 +523,7 @@
 
             </div>
         </div>
-    </section>  -->
+    </section>
 
     <section id="edit">
         <div id="editStud" class="container">
@@ -628,10 +631,6 @@
 
             </div>
         </div>
-
-
-
-
     </section>
 
     <!--StudentProfile-->
@@ -664,6 +663,56 @@
         </div>
 
 
+    </section>
+
+    <section id="newNot">
+
+        <div id="divcommentary" class="container">
+            <div class="row">
+                <input type="text" id="title" name="title" class="form-control" placeholder="Titulo de comentario" autocomplete="off">
+            </div>
+            <div class="row">
+                <input type="text" id="commentary" name="commentary" class="form-control" placeholder="Comentario" autocomplete="off">
+            </div>
+            <div class="row">
+
+                <div id="divFileUpload">
+                    <table class="default">
+                        <tr>
+                            <td>
+                                <span><i class="fa fa-picture-o fa-2x fa-lg"></i></span>
+                            </td>
+                            <td><input type="file" onchange="previewFile()"> </td>
+                        </tr>
+                    </table>
+                    <img src="" height="200" alt="Image preview...">
+
+                </div>
+                <br />
+                <!--<a href="#"  class="navbar-brand"><span><i class="fa fa-files-o fa-2x fa-lg"></i></span></a>      -->
+            </div>
+
+            <div class="">
+                <table class="default">
+
+                    <tr>
+
+                        <td><button class="submit-btn form-control" onclick="" id="Send">Enviar comentario</button></td>
+
+                        <td><button class="submit-btn form-control" onclick="" id="cancel">Cancelar</button></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="notice">
+        <div id="divNot">¡Hola mundo!</div>
+        <div id="divNot">Hello world!</div>
+        <div id="divNot">Ciao mondo!</div>
+        <div id="divNot">Привет мир!</div>
+        <div id="divNot">Hallo wereld!</div>
     </section>
 
     <!-- FOOTER -->

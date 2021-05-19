@@ -7,6 +7,8 @@ https://templatemo.com/tm-516-known
 */
 
   @import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
+  @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap%27');
+
 
   body {
     background: #ffffff;
@@ -16,15 +18,15 @@ https://templatemo.com/tm-516-known
   }
 
 
-  /*---------------------------------------
+
+/*---------------------------------------
      TYPOGRAPHY              
   -----------------------------------------*/
-
-  h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Muli', sans-serif;
     font-weight: bold;
     line-height: inherit;
-  }
+}
 
   h1 {
     color: #252525;
@@ -197,15 +199,56 @@ https://templatemo.com/tm-516-known
         height: auto;
         opacity: 0.4;
     }
-
-
-
-
-  /*---------------------------------------
-     BUTTONS               
+/*---------------------------------------
+    See news         
   -----------------------------------------*/
 
-  .section-btn {
+#notice {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 0.5rem;
+    background-color: blanchedalmond;
+    flex-wrap: wrap;
+}
+
+#divNot {
+    background-color: palevioletred;
+    font-size: 2rem;
+    color: white;
+    flex: 1 400px;
+    padding: 2rem;
+    margin: 0.5rem;
+}
+
+/*---------------------------------------
+     add_news        
+  -----------------------------------------*/
+#divcommentary {
+    width: 600px;
+    height:400px;
+}
+#title {
+    width: 600px;
+    height: 50px;
+}
+#commentary {
+    width: 600px;
+    height: 200px;
+}
+#Send {
+    width: 150px;
+    height: 50px;
+}
+
+#cancel {
+    width: 150px;
+    height: 50px;
+}
+/*---------------------------------------
+     BUTTONS               
+  -----------------------------------------*/
+.section-btn {
     background: transparent;
     border-radius: 50px;
     border: 1px solid #ffffff;
@@ -214,7 +257,7 @@ https://templatemo.com/tm-516-known
     font-weight: normal;
     padding: 15px 30px;
     transition: 0.5s;
-  }
+}
 
   .section-btn:hover {
     background: #ffffff;
