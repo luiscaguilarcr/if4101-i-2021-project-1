@@ -231,19 +231,25 @@ h1, h2, h3, h4, h5, h6 {
 #title {
     width: 600px;
     height: 50px;
+    border-color: black;
+    border-width: thin;
 }
 #commentary {
     width: 600px;
     height: 200px;
+    border-color: black;
+    border-width: thin;
 }
 #Send {
     width: 150px;
     height: 50px;
+    border-color: black;
 }
 
 #cancel {
     width: 150px;
     height: 50px;
+    border-color: black;
 }
 /*---------------------------------------
      BUTTONS               
@@ -538,13 +544,21 @@ ul, ol {
     background-position: center;
 }
 
+#UCRLog {
+    background-image: url(../images/logo.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 475px;
+}
+#logFirst {
+  background-position-y:center;
 
-
-
+}
+logFirst
 /*---------------------------------------
       FEATURE              
   -----------------------------------------*/
-
 .feature-thumb {
     border: 1px solid #f0f0f0;
     padding: 5em 5em;
