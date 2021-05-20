@@ -16,8 +16,6 @@ namespace Project_SPA.Models.Entities
             : base(options)
         {
         }
-
-        public virtual DbSet<AcademicDegree> AcademicDegrees { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Professor> Professors { get; set; }
@@ -37,37 +35,6 @@ namespace Project_SPA.Models.Entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Modern_Spanish_CI_AS");
-
-            modelBuilder.Entity<AcademicDegree>(entity =>
-            {
-                entity.ToTable("AcademicDegree");
-
-                entity.Property(e => e.CreationDate)
-                    .HasColumnType("date")
-                    .HasColumnName("Creation_Date")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.CreationUser)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Creation_User")
-                    .HasDefaultValueSql("('DBA')");
-
-                entity.Property(e => e.Degree)
-                    .IsRequired()
-                    .HasMaxLength(6);
-
-                entity.Property(e => e.UpdateDate)
-                    .HasColumnType("date")
-                    .HasColumnName("Update_Date")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.UpdateUser)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("Update_User")
-                    .HasDefaultValueSql("('DBA')");
-            });
 
             modelBuilder.Entity<Course>(entity =>
             {
