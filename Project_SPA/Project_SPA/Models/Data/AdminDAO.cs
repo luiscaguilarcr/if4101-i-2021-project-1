@@ -37,7 +37,6 @@ namespace Project_SPA.Models.Data
                 }
             }
 
-            
             return null;
         }
 

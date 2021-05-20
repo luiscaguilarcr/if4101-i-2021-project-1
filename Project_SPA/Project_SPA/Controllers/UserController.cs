@@ -46,6 +46,7 @@ namespace Project_SPA.Controllers
             }
             return false;
         }
+
         public ActionResult LogInProfessor([FromBody] User user)
         {
             professorDAO = new ProfessorDAO();

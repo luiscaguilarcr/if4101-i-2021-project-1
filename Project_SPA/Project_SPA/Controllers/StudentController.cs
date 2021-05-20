@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Project_SPA.Models.Data;
 using Project_SPA.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MimeKit;
+using System.Net.Mail;
 
 namespace Project_SPA.Controllers
 {
@@ -42,6 +39,11 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.Add(student));
         }
 
+        public ActionResult AddTemporal([FromBody] TemporalStudent student)
+        {
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.AddTemporal(student));
+        }
 
         public ActionResult Edit([FromBody] Student student)
         {
@@ -55,5 +57,7 @@ namespace Project_SPA.Controllers
             studentDAO = new StudentDAO(_context);
             return Ok(studentDAO.Remove(id));
         }
+
+        
     }
 }

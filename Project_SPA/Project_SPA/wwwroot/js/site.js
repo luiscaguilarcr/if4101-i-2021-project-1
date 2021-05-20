@@ -11,8 +11,8 @@ $(document).ready(function () { //DOM cargado, siempre va
 function validateAdmin() {
 
     var user = {
-        code = document.getElementById("userName").value;
-        password = document.getElementById("userPassword").value;
+        code = document.getElementById("userName").value,
+        password = document.getElementById("userPassword").value
     }
 
     if (loginAdmin(user)) {
@@ -27,63 +27,6 @@ function validateAdmin() {
     }
 
 }
-
-function loginAdmin(user){
-
-    $.ajax({
-        url: "/User/LogInAdmin",
-        data: JSON.stringify(user),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            return true;
-        },
-        error: function (errorMessage) {
-            return false;
-        }
-    });
-}
-
-function loginProfessor(user) {
-
-    $.ajax({
-        url: "/User/LogInProfessor",
-        data: JSON.stringify(user),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            return true;
-        },
-        error: function (errorMessage) {
-            return false;
-        }
-    });
-}
-
-function loginStudent(user) {
-
-    $.ajax({
-        url: "/User/LogInStudent",
-        data: JSON.stringify(user),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            return true;
-        },
-        error: function (errorMessage) {
-            return false;
-        }
-    });
-}
-
-function ocultarEstud() {
-    document.getElementById('obj1').style.display = 'none';
-    document.getElementById('sign_in').style.display = 'none';
-}
-
 
 function ocultarAdmin() {
     document.getElementById('#register').style.display = 'none';
@@ -110,6 +53,11 @@ function aparecerAdmin() {
     document.getElementById('#feature').style.display = 'none';
     document.getElementById('register').style.display = 'block';
     document.getElementById('#register').style.display = 'block';
+}
+
+function ocultarEstud() {
+    document.getElementById('obj1').style.display = 'none';
+    document.getElementById('sign_in').style.display = 'none';
 }
 
 function sign_out_admin() {
@@ -212,6 +160,31 @@ function AddStudent() { //PISTAS DE AUDITORÍA
     });
 }
 
+function AddTemporalStudent() { //PISTAS DE AUDITORÍA
+
+    var student = {
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
+    };
+
+    $.ajax({
+        url: "/Student/AddTemporal",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            Clean_student();
+
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
 
 function LoadDataStudent() {
     $.ajax({
@@ -490,3 +463,53 @@ function Clean_curses() {
 
 }
 
+function loginAdmin(user) {
+
+    $.ajax({
+        url: "/User/LogInAdmin",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            return true;
+        },
+        error: function (errorMessage) {
+            return false;
+        }
+    });
+}
+
+function loginProfessor(user) {
+
+    $.ajax({
+        url: "/User/LogInProfessor",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            return true;
+        },
+        error: function (errorMessage) {
+            return false;
+        }
+    });
+}
+
+function loginStudent(user) {
+
+    $.ajax({
+        url: "/User/LogInStudent",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            return true;
+        },
+        error: function (errorMessage) {
+            return false;
+        }
+    });
+}
