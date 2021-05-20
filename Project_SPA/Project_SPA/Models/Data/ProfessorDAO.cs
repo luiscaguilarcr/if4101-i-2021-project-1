@@ -42,6 +42,33 @@ namespace Project_SPA.Models.Data
             return professor;
         }
 
+        public Entities.Professor GetProfessorByCode(string code)
+        {
+            List<Entities.Professor> professors = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                professors = context.Professors.Select(professorItem => new Entities.Professor()
+                {
+                    Id = professorItem.Id,
+                    Code = professorItem.Code,
+                    Name = professorItem.Name,
+                    Email = professorItem.Email,
+                    Password = professorItem.Password
+
+                }).ToList<Entities.Professor>();
+            }
+
+            foreach (Entities.Professor professor in professors)
+            {
+                if (professor.Code.Equals(code))
+                {
+                    return professor;
+                }
+            }
+            return null;
+        }
+
         public IEnumerable<Entities.Professor> GetEF()
         {
             var professor = _context.Professors;
