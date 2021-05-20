@@ -10,19 +10,73 @@ $(document).ready(function () { //DOM cargado, siempre va
 
 function validateAdmin() {
 
-    if ((document.getElementById("userName").value == "admin") && (document.getElementById("userPassword").value == "admin2021")) {
+    var user = {
+        code = document.getElementById("userName").value;
+        password = document.getElementById("userPassword").value;
+    }
 
+    if (loginAdmin(user)) {
         ocultarEstud();
         aparecerAdmin();
         Clean_lognin();
-    } else if ((document.getElementById("userName").value == "s") && (document.getElementById("userPassword").value == "s21")) {
-        alert("exito student!!!");
+    } else if (loginProfessor(user)) {
+        ocultarEstud();
+        
+    } else if (loginStudent(user)) {
         student_singin();
-        Clean_lognin();
-    } else {
-        alert("error");
     }
 
+}
+
+function loginAdmin(user){
+
+    $.ajax({
+        url: "/User/LogInAdmin",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            return true;
+        },
+        error: function (errorMessage) {
+            return false;
+        }
+    });
+}
+
+function loginProfessor(user) {
+
+    $.ajax({
+        url: "/User/LogInProfessor",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            return true;
+        },
+        error: function (errorMessage) {
+            return false;
+        }
+    });
+}
+
+function loginStudent(user) {
+
+    $.ajax({
+        url: "/User/LogInStudent",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            return true;
+        },
+        error: function (errorMessage) {
+            return false;
+        }
+    });
 }
 
 function ocultarEstud() {
