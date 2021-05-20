@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Project_SPA.Models.Data;
 using Project_SPA.Models.Domain;
-//using Project_SPA.Models.Entities;
+using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Project_SPA.Controllers
 {
     public class UserController : Controller
     {
-        /*
+        
         StudentDAO studentDAO;
         ProfessorDAO professorDAO;
         AdminDAO adminDAO;
@@ -23,15 +23,15 @@ namespace Project_SPA.Controllers
             return View();
         }
 
-        public ActionResult LogInAdmin()
+        public ActionResult LogInAdmin([FromBody] User user)
         {
-            Models.Domain.User user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
             adminDAO = new AdminDAO();
             
             if (adminDAO.GetAdminByCode(user.Code) != null)
             {
                 if (ValidateAdmin(adminDAO.GetAdminByCode(user.Code), user))
                 {
+                    HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
                     return Ok(true);
                 }
             }
@@ -46,14 +46,14 @@ namespace Project_SPA.Controllers
             }
             return false;
         }
-        public ActionResult LogInProfessor()
+        public ActionResult LogInProfessor([FromBody] User user)
         {
-            User user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser"));
             professorDAO = new ProfessorDAO();
             if (professorDAO.GetProfessorByCode(user.Code) != null)
             {
                 if (ValidateProfessor(professorDAO.GetProfessorByCode(user.Code), user))
                 {
+                    HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
                     return Ok(true);
                 }
             }
@@ -69,14 +69,14 @@ namespace Project_SPA.Controllers
             return false;
         }
 
-        public ActionResult LogInStudent()
-        {
-            Models.Domain.User user = JsonConvert.DeserializeObject<Models.Domain.User>(HttpContext.Session.GetString("SessionUser"));
+        public ActionResult LogInStudent([FromBody] User user)
+        {            
             studentDAO = new StudentDAO();
             if (studentDAO.GetStudentByCode(user.Code) != null)
             {
                 if (ValidateStudent(studentDAO.GetStudentByCode(user.Code), user))
                 {
+                    HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
                     return Ok(true);
                 }
             }
@@ -91,6 +91,6 @@ namespace Project_SPA.Controllers
             }
             return false;
         }
-        */
+        
     }
 }
