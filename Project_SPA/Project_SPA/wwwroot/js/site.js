@@ -172,7 +172,7 @@ function previewFile() {
 //------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------
 
-function AddStudent() { //PISTAS DE AUDITORÍA
+function AddStudent() { 
 
     var student = {
         code: $('#codeS').val(),
@@ -475,3 +475,29 @@ function Clean_curses() {
 
 }
 
+//-------------------------------------------------------------------------------------------
+
+function AddNews() {
+
+    var news = {
+        news_title: $('#news_title').val(),
+        descrip: $('#descrip').val(),
+        image:$('#image').val(),
+        file: $('#file').val()
+    };
+
+    $.ajax({
+        url: "/NewsAPI/Post",
+        data: JSON.stringify(news),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+          //  Clean_student();
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
