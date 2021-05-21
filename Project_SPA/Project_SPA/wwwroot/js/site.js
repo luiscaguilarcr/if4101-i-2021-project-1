@@ -48,6 +48,8 @@ function ocultarAdmin() {
     document.getElementById('sign_out_student').style.display = 'none';
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
+
+    
 }
 
 function aparecerAdmin() {
@@ -155,7 +157,7 @@ function newNotOnClick() {
 //------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------
 function previewFile() {
-    var preview = document.querySelector('img');
+    var preview = document.querySelector('#image');
     var file = document.querySelector('input[type=file]').files[0];
     var reader = new FileReader();
 
@@ -197,10 +199,9 @@ function AddStudent() { //PISTAS DE AUDITORÍA
     });
 }
 
-
 function LoadDataStudent() {
     $.ajax({
-        url: "/Student/GetEF", //DUDA CUAL GET ES 
+        url: "/Student/GetEF", //DUDA CUAL GET ES GetStudentsById(' + item.id + ')
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -209,10 +210,12 @@ function LoadDataStudent() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.id + '</td>';
+                document.getElementById("idTemp").value = item.id;
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#students" onclick="return GetStudentsById(' + item.id + ')">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#myModalEliminate" data-toggle="modal" data-target="#myModalEliminate">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';            
+
             });
             $('.tbodyStudent').html(html);
         },
@@ -223,7 +226,7 @@ function LoadDataStudent() {
 }
 
 function Remove(id) { //DISTINTA AL PROFE
-
+  
     $.ajax({ //Simbolo de dolar todo lo de jquery
         url: "/Student/Remove",
         data: JSON.stringify(id),
