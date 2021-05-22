@@ -31,10 +31,11 @@ namespace Project_SPA.Controllers
                 if (ValidateProfessor(adminDAO.GetAdminByCode(user.Code), user))
                 {
                     HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
-                    return Json(new { responseText = "OK" });
+                    return Ok(1);
                 }
             }
-            return Json(new { responseText = "ERROR" });
+
+            return Ok(0);
         }
 
         public ActionResult LogInProfessor([FromBody] User user)
@@ -45,10 +46,10 @@ namespace Project_SPA.Controllers
                 if (ValidateProfessor(professorDAO.GetProfessorByCode(user.Code), user))
                 {
                     HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
-                    return Ok(true);
+                    return Ok(1);
                 }
             }
-            return Ok(false);
+            return Ok(0);
         }
 
         public Boolean ValidateProfessor(Professor professor, User user)
@@ -68,10 +69,10 @@ namespace Project_SPA.Controllers
                 if (ValidateStudent(studentDAO.GetStudentByCode(user.Code), user))
                 {
                     HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
-                    return Ok(true);
+                    return Ok(1);
                 }
             }
-            return Ok(false);
+            return Ok(0);
         }
 
         public Boolean ValidateStudent(Student student, User user)

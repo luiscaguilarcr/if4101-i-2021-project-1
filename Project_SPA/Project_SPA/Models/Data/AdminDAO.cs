@@ -20,19 +20,39 @@ namespace Project_SPA.Models.Data
         public AdminDAO()
         {
         }
+        public List<Entities.Admin> GetAdmin()
+        {
+            List<Entities.Admin> admin = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                admin = context.Admins.Select(adminItem => new Entities.Admin()
+                {
+                    ProfessorId = adminItem.ProfessorId
+
+                }).ToList<Entities.Admin>();
+            }
+
+
+            return admin;
+        }
 
         public Entities.Professor GetAdminByCode(string code)
         {
             ProfessorDAO professorDAO = new ProfessorDAO();
+            List<Entities.Admin> admins = GetAdmin();
 
-            if(professorDAO.GetProfessorByCode(code)!= null)
+            if (professorDAO.GetProfessorByCode(code)!= null)
             {
                 Professor professor = professorDAO.GetProfessorByCode(code);
- 
-                if (professor.Code.Equals(code))
-                {
-                    return professor;
+                
+                foreach(Admin admin in admins){
+                    if (professor.Id.Equals(admin.ProfessorId))
+                    {
+                        return professor;
+                    }
                 }
+                
 
             }
 
@@ -46,17 +66,6 @@ namespace Project_SPA.Models.Data
                 return true;
             }
             return false;
-        }
-
-        public IEnumerable<Entities.Admin> GetEF()
-        {
-            var admins = _context.Admins;
-            return admins.ToList();
-        }
-
-        private bool AdminExists(int id)
-        {
-            return _context.Admins.Any(e => e.ProfessorId == id);
         }
         
     }

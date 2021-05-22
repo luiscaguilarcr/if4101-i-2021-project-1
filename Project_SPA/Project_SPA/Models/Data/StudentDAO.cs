@@ -94,6 +94,25 @@ namespace Project_SPA.Models.Data
 
         }
 
+        public int AddTemporal(Entities.TemporalStudent student)
+        {
+            int resultToReturn;
+            try
+            {
+                _context.Add(student);
+                resultToReturn = _context.SaveChangesAsync().Result;
+            }
+
+            catch (DbUpdateException)
+            {
+
+                throw;
+
+            }
+            return resultToReturn;
+
+        }
+
         public int Remove(int id) //PRUEBA DISTINTA AL PROFE
         {
             int resultToReturn;

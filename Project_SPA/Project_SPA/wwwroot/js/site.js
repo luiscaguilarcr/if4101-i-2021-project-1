@@ -15,18 +15,10 @@ function validateAdmin() {
         code: $('#userName').val(),
         password: $('#userPassword').val()
     }
-    
-    if (loginAdmin(user)) {
-        alert("Entra Admin");
-        ocultarEstud();
-        aparecerAdmin();
-        Clean_lognin();
-    } else if (loginProfessor(user)) {
-        ocultarEstud();
 
-    } else if (loginStudent(user)) {
-        student_singin();
-    }
+    loginProfessor(user);
+    loginAdmin(user);
+    loginStudent(user);
 
 }
 
@@ -202,6 +194,37 @@ function AddStudent() { //PISTAS DE AUDITORÍA
 }
 
 
+function AddTemporalStudent() { //PISTAS DE AUDITORÍA
+
+    var student = {
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
+    };
+
+    $.ajax({
+        url: "/Student/AddTemporal",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            Clean_student();
+            document.getElementById("information").innerHTML = "El usuario ha sido registrado";
+            document.getElementById("information").style.color = "green";
+
+        },
+        error: function (errorMessage) {
+            document.getElementById("information").innerHTML = "El usuario no ha sido registrado";
+            document.getElementById("information").style.color = "red";
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataStudent() { }
+
 function LoadDataStudent() {
     $.ajax({
         url: "/Student/GetEF", //DUDA CUAL GET ES 
@@ -332,6 +355,7 @@ function AddCourse() {
 }
 
 function LoadDataCourse() {
+
     $.ajax({
         url: "/Course/GetEF", //DUDA CUAL GET ES 
         type: "GET",
@@ -480,25 +504,23 @@ function Clean_curses() {
 }
 
 function loginAdmin(user) {
-
-    $.ajax({
+    
+     $.ajax({
         url: "/User/LogInAdmin",
         type: "POST",
         data: JSON.stringify(user),
         contentType: "application/json;charset=utf-8",
         dataType: "json",
-        success: function (result) {
-            alert("Entra Admin");
-            ocultarEstud();
-            aparecerAdmin();
-            Clean_lognin();
-        },
-        error: function (errorMessage) {
-            alert("No entra");
-            return false;
+        success: function (response) {
+            if (response == 1) {
+                loginAdminValidate(true);
+            } 
         }
     });
+    
 }
+
+
 
 function loginProfessor(user) {
 
@@ -509,11 +531,11 @@ function loginProfessor(user) {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            return true;
-        },
-        error: function (errorMessage) {
-            return false;
+            if (response == 1) {
+                loginProfessorValidate(true);
+            }
         }
+       
     });
 }
 
@@ -526,10 +548,35 @@ function loginStudent(user) {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            return true;
-        },
-        error: function (errorMessage) {
-            return false;
+            if (response == 1) {
+                loginStudentValidate(true);
+            }
         }
     });
+}
+
+
+function loginAdminValidate(response) {
+    if (response == true) {
+        ocultarEstud();
+        aparecerAdmin();
+        Clean_lognin();
+    }
+}
+
+function loginProfessorValidate(response) {
+    if (response == true) {
+        ocultarEstud();
+        Clean_lognin();
+    }
+}
+
+function loginStudentValidate(response) {
+    if (response == true) {
+        student_singin();
+
+    } else {
+        document.getElementById("informationLogIn").innerHTML = "Error al ingresar";
+        document.getElementById("informationLogIn").style.color = "red";
+    }
 }
