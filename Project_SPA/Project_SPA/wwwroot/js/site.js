@@ -226,7 +226,9 @@ function LoadDataStudent() {
 }
 
 function Remove(id) { //DISTINTA AL PROFE
-  
+
+    var respuesta = confirm("¿Quieres eliminar a este estudiante?");
+    if (respuesta) { 
     $.ajax({ //Simbolo de dolar todo lo de jquery
         url: "/Student/Remove",
         data: JSON.stringify(id),
@@ -235,7 +237,7 @@ function Remove(id) { //DISTINTA AL PROFE
         dataType: "json",
         success: function (result) {
             //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
+            
             LoadDataStudent();
         },
         error: function (errorMessage) {
@@ -243,6 +245,7 @@ function Remove(id) { //DISTINTA AL PROFE
             alert(errorMessage.responseText);
         }
     });
+}
 }
 function GetStudentsById(id) { //llame al controlador home
 
@@ -358,22 +361,26 @@ function LoadDataCourse() {
 
 function RemoveCourse(id) { //DISTINTA AL PROFE
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Course/Remove",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
-            LoadDataCourse();
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
+    var respuesta = confirm("¿Quieres eliminar a este curso?");
+    if (respuesta) {
+
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Course/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                LoadDataCourse();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
+
 }
 //-----------------------------------------------------------------------------------------
 
@@ -428,22 +435,25 @@ function LoadDataProfessor() {
 }
 function RemoveProfessor(id) { //DISTINTA AL PROFE
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Professor/Remove",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
-            LoadDataProfessor();
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
+    var respuesta = confirm("¿Quieres eliminar a este profesor?");
+    if (respuesta) {
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Professor/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                //alert("ELIMINADO");
+                LoadDataProfessor();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
 }
 
 function Clean_lognin() {

@@ -382,30 +382,31 @@
         </div>
     </section>
 
+
     <!-- Modal -->
     <div id="myModalEliminate" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+            <div class="modal-dialog">
+   
+    <!-- Modal content-->
+    <div class="modal-content">
+         <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             <h4 class="modal-title">Modal Header</h4>
+         </div>
+         <div class="modal-body">
+             <p>Esta seguro de querer eliminar este usuario</p>
+             <label id="idTemp" hidden></label>
+         </div>
+         <div class="modal-footer">
+             <button type="button" id="acceMod" class="btn btn-default" data-dismiss="modal" onclick="return Remove(" idTemp")">Aceptar</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+         </div>
+     </div>
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                   <p>Esta seguro de querer eliminar este usuario</p>
-                    <label id="idTemp" hidden></label>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="acceMod" class="btn btn-default" data-dismiss="modal" onclick="return Remove("idTemp")">Aceptar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-
-        </div>
+     </div>
     </div>
 
- 
+
     <!--   TEAM-->
     <section id="team">
         <div class="container">
