@@ -9,18 +9,99 @@ $(document).ready(function () { //DOM cargado, siempre va
 
 });
 
-function validateAdmin() {
+function LogIn() {
 
     var user = {
         code: $('#userName').val(),
         password: $('#userPassword').val()
     }
 
-    loginProfessor(user);
-    loginAdmin(user);
-    loginStudent(user);
+    if (LoginProfessor(user)) {}
+
+    else if (LoginAdmin(user)) {}
+
+    else if (LoginStudent(user))
 
 }
+
+function LoginAdmin(user) {
+
+    $.ajax({
+        url: "/User/LogInAdmin",
+        type: "POST",
+        data: JSON.stringify(user),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response == 1) {
+                return LoginAdminValidate(true);
+            }
+        }
+    });
+
+}
+
+function LoginProfessor(user) {
+
+    $.ajax({
+        url: "/User/LogInProfessor",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            if (response == 1) {
+                return LoginProfessorValidate(true);
+            }
+        }
+
+    });
+}
+
+function LoginStudent(user) {
+
+    $.ajax({
+        url: "/User/LogInStudent",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            if (response == 1) {
+                return LoginStudentValidate(true);
+            }
+        }
+    });
+}
+
+
+function LoginAdminValidate(response) {
+    if (response == true) {
+        ocultarEstud();
+        aparecerAdmin();
+        Clean_lognin();
+        return true;
+    }
+}
+
+function LoginProfessorValidate(response) {
+    if (response == true) {
+        ocultarEstud();
+        Clean_lognin();
+        return true;
+    }
+}
+
+function LoginStudentValidate(response) {
+    if (response == true) {
+        student_singin();
+        return true;
+    } else {
+        document.getElementById("informationLogIn").innerHTML = "Error al ingresar";
+        document.getElementById("informationLogIn").style.color = "red";
+    }
+}
+
 
 function ocultarEstud() {
     document.getElementById('obj1').style.display = 'none';
@@ -503,80 +584,3 @@ function Clean_curses() {
 
 }
 
-function loginAdmin(user) {
-    
-     $.ajax({
-        url: "/User/LogInAdmin",
-        type: "POST",
-        data: JSON.stringify(user),
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-            if (response == 1) {
-                loginAdminValidate(true);
-            } 
-        }
-    });
-    
-}
-
-
-
-function loginProfessor(user) {
-
-    $.ajax({
-        url: "/User/LogInProfessor",
-        data: JSON.stringify(user),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            if (response == 1) {
-                loginProfessorValidate(true);
-            }
-        }
-       
-    });
-}
-
-function loginStudent(user) {
-
-    $.ajax({
-        url: "/User/LogInStudent",
-        data: JSON.stringify(user),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            if (response == 1) {
-                loginStudentValidate(true);
-            }
-        }
-    });
-}
-
-
-function loginAdminValidate(response) {
-    if (response == true) {
-        ocultarEstud();
-        aparecerAdmin();
-        Clean_lognin();
-    }
-}
-
-function loginProfessorValidate(response) {
-    if (response == true) {
-        ocultarEstud();
-        Clean_lognin();
-    }
-}
-
-function loginStudentValidate(response) {
-    if (response == true) {
-        student_singin();
-
-    } else {
-        document.getElementById("informationLogIn").innerHTML = "Error al ingresar";
-        document.getElementById("informationLogIn").style.color = "red";
-    }
-}
