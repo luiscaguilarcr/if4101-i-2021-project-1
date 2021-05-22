@@ -16,11 +16,11 @@ function LogIn() {
         password: $('#userPassword').val()
     }
 
-    if (LoginProfessor(user)) {}
+    LoginProfessor(user);
 
-    else if (LoginAdmin(user)) {}
+    LoginAdmin(user);
 
-    else if (LoginStudent(user))
+    LoginStudent(user);
 
 }
 
