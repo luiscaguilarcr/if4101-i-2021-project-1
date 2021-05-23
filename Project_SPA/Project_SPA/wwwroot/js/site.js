@@ -17,9 +17,7 @@ function LogIn() {
     }
 
     LoginProfessor(user);
-
     LoginAdmin(user);
-
     LoginStudent(user);
 
 }
@@ -94,7 +92,8 @@ function LoginProfessorValidate(response) {
 
 function LoginStudentValidate(response) {
     if (response == true) {
-        student_singin();
+        tudent_singin();
+        Clean_lognin();
         return true;
     } else {
         document.getElementById("informationLogIn").innerHTML = "Error al ingresar";
