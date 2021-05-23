@@ -154,6 +154,8 @@ function HideAdmin() {
     document.getElementById('sign_out_student').style.display = 'none';
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
+
+    
 }
 
 function HideProfessor() {
@@ -296,7 +298,7 @@ function NewNotOnClick() {
 ///////////////////////////////////////////////////////////////// API /////////////////////////////////////////////////////////////////
 
 function previewFile() {
-    var preview = document.querySelector('img');
+    var preview = document.querySelector('#image');
     var file = document.querySelector('input[type=file]').files[0];
     var reader = new FileReader();
 
@@ -372,6 +374,7 @@ function AddTemporalStudent() { //PISTAS DE AUDITORÍA
 function LoadDataTempStudent() {
     $.ajax({
         url: "/Student/GetTemporalStudents",  
+
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -380,10 +383,11 @@ function LoadDataTempStudent() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.id + '</td>';
+                document.getElementById("idTemp").value = item.id;
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#students" onclick="return AceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RevokeStudent(' + item.id + ')">Denegar</a></td>';
+                html += '<td><a href="#students" onclick="return AceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RevokeStudent(' + item.id + ')">Denegar</a></td>';         
             });
             $('.tbodyTemporalStudent').html(html);
         },
@@ -407,14 +411,30 @@ function LoadDataStudent() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#students" onclick="return GetStudentsById(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#myModalEliminate" data-toggle="modal" data-target="#myModalEliminate">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
-        },
-        error: function (errorMessage) {
-            alert(errorMessage.responseText);
-        }
     })
+}
+      
+function Remove(id) { //DISTINTA AL PROFE
+    var respuesta = confirm("¿Quieres eliminar a este estudiante?");
+    if (respuesta) { 
+      $.ajax({ //Simbolo de dolar todo lo de jquery
+          url: "/Student/Remove",
+          data: JSON.stringify(id),
+          type: "DELETE",
+          contentType: "application/json;charset=utf-8",
+          dataType: "json",
+          success: function (result) {
+              //aca recibo el resultafo del backend (datos,objetos,mensajes)
+              LoadDataStudent();
+          },
+          error: function (errorMessage) {
+              alert(errorMessage.responseText);
+          }
+      })
+    }
 }
 
 function GetStudentsById(id) { //llame al controlador home
@@ -552,22 +572,26 @@ function LoadDataCourse() {
 
 function RemoveCourse(id) { //DISTINTA AL PROFE
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Course/Remove",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
-            LoadDataCourse();
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
+    var respuesta = confirm("¿Quieres eliminar a este curso?");
+    if (respuesta) {
+
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Course/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                LoadDataCourse();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
+
 }
 
 //PROFESSOR
@@ -624,22 +648,25 @@ function LoadDataProfessor() {
 
 function RemoveProfessor(id) { //DISTINTA AL PROFE
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Professor/Remove",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
-            LoadDataProfessor();
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
+    var respuesta = confirm("¿Quieres eliminar a este profesor?");
+    if (respuesta) {
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Professor/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                //alert("ELIMINADO");
+                LoadDataProfessor();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
 }
 
 
