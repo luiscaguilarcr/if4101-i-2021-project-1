@@ -190,7 +190,8 @@
                         <input type="text" id="userName" name="userName" class="form-control" placeholder="Ingrese su Nombre de Usuario" required="required" autocomplete="off">
                         <h3>Contraseña</h3>
                         <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="Ingrese su Contraseña" required="required" autocomplete="off">
-                        <button class="submit-btn form-control" id="btn_Sign" onclick="return validateAdmin()" id="btn-signin">Ingresar</button>
+                        <button class="submit-btn form-control" id="btn_Sign" onclick="return LogIn()">Ingresar</button>
+                        <label typeof="text" name="informationLogIn" id="informationLogIn" align="center"></label>
                     </div>
                 </div>
 
@@ -288,8 +289,9 @@
 
                         <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña*" autocomplete="off" required>
 
-                        <button class="submit-btn form-controlS" onclick="return AddStudent()" id="btn_register_student">Registrar</button>
+                        <button class="submit-btn form-controlS" onclick="return AddTemporalStudent()" id="btn_register_student">Registrar</button>
 
+                        <label typeof="text" name="information" id="information" align="center"></label>
                     </div>
                 </div>
 
@@ -330,7 +332,7 @@
 
                         <button class="submit-btn form-control" onclick="return AddProfessor()" id="btn_register_professor">Registrar profesor</button>
 
-
+                        
                     </div>
                 </div>
                 <!-------------------------------------------------------Cursos-->

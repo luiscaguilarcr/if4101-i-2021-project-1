@@ -42,6 +42,53 @@ namespace Project_SPA.Models.Data
             return students;
         }
 
+        public List<Entities.TemporalStudent> GetTempStudents()
+        {
+            List<Entities.TemporalStudent> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.TemporalStudents.Select(studentItem => new Entities.TemporalStudent()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.TemporalStudent>();
+            }
+
+            return students;
+        }
+
+        public Entities.Student GetStudentByCode(string code)
+        {
+            List<Entities.Student> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.Students.Select(studentItem => new Entities.Student()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.Student>();
+            }
+
+            foreach (Entities.Student student in students)
+            {
+                if (student.Code.Equals(code))
+                {
+                    return student;
+                }
+            }
+            return null;
+        }
+
         public IEnumerable<Entities.Student> GetEF()
         {
             var students = _context.Students;
@@ -49,6 +96,25 @@ namespace Project_SPA.Models.Data
         }
 
         public int Add(Entities.Student student)
+        {
+            int resultToReturn;
+            try
+            {
+                _context.Add(student);
+                resultToReturn = _context.SaveChangesAsync().Result;
+            }
+
+            catch (DbUpdateException)
+            {
+
+                throw;
+
+            }
+            return resultToReturn;
+
+        }
+
+        public int AddTemporal(Entities.TemporalStudent student)
         {
             int resultToReturn;
             try
