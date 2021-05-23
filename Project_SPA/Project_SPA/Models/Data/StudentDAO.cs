@@ -42,6 +42,26 @@ namespace Project_SPA.Models.Data
             return students;
         }
 
+        public List<Entities.TemporalStudent> GetTempStudents()
+        {
+            List<Entities.TemporalStudent> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.TemporalStudents.Select(studentItem => new Entities.TemporalStudent()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.TemporalStudent>();
+            }
+
+            return students;
+        }
+
         public Entities.Student GetStudentByCode(string code)
         {
             List<Entities.Student> students = null;
