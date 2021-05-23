@@ -9,22 +9,98 @@ $(document).ready(function () { //DOM cargado, siempre va
 
 });
 
-function validateAdmin() {
+function LogIn() {
 
-    if ((document.getElementById("userName").value == "admin") && (document.getElementById("userPassword").value == "admin2021")) {
+    var user = {
+        code: $('#userName').val(),
+        password: $('#userPassword').val()
+    }
 
+    LoginProfessor(user);
+    LoginAdmin(user);
+    LoginStudent(user);
+
+}
+
+function LoginAdmin(user) {
+
+    $.ajax({
+        url: "/User/LogInAdmin",
+        type: "POST",
+        data: JSON.stringify(user),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response == 1) {
+                return LoginAdminValidate(true);
+            }
+        }
+    });
+
+}
+
+function LoginProfessor(user) {
+
+    $.ajax({
+        url: "/User/LogInProfessor",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            if (response == 1) {
+                return LoginProfessorValidate(true);
+            }
+        }
+
+    });
+}
+
+function LoginStudent(user) {
+
+    $.ajax({
+        url: "/User/LogInStudent",
+        data: JSON.stringify(user),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            if (response == 1) {
+                return LoginStudentValidate(true);
+            }
+        }
+    });
+}
+
+
+function LoginAdminValidate(response) {
+    if (response == true) {
         ocultarEstud();
         aparecerAdmin();
         Clean_lognin();
-    } else if ((document.getElementById("userName").value == "s") && (document.getElementById("userPassword").value == "s21")) {
-        alert("exito student!!!");
-        student_singin();
-        Clean_lognin();
-    } else {
-        alert("error");
+        return true;
     }
-
 }
+
+function LoginProfessorValidate(response) {
+    if (response == true) {
+        ocultarEstud();
+        Clean_lognin();
+        return true;
+    }
+}
+
+function LoginStudentValidate(response) {
+    if (response == true) {
+        tudent_singin();
+        Clean_lognin();
+        return true;
+    } else {
+        document.getElementById("informationLogIn").innerHTML = "Error al ingresar";
+        document.getElementById("informationLogIn").style.color = "red";
+    }
+}
+
 
 function ocultarEstud() {
     document.getElementById('obj1').style.display = 'none';
@@ -198,6 +274,37 @@ function AddStudent() { //PISTAS DE AUDITORÍA
 }
 
 
+function AddTemporalStudent() { //PISTAS DE AUDITORÍA
+
+    var student = {
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
+    };
+
+    $.ajax({
+        url: "/Student/AddTemporal",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            Clean_student();
+            document.getElementById("information").innerHTML = "El usuario ha sido registrado";
+            document.getElementById("information").style.color = "green";
+
+        },
+        error: function (errorMessage) {
+            document.getElementById("information").innerHTML = "El usuario no ha sido registrado";
+            document.getElementById("information").style.color = "red";
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataStudent() { }
+
 function LoadDataStudent() {
     $.ajax({
         url: "/Student/GetEF", //DUDA CUAL GET ES 
@@ -328,6 +435,7 @@ function AddCourse() {
 }
 
 function LoadDataCourse() {
+
     $.ajax({
         url: "/Course/GetEF", //DUDA CUAL GET ES 
         type: "GET",
