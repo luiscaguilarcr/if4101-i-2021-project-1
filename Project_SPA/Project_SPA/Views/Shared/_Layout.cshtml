@@ -85,7 +85,7 @@
                         <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
                         <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
                         <li><a href="#notice" id="#notice" class="smoothScroll">Noticias</a></li>
-                        <li><a href="#newNot" id="#newNot" onclick="newNotOnClick()"  class="smoothScroll">Nuevas noticias</a></li>
+                        <li><a href="#newNot" id="#newNot" onclick="newNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -243,7 +243,7 @@
 
             </div>
         </div>
-     
+
     </section>
 
     <!-- preguntar por RenderBody-->
@@ -338,7 +338,7 @@
 
                         <button class="submit-btn form-control" onclick="return AddProfessor()" id="btn_register_professor">Registrar profesor</button>
 
-                        
+
                     </div>
                 </div>
                 <!-------------------------------------------------------Cursos-->
@@ -665,7 +665,7 @@
 
         <div id="divcommentary" class="container">
             <div class="row">
-                <input type="text" id="title" name="title" class="form-control"  placeholder="Título de comentario" autocomplete="off">
+                <input type="text" id="title" name="title" class="form-control" placeholder="Título de comentario" autocomplete="off">
             </div>
             <div class="row">
                 <input type="text" id="commentary" name="commentary" class="form-control" placeholder="Comentario" autocomplete="off">
@@ -701,10 +701,100 @@
             </div>
         </div>
         <br />
-        <br /> 
+        <br />
         <br />
         <br />
     </section>
+
+    <section id="Newconsult">
+
+        <div id="divcommentary" class="container">
+            <div class="row">
+                <select name="Consult_curse" class="form-control" id="Consult_curse" required="">
+                    <option disabled selected>Escoja el curso</option>
+
+                    <option>Logica</option>
+
+                    <option>Bases</option>
+
+                    <option>Lenguajes</option>
+
+                </select>
+                <br />
+                <select name="Consult_professor" class="form-control" id="Consult_professor" required="">
+                    <option disabled selected>Escoja el profesor</option>
+
+                    <option>Esteban</option>
+
+                    <option>Jose Luis</option>
+
+                </select>
+                <br />
+                <select name="Consult_schedule" class="form-control" id="Consult_schedule" required="">
+                    <option disabled selected>Escoja el horario</option>
+
+                    <option>12:30</option>
+
+                    <option>1:00</option>
+
+                </select>
+                <br />
+                <br />
+            </div>
+            
+            <div class="">
+                <table class="default">
+
+                    <tr>
+
+                        <td><button class="submit-btn form-control" onclick="" id="Send">Enviar Consulta</button></td>
+                        
+                        <td><button class="submit-btn form-control" onclick="" id="cancel">Cancelar</button></td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+</section>
+
+    <section id="active_consult">
+
+        <div id="consults" class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Consultas activas</h2>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Curso
+                                    </th>
+
+                                    <th>
+                                        Profesor
+                                    </th>
+                                    <th>
+                                        Hora
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyStudent">
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>>
+
 
     <section id="notice">
         <div id="divNot">¡Hola mundo!</div>
