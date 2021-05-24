@@ -422,35 +422,6 @@ function AddStudent() {
     });
 }
 
-function AddTemporalStudent() {
-
-    var student = {
-        code: $('#codeS').val(),
-        name: $('#nameS').val(),
-        email: $('#emailS').val(),
-        password: $('#passwordS').val()
-    };
-
-    $.ajax({
-        url: "/Student/AddTemporal",
-        data: JSON.stringify(student),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            CleanStudent();
-            document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-            document.getElementById("information").style.color = "green";
-
-        },
-        error: function (errorMessage) {
-            document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
-            document.getElementById("information").style.color = "red";
-            alert(errorMessage.responseText);
-        }
-    });
-}
-
 function GetStudentsById(id) { //llame al controlador home
 
     var id;
@@ -502,29 +473,6 @@ function LoadDataStudent() {
     });
 }
 
-function LoadDataTemporalStudent() {
-    $.ajax({
-        url: "/Student/GetTemporalStudents",
-        type: "GET",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            var html = '';
-            $.each(result, function (key, item) {
-                html += '<tr>';
-                html += '<td>' + item.id + '</td>';
-                html += '<td>' + item.code + '</td>';
-                html += '<td>' + item.name + '</td>';
-                html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#students" onclick="return AceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RevokeStudent(' + item.id + ')">Denegar</a></td>';
-            });
-            $('.tbodyTemporalStudent').html(html);
-        },
-        error: function (errorMessage) {
-            alert(errorMessage.responseText);
-        }
-    });
-}
 
 function RemoveStudent(id) {
     var respuesta = confirm("¿Quieres eliminar a este estudiante?");
@@ -543,24 +491,6 @@ function RemoveStudent(id) {
             }
         });
     }
-}
-
-function RemoveTemporalStudent(id) {
-   
-    $.ajax({
-        url: "/Student/Remove",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            LoadDataStudent();
-        },
-        error: function (errorMessage) {
-            alert(errorMessage.responseText);
-        }
-    })
-    
 }
 
 function UpdateStudent() {
@@ -590,7 +520,99 @@ function UpdateStudent() {
         }
     });
 }
+/////////////// TEMPORAL STUDENT ///////////////
 
+function AddTemporalStudent() {
+
+    var student = {
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
+    };
+
+    $.ajax({
+        url: "/Student/AddTemporal",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            CleanStudent();
+            document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+            document.getElementById("information").style.color = "green";
+
+        },
+        error: function (errorMessage) {
+            document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
+            document.getElementById("information").style.color = "red";
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+
+function AcceptStudent(id) {
+
+    $.ajax({
+        url: "/Student/AcceptTemporal",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response != 0) {
+                LoadDataTemporalStudent();
+            } else {
+                alert("Error al aceptar la solicitud");
+            }
+        }
+
+    });
+
+}
+
+function LoadDataTemporalStudent() {
+    $.ajax({
+        url: "/Student/GetTemporal",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.email + '</td>';
+                html += '<td><a href="#students" onclick="return AcceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RemoveTemporalStudent(' + item.id + ')">Denegar</a></td>';
+            });
+            $('.tbodyTemporalStudent').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function RemoveTemporalStudent(id) {
+
+    $.ajax({
+        url: "/Student/RemoveTemporal",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            LoadDataTemporalStudent();
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+
+}
 
 /////////////// COURSE ///////////////
 function AddCourse() {

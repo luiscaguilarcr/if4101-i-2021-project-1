@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Project_SPA.Models.Data;
 using Project_SPA.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Project_SPA.Controllers
 {
@@ -36,10 +31,10 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.GetStudents());
         }
 
-        public ActionResult GetTemporalStudents()
+        public ActionResult GetTemporal()
         {
             studentDAO = new StudentDAO(_context);
-            return Ok(studentDAO.GetTempStudents());
+            return Ok(studentDAO.GetTemporal());
         }
 
         public ActionResult Add([FromBody] Student student)
@@ -54,17 +49,43 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.AddTemporal(student));
         }
 
+        public ActionResult AcceptTemporal([FromBody] int id)
+        {
+            studentDAO = new StudentDAO(_context);
+            if(studentDAO.GetTemporalStudentById(id) != null)
+            {
+                TemporalStudent temporalStudent = studentDAO.GetTemporalStudentById(id);
+                studentDAO.RemoveTemporal(temporalStudent.Id);
+
+                Student student = new Student
+                {
+                    Name = temporalStudent.Name,
+                    Email = temporalStudent.Email,
+                    Code = temporalStudent.Code,
+                    Password = temporalStudent.Password
+                };
+                return Ok(studentDAO.Add(student));
+            }
+
+            return Ok(0);
+        }
+
         public ActionResult Edit([FromBody] Student student)
         {
             studentDAO = new StudentDAO(_context);
             return Ok(studentDAO.Edit(student));
         }
 
-
-        public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
+        public ActionResult Remove([FromBody] int id)
         {
             studentDAO = new StudentDAO(_context);
             return Ok(studentDAO.Remove(id));
+        }
+
+        public ActionResult RemoveTemporal([FromBody] int id) 
+        {
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.RemoveTemporal(id));
         }
     }
 }

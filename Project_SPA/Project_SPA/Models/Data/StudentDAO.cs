@@ -42,7 +42,7 @@ namespace Project_SPA.Models.Data
             return students;
         }
 
-        public List<Entities.TemporalStudent> GetTempStudents()
+        public List<Entities.TemporalStudent> GetTemporal()
         {
             List<Entities.TemporalStudent> students = null;
 
@@ -82,6 +82,33 @@ namespace Project_SPA.Models.Data
             foreach (Entities.Student student in students)
             {
                 if (student.Code.Equals(code))
+                {
+                    return student;
+                }
+            }
+            return null;
+        }
+
+        public Entities.TemporalStudent GetTemporalStudentById(int id)
+        {
+            List<Entities.TemporalStudent> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.TemporalStudents.Select(studentItem => new Entities.TemporalStudent()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.TemporalStudent>();
+            }
+
+            foreach (Entities.TemporalStudent student in students)
+            {
+                if (student.Id == id)
                 {
                     return student;
                 }
@@ -138,6 +165,17 @@ namespace Project_SPA.Models.Data
             int resultToReturn;
             var studentToRemove = _context.Students.Find(id);
             _context.Students.Remove(studentToRemove);
+            resultToReturn = _context.SaveChangesAsync().Result;
+
+            return resultToReturn;
+
+        }
+
+        public int RemoveTemporal(int id) //PRUEBA DISTINTA AL PROFE
+        {
+            int resultToReturn;
+            var studentToRemove = _context.TemporalStudents.Find(id);
+            _context.TemporalStudents.Remove(studentToRemove);
             resultToReturn = _context.SaveChangesAsync().Result;
 
             return resultToReturn;
