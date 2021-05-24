@@ -104,18 +104,18 @@ function LoginStudentValidate(response) {
 ///////////////////////////////////////////////////////////////// LOG IN HTML ELEMENTS FUNCTIONS /////////////////////////////////////////////////////////////////
 ///// SHOW
 function ShowAdmin() {
-    document.getElementById('register').style.display = 'block';
-    document.getElementById('SignOutAdmin').style.display = 'block';
-    document.getElementById('#about').style.display = 'none';
-    document.getElementById('about').style.display = 'none';
-    document.getElementById('#team').style.display = 'block';
+    document.getElementById('#register_student').style.display = 'none';
     document.getElementById('#feature').style.display = 'none';
-    document.getElementById('register').style.display = 'block';
-    document.getElementById('#register').style.display = 'block';
     document.getElementById('#newNot').style.display = 'block';
     document.getElementById('#notice').style.display = 'none';
-    document.getElementById('notice').style.display = 'none';
+    document.getElementById('#register_professor_course').style.display = 'block';
+    document.getElementById('#team').style.display = 'block';
     
+    document.getElementById('about').style.display = 'none';
+    document.getElementById('notice').style.display = 'none';
+    document.getElementById('register').style.display = 'block';
+    document.getElementById('SignOutAdmin').style.display = 'block';
+
 }
 
 function ShowProfessor() {
@@ -128,61 +128,56 @@ function ShowStudent() {
 
 ///// SIGN IN
 function StudentSignIn() {
-    document.getElementById('#about').style.display = 'none';
+    document.getElementById('#edit_student').style.display = 'block';
+    document.getElementById('sign_out_student').style.display = 'block';
+
     document.getElementById('about').style.display = 'none';
     document.getElementById('sign_in').style.display = 'none';
-    document.getElementById('sign_out_student').style.display = 'block';
-    document.getElementById('#feature').style.display = 'none';
-    document.getElementById('#studentProfile').style.display = 'block';
 }
 
 
 ///// HIDE
 function HideAdmin() {
-    document.getElementById('#register').style.display = 'none';
-    document.getElementById('register').style.display = 'none';
-    document.getElementById('SignOutAdmin').style.display = 'none';
-    document.getElementById('#team').style.display = 'none';
     document.getElementById('#courses').style.display = 'none';
-    document.getElementById('#testimonial').style.display = 'none';
-    document.getElementById('#contact').style.display = 'none';
-    document.getElementById('team').style.display = 'none';
-    document.getElementById('register').style.display = 'none';
-    document.getElementById('edit').style.display = 'none';
-    document.getElementById('#studentProfile').style.display = 'none';
-    document.getElementById('studentProfile').style.display = 'none';
-    document.getElementById('sign_out_student').style.display = 'none';
     document.getElementById('#newNot').style.display = 'none';
-    document.getElementById('newNot').style.display = 'none';
+    document.getElementById('#tables').style.display = 'none';
+    document.getElementById('#register_professor_course').style.display = 'none';
+    document.getElementById('#edit_student').style.display = 'none';
 
+    document.getElementById('btn-sign_out_admin').style.display = 'none';
+    document.getElementById('register_professor_course').style.display = 'none';
     
+    document.getElementById('edit').style.display = 'none';
+    document.getElementById('edit_student').style.display = 'none';
+    document.getElementById('btn-sign_out_student').style.display = 'none';
+    document.getElementById('newNot').style.display = 'none';
 }
 
 function HideProfessor() {
-
+    
 }
 
 function HideStudent() {
-    document.getElementById('obj1').style.display = 'none';
+    document.getElementById('register_student').style.display = 'none';
     document.getElementById('sign_in').style.display = 'none';
 }
 
 ///// SIGN OUT
 function SignOutAdmin() {
-    document.getElementById('#about').style.display = 'block';
-    document.getElementById('#register').style.display = 'none';
-    document.getElementById('#team').style.display = 'none';
+    document.getElementById('#register_professor_course').style.display = 'none';
     document.getElementById('#feature').style.display = 'block';
-    document.getElementById('obj1').style.display = 'block';
+    document.getElementById('#newNot').style.display = 'none';
+    document.getElementById('#notice').style.display = 'block';
+    document.getElementById('#about').style.display = 'block';
+
+    document.getElementById('register_student').style.display = 'block';
     document.getElementById('sign_in').style.display = 'block';
     document.getElementById('about').style.display = 'block';
     document.getElementById('register').style.display = 'none';
     document.getElementById('team').style.display = 'none';
     document.getElementById('edit').style.display = 'none';
     document.getElementById('SignOutAdmin').style.display = 'none';
-    document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
-    document.getElementById('#notice').style.display = 'block';
     document.getElementById('notice').style.display = 'block';
 }
 
@@ -191,11 +186,11 @@ function SignOutProfessor() {
 }
 
 function SignOutStudent() {
-    document.getElementById('#studentProfile').style.display = 'none';
-    document.getElementById('studentProfile').style.display = 'none';
+    document.getElementById('#edit_student').style.display = 'none';
+    document.getElementById('edit_student').style.display = 'none';
     document.getElementById('#about').style.display = 'block';
     document.getElementById('#feature').style.display = 'block';
-    document.getElementById('obj1').style.display = 'block';
+    document.getElementById('register_student').style.display = 'block';
     document.getElementById('sign_in').style.display = 'block';
     document.getElementById('about').style.display = 'block';
     document.getElementById('sign_out_student').style.display = 'none';
@@ -222,7 +217,6 @@ function CleanProfessor() {
     document.getElementById("AcadGradeP").value = "Grado Académico";
     document.getElementById("passwordP").value = "";
     document.getElementById("repeatpasswordP").value = "";
-
 }
 
 function CleanCourses() {
@@ -231,7 +225,6 @@ function CleanCourses() {
     document.getElementById("creditsC").value = "";
     document.getElementById("semesterC").value = "Semestre";
     document.getElementById("yearC").value = "Año de carrera";
-
 }
 
 ///// ON CLICK
@@ -282,10 +275,9 @@ function CoursesOnClick() {
     document.getElementById('newNot').style.display = 'none';
 }
 
-function StudentProfileOnClick() {
-    document.getElementById('#studentProfile').style.display = 'block';
-    document.getElementById('studentProfile').style.display = 'block';
-
+function edit_studentOnClick() {
+    document.getElementById('#edit_student').style.display = 'block';
+    document.getElementById('edit_student').style.display = 'block';
 }
 
 function NewNotOnClick() {
@@ -373,7 +365,7 @@ function AddTemporalStudent() { //PISTAS DE AUDITORÍA
 
 function LoadDataTempStudent() {
     $.ajax({
-        url: "/Student/GetTemporalStudents",  
+        url: "/Student/GetTemporalStudents",
 
         type: "GET",
         contentType: "application/json;charset=utf-8",
@@ -387,14 +379,14 @@ function LoadDataTempStudent() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#students" onclick="return AceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RevokeStudent(' + item.id + ')">Denegar</a></td>';         
+                html += '<td><a href="#students" onclick="return AceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RevokeStudent(' + item.id + ')">Denegar</a></td>';
             });
             $('.tbodyTemporalStudent').html(html);
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
         }
-    })
+    });
 }
 
 function LoadDataStudent() {
@@ -414,26 +406,27 @@ function LoadDataStudent() {
                 html += '<td><a href="#myModalEliminate" data-toggle="modal" data-target="#myModalEliminate">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
-    })
+        }
+    });
 }
       
 function Remove(id) { //DISTINTA AL PROFE
     var respuesta = confirm("¿Quieres eliminar a este estudiante?");
     if (respuesta) { 
-      $.ajax({ //Simbolo de dolar todo lo de jquery
-          url: "/Student/Remove",
-          data: JSON.stringify(id),
-          type: "DELETE",
-          contentType: "application/json;charset=utf-8",
-          dataType: "json",
-          success: function (result) {
-              //aca recibo el resultafo del backend (datos,objetos,mensajes)
-              LoadDataStudent();
-          },
-          error: function (errorMessage) {
-              alert(errorMessage.responseText);
-          }
-      })
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Student/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                LoadDataStudent();
+            },
+            error: function (errorMessage) {
+                alert(errorMessage.responseText);
+            }
+        });
     }
 }
 
@@ -451,9 +444,9 @@ function GetStudentsById(id) { //llame al controlador home
         success: function (result) {
             //aca recibo el resultafo del backend (datos,objetos,mensajes)
             document.getElementById("edit").style.display = 'block';
-            document.getElementById("editStud").style.display = 'block';
-            document.getElementById("editProf").style.display = 'none';
-            document.getElementById("editCourse").style.display = 'none';
+            document.getElementById("edit_student").style.display = 'block';
+            document.getElementById("edit_profile").style.display = 'none';
+            document.getElementById("edit_course").style.display = 'none';
 
         },
         error: function (errorMessage) {
@@ -567,7 +560,7 @@ function LoadDataCourse() {
         error: function (errorMessage) {
             alert(errorMessage.responseText);
         }
-    })
+    });
 }
 
 function RemoveCourse(id) { //DISTINTA AL PROFE
@@ -643,7 +636,7 @@ function LoadDataProfessor() {
         error: function (errorMessage) {
             alert(errorMessage.responseText);
         }
-    })
+    });
 }
 
 function RemoveProfessor(id) { //DISTINTA AL PROFE
