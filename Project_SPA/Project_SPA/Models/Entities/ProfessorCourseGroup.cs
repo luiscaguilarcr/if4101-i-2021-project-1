@@ -15,8 +15,6 @@ namespace Project_SPA.Models.Entities
         public DateTime UpdateDate { get; set; }
         public string UpdateUser { get; set; }
 
-        public virtual Course Course { get; set; }
-        public virtual Group Gorup { get; set; }
         public virtual Professor Professor { get; set; }
     }
 }
