@@ -65,27 +65,39 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-first">
                     <ul class="nav">
-                        <li><a href="#top" id="#top" class="smoothScroll">Inicio</a></li>
-                        <li><a href="#feature" id="#feature" class="smoothScroll">Iniciar sesión</a></li>
-                        <li><a href="#about" id="#about" class="smoothScroll">Nuevo estudiante</a></li>
-                        <li><a href="#register" id="#register" onclick="registerOnClick()" class="smoothScroll">Registro</a></li>
-                        <li><a href="#studentProfile" id="#studentProfile" onclick="studentProfileOnClick()" class="smoothScroll">Información</a></li>
+                        <!-- GENERAL VIEW -->
+                        <li><a href="#top" id="#top" class="smoothScroll" onclick="StartOnClick()">Inicio</a></li>
+                        <li><a href="#log_in" id="#log_in" class="smoothScroll">Iniciar sesión</a></li>
+                        <li><a href="#sign_in_student" id="#sign_in_student" class="smoothScroll">Nuevo estudiante</a></li>
+
+                        <!-- ADMIN VIEW -->
+                        <li><a href="#register_professor_course" id="#register_professor_course" onclick="RegisterOnClick()" class="smoothScroll">Agregar</a></li>
                         <li>
-                            <a href="#team" id="#team" class="smoothScroll">Tablas</a>
+                            <a href="#tables" id="#tables" class="smoothScroll">Tablas</a>
                             <ul>
-                                <li><a href="#teachers" onclick="teachersOnClick()">Profesor</a></li>
+                                <li><a href="#teachers" onclick="TeachersOnClick()">Profesor</a></li>
 
-                                <li><a href="#students" onclick="studentsOnClick()">Estudiante</a></li>
+                                <li><a href="#students" onclick="StudentsOnClick()">Estudiante</a></li>
 
-                                <li><a href="#courses" onclick="coursesOnClick()">Curso</a></li>
+                                <li><a href="#courses" onclick="CoursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#courses" id="#courses" class="smoothScroll">Courses</a></li>
-                        <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
-                        <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
+                        <li><a href="#student_register_requests" id="#student_register_requests" onclick="TemporalStudentsOnClick()" class="smoothScroll">Solicitudes de registro</a></li>
+
+                        <li><a href="#edit_admin_profile" id="#edit_admin_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
+
+                        <li><a href="#newNot" id="#newNot" onclick="NewNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
+
+                        <!-- PROFESSOR VIEW -->
+                        <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
+
+                        <!-- STUDENT VIEW -->
+                        <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
+
+                        <!-- GENERAL VIEW -->
                         <li><a href="#notice" id="#notice" class="smoothScroll">Noticias</a></li>
-                        <li><a href="#newNot" id="#newNot" onclick="newNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
+
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -95,7 +107,6 @@
 
         </div>
     </section>
-
 
 
     <!-- HOME -->
@@ -169,13 +180,10 @@
     </section>
 
 
+    <!-- LOG IN -->
+    <section id="log_in">
 
-
-
-
-    <!-- FEATURE -->
-    <section id="feature">
-        <div id="sign_in" class="container">
+        <div id="log_in" class="container">
             <div class="row">
 
                 <div class="col-md-4 col-sm-2">
@@ -184,7 +192,6 @@
 
                 <div class="col-md-4">
                     <div class="feature-thumb">
-                        <!-- <span>Contraseña</span>-->
                         <br><br />
                         <h3>Usuario</h3>
                         <input type="text" id="userName" name="userName" class="form-control" placeholder="Ingrese su Nombre de Usuario" required="required" autocomplete="off">
@@ -215,7 +222,28 @@
                 <div class="col-md-4 col-sm-4">
                     <div id="logFirst" class="feature-thumb">
 
-                        <button class="submit-btn form-control" id="btn_signout" onclick="return sign_out_admin()" id="btn-sign_out_admin">Cerrar sesión</button>
+                        <button class="submit-btn form-control" id="btn-sign_out_admin" onclick="return HideAdmin()">Cerrar sesión</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="sign_out_professor" class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-sm-4">
+                    <div id="UCRLog" height="10">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <div class="feature-thumb">
+
+                        <button class="submit-btn form-control" id="btn-sign_out_professor" onclick="return HideProfessor()">Cerrar sesión</button>
 
                     </div>
                 </div>
@@ -236,7 +264,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="feature-thumb">
 
-                        <button class="submit-btn form-control" id="btn_signout" onclick="return sign_out_student()" id="btn-sign_out_student">Cerrar sesión</button>
+                        <button class="submit-btn form-control" id="btn-sign_out_student" onclick="return HideStudent()">Cerrar sesión</button>
 
                     </div>
                 </div>
@@ -246,11 +274,10 @@
 
     </section>
 
-    <!-- preguntar por RenderBody-->
-    <!-- ABOUT -->
-    <section id="about">
-        <!-------------------------------------------------------Estudiante-->
-        <div id="obj1" class="container">
+
+    <!-- SIGN STUDENT -->
+    <section id="sign_in_student">
+        <div id="sign_in_student" class="container">
             <div class="row">
 
                 <div class="col-md-6 col-sm-12">
@@ -261,7 +288,7 @@
                             <span><i class="fa fa-university"></i></span>
                             <figcaption>
                                 <h3>Informática Empresarial</h3>
-                                <p>La carrera de informática Empresarial en proceso de acreditación por SINAES.</p>
+                                <p>La carrera de Informática Empresarial en proceso de acreditación por SINAES.</p>
                             </figcaption>
                         </figure>
 
@@ -289,9 +316,10 @@
 
                         <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña*" autocomplete="off" required>
 
-                        <button class="submit-btn form-controlS" onclick="return AddTemporalStudent()" id="btn_register_student">Registrar</button>
+                        <button class="submit-btn form-controlS" onclick="return AddTemporalStudent()" id="btn_sign_in_student">Registrar</button>
 
-                        <label typeof="text" name="information" id="information" align="center"></label>
+                        <label typeof="text" name="information" id="informationSignIn" align="center"></label>
+
                     </div>
                 </div>
 
@@ -300,12 +328,12 @@
     </section>
 
 
-
-    <section id="register">
-        <!-------------------------------------------------------Profe-->
-        <div id="obj2" class="container">
+    <!-- REGISTER PROFESSOR COURSE -->
+    <section id="register_professor_course">
+        <!-------------------------------------------------------Professor-->
+        <div id="register_professor_course" class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div id="register_professor" class="col-md-6 col-sm-12">
                     <div class="entry-form">
 
                         <h2>Nuevo Profesor</h2>
@@ -335,8 +363,8 @@
 
                     </div>
                 </div>
-                <!-------------------------------------------------------Cursos-->
-                <div id="obj3" class="container">
+                <!-------------------------------------------------------Course-->
+                <div id="register_course" class="container">
                     <div class="col-md-offset-1 col-md-4 col-sm-12">
                         <div class="row">
                             <div class="entry-form">
@@ -380,37 +408,38 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
 
-    <!-- Modal -->
+    <!-- MODAL -->
     <div id="myModalEliminate" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-   
-    <!-- Modal content-->
-    <div class="modal-content">
-         <div class="modal-header">
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-             <h4 class="modal-title">Modal Header</h4>
-         </div>
-         <div class="modal-body">
-             <p>Esta seguro de querer eliminar este usuario</p>
-             <label id="idTemp" hidden></label>
-         </div>
-         <div class="modal-footer">
-             <button type="button" id="acceMod" class="btn btn-default" data-dismiss="modal" onclick="return Remove(" idTemp")">Aceptar</button>
-             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-         </div>
-     </div>
+        <div class="modal-dialog">
 
-     </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Esta seguro de querer eliminar este usuario</p>
+                    <label id="idTemp" hidden></label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="acceMod" class="btn btn-default" data-dismiss="modal" onclick="return Remove(" idTemp")">Aceptar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
-    <!--   TEAM-->
-    <section id="team">
+    <!-- TABLES -->
+    <section id="tables">
         <div class="container">
             <div class="row">
 
@@ -534,39 +563,16 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
 
-    <section id="edit">
-        <div id="editStud" class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="entry-form">
 
-                        <h2>Editar Estudiante</h2>
-                        <input type="text" id="EditcodeS" name="Editcode" class="form-control" placeholder="Carnet" required="">
+    <!-- EDIT PROFESSOR STUDENT COURSE -->
+    <section id="edit_professor_student_course">
 
-                        <input type="text" id="EditnameS" name="Editname" class="form-control" placeholder="Nombre completo" required="">
-
-                        <input type="email" id="EditemailS" name="Editemail" class="form-control" placeholder="Correo electrónico" required="">
-
-                        <input type="password" id="EditpasswordS" name="Editpassword" class="form-control" placeholder="Contraseña" required="">
-
-                        <!--  <input type="password" name="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="">-->
-
-                        <button class="submit-btn form-controlS" onclick="return Update() " id="btn_edit_student">Aceptar</button>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="editProf" class="container">
+        <!-------------------------------------------------------ProfessorProfile-->
+        <div id="edit_professor" class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="entry-form">
@@ -596,13 +602,38 @@
 
                         <button class="submit-btn form-control" id="btn_edit_professor">Aceptar</button>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-------------------------------------------------------StudentProfile-->
+        <div id="edit_student" class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="entry-form">
+
+                        <h2>Editar Estudiante</h2>
+                        <input type="text" id="EditcodeS" name="Editcode" class="form-control" placeholder="Carnet" required="">
+
+                        <input type="text" id="EditnameS" name="Editname" class="form-control" placeholder="Nombre completo" required="">
+
+                        <input type="email" id="EditemailS" name="Editemail" class="form-control" placeholder="Correo electrónico" required="">
+
+                        <input type="password" id="EditpasswordS" name="Editpassword" class="form-control" placeholder="Contraseña" required="">
+
+                        <!--  <input type="password" name="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="">-->
+
+                        <button class="submit-btn form-controlS" onclick="return Update() " id="btn_edit_student">Aceptar</button>
+
 
                     </div>
                 </div>
             </div>
         </div>
-        <!-------------------------------------------------------Cursos-->
-        <div id="editCourse" class="container">
+
+        <!-------------------------------------------------------Course-->
+        <div id="edit_course" class="container">
             <div class="col-md-offset-1 col-md-4 col-sm-12">
                 <div class="row">
                     <div class="entry-form">
@@ -648,11 +679,56 @@
         </div>
     </section>
 
-    <!--StudentProfile-->
-    <section id="studentProfile">
+    <!-- STUDENT REGISTER REQUESTS -->
+    <section id="student_register_requests" style="background-color:#c0effd">
+
+        <div id="student_register_requests" class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Solicitudes de estudiantes</h2>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+
+                                    <th>
+                                        Carnet
+                                    </th>
+                                    <th>
+                                        Nombre Completo
+                                    </th>
+                                    <th>
+                                        Correo Electrónico
+                                    </th>
+
+                                    <th>
+                                        Acción
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyTemporalStudent">
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
 
 
-        <div id="profileStudent" class="container">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- EDIT ADMIN PROFILE -->
+    <section id="edit_admin_profile">
+
+        <div id="edit_admin_profile" class="container">
             <div class="col-md-offset-1 col-md-4 col-sm-12">
                 <div class="row">
                     <div class="entry-form">
@@ -668,7 +744,7 @@
 
                         <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
 
-                        <button class="submit-btn form-controlS" onclick="return " id="btn_register_student">Editar</button>
+                        <button class="submit-btn form-controlS" id="btn_register_admin" onclick="return ">Editar</button>
 
                     </div>
 
@@ -677,9 +753,71 @@
             </div>
         </div>
 
+    </section>
+
+    <!-- EDIT PROFESSOR PROFILE -->
+    <section id="edit_professor_profile">
+
+        <div id="edit_professor_profile" class="container">
+            <div class="col-md-offset-1 col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="entry-form">
+
+                        <h2>Editar informacion personal</h2>
+                        <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
+
+                        <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
+
+                        <input type="email" id="emailS" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
+
+                        <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
+
+                        <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
+
+                        <button class="submit-btn form-controlS" onclick="return " id="btn_register_professor">Editar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
 
     </section>
 
+
+
+    <!-- EDIT STUDENT PROFILE -->
+    <section id="edit_student_profile">
+
+        <div id="edit_student_profile" class="container">
+            <div class="col-md-offset-1 col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="entry-form">
+
+                        <h2>Editar informacion personal</h2>
+                        <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
+
+                        <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
+
+                        <input type="email" id="emailS" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
+
+                        <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
+
+                        <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
+
+                        <button class="submit-btn form-controlS" onclick="return " id="btn_sign_in_student">Editar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- NEW NOTICE -->
     <section id="newNot" style="background-color:#c0effd">
 
         <div id="divcommentary" class="container">
@@ -697,7 +835,7 @@
                             <td>
                                 <span><i class="fa fa-picture-o fa-2x fa-lg"></i></span>
                             </td>
-                            <td><input type="file" onchange="previewFile()"> </td>
+                            <td><input type="file" onchange="PreviewFile()"> </td>
                         </tr>
                     </table>
                     <img src="" height="200" id="image" alt="Image preview...">
@@ -724,6 +862,7 @@
         <br />
         <br />
     </section>
+
 
     <section id="Newconsult">
 
@@ -815,6 +954,7 @@
     </section>>
 
 
+    <!-- NOTICE -->
     <section id="notice">
         <div id="divNot">¡Hola mundo!</div>
         <div id="divNot">Hello world!</div>
@@ -822,6 +962,7 @@
         <div id="divNot">Привет мир!</div>
         <div id="divNot">Hallo wereld!</div>
     </section>
+
 
     <!-- FOOTER -->
     <footer id="footer">
