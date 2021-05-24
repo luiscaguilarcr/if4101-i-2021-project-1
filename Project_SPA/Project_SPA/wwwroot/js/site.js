@@ -215,16 +215,16 @@ function CleanCourses() {
 }
 
 //////////////////////////////////////////////////// ON CLICK ////////////////////////////////////////////////////
-//GENERAL
+/////////////// GENERAL ///////////////
 function RegisterOnClick() {
     document.getElementById('register').style.display = 'block';
     document.getElementById('team').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
 }
 
-//ADMIN
+/////////////// ADMIN ///////////////
 
-//PROFESSOR
+/////////////// PROFESSOR ///////////////
 function TeachersOnClick() {
     LoadDataProfessor();
     document.getElementById('team').style.display = 'block';
@@ -235,7 +235,7 @@ function TeachersOnClick() {
     document.getElementById('newNot').style.display = 'none';
 }
 
-//STUDENT
+/////////////// STUDENT ///////////////
 function StudentsOnClick() {
     LoadDataStudent();
     document.getElementById('team').style.display = 'block';
@@ -261,7 +261,7 @@ function EditStudentOnClick() {
     document.getElementById('edit_student').style.display = 'block';
 }
 
-//COURSE
+/////////////// COURSE ///////////////
 function CoursesOnClick() {
     LoadDataCourse();
     document.getElementById('team').style.display = 'block';
@@ -272,7 +272,7 @@ function CoursesOnClick() {
     document.getElementById('newNot').style.display = 'none';
 }
 
-//NOTICE
+/////////////// NOTICE ///////////////
 function NewNotOnClick() {
     document.getElementById('newNot').style.display = 'block';
     document.getElementById('register').style.display = 'none';
@@ -295,13 +295,85 @@ function previewFile() {
 }
 
 //////////////////////////////////////////////////// AJAX FUNCTIONALITIES ////////////////////////////////////////////////////
-//ADMIN
+/////////////// ADMIN ///////////////
 
 
-//PROFESSOR
+/////////////// PROFESSOR ///////////////
+function AddProfessor() {
 
+    var professor = {
+        code: $('#codeP').val(),
+        name: $('#nameP').val(),
+        email: $('#emailP').val(),
+        password: $('#passwordP').val(),
+        AcademicDegreeId: parseInt($('#AcadGradeP').val()),
+    };
 
-//STUDENT
+    $.ajax({
+        url: "/Professor/Add",
+        data: JSON.stringify(professor),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            alert("insertado con exito");
+            CleanProfessor();
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataProfessor() {
+    $.ajax({
+        url: "/Professor/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.email + '</td>';
+                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Edit</a> | <a href="#teachers" onclick="RemoveProfessor(' + item.id + ')">Delete</a></td>';
+            });
+            $('.tbodyProfessor').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function RemoveProfessor(id) { //DISTINTA AL PROFE
+
+    var respuesta = confirm("¿Quieres eliminar a este profesor?");
+    if (respuesta) {
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Professor/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                //alert("ELIMINADO");
+                LoadDataProfessor();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
+}
+
+/////////////// STUDENT ///////////////
 function AddStudent() {
     var student = {
         code: $('#codeS').val(),
@@ -325,3 +397,252 @@ function AddStudent() {
     });
 }
 
+function AddTemporalStudent() {
+
+    var student = {
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
+    };
+
+    $.ajax({
+        url: "/Student/AddTemporal",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            CleanStudent();
+            document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+            document.getElementById("information").style.color = "green";
+
+        },
+        error: function (errorMessage) {
+            document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
+            document.getElementById("information").style.color = "red";
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function GetStudentsById(id) { //llame al controlador home
+
+    var id;
+    document.getElementById("getById").style.visibility = 'visible'; //NUEVA SECCIÓN DE EDITAR EN HTML
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Home/GetStudentsById",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            document.getElementById("edit").style.display = 'block';
+            document.getElementById("editStud").style.display = 'block';
+            document.getElementById("editProf").style.display = 'none';
+            document.getElementById("editCourse").style.display = 'none';
+
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataStudent() {
+    $.ajax({
+        url: "/Student/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.email + '</td>';
+                html += '<td><a href="#myModalEliminate" data-toggle="modal" data-target="#myModalEliminate">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+            });
+            $('.tbodyStudent').html(html);
+        })
+}
+
+function LoadDataTempStudent() {
+    $.ajax({
+        url: "/Student/GetTemporalStudents",
+
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                document.getElementById("idTemp").value = item.id;
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.email + '</td>';
+                html += '<td><a href="#students" onclick="return AceptStudent(' + item.id + ')">Aceptar</a> | <a href="#students" onclick="RevokeStudent(' + item.id + ')">Denegar</a></td>';
+            });
+            $('.tbodyTemporalStudent').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function RemoveStudent(id) {
+    var respuesta = confirm("¿Quieres eliminar a este estudiante?");
+    if (respuesta) {
+        $.ajax({ 
+            url: "/Student/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                LoadDataStudent();
+            },
+            error: function (errorMessage) {
+                alert(errorMessage.responseText);
+            }
+        })
+    }
+}
+
+function RemoveTemporalStudent(id) {
+   
+    $.ajax({
+        url: "/Student/Remove",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            LoadDataStudent();
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+    
+}
+
+function UpdateStudent() {
+
+    var student = {
+        id: parseInt($('#id_update').val()),  // TODO: Load state from previously suspended application
+        code: $('#code').val(),
+        name: $('#name').val(),
+        email: $('#email').val(),
+        password: $('#password').val()
+    };
+
+    $.ajax({
+        url: "/Student/Update",
+        data: JSON.stringify(student),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+
+            LoadData();
+            CloseEdit()
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+/////////////// COURSE ///////////////
+function AddCourse() {
+
+    var course = {
+        code: $('#codeC').val(),
+        name: $('#nameC').val(),
+        credits: parseInt($('#creditsC').val()),
+        semester: $('#semesterC').val(),
+        year: parseInt($('#yearC').val()),
+    };
+
+    $.ajax({
+        url: "/Course/Add",
+        data: JSON.stringify(course),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            alert("insertado con exito");
+            CleanCourses();
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataCourse() {
+
+    $.ajax({
+        url: "/Course/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.credits + '</td>';
+                html += '<td>' + item.semester + '</td>';
+                html += '<td>' + item.year + '</td>';
+                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Edit</a> | <a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
+            });
+            $('.tbodyCourse').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function RemoveCourse(id) { //DISTINTA AL PROFE
+
+    var respuesta = confirm("¿Quieres eliminar a este curso?");
+    if (respuesta) {
+
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Course/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                LoadDataCourse();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
+
+}
+
+//////////////////////////////////////////////////// GENERAL FUNCTIONS ////////////////////////////////////////////////////
+function CloseEdit() {
+    document.getElementById("edit").style.display = 'none';
+}
