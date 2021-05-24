@@ -8,6 +8,7 @@ namespace Project_SPA.Controllers
     {
         private readonly IF4101_2021_SPAContext _context;
         StudentDAO studentDAO;
+        MailController mailController;
 
         public StudentController(IF4101_2021_SPAContext context)
         {
@@ -46,6 +47,7 @@ namespace Project_SPA.Controllers
         public ActionResult AddTemporal([FromBody] TemporalStudent student)
         {
             studentDAO = new StudentDAO(_context);
+
             return Ok(studentDAO.AddTemporal(student));
         }
 

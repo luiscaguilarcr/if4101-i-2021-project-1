@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project_SPA.Models.Domain;
 using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,9 @@ namespace Project_SPA
             services.AddControllersWithViews();
             services.AddDbContext<IF4101_2021_SPAContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailService, MailService>();
 
             services.AddSession(options =>
             {

@@ -524,7 +524,7 @@ function UpdateStudent() {
 
 function AddTemporalStudent() {
 
-    var student = {
+    var temporalStudent = {
         code: $('#codeS').val(),
         name: $('#nameS').val(),
         email: $('#emailS').val(),
@@ -533,14 +533,26 @@ function AddTemporalStudent() {
 
     $.ajax({
         url: "/Student/AddTemporal",
-        data: JSON.stringify(student),
+        data: JSON.stringify(temporalStudent),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             CleanStudent();
-            document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-            document.getElementById("information").style.color = "green";
+
+            $.ajax({
+                url: "/api/mail/sendRequestEmail/",
+                data: JSON.stringify(temporalStudent),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+                    document.getElementById("information").style.color = "green";
+                    alert("Su solicitud se ha enviado correctamente");
+                }
+
+            });
 
         },
         error: function (errorMessage) {
