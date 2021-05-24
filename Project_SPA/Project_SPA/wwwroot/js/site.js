@@ -127,7 +127,7 @@ function ShowStudent() {
 }
 
 ///// SIGN IN
-function StudentSignIn() {
+function HideStudentSignIn() {
     document.getElementById('#edit_student').style.display = 'block';
     document.getElementById('sign_out_student').style.display = 'block';
 
@@ -138,8 +138,9 @@ function StudentSignIn() {
 
 ///// HIDE
 function HideAdmin() {
-    document.getElementById('#courses').style.display = 'none';
     document.getElementById('#newNot').style.display = 'none';
+
+    document.getElementById('#courses').style.display = 'none';
     document.getElementById('#tables').style.display = 'none';
     document.getElementById('#register_professor_course').style.display = 'none';
     document.getElementById('#edit_student').style.display = 'none';
