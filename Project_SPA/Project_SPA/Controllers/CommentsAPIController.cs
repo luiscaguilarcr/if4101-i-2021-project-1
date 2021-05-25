@@ -143,8 +143,7 @@ namespace Project_SPA.Controllers
 
         }
 
-        // DELETE: api/ApiWithActions/5
-        [Route("[action]")]
+        // DELETE: api/ApiWithActions/5[Route("[action]")]
         [HttpDelete]
         public JsonResult Delete([FromBody] int id)
         {
@@ -171,5 +170,6 @@ namespace Project_SPA.Controllers
                 }
             }
         }
+        
     }
 }
