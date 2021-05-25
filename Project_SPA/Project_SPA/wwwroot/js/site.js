@@ -5,9 +5,16 @@
 
 
 $(document).ready(function () { //DOM cargado, siempre va 
+<<<<<<< HEAD
+    ocultarAdmin();
+    LoadDataNews();
+    OnlySeeNotice();
+    LoadDataNewsAdmin();
+=======
     HideAdmin();
     HideProfessor();
     HideStudent();
+>>>>>>> origin/Ajustes
 });
 
 //////////////////////////////////////////////////// HIDE ////////////////////////////////////////////////////
@@ -250,6 +257,42 @@ function CleanStudent() {
     document.getElementById("repeatpasswordS").value = "";
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function aparecerAdmin() {
+    document.getElementById('register').style.display = 'block';
+    document.getElementById('sign_out_admin').style.display = 'block';
+    document.getElementById('#about').style.display = 'none';
+    document.getElementById('about').style.display = 'none';
+    document.getElementById('#team').style.display = 'block';
+    document.getElementById('#feature').style.display = 'none';
+    document.getElementById('register').style.display = 'block';
+    document.getElementById('#register').style.display = 'block';
+    document.getElementById('#newNot').style.display = 'block';
+    document.getElementById('#notice').style.display = 'none';
+    document.getElementById('notice').style.display = 'none';   
+   
+
 function CleanProfessor() {
     document.getElementById("nameP").value = "";
     document.getElementById("codeP").value = "";
@@ -265,6 +308,7 @@ function CleanCourses() {
     document.getElementById("creditsC").value = "";
     document.getElementById("semesterC").value = "Semestre";
     document.getElementById("yearC").value = "Año de carrera";
+
 }
 
 //////////////////////////////////////////////////// ON CLICK ////////////////////////////////////////////////////
@@ -372,8 +416,14 @@ function NewNotOnClick() {
     document.getElementById('edit_admin_profile').style.display = 'none';
 }
 
+
+//------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
+
+
 //////////////////////////////////////////////////// API ////////////////////////////////////////////////////
 function PreviewFile() {
+
     var preview = document.querySelector('#image');
     var file = document.querySelector('input[type=file]').files[0];
     var reader = new FileReader();
@@ -387,7 +437,11 @@ function PreviewFile() {
     }
 }
 
+
+
+
 //////////////////////////////////////////////////// AJAX FUNCTIONALITIES ////////////////////////////////////////////////////
+
 
 /////////////// ADMIN ///////////////
 
@@ -420,7 +474,11 @@ function AddProfessor() {
     });
 }
 
+
+
+
 function LoadDataProfessor() {
+
     $.ajax({
         url: "/Professor/GetEF", //DUDA CUAL GET ES 
         type: "GET",
@@ -768,6 +826,7 @@ function LoadDataCourse() {
     })
 }
 
+
 function RemoveCourse(id) { //DISTINTA AL PROFE
 
     var respuesta = confirm("¿Quieres eliminar a este curso?");
@@ -797,6 +856,221 @@ function CloseEdit() {
     document.getElementById("edit").style.display = 'none';
 }
 
+
+
+//-------------------------------------------------------------------------------------------
+
+function AddNews() {
+
+   /* var
+
+    function unpack(str) {
+        var bytes = [];
+        for (var i = 0; i < str.length; i++) {
+            var char = str.charCodeAt(i);
+            bytes.push(char >>> 8);
+            bytes.push(char & 0xFF);
+        }
+        return bytes;
+    }*/
+
+    var news = {
+
+        newstitle: $('#title').val(),
+        descrip: $('#commentary').val(),
+        image: $('#image').val(),
+        file: $('#file').val()
+    };
+
+    $.ajax({
+        url: "/NewsAPI/Post",
+        data: JSON.stringify(news),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+          //  Clean_student();
+            alert("inserto");
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataNews() {
+    $.ajax({
+        url: "/NewsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
+                document.getElementById("SecretIdNews").value = item.id;
+                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#TableComments" onclick="return tablesSee()">Ver comentarios</a></td>'; 
+            });
+            $('.tbodyOptionsNotice').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function tablesSee() {
+    LoadDataComment();
+    document.getElementById('TableComments').style.display = 'block';
+    document.getElementById('OptionsNotice').style.display = 'none';
+}
+
+function tablesOriginSee() {
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'block';
+}
+
+function OnlySeeNotice() {
+    $.ajax({
+        url: "/NewsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' +'<br/>'+ item.descrip + '</td>';
+              
+            });
+            $('.tbodyOnlySeeNotice').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function AddComment() {
+
+    var comment = {
+
+        comment1: $('#newCommentNews').val(),
+        idnews: parseInt($('#SecretIdNews').val())
+    };
+
+    $.ajax({
+        url: "/CommentsAPI/Post",
+        data: JSON.stringify(comment),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //  Clean_student();
+            alert("inserto");
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function DeleteComment(id) { //llame al controlador home
+
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/CommentsAPI/Delete",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            alert("ELIMINADO");
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataComment() {
+    $.ajax({
+        url: "/CommentsAPI/Get", 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.comment1 + '</td>';         
+            });
+            $('.tbodyComments').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function LoadDataNewsAdmin() {
+    $.ajax({
+        url: "/NewsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
+                html += '<td><a href="#">Eliminar publicación</a> | <a href="#tbodyCommentsAdmin" onclick="return tablesSeeAdmin()">Ver comentarios</a></td>';
+            });
+            $('.tbodyOptionsNoticeAdmin').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function tablesSeeAdmin() {
+    LoadDataCommentsAdmin();
+    document.getElementById('tbodyCommentsAdmin').style.display = 'block';
+    document.getElementById('OptionsNoticeAdmin').style.display = 'none';
+}
+
+function tablesOriginSeeAdmin() {
+    document.getElementById('tbodyCommentsAdmin').style.display = 'none';
+    document.getElementById('OptionsNoticeAdmin').style.display = 'block';
+}
+
+function LoadDataCommentsAdmin() {
+    $.ajax({
+        url: "/CommentsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.idComment + '</td>';
+                html += '<td>' + item.comment1 + '</td>';
+                html += '<td><a href="#">Eliminar publicación</a> | <a href="#" onclick="DeleteComment(' + item.idComment + ')">Eliminar</a></td>';
+            });
+            $('.tbodyCommentsAdmin').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
 
 ///////////////////////////////////////////////////////////CHAT/////////////////////////////////////////////////
 
@@ -855,5 +1129,5 @@ function CloseEdit() {
         return setTimeout(function () {
             return sendMessage('I\'m fine, thank you!');
         }, 2000);
-    });
-}.call(this));
+   });
+}

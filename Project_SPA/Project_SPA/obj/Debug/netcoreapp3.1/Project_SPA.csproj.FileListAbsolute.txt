@@ -151,7 +151,6 @@ E:\UCR\Lenguajes\Proyecto #1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\ob
 E:\UCR\Lenguajes\Proyecto #1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.dll
 E:\UCR\Lenguajes\Proyecto #1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.pdb
 E:\UCR\Lenguajes\Proyecto #1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.genruntimeconfig.cache
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -175,21 +174,249 @@ C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\P
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\appsettings.json
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.exe
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.deps.json
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.runtimeconfig.json
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.runtimeconfig.dev.json
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.pdb
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.Views.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Project_SPA.Views.pdb
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.AssemblyInfoInputs.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.AssemblyInfo.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.csproj.CoreCompileInputs.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.MvcApplicationPartsAssemblyInfo.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.RazorAssemblyInfo.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.RazorAssemblyInfo.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\staticwebassets\Project_SPA.StaticWebAssets.Manifest.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\staticwebassets\Project_SPA.StaticWebAssets.xml
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project_SPA.styles.css
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.TagHelpers.input.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.TagHelpers.output.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.RazorCoreGenerate.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.RazorTargetAssemblyInfo.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.RazorTargetAssemblyInfo.cs
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.Views.pdb
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.csproj.CopyComplete
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.pdb
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.genruntimeconfig.cache
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\UCR\Lenguajes\Proyecto 1\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\obj\Debug\netcoreapp3.1\Project_SPA.csprojAssemblyReference.cache
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\manit\Desktop\ProyectoAlgoritmos\if4001-i-2021-proyecto-1\Project_SPA\Project_SPA\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll

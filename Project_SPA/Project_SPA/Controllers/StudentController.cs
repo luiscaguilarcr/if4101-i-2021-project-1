@@ -78,7 +78,11 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.Edit(student));
         }
 
+<<<<<<< HEAD
+        public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
+=======
         public ActionResult Remove([FromBody] int id)
+>>>>>>> origin/Ajustes
         {
             studentDAO = new StudentDAO(_context);
             return Ok(studentDAO.Remove(id));

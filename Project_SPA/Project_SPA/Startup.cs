@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Project_SPA.Mail.Domain;
 using Project_SPA.Models.Entities;
+using Project_SPA.Models.EntitiesAPI;
 using System;
 
 namespace Project_SPA
@@ -23,8 +24,14 @@ namespace Project_SPA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddDbContext<IF4101_2021_SPAContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<IF4101_SPA_APIContext>(options =>
+options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection2")));
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddTransient<IMailService, MailService>();
