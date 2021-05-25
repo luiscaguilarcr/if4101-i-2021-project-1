@@ -50,7 +50,7 @@ namespace Project_API.Models.Entities
 
                 entity.Property(e => e.IdUser).HasColumnName("id_user");
 
-                entity.HasOne(d => d.IdNewsNavigation)
+                entity.HasOne(d => d.News)
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.IdNews)
                     .HasConstraintName("FK_Comment_News");

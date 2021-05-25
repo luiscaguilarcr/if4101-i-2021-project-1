@@ -12,6 +12,6 @@ namespace Project_API.Models.Entities
         public int IdUser { get; set; }
         public int IdNews { get; set; }
 
-        public virtual News IdNewsNavigation { get; set; }
+        public virtual News News { get; set; }
     }
 }

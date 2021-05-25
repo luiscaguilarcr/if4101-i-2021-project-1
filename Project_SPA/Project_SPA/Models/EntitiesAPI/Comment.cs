@@ -12,6 +12,6 @@ namespace Project_SPA.Models.EntitiesAPI
         public int IdUser { get; set; }
         public int IdNews { get; set; }
 
-        public virtual News NewsID { get; set; }
+        public virtual News News { get; set; }
     }
 }

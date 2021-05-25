@@ -84,7 +84,7 @@
                         <li><a href="#courses" id="#courses" class="smoothScroll">Courses</a></li>
                         <li><a href="#testimonial" id="#testimonial" class="smoothScroll">Reviews</a></li>
                         <li><a href="#contact" id="#contact" class="smoothScroll">Contact</a></li>
-                        <li><a href="#notice" id="#notice" class="smoothScroll">Noticias</a></li>
+                        <li><a href="#OnlySeeNotice" id="#OnlySeeNotice" class="smoothScroll">Noticias</a></li>
                         <li><a href="#newNot" id="#newNot" onclick="newNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
                     </ul>
                 </ul>
@@ -762,7 +762,7 @@
     </section>
 
 
-    <section id="Comments">
+    <section id="TableComments">
         <div id="courses" class="container">
             <div class="row">
                 <div class="section-title">
@@ -781,7 +781,7 @@
                             </thead>
                             <tbody class="tbodyComments">
                             </tbody>
-                            <td><button class="submit-btn form-control" onclick="" id="cancel">Cerrar comentarios</button></td>
+                            <td><button class="submit-btn form-control" onclick="return tablesOriginSee()" id="cancel">Cerrar comentarios</button></td>
                         </table>
                        
                     </div>
@@ -803,7 +803,7 @@
         <div class="modal-body">
 
             <div class="row">
-                <input type="text" class="form-control" id="newCommentNews" placeholder="Nuevo comentario" autocomplete="off">
+                <input type="text" class="form-control" id="newCommentNews" style="WIDTH: 450px; HEIGHT: 200px" placeholder="Nuevo comentario" autocomplete="off">
                 <input type="text" id="SecretIdNews" style="visibility:hidden" >
             </div>
         </div>

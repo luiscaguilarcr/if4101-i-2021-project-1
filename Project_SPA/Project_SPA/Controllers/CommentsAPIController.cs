@@ -32,7 +32,7 @@ namespace Project_SPA.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44336/api/Comment/");//CAMBIAR URL
+                    client.BaseAddress = new Uri("https://localhost:44336/api/Comments/");//CAMBIAR URL
                     var responseTask = client.GetAsync("GetComments");
                     responseTask.Wait();
 
@@ -116,7 +116,7 @@ namespace Project_SPA.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44336/api/Comment/");
+                    client.BaseAddress = new Uri("https://localhost:44336/api/Comments/");
                     var postTask = client.PostAsJsonAsync("PostComment", comment);
                     postTask.Wait();
 

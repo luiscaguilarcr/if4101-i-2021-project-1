@@ -125,6 +125,8 @@ function ocultarAdmin() {
     document.getElementById('sign_out_student').style.display = 'none';
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+
 }
 
 function aparecerAdmin() {
@@ -138,8 +140,8 @@ function aparecerAdmin() {
     document.getElementById('#register').style.display = 'block';
     document.getElementById('#newNot').style.display = 'block';
     document.getElementById('#notice').style.display = 'none';
-    document.getElementById('notice').style.display = 'none';
-    
+    document.getElementById('notice').style.display = 'none';   
+   
 }
 
 function sign_out_admin() {
@@ -636,7 +638,7 @@ function LoadDataNews() {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
                 document.getElementById("SecretIdNews").value = item.id;
-                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#">Ver comentarios</a></td>'; 
+                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#TableComments" onclick="return tablesSee()">Ver comentarios</a></td>'; 
             });
             $('.tbodyOptionsNotice').html(html);
         },
@@ -644,6 +646,17 @@ function LoadDataNews() {
             alert(errorMessage.responseText);
         }
     })
+}
+
+function tablesSee() {
+    LoadDataComment();
+    document.getElementById('TableComments').style.display = 'block';
+    document.getElementById('OptionsNotice').style.display = 'none';
+}
+
+function tablesOriginSee() {
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'block';
 }
 
 function OnlySeeNotice() {
@@ -692,9 +705,9 @@ function AddComment() {
     });
 }
 
-/*function LoadDataComment() {
+function LoadDataComment() {
     $.ajax({
-        url: "/CommentAPI/Get", //DUDA CUAL GET ES 
+        url: "/CommentsAPI/Get", 
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -702,16 +715,12 @@ function AddComment() {
             var html = '';
             $.each(result, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.idcomment + '</td>';
-                html += '<td>' + item.comment + '</td>';
-                html += '<td>' + item. + '</td>';
-                html += '<td>' + item.email + '</td>';
-               // html += '<td><a href="#students" onclick="return GetStudentsById(' + item.id + ')">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+                html += '<td>' + item.comment1 + '</td>';         
             });
-            $('.tbodyStudent').html(html);
+            $('.tbodyComments').html(html);
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
         }
     })
-}*/
+}
