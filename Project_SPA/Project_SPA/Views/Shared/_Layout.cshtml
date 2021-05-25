@@ -94,12 +94,15 @@
 
                         <li><a href="#student_list" id="#student_list" onclick="student_list" class="smoothScroll">Lista de estudiantes</a></li>
 
+                        <li><a href="#active_professor_consult" id="#active_professor_consult" onclick="active_student_consult" class="smoothScroll">Consultas activas</a></li>
+
+
                         <!-- STUDENT VIEW -->
                         <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
-                        <li><a href="#new_consult" id="#new_consult" onclick="new_consult" class="smoothScroll">Nueva consulta</a></li>
+                        <li><a href="#request_consult" id="#request_consult" onclick="request_consult" class="smoothScroll">Solicitar cita de consulta</a></li>
 
-                        <li><a href="#active_consult" id="#active_consult" onclick="active_consult" class="smoothScroll">consultas activas</a></li>
+                        <li><a href="#active_student_consult" id="#active_student_consult" onclick="active_student_consult" class="smoothScroll">Consultas activas</a></li>
 
                         <li><a href="#chat" id="#chat" onclick="chat" class="smoothScroll">Nuevo mensaje</a></li>
 
@@ -878,7 +881,7 @@
     </section>
 
 
-    <section id="new_consult">
+    <section id="request_consult">
 
         <div id="divcommentary" class="container">
             <div class="row">
@@ -929,7 +932,47 @@
         </div>
     </section>
 
-    <section id="active_consult">
+    <section id="active_professor_consult">
+
+        <div id="consults" class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Consultas activas</h2>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Grupo
+                                    </th>
+
+                                    <th>
+                                        Curso
+                                    </th>
+                                    <th>
+                                        Estudiante
+                                    </th>
+                                    <th>
+                                        Hora
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyConsult">
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>>
+
+    <section id="active_student_consult">
 
         <div id="consults" class="container">
             <div class="row">
@@ -1060,7 +1103,7 @@
             </div>
         </div>
     </section>
-   
+
 
 
     <!-- NOTICE -->

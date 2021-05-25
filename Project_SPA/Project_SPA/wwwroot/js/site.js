@@ -35,39 +35,44 @@ function HideAdmin() {
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
 
-    document.getElementById('#new_consult').style.display = 'none';
-    document.getElementById('new_consult').style.display = 'none';
-
-    document.getElementById('#chat').style.display = 'none';
-    document.getElementById('chat').style.display = 'none';
-
-    document.getElementById('active_consult').style.display = 'none';
-
-    document.getElementById('student_list').style.display = 'none';
-    document.getElementById('#student_list').style.display = 'none';
-    document.getElementById('#active_consult').style.display = 'none';
     ShowLogIn();
 }
 
 function HideProfessor() {
     document.getElementById('sign_out_professor').style.display = 'none';
 
+    document.getElementById('#professor_chat').style.display = 'none';
+    document.getElementById('professor_chat').style.display = 'none';
+
+    document.getElementById('#student_list').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+
+    document.getElementById('#active_professor_consult').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'none';
+
     document.getElementById('#edit_professor_profile').style.display = 'none';
     document.getElementById('edit_professor_profile').style.display = 'none';
-    document.getElementById('#new_consult').style.display = 'none';
-    document.getElementById('new_consult').style.display = 'none';
-    document.getElementById('#chat').style.display = 'none';
-    document.getElementById('chat').style.display = 'none';
-    document.getElementById('active_consult').style.display = 'none';
+    
+
     ShowLogIn();
 }
 
 function HideStudent() {
     document.getElementById('sign_out_student').style.display = 'none';
 
+    
+    document.getElementById('#student_chat').style.display = 'none';
+    document.getElementById('student_chat').style.display = 'none';
+
+    document.getElementById('#request_consult').style.display = 'none';
+    document.getElementById('request_consult').style.display = 'none';
+
+    document.getElementById('#active_student_consult').style.display = 'none';
+    document.getElementById('active_student_consult').style.display = 'none';
+
     document.getElementById('#edit_student_profile').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none';
-    document.getElementById('student_list').style.display = 'none';
+    
     
     ShowLogIn();
 }
@@ -103,7 +108,18 @@ function ShowAdmin() {
 
 function ShowProfessor() {
     document.getElementById('sign_out_professor').style.display = 'block';
+
+    document.getElementById('#professor_chat').style.display = 'block';
+    document.getElementById('professor_chat').style.display = 'block';
+
+    document.getElementById('#student_list').style.display = 'block';
+    document.getElementById('student_list').style.display = 'block';
+
+    document.getElementById('#active_professor_consult').style.display = 'block';
+    document.getElementById('active_professor_consult').style.display = 'block';
+
     document.getElementById('#edit_professor_profile').style.display = 'block';
+
     document.getElementById('edit_professor_profile').style.display = 'block';
     document.getElementById('student_list').style.display = 'block';
     document.getElementById('#student_list').style.display = 'block';
@@ -112,22 +128,19 @@ function ShowProfessor() {
 function ShowStudent() {
     document.getElementById('sign_out_student').style.display = 'block';
 
+    document.getElementById('#student_chat').style.display = 'block';
+
+    document.getElementById('#request_consult').style.display = 'block';
+
+    document.getElementById('#active_student_consult').style.display = 'block';
+
     document.getElementById('#edit_student_profile').style.display = 'block';
-    document.getElementById('edit_student_profile').style.display = 'block';
-    document.getElementById('#new_consult').style.display = 'block';
-    document.getElementById('new_consult').style.display = 'block';
-    document.getElementById('#chat').style.display = 'block';
-    document.getElementById('chat').style.display = 'block';
-    document.getElementById('active_consult').style.display = 'block';
-    document.getElementById('#active_consult').style.display = 'block';
 }
 
 function ShowLogIn() {
     ShowStudentSignIn();
     document.getElementById('#log_in').style.display = 'block';
     document.getElementById('log_in').style.display = 'block';
-
-
 }
 
 function ShowStudentSignIn() {
