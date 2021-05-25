@@ -42,17 +42,49 @@ namespace Project_SPA.Models.Entities
 
             modelBuilder.Entity<Admin>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Admin");
 
-                entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
+                entity.Property(e => e.AcademicDegreeId).HasColumnName("AcademicDegree_Id");
 
-                entity.HasOne(d => d.Professor)
-                    .WithMany()
-                    .HasForeignKey(d => d.ProfessorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Admin_Professor");
+                entity.Property(e => e.Code)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.CreationDate)
+                    .HasColumnType("date")
+                    .HasColumnName("Creation_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreationUser)
+                    .HasMaxLength(50)
+                    .HasColumnName("Creation_User")
+                    .HasDefaultValueSql("('DBA')");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.UpdateDate)
+                    .HasColumnType("date")
+                    .HasColumnName("Update_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdateUser)
+                    .HasMaxLength(50)
+                    .HasColumnName("Update_User")
+                    .HasDefaultValueSql("('DBA')");
             });
 
             modelBuilder.Entity<AttendanceSchedule>(entity =>

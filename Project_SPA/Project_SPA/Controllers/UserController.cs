@@ -28,7 +28,7 @@ namespace Project_SPA.Controllers
             adminDAO = new AdminDAO();
             if (adminDAO.GetAdminByCode(user.Code) != null)
             {
-                if (ValidateProfessor(adminDAO.GetAdminByCode(user.Code), user))
+                if (ValidateAdmin(adminDAO.GetAdminByCode(user.Code), user))
                 {
                     HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
                     return Ok(1);
@@ -36,6 +36,15 @@ namespace Project_SPA.Controllers
             }
 
             return Ok(0);
+        }
+
+        public Boolean ValidateAdmin(Admin admin, User user)
+        {
+            if (admin.Code.Equals(user.Code) && admin.Password.Equals(user.Password))
+            {
+                return true;
+            }
+            return false;
         }
 
         public ActionResult LogInProfessor([FromBody] User user)

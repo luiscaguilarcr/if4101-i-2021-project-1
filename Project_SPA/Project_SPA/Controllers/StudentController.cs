@@ -57,8 +57,7 @@ namespace Project_SPA.Controllers
             if(studentDAO.GetTemporalStudentById(id) != null)
             {
                 TemporalStudent temporalStudent = studentDAO.GetTemporalStudentById(id);
-                studentDAO.RemoveTemporal(temporalStudent.Id);
-
+   
                 Student student = new Student
                 {
                     Name = temporalStudent.Name,
@@ -66,7 +65,8 @@ namespace Project_SPA.Controllers
                     Code = temporalStudent.Code,
                     Password = temporalStudent.Password
                 };
-                return Ok(studentDAO.Add(student));
+                studentDAO.Add(student);
+                return Ok(1);
             }
 
             return Ok(0);
