@@ -35,8 +35,6 @@ options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection2")));
 
             services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-           
-          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddSession(options =>
             {

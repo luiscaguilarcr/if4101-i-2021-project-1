@@ -6,7 +6,8 @@
 
 $(document).ready(function () { //DOM cargado, siempre va 
     ocultarAdmin();
-
+    LoadDataNews();
+    OnlySeeNotice();
 });
 
 function LogIn() {
@@ -302,8 +303,6 @@ function AddTemporalStudent() { //PISTAS DE AUDITORÍA
         }
     });
 }
-
-function LoadDataStudent() { }
 
 function LoadDataStudent() {
     $.ajax({
@@ -616,6 +615,74 @@ function AddNews() {
         dataType: "json",
         success: function (result) {
           //  Clean_student();
+            alert("inserto");
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataNews() {
+    $.ajax({
+        url: "/NewsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
+                document.getElementById("SecretIdNews").value = item.id;
+                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#">Ver comentarios</a></td>'; 
+            });
+            $('.tbodyOptionsNotice').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function OnlySeeNotice() {
+    $.ajax({
+        url: "/NewsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' +'<br/>'+ item.descrip + '</td>';
+              
+            });
+            $('.tbodyOnlySeeNotice').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function AddComment() {
+
+    var comment = {
+
+        comment1: $('#newCommentNews').val(),
+        idnews: parseInt($('#SecretIdNews').val())
+    };
+
+    $.ajax({
+        url: "/CommentsAPI/Post",
+        data: JSON.stringify(comment),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //  Clean_student();
             alert("inserto");
         },
         error: function (errorMessage) {
