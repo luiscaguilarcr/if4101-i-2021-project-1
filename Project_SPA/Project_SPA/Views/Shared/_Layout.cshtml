@@ -706,6 +706,66 @@
         <br />
     </section>
 
+    <section id="OptionsNoticeAdmin">
+        <div id="courses" class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Noticias</h2>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Noticias
+                                    </th>
+                                    <th>
+                                        Opciones
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyOptionsNoticeAdmin">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tbodyCommentsAdmin">
+        <div id="courses" class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Comentarios</h2>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Comentarios
+                                    </th>
+                                    <th>
+                                        Opciones
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyCommentsAdmin">
+                            </tbody>
+                            <td><button class="submit-btn form-control" onclick="return tablesOriginSeeAdmin()" id="cancel">Cerrar comentarios</button></td>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="OnlySeeNotice">
         <div id="courses" class="container">
             <div class="row">
@@ -717,7 +777,7 @@
                         <table class="table table-bordered table-hover" id="table">
 
                             <thead>
-                                <tr>                               
+                                <tr>
                                     <th>
                                         Noticias
                                     </th>
@@ -783,7 +843,7 @@
                             </tbody>
                             <td><button class="submit-btn form-control" onclick="return tablesOriginSee()" id="cancel">Cerrar comentarios</button></td>
                         </table>
-                       
+
                     </div>
                 </div>
             </div>
@@ -795,25 +855,25 @@
         <div class="modal-dialog">
 
             <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Nuevo comentario</h4>
-        </div>
-        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Nuevo comentario</h4>
+                </div>
+                <div class="modal-body">
 
-            <div class="row">
-                <input type="text" class="form-control" id="newCommentNews" style="WIDTH: 450px; HEIGHT: 200px" placeholder="Nuevo comentario" autocomplete="off">
-                <input type="text" id="SecretIdNews" style="visibility:hidden" >
+                    <div class="row">
+                        <input type="text" class="form-control" id="newCommentNews" style="WIDTH: 450px; HEIGHT: 200px" placeholder="Nuevo comentario" autocomplete="off">
+                        <input type="text" id="SecretIdNews" style="visibility:hidden">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="return AddComment()">Aceptar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="return AddComment()">Aceptar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        </div>
-    </div>
 
-    </div>
+        </div>
     </div>
 
     <!-- FOOTER -->

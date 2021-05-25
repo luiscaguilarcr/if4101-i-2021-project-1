@@ -139,8 +139,8 @@ namespace Project_SPA.Controllers
 
         }
 
-        // DELETE: api/CommentsAPI/5
-        [HttpDelete("{id}")]
+        [Route("[action]/{id}")]
+        [HttpDelete]
         public async Task<ActionResult<Comment>> DeleteComment(int id)
         {
             var comment = await _context.Comments.FindAsync(id);

@@ -88,8 +88,8 @@ namespace Project_API.Controllers
             return CreatedAtAction("GetComment", new { id = comment.IdComment }, comment);
         }
 
-        // DELETE: api/Comments/5
-        [HttpDelete("{id}")]
+        [Route("[action]/{id}")]
+        [HttpDelete]
         public async Task<ActionResult<Comment>> DeleteComment(int id)
         {
             var comment = await _context.Comments.FindAsync(id);

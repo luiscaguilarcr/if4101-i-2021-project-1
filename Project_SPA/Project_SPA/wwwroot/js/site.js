@@ -8,6 +8,7 @@ $(document).ready(function () { //DOM cargado, siempre va
     ocultarAdmin();
     LoadDataNews();
     OnlySeeNotice();
+    LoadDataNewsAdmin();
 });
 
 function LogIn() {
@@ -126,7 +127,8 @@ function ocultarAdmin() {
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('TableComments').style.display = 'none';
-
+    document.getElementById('tbodyCommentsAdmin').style.display = 'none';
+    tbodyCommentsAdmin
 }
 
 function aparecerAdmin() {
@@ -718,6 +720,78 @@ function LoadDataComment() {
                 html += '<td>' + item.comment1 + '</td>';         
             });
             $('.tbodyComments').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+function DeleteComment(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/CommentsAPI/DeleteComment",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            alert("ELIMINADO");
+            LoadData();
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadDataNewsAdmin() {
+    $.ajax({
+        url: "/NewsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
+                html += '<td><a href="#">Eliminar publicación</a> | <a href="#tbodyCommentsAdmin" onclick="return tablesSeeAdmin()">Ver comentarios</a></td>';
+            });
+            $('.tbodyOptionsNoticeAdmin').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function tablesSeeAdmin() {
+    LoadDataCommentsAdmin();
+    document.getElementById('tbodyCommentsAdmin').style.display = 'block';
+    document.getElementById('OptionsNoticeAdmin').style.display = 'none';
+}
+
+function tablesOriginSeeAdmin() {
+    document.getElementById('tbodyCommentsAdmin').style.display = 'none';
+    document.getElementById('OptionsNoticeAdmin').style.display = 'block';
+}
+
+function LoadDataCommentsAdmin() {
+    $.ajax({
+        url: "/CommentsAPI/Get",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.comment1 + '</td>';
+                html += '<td><a href="#tbodyCommentsAdmin" onclick="return DeleteComment(' + item.id + ')" >Eliminar comentario</a> ';
+            });
+            $('.tbodyCommentsAdmin').html(html);
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
