@@ -107,3 +107,18 @@ ALTER TABLE [dbo].[AcademicDegree]
 ADD CONSTRAINT DF_Update_Date_AcademicDegree DEFAULT GETDATE() FOR Update_Date
 ALTER TABLE [dbo].[AcademicDegree] 
 ADD CONSTRAINT DF_Update_User_AcademicDegree DEFAULT 'DBA' FOR Update_User
+
+--ADMIN
+ALTER TABLE  [dbo].[Admin] ADD Creation_Date date
+ALTER TABLE  [dbo].[Admin] ADD Creation_User nvarchar(50)
+ALTER TABLE  [dbo].[Admin] ADD Update_Date date
+ALTER TABLE  [dbo].[Admin] ADD Update_User nvarchar(50)
+
+ALTER TABLE [dbo].[Admin] 
+ADD CONSTRAINT DF_Creation_Date_Admin DEFAULT GETDATE() FOR Creation_Date
+ALTER TABLE [dbo].[Admin] 
+ADD CONSTRAINT DF_Creation_User_Admin DEFAULT 'DBA' FOR Creation_User
+ALTER TABLE [dbo].[Admin] 
+ADD CONSTRAINT DF_Update_Date_Admin DEFAULT GETDATE() FOR Update_Date
+ALTER TABLE [dbo].[Admin] 
+ADD CONSTRAINT DF_Update_User_Admin DEFAULT 'DBA' FOR Update_User
