@@ -116,11 +116,11 @@ function LogIn() {
         password: $('#userPassword').val()
     }
 
-    LoginAdmin(user);
+    LoginStudent(user);
 
     LoginProfessor(user);
 
-    LoginStudent(user);
+    LoginAdmin(user);
   
 }
 
