@@ -18,17 +18,20 @@ namespace Project_SPA.Models.Entities
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<AttendanceSchedule> AttendanceSchedules { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Professor> Professors { get; set; }
+        public virtual DbSet<ProfessorCourseGroup> ProfessorCourseGroups { get; set; }
+        public virtual DbSet<ScheduleGroupScheduleProfessor> ScheduleGroupScheduleProfessors { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentCourseGroup> StudentCourseGroups { get; set; }
         public virtual DbSet<TemporalStudent> TemporalStudents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=163.178.107.10;Initial Catalog=IF4101_2021_SPA;User ID=laboratorios;Password=KmZpo.2796");
             }
         }
@@ -39,11 +42,58 @@ namespace Project_SPA.Models.Entities
 
             modelBuilder.Entity<Admin>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Admin");
 
-                entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
+                entity.Property(e => e.AcademicDegreeId).HasColumnName("AcademicDegree_Id");
+
+                entity.Property(e => e.Code)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.CreationDate)
+                    .HasColumnType("date")
+                    .HasColumnName("Creation_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreationUser)
+                    .HasMaxLength(50)
+                    .HasColumnName("Creation_User")
+                    .HasDefaultValueSql("('DBA')");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.UpdateDate)
+                    .HasColumnType("date")
+                    .HasColumnName("Update_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdateUser)
+                    .HasMaxLength(50)
+                    .HasColumnName("Update_User")
+                    .HasDefaultValueSql("('DBA')");
+            });
+
+            modelBuilder.Entity<AttendanceSchedule>(entity =>
+            {
+                entity.ToTable("AttendanceSchedule");
+
+                entity.Property(e => e.EndDateHour).HasColumnName("End_Date_Hour");
+
+                entity.Property(e => e.StartDateHour).HasColumnName("Start_Date_Hour");
             });
 
             modelBuilder.Entity<Course>(entity =>
@@ -171,6 +221,80 @@ namespace Project_SPA.Models.Entities
                     .HasDefaultValueSql("('DBA')");
             });
 
+            modelBuilder.Entity<ProfessorCourseGroup>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Professor_Course_Group");
+
+                entity.Property(e => e.CourseId).HasColumnName("Course_Id");
+
+                entity.Property(e => e.CreationDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Creation_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreationUser)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Creation_User")
+                    .HasDefaultValueSql("('DBA')");
+
+                entity.Property(e => e.GorupId).HasColumnName("Gorup_Id");
+
+                entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
+
+                entity.Property(e => e.UpdateDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Update_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdateUser)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Update_User")
+                    .HasDefaultValueSql("('DBA')");
+
+                entity.HasOne(d => d.Professor)
+                    .WithMany()
+                    .HasForeignKey(d => d.ProfessorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Professor_Course_Group_Professor");
+            });
+
+            modelBuilder.Entity<ScheduleGroupScheduleProfessor>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Schedule_Group_Schedule_Professor");
+
+                entity.Property(e => e.AttendanceScheduleId).HasColumnName("Attendance_Schedule_Id");
+
+                entity.Property(e => e.CourseId).HasColumnName("Course_Id");
+
+                entity.Property(e => e.GroupId).HasColumnName("Group_Id");
+
+                entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
+
+                entity.HasOne(d => d.AttendanceSchedule)
+                    .WithMany()
+                    .HasForeignKey(d => d.AttendanceScheduleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Schedule_Group_Schedule_Professor_AttendanceSchedule");
+
+                entity.HasOne(d => d.Course)
+                    .WithMany()
+                    .HasForeignKey(d => d.CourseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Schedule_Group_Schedule_Professor_Course");
+
+                entity.HasOne(d => d.Group)
+                    .WithMany()
+                    .HasForeignKey(d => d.GroupId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Schedule_Group_Schedule_Professor_Group");
+            });
+
             modelBuilder.Entity<Student>(entity =>
             {
                 entity.ToTable("Student");
@@ -213,6 +337,53 @@ namespace Project_SPA.Models.Entities
                     .HasMaxLength(50)
                     .HasColumnName("Update_User")
                     .HasDefaultValueSql("('DBA')");
+            });
+
+            modelBuilder.Entity<StudentCourseGroup>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Student_Course_Group");
+
+                entity.Property(e => e.CourseId).HasColumnName("Course_Id");
+
+                entity.Property(e => e.CreationDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Creation_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CreationUser)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Creation_User")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.GroupId).HasColumnName("Group_Id");
+
+                entity.Property(e => e.StudentId).HasColumnName("Student_Id");
+
+                entity.Property(e => e.UpdateDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("Update_Date")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UpdateUser)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Update_User")
+                    .HasDefaultValueSql("('DBA')");
+
+                entity.HasOne(d => d.Course)
+                    .WithMany()
+                    .HasForeignKey(d => d.CourseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Student_Course_Group_Group");
+
+                entity.HasOne(d => d.Student)
+                    .WithMany()
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Student_Course_Group_Student");
             });
 
             modelBuilder.Entity<TemporalStudent>(entity =>

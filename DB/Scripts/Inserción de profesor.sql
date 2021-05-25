@@ -7,10 +7,10 @@ DECLARE @Code nvarchar(6),
 		@Update_User nvarchar(50);
 
 
-SET @Code = '496434';
-SET @Name = 'MARIA JOSE LOIS CURIEL';
-SET @Email = 'mariajose.lois@ucr.ac.cr';
-SET @Password = '';
+SET @Code = 'admin';
+SET @Name = 'JOSE LOIS CURIEL MORAT';
+SET @Email = 'joselois.morat@ucr.ac.cr';
+SET @Password = 'admin';
 SET @AcademicDegree_Id = 2;
 SET @Creation_User = 'Superadmin';
 SET @Update_User = 'Superadmin';
