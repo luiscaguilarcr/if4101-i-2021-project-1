@@ -6,7 +6,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Project_SPA.Models.Domain
+namespace Project_SPA.Mail.Domain
 {
     public class MailService : IMailService
     {
@@ -18,9 +18,11 @@ namespace Project_SPA.Models.Domain
 
         public async Task SendEmailAsync(MailRequest mailRequest)
         {
-            try { 
-                var email = new MimeMessage();
-                email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
+            try {
+                var email = new MimeMessage
+                {
+                    Sender = MailboxAddress.Parse(_mailSettings.Mail)
+                };
                 email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
                 email.Subject = mailRequest.Subject;
                 var builder = new BodyBuilder();

@@ -1,7 +1,6 @@
-﻿using MailKit;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Project_SPA.Mail.Domain;
 using Project_SPA.Models.Data;
-using Project_SPA.Models.Domain;
 using Project_SPA.Models.Entities;
 using System;
 using System.Threading.Tasks;
@@ -14,8 +13,8 @@ namespace Project_SPA.Controllers
         private readonly IF4101_2021_SPAContext _context;
         StudentDAO studentDAO;
 
-        private readonly Models.Domain.IMailService mailService;
-        public MailController(Models.Domain.IMailService mailService)
+        private readonly IMailService mailService;
+        public MailController(IMailService mailService)
         {
             this.mailService = mailService;
         }

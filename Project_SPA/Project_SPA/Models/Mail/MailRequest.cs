@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Project_SPA.Models.Domain
+namespace Project_SPA.Mail.Domain
 {
     public class MailRequest
     {
