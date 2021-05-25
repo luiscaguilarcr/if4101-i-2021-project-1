@@ -10,7 +10,6 @@ $(document).ready(function () { //DOM cargado, siempre va
     HideStudent();
 });
 
-
 //////////////////////////////////////////////////// HIDE ////////////////////////////////////////////////////
 function HideAdmin() {
     document.getElementById('sign_out_admin').style.display = 'none';
@@ -35,7 +34,6 @@ function HideAdmin() {
 
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
-
     ShowLogIn();
 }
 
@@ -44,7 +42,6 @@ function HideProfessor() {
 
     document.getElementById('#edit_professor_profile').style.display = 'none';
     document.getElementById('edit_professor_profile').style.display = 'none';
-
     ShowLogIn();
 }
 
@@ -53,7 +50,6 @@ function HideStudent() {
 
     document.getElementById('#edit_student_profile').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none';
-
     ShowLogIn();
 }
 
@@ -88,7 +84,6 @@ function ShowAdmin() {
 
 function ShowProfessor() {
     document.getElementById('sign_out_professor').style.display = 'block';
-
     document.getElementById('#edit_professor_profile').style.display = 'block';
     document.getElementById('edit_professor_profile').style.display = 'block';
 }
@@ -113,14 +108,20 @@ function ShowStudentSignIn() {
 }
 
 //////////////////////////////////////////////////// LOG IN ////////////////////////////////////////////////////
+
 function LogIn() {
+
     var user = {
         code: $('#userName').val(),
         password: $('#userPassword').val()
     }
-    LoginProfessor(user);
+
     LoginAdmin(user);
+
+    LoginProfessor(user);
+
     LoginStudent(user);
+  
 }
 
 function LoginAdmin(user) {
@@ -132,7 +133,7 @@ function LoginAdmin(user) {
         dataType: "json",
         success: function (response) {
             if (response == 1) {
-                return LoginAdminValidate(true);
+                LoginAdminValidate(true);
             }
         }
     });
@@ -145,9 +146,9 @@ function LoginProfessor(user) {
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
-        success: function (result) {
+        success: function (response) {
             if (response == 1) {
-                return LoginProfessorValidate(true);
+                LoginProfessorValidate(true);
             }
         }
     });
@@ -160,9 +161,9 @@ function LoginStudent(user) {
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
-        success: function (result) {
+        success: function (response) {
             if (response == 1) {
-                return LoginStudentValidate(true);
+                LoginStudentValidate(true);
             }
         }
     });
@@ -171,23 +172,25 @@ function LoginStudent(user) {
 //////////////////////////////////////////////////// LOG IN VALIDATE ////////////////////////////////////////////////////
 function LoginAdminValidate(response) {
     if (response == true) {
-        ShowAdmin();
         HideLogIn();
+        ShowAdmin();
     }
 }
+
 function LoginProfessorValidate(response) {
     if (response == true) {
-        ShowProfessor();
         HideLogIn();
+        ShowProfessor();
     }
 }
+
 function LoginStudentValidate(response) {
     if (response == true) {
-        ShowStudent();
         HideLogIn();
+        ShowStudent();
 
     } else {
-        document.getElementById("informationLogIn").innerHTML = "Error al ingresar";
+        document.getElementById("informationLogIn").innerHTML = "Error al ingresar, compruebe su carné y contraseña";
         document.getElementById("informationLogIn").style.color = "red";
     }
 }
@@ -232,19 +235,7 @@ function RegisterOnClick() {
     document.getElementById('newNot').style.display = 'none';
 }
 
-function StartOnClick() {
-    document.getElementById('sign_out_admin').style.display = 'none';
-    document.getElementById('edit_student').style.display = 'none';
-    document.getElementById('edit_professor').style.display = 'none';
-    document.getElementById('edit_course').style.display = 'none';
-    document.getElementById('register_professor_course').style.display = 'none';
-    document.getElementById('students').style.display = 'none';
-    document.getElementById('teachers').style.display = 'none';
-    document.getElementById('courses').style.display = 'none';
-    document.getElementById('student_register_requests').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
-    document.getElementById('newNot').style.display = 'none';
-}
+
 /////////////// ADMIN ///////////////
 
 /////////////// PROFESSOR ///////////////
@@ -524,7 +515,7 @@ function UpdateStudent() {
 
 function AddTemporalStudent() {
 
-    var student = {
+    var temporalStudent = {
         code: $('#codeS').val(),
         name: $('#nameS').val(),
         email: $('#emailS').val(),
@@ -533,14 +524,26 @@ function AddTemporalStudent() {
 
     $.ajax({
         url: "/Student/AddTemporal",
-        data: JSON.stringify(student),
+        data: JSON.stringify(temporalStudent),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             CleanStudent();
-            document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-            document.getElementById("information").style.color = "green";
+
+            $.ajax({
+                url: "/api/mail/sendRequestEmail/",
+                data: JSON.stringify(temporalStudent.email),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+                    document.getElementById("information").style.color = "green";
+                    alert("Su solicitud se ha enviado correctamente");
+                }
+
+            });
 
         },
         error: function (errorMessage) {
@@ -557,12 +560,32 @@ function AcceptStudent(id) {
     $.ajax({
         url: "/Student/AcceptTemporal",
         data: JSON.stringify(id),
-        type: "DELETE",
+        type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (response) {
             if (response != 0) {
-                LoadDataTemporalStudent();
+                $.ajax({
+                    url: "/api/mail/sendAcceptanceMail/",
+                    data: JSON.stringify(id),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        $.ajax({
+                            url: "/Student/RemoveTemporal",
+                            data: JSON.stringify(id),
+                            type: "DELETE",
+                            contentType: "application/json;charset=utf-8",
+                            dataType: "json",
+                            success: function (response) {
+                                LoadDataTemporalStudent();
+                            }
+                        });
+                    }
+
+                });
+
             } else {
                 alert("Error al aceptar la solicitud");
             }

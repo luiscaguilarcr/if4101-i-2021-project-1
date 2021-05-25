@@ -26,9 +26,14 @@ namespace Project_SPA.Models.Data
 
             using (var context = new IF4101_2021_SPAContext())
             {
-                admin = context.Admins.Select(adminItem => new Entities.Admin()
+                admin = context.Admins.Select(professorItem => new Entities.Admin()
                 {
-                    ProfessorId = adminItem.ProfessorId
+                    Id = professorItem.Id,
+                    Code = professorItem.Code,
+                    Name = professorItem.Name,
+                    Email = professorItem.Email,
+                    Password = professorItem.Password,
+                    AcademicDegreeId = professorItem.AcademicDegreeId
 
                 }).ToList<Entities.Admin>();
             }
@@ -37,23 +42,15 @@ namespace Project_SPA.Models.Data
             return admin;
         }
 
-        public Entities.Professor GetAdminByCode(string code)
+        public Entities.Admin GetAdminByCode(string code)
         {
-            ProfessorDAO professorDAO = new ProfessorDAO();
             List<Entities.Admin> admins = GetAdmin();
 
-            if (professorDAO.GetProfessorByCode(code)!= null)
-            {
-                Professor professor = professorDAO.GetProfessorByCode(code);
-                
-                foreach(Admin admin in admins){
-                    if (professor.Id.Equals(admin.ProfessorId))
-                    {
-                        return professor;
-                    }
+            foreach(Admin admin in admins){
+                if (admin.Code.Equals(code))
+                {
+                    return admin;
                 }
-                
-
             }
 
             return null;
