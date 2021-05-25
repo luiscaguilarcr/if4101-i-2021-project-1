@@ -79,33 +79,37 @@ namespace Project_SPA.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutComment(int id, Comment comment)
+        public JsonResult Put(int id, [FromBody] Comment comment)
         {
-            if (id != comment.IdComment)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(comment).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                using (var client = new HttpClient())
+                {
+
+                    client.BaseAddress = new Uri("https://localhost:44336/api/Comments/" + id);
+
+                    //HTTP POST
+                    var putTask = client.PutAsJsonAsync("student", comment);
+                    putTask.Wait();
+
+                    var result = putTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        return new JsonResult(result);
+                    }
+                    else
+                    {
+                        return new JsonResult(result);
+                    }
+                }
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException exception)
             {
-                if (!CommentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return new JsonResult(exception);
             }
 
-            return NoContent();
         }
+
 
         [Route("[action]")]
         [HttpPost]
@@ -139,25 +143,33 @@ namespace Project_SPA.Controllers
 
         }
 
+        // DELETE: api/ApiWithActions/5
         [Route("[action]/{id}")]
         [HttpDelete]
-        public async Task<ActionResult<Comment>> DeleteComment(int id)
+        public JsonResult Delete(int id)
         {
-            var comment = await _context.Comments.FindAsync(id);
-            if (comment == null)
+
+            using (var client = new HttpClient())
             {
-                return NotFound();
+                client.BaseAddress = new Uri("https://localhost:44336/api/Comments/");
+
+                //HTTP DELETE
+                var deleteTask = client.DeleteAsync("DeleteComment/" + id.ToString());
+                deleteTask.Wait();
+
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    return new JsonResult(result);
+                }
+                else
+                {
+                    //camino del error
+                    return new JsonResult(result);
+
+                }
             }
-
-            _context.Comments.Remove(comment);
-            await _context.SaveChangesAsync();
-
-            return comment;
-        }
-
-        private bool CommentExists(int id)
-        {
-            return _context.Comments.Any(e => e.IdComment == id);
         }
     }
 }

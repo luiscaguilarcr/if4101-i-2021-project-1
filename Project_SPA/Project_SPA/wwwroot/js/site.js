@@ -707,6 +707,27 @@ function AddComment() {
     });
 }
 
+function Delete(id) { //llame al controlador home
+
+    var id;
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/CommentsAPI/Delete",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            alert("ELIMINADO");
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 function LoadDataComment() {
     $.ajax({
         url: "/CommentsAPI/Get", 
@@ -725,25 +746,6 @@ function LoadDataComment() {
             alert(errorMessage.responseText);
         }
     })
-}
-function DeleteComment(id) { //llame al controlador home
-
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/CommentsAPI/DeleteComment",
-        data: JSON.stringify(id),
-        type: "DELETE",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            alert("ELIMINADO");
-            LoadData();
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
 }
 
 function LoadDataNewsAdmin() {
@@ -788,8 +790,9 @@ function LoadDataCommentsAdmin() {
             var html = '';
             $.each(result, function (key, item) {
                 html += '<tr>';
+                html += '<td>' + item.idComment + '</td>';
                 html += '<td>' + item.comment1 + '</td>';
-                html += '<td><a href="#tbodyCommentsAdmin" onclick="return DeleteComment(' + item.id + ')" >Eliminar comentario</a> ';
+                html += '<td><a href="#">Eliminar publicación</a> | <a href="#" onclick="Delete(' + item.idComment + ')">Eliminar</a></td>';
             });
             $('.tbodyCommentsAdmin').html(html);
         },
