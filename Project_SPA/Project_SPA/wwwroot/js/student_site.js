@@ -77,7 +77,8 @@ function Update() {
         email: $('#email').val(),
         password: $('#password').val()
     };
-=    $.ajax({ 
+
+    $.ajax({ 
         url: "/Student/Update",
         data: JSON.stringify(student),
         type: "POST",
