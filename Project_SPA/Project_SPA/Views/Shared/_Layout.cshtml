@@ -66,7 +66,7 @@
                 <ul class="nav navbar-nav navbar-nav-first">
                     <ul class="nav">
                         <!-- GENERAL VIEW -->
-                        <li><a href="#top" id="#top" class="smoothScroll" >Inicio</a></li>
+                        <li><a href="#top" id="#top" class="smoothScroll">Inicio</a></li>
                         <li><a href="#log_in" id="#log_in" class="smoothScroll">Iniciar sesión</a></li>
                         <li><a href="#sign_in_student" id="#sign_in_student" class="smoothScroll">Nuevo estudiante</a></li>
 
@@ -87,17 +87,30 @@
 
                         <li><a href="#edit_admin_profile" id="#edit_admin_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
-                        <li><a href="#newNot" id="#newNot" onclick="NewNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
+
 
                         <!-- PROFESSOR VIEW -->
                         <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
+                        <li><a href="#student_list" id="#student_list" onclick="student_list" class="smoothScroll">Lista de estudiantes</a></li>
+
                         <!-- STUDENT VIEW -->
                         <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
+
+                        <li><a href="#new_consult" id="#new_consult" onclick="new_consult" class="smoothScroll">Nueva consulta</a></li>
+
+                        <li><a href="#active_consult" id="#active_consult" onclick="active_consult" class="smoothScroll">consultas activas</a></li>
+
+                        <li><a href="#chat" id="#chat" onclick="chat" class="smoothScroll">Nuevo mensaje</a></li>
+
+
+
+
 
                         <!-- GENERAL VIEW -->
                         <li><a href="#notice" id="#notice" class="smoothScroll">Noticias</a></li>
 
+                        <li><a href="#newNot" id="#newNot" onclick="NewNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -1001,6 +1014,10 @@
         <br />
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </section>>
 
 
@@ -1012,6 +1029,9 @@
         <br />
         <br />
         <div class="col-md-12 col-sm-12">
+            <div class="section-title">
+                <h2>Lista de estudiante</h2>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="table">
 
