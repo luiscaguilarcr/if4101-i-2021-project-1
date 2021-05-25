@@ -17,6 +17,7 @@ namespace Project_API.Models.Entities
         {
         }
 
+        public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<News> News { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,6 +33,29 @@ namespace Project_API.Models.Entities
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Modern_Spanish_CI_AS");
 
+            modelBuilder.Entity<Comment>(entity =>
+            {
+                entity.HasKey(e => e.IdComment);
+
+                entity.ToTable("Comment");
+
+                entity.Property(e => e.IdComment).HasColumnName("id_comment");
+
+                entity.Property(e => e.Comment1)
+                    .IsRequired()
+                    .IsUnicode(false)
+                    .HasColumnName("comment");
+
+                entity.Property(e => e.IdNews).HasColumnName("id_news");
+
+                entity.Property(e => e.IdUser).HasColumnName("id_user");
+
+                entity.HasOne(d => d.IdNewsNavigation)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.IdNews)
+                    .HasConstraintName("FK_Comment_News");
+            });
+
             modelBuilder.Entity<News>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -42,9 +66,7 @@ namespace Project_API.Models.Entities
 
                 entity.Property(e => e.File).HasColumnName("file");
 
-                entity.Property(e => e.Image)
-                    .HasColumnType("image")
-                    .HasColumnName("image");
+                entity.Property(e => e.Image).HasColumnName("image");
 
                 entity.Property(e => e.NewsTitle)
                     .IsRequired()
