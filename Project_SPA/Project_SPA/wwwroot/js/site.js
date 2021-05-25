@@ -34,6 +34,18 @@ function HideAdmin() {
 
     document.getElementById('#newNot').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
+
+    document.getElementById('#new_consult').style.display = 'none';
+    document.getElementById('new_consult').style.display = 'none';
+
+    document.getElementById('#chat').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+
+    document.getElementById('active_consult').style.display = 'none';
+
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('#student_list').style.display = 'none';
+    document.getElementById('#active_consult').style.display = 'none';
     ShowLogIn();
 }
 
@@ -42,6 +54,11 @@ function HideProfessor() {
 
     document.getElementById('#edit_professor_profile').style.display = 'none';
     document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('#new_consult').style.display = 'none';
+    document.getElementById('new_consult').style.display = 'none';
+    document.getElementById('#chat').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+    document.getElementById('active_consult').style.display = 'none';
     ShowLogIn();
 }
 
@@ -50,6 +67,8 @@ function HideStudent() {
 
     document.getElementById('#edit_student_profile').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    
     ShowLogIn();
 }
 
@@ -86,6 +105,8 @@ function ShowProfessor() {
     document.getElementById('sign_out_professor').style.display = 'block';
     document.getElementById('#edit_professor_profile').style.display = 'block';
     document.getElementById('edit_professor_profile').style.display = 'block';
+    document.getElementById('student_list').style.display = 'block';
+    document.getElementById('#student_list').style.display = 'block';
 }
 
 function ShowStudent() {
@@ -93,12 +114,19 @@ function ShowStudent() {
 
     document.getElementById('#edit_student_profile').style.display = 'block';
     document.getElementById('edit_student_profile').style.display = 'block';
+    document.getElementById('#new_consult').style.display = 'block';
+    document.getElementById('new_consult').style.display = 'block';
+    document.getElementById('#chat').style.display = 'block';
+    document.getElementById('chat').style.display = 'block';
+    document.getElementById('active_consult').style.display = 'block';
+    document.getElementById('#active_consult').style.display = 'block';
 }
 
 function ShowLogIn() {
     ShowStudentSignIn();
     document.getElementById('#log_in').style.display = 'block';
     document.getElementById('log_in').style.display = 'block';
+
 
 }
 
