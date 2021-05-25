@@ -22,7 +22,7 @@ namespace Project_SPA.Controllers
         {
             return View();
         }
-        /*
+        
         public ActionResult LogInAdmin([FromBody] User user)
         {
             adminDAO = new AdminDAO();
@@ -92,6 +92,6 @@ namespace Project_SPA.Controllers
             }
             return false;
         }
-        */
+        
     }
 }

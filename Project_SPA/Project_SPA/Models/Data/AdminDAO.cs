@@ -19,7 +19,7 @@ namespace Project_SPA.Models.Data
         public AdminDAO()
         {
         }
-        /*
+        
         public List<Entities.Admin> GetAdmin()
         {
             List<Entities.Admin> admin = null;
@@ -65,6 +65,6 @@ namespace Project_SPA.Models.Data
             }
             return false;
         }
-        */
+        
     }
 }
