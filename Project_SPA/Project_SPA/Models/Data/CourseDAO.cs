@@ -9,7 +9,6 @@ namespace Project_SPA.Models.Data
 {
     public class CourseDAO
     {
-
         private readonly IF4101_2021_SPAContext _context;
 
         public CourseDAO(IF4101_2021_SPAContext context)

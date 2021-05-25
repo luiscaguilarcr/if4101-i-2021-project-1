@@ -18,7 +18,7 @@ namespace Project_SPA.Controllers
         {
             _context = context;
         }
-         
+
         public ActionResult Index()
         {
             return View();

@@ -57,9 +57,5 @@ namespace Project_SPA.Controllers
             professorDAO = new ProfessorDAO(_context);
             return Ok(professorDAO.Remove(id));
         }
-
- 
-
-        
     }
 }

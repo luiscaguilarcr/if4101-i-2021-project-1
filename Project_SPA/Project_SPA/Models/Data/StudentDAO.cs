@@ -29,14 +29,34 @@ namespace Project_SPA.Models.Data
             using (var context = new IF4101_2021_SPAContext())
             {
                 students = context.Students.Select(studentItem => new Entities.Student()
-                  {
-                      Id = studentItem.Id,
-                      Code = studentItem.Code,
-                      Name = studentItem.Name,
-                      Email = studentItem.Email,
-                      Password = studentItem.Password
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
 
-                  }).ToList<Entities.Student>();
+                }).ToList<Entities.Student>();
+            }
+
+            return students;
+        }
+
+        public List<Entities.TemporalStudent> GetTemporal()
+        {
+            List<Entities.TemporalStudent> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.TemporalStudents.Select(studentItem => new Entities.TemporalStudent()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.TemporalStudent>();
             }
 
             return students;
@@ -62,6 +82,87 @@ namespace Project_SPA.Models.Data
             foreach (Entities.Student student in students)
             {
                 if (student.Code.Equals(code))
+                {
+                    return student;
+                }
+            }
+            return null;
+        }
+
+        public Entities.TemporalStudent GetTemporalStudentByCode(string code)
+        {
+            List<Entities.TemporalStudent> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.Students.Select(studentItem => new Entities.TemporalStudent()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.TemporalStudent>();
+            }
+
+            foreach (Entities.TemporalStudent student in students)
+            {
+                if (student.Code.Equals(code))
+                {
+                    return student;
+                }
+            }
+            return null;
+        }
+
+        public Entities.Student GetStudentById(int id)
+        {
+            List<Entities.Student> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.Students.Select(studentItem => new Entities.Student()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.Student>();
+            }
+
+            foreach (Entities.Student student in students)
+            {
+                if (student.Id == id)
+                {
+                    return student;
+                }
+            }
+            return null;
+        }
+
+        public Entities.TemporalStudent GetTemporalStudentById(int id)
+        {
+            List<Entities.TemporalStudent> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.TemporalStudents.Select(studentItem => new Entities.TemporalStudent()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.TemporalStudent>();
+            }
+
+            foreach (Entities.TemporalStudent student in students)
+            {
+                if (student.Id == id)
                 {
                     return student;
                 }
@@ -113,11 +214,22 @@ namespace Project_SPA.Models.Data
 
         }
 
-        public int Remove(int id) //PRUEBA DISTINTA AL PROFE
+        public int Remove(int id)
         {
             int resultToReturn;
             var studentToRemove = _context.Students.Find(id);
             _context.Students.Remove(studentToRemove);
+            resultToReturn = _context.SaveChangesAsync().Result;
+
+            return resultToReturn;
+
+        }
+
+        public int RemoveTemporal(int id)
+        {
+            int resultToReturn;
+            var studentToRemove = _context.TemporalStudents.Find(id);
+            _context.TemporalStudents.Remove(studentToRemove);
             resultToReturn = _context.SaveChangesAsync().Result;
 
             return resultToReturn;

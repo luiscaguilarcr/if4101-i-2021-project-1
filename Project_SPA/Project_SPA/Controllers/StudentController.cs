@@ -13,6 +13,7 @@ namespace Project_SPA.Controllers
     {
         private readonly IF4101_2021_SPAContext _context;
         StudentDAO studentDAO;
+        MailController mailController;
 
         public StudentController(IF4101_2021_SPAContext context)
         {
@@ -36,6 +37,12 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.GetStudents());
         }
 
+        public ActionResult GetTemporal()
+        {
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.GetTemporal());
+        }
+
         public ActionResult Add([FromBody] Student student)
         {
             studentDAO = new StudentDAO(_context);
@@ -45,7 +52,29 @@ namespace Project_SPA.Controllers
         public ActionResult AddTemporal([FromBody] TemporalStudent student)
         {
             studentDAO = new StudentDAO(_context);
+
             return Ok(studentDAO.AddTemporal(student));
+        }
+
+        public ActionResult AcceptTemporal([FromBody] int id)
+        {
+            studentDAO = new StudentDAO(_context);
+            if (studentDAO.GetTemporalStudentById(id) != null)
+            {
+                TemporalStudent temporalStudent = studentDAO.GetTemporalStudentById(id);
+
+                Student student = new Student
+                {
+                    Name = temporalStudent.Name,
+                    Email = temporalStudent.Email,
+                    Code = temporalStudent.Code,
+                    Password = temporalStudent.Password
+                };
+                studentDAO.Add(student);
+                return Ok(1);
+            }
+
+            return Ok(0);
         }
 
         public ActionResult Edit([FromBody] Student student)
@@ -54,11 +83,16 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.Edit(student));
         }
 
-
         public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
         {
             studentDAO = new StudentDAO(_context);
             return Ok(studentDAO.Remove(id));
+        }
+
+        public ActionResult RemoveTemporal([FromBody] int id)
+        {
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.RemoveTemporal(id));
         }
     }
 }

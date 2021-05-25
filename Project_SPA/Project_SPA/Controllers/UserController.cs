@@ -13,7 +13,7 @@ namespace Project_SPA.Controllers
 {
     public class UserController : Controller
     {
-        
+
         StudentDAO studentDAO;
         ProfessorDAO professorDAO;
         AdminDAO adminDAO;
@@ -22,13 +22,13 @@ namespace Project_SPA.Controllers
         {
             return View();
         }
-
+        /*
         public ActionResult LogInAdmin([FromBody] User user)
         {
             adminDAO = new AdminDAO();
             if (adminDAO.GetAdminByCode(user.Code) != null)
             {
-                if (ValidateProfessor(adminDAO.GetAdminByCode(user.Code), user))
+                if (ValidateAdmin(adminDAO.GetAdminByCode(user.Code), user))
                 {
                     HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(user));
                     return Ok(1);
@@ -36,6 +36,15 @@ namespace Project_SPA.Controllers
             }
 
             return Ok(0);
+        }
+
+        public Boolean ValidateAdmin(Admin admin, User user)
+        {
+            if (admin.Code.Equals(user.Code) && admin.Password.Equals(user.Password))
+            {
+                return true;
+            }
+            return false;
         }
 
         public ActionResult LogInProfessor([FromBody] User user)
@@ -62,7 +71,7 @@ namespace Project_SPA.Controllers
         }
 
         public ActionResult LogInStudent([FromBody] User user)
-        {            
+        {
             studentDAO = new StudentDAO();
             if (studentDAO.GetStudentByCode(user.Code) != null)
             {
@@ -83,6 +92,6 @@ namespace Project_SPA.Controllers
             }
             return false;
         }
-        
+        */
     }
 }
