@@ -144,9 +144,9 @@ namespace Project_SPA.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [Route("[action]/{id}")]
+        [Route("[action]")]
         [HttpDelete]
-        public JsonResult Delete(int id)
+        public JsonResult Delete([FromBody] int id)
         {
 
             using (var client = new HttpClient())

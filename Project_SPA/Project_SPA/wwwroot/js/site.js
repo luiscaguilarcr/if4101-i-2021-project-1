@@ -707,9 +707,8 @@ function AddComment() {
     });
 }
 
-function Delete(id) { //llame al controlador home
+function DeleteComment(id) { //llame al controlador home
 
-    var id;
 
     $.ajax({ //Simbolo de dolar todo lo de jquery
         url: "/CommentsAPI/Delete",
@@ -792,7 +791,7 @@ function LoadDataCommentsAdmin() {
                 html += '<tr>';
                 html += '<td>' + item.idComment + '</td>';
                 html += '<td>' + item.comment1 + '</td>';
-                html += '<td><a href="#">Eliminar publicación</a> | <a href="#" onclick="Delete(' + item.idComment + ')">Eliminar</a></td>';
+                html += '<td><a href="#">Eliminar publicación</a> | <a href="#" onclick="DeleteComment(' + item.idComment + ')">Eliminar</a></td>';
             });
             $('.tbodyCommentsAdmin').html(html);
         },
