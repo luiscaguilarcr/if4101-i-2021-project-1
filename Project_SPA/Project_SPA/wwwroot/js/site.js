@@ -231,7 +231,7 @@ function newNotOnClick() {
 //------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------
 function previewFile() {
-    var preview = document.querySelector('img');
+    var preview = document.querySelector('#image');
     var file = document.querySelector('input[type=file]').files[0];
     var reader = new FileReader();
 
@@ -248,7 +248,7 @@ function previewFile() {
 //------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------
 
-function AddStudent() { //PISTAS DE AUDITORÍA
+function AddStudent() { 
 
     var student = {
         code: $('#codeS').val(),
@@ -533,7 +533,7 @@ function LoadDataProfessor() {
 }
 function RemoveProfessor(id) { //DISTINTA AL PROFE
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+        $.ajax({ //Simbolo de dolar todo lo de jquery
         url: "/Professor/Remove",
         data: JSON.stringify(id),
         type: "DELETE",
@@ -549,6 +549,7 @@ function RemoveProfessor(id) { //DISTINTA AL PROFE
             alert(errorMessage.responseText);
         }
     });
+    
 }
 
 function Clean_lognin() {
@@ -583,3 +584,67 @@ function Clean_curses() {
 
 }
 
+//-------------------------------------------------------------------------------------------
+
+function AddNews() {
+
+   /* var
+
+    function unpack(str) {
+        var bytes = [];
+        for (var i = 0; i < str.length; i++) {
+            var char = str.charCodeAt(i);
+            bytes.push(char >>> 8);
+            bytes.push(char & 0xFF);
+        }
+        return bytes;
+    }*/
+
+    var news = {
+
+        newstitle: $('#title').val(),
+        descrip: $('#commentary').val(),
+        image: $('#image').val(),
+        file: $('#file').val()
+    };
+
+    $.ajax({
+        url: "/NewsAPI/Post",
+        data: JSON.stringify(news),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+          //  Clean_student();
+            alert("inserto");
+        },
+        error: function (errorMessage) {
+            // alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+/*function LoadDataComment() {
+    $.ajax({
+        url: "/CommentAPI/Get", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.idcomment + '</td>';
+                html += '<td>' + item.comment + '</td>';
+                html += '<td>' + item. + '</td>';
+                html += '<td>' + item.email + '</td>';
+               // html += '<td><a href="#students" onclick="return GetStudentsById(' + item.id + ')">Editar</a> | <a href="#students" onclick="Remove(' + item.id + ')">Eliminar</a></td>';
+            });
+            $('.tbodyStudent').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}*/

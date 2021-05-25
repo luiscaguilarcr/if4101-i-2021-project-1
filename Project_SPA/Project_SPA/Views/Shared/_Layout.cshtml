@@ -665,7 +665,7 @@
 
         <div id="divcommentary" class="container">
             <div class="row">
-                <input type="text" id="title" name="title" class="form-control"  placeholder="Título de comentario" autocomplete="off">
+                <input type="text" id="title" name="title" class="form-control" placeholder="Título de comentario" autocomplete="off">
             </div>
             <div class="row">
                 <input type="text" id="commentary" name="commentary" class="form-control" placeholder="Comentario" autocomplete="off">
@@ -681,7 +681,7 @@
                             <td><input type="file" onchange="previewFile()"> </td>
                         </tr>
                     </table>
-                    <img src="" height="200" alt="Image preview...">
+                    <img src="" height="200" id="image" alt="Image preview...">
                 </div>
                 <br />
                 <!--<a href="#"  class="navbar-brand"><span><i class="fa fa-files-o fa-2x fa-lg"></i></span></a>      -->
@@ -692,7 +692,7 @@
 
                     <tr>
 
-                        <td><button class="submit-btn form-control" onclick="" id="Send">Enviar comentario</button></td>
+                        <td><button class="submit-btn form-control" onclick="return AddNews()" id="Send">Enviar comentario</button></td>
 
                         <td><button class="submit-btn form-control" onclick="" id="cancel">Cancelar</button></td>
                     </tr>

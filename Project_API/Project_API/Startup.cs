@@ -1,18 +1,19 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Project_SPA.Models.Entities;
-using Project_SPA.Models.EntitiesAPI;
+using Microsoft.Extensions.Logging;
+using Project_API.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Project_SPA
+namespace Project_API
 {
     public class Startup
     {
@@ -28,21 +29,23 @@ namespace Project_SPA
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<IF4101_2021_SPAContext>(options =>
-options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllers().AddNewtonsoftJson(options =>
+                   options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<IF4101_SPA_APIContext>(options =>
-options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection2")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-           
-          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddSession(options =>
+            /*services.AddCors(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(30);
+                options.AddPolicy("GetAllPolicy",
+                  builder =>
+                  {
+                      builder.WithOrigins("http://localhost:4200", "http://localhost:4200/views")
+                                          .AllowAnyHeader()
+                                          .AllowAnyMethod();//PUT, PATCH, GET, DELETE
+                  });
+            });*/
 
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,26 +55,16 @@ options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection2")));
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseSession();
-
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }
