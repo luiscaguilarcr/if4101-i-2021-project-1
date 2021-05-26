@@ -74,24 +74,24 @@
                         <li>
                             <a href="#" id="#add_functions" class="smoothScroll">Agregar</a>
                             <ul>
-                                <li><a href="#register_professor_course" onclick="RegisterOnClick()">Profesor</a></li>
+                                <li><a href="#addProfessor" onclick="addProfessor()">Profesor</a></li>
 
-                                <li><a href="#add_students" onclick="GetTemporalStudentsOnClick()">Estudiante</a></li>
+                                <li><a href="#add_students" onclick="addStudent()">Estudiante</a></li>
 
-                                <li><a href="#add_courses" onclick="">Curso</a></li>
+                                <li><a href="#add_courses" onclick="addCourse()">Curso</a></li>
 
-                                <li><a href="#add_newNot" onclick="">Noticia</a></li>
+                                <li><a href="#add_newNot" onclick="addNews()">Noticia</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="#tables" id="#tables" class="smoothScroll">Ver-editar-eliminar</a>
                             <ul>
-                                <li><a href="#teachers" onclick="GetProfessorsOnClick()">Profesor</a></li>
+                                <li><a href="#teachers" onclick="TeachersOnClick()">Profesor</a></li>
 
-                                <li><a href="#students" onclick="GetStudentsOnClick()">Estudiante</a></li>
+                                <li><a href="#students" onclick="StudentsOnClick()">Estudiante</a></li>
 
-                                <li><a href="#courses" onclick="GetCoursesOnClick()">Curso</a></li>
+                                <li><a href="#courses" onclick="CoursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
 
@@ -124,9 +124,9 @@
                         <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
                         <!-- GENERAL VIEW -->
-                        <li><a href="#Notice" id="#Notice" class="smoothScroll">Noticias</a></li>
+                        <li><a href="#Notice" id="#Notice" class="smoothScroll" onclick="seeNews()">Noticias</a></li>
 
-                        <li><a href="#newNot" id="#newNot" onclick="NewNotOnClick()" class="smoothScroll">Nuevas noticias</a></li>
+                      
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -318,42 +318,49 @@
 
 
     <!-- REGISTER PROFESSOR COURSE -->
-    <section id="register_professor_course">
+    <section id="register_professor">
         <!-------------------------------------------------------Professor-->
-        <div id="register_professor_course" class="container">
+        <div class="container">
             <div class="row">
-                <div id="register_professor" class="col-md-6 col-sm-12">
-                    <div class="entry-form">
+                <div id="register_professor">
+                    <div class="col-md-offset-1 col-md-4 col-sm-12">
+                        <div class="row">
+                            <div class="entry-form">
+                                <h2>Nuevo Profesor</h2>
+                                <input type="text" name="nameP" id="nameP" class="form-control" placeholder="Nombre del profesor*" required="" autocomplete="off">
 
-                        <h2>Nuevo Profesor</h2>
-                        <input type="text" name="nameP" id="nameP" class="form-control" placeholder="Nombre del profesor*" required="" autocomplete="off">
+                                <input type="text" name="codeP" id="codeP" class="form-control" placeholder="Código profesor*" required="" autocomplete="off">
 
-                        <input type="text" name="codeP" id="codeP" class="form-control" placeholder="Código profesor*" required="" autocomplete="off">
+                                <input type="email" name="emailP" id="emailP" class="form-control" placeholder="Correo electrónico*" required="" autocomplete="off">
 
-                        <input type="email" name="emailP" id="emailP" class="form-control" placeholder="Correo electrónico*" required="" autocomplete="off">
+                                <select name="AcadGradeP" class="form-control" id="AcadGradeP" required="">
+                                    <option disabled selected>Grado Académico*</option>
 
-                        <select name="AcadGradeP" class="form-control" id="AcadGradeP" required="">
-                            <option disabled selected>Grado Académico*</option>
+                                    <option value="1">Bachillerato</option>
 
-                            <option value="1">Bachillerato</option>
+                                    <option value="2">Licenciatura</option>
 
-                            <option value="2">Licenciatura</option>
+                                    <option value="3">Maestría</option>
 
-                            <option value="3">Maestría</option>
+                                </select>
 
-                        </select>
+                                <input type="password" name="passwordP" id="passwordP" class="form-control" placeholder="Contraseña*" required="" autocomplete="off">
 
-                        <input type="password" name="passwordP" id="passwordP" class="form-control" placeholder="Contraseña*" required="" autocomplete="off">
+                                <input type="password" name="repeatpasswordP" id="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
 
-                        <input type="password" name="repeatpasswordP" id="repeatpasswordP" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
-
-                        <button class="submit-btn form-control" onclick="return AddProfessor()" id="btn_register_professor">Registrar profesor</button>
-
-
+                                <button class="submit-btn form-control" onclick="return AddProfessor()" id="btn_register_professor">Registrar profesor</button>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-------------------------------------------------------Course-->
-                <div id="register_course" class="container">
+        </div>
+    </section>
+    <!-------------------------------------------------------course-->
+    <section id="register_course">
+        <div class="container">
+            <div class="row">
+                <div id="register_course">
                     <div class="col-md-offset-1 col-md-4 col-sm-12">
                         <div class="row">
                             <div class="entry-form">
@@ -603,6 +610,9 @@
                     <div class="entry-form">
 
                         <h2>Editar Curso</h2>
+
+                        <input type="text" name="idC" id="idC" class="form-control" placeholder="ID" required="">
+
                         <input type="text" name="EditnameC" id="EditnameC" class="form-control" placeholder="Nombre completo de curso" required="">
 
                         <input type="text" name="EditcodeC" id="EditcodeC" class="form-control" placeholder="Código Curso" required="">
@@ -730,6 +740,8 @@
                     <div class="entry-form">
 
                         <h2>Editar informacion personal</h2>
+                        <input type="text" id="idS" name="code" class="form-control" placeholder="Id" required="" autocomplete="off">
+
                         <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
 
                         <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
@@ -738,9 +750,9 @@
 
                         <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
 
-                        <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
+                        <!-- <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off"> -->
 
-                        <button class="submit-btn form-controlS" onclick="return " id="btn_sign_in_student">Editar</button>
+                        <button class="submit-btn form-controlS" onclick="return UpdateStudent()" id="btn_sign_in_student">Editar</button>
 
                     </div>
 
@@ -836,23 +848,17 @@
 
                             <thead>
                                 <tr>
-                                    <th>
-                                        #
-                                    </th>
+
                                     <th>
                                         Comentarios
                                     </th>
-                                    <th>
-                                        Opciones
-                                    </th>
-                                    <th><button class="submit-btn form-control" onclick="return tablesOriginSeeAdmin()" id="cancel">Cerrar comentarios</button></th>
+
+
                                 </tr>
                             </thead>
                             <tbody class="tbodyCommentsAdmin">
                             </tbody>
-
                         </table>
-
                     </div>
                 </div>
             </div>

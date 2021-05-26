@@ -36,6 +36,12 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.GetStudents());
         }
 
+        public ActionResult GetById([FromBody] int id)
+        {
+            studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.GetStudentById(id));
+        }
+
         public ActionResult GetTemporal()
         {
             studentDAO = new StudentDAO(_context);
