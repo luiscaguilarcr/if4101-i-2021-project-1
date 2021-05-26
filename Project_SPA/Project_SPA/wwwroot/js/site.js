@@ -282,7 +282,7 @@ function RegisterOnClick() {
 /////////////// ADMIN ///////////////
 
 /////////////// PROFESSOR ///////////////
-function TeachersOnClick() {
+function GetProfessorsOnClick() {
     LoadDataProfessor();
     document.getElementById('tables').style.display = 'block';
     document.getElementById('teachers').style.display = 'block';
@@ -299,7 +299,7 @@ function TeachersOnClick() {
 }
 
 /////////////// STUDENT ///////////////
-function StudentsOnClick() {
+function GetStudentsOnClick() {
     LoadDataStudent();
     document.getElementById('tables').style.display = 'block';
     document.getElementById('students').style.display = 'block';
@@ -315,7 +315,7 @@ function StudentsOnClick() {
     document.getElementById('newNot').style.display = 'none';
 }
 
-function TemporalStudentsOnClick() {
+function GetTemporalStudentsOnClick() {
     document.getElementById('student_register_requests').style.display = 'block';
     LoadDataTemporalStudent();
 
@@ -331,7 +331,6 @@ function TemporalStudentsOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
-
 }
 
 function EditStudentOnClick() {
@@ -340,7 +339,7 @@ function EditStudentOnClick() {
 }
 
 /////////////// COURSE ///////////////
-function CoursesOnClick() {
+function GetCoursesOnClick() {
     LoadDataCourse();
     document.getElementById('tables').style.display = 'block';
     document.getElementById('courses').style.display = 'block';
@@ -354,7 +353,6 @@ function CoursesOnClick() {
     document.getElementById('teachers').style.display = 'none';
     document.getElementById('student_register_requests').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
-
 }
 
 /////////////// NOTICE ///////////////
