@@ -605,6 +605,9 @@
                     <div class="entry-form">
 
                         <h2>Editar Curso</h2>
+
+                        <input type="text" name="idC" id="idC" class="form-control" placeholder="ID" required="">
+
                         <input type="text" name="EditnameC" id="EditnameC" class="form-control" placeholder="Nombre completo de curso" required="">
 
                         <input type="text" name="EditcodeC" id="EditcodeC" class="form-control" placeholder="Código Curso" required="">
@@ -762,6 +765,8 @@
                     <div class="entry-form">
 
                         <h2>Editar informacion personal</h2>
+                        <input type="text" id="idS" name="code" class="form-control" placeholder="Id" required="" autocomplete="off">
+
                         <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
 
                         <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
@@ -770,9 +775,9 @@
 
                         <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
 
-                        <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
+                        <!-- <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off"> -->
 
-                        <button class="submit-btn form-controlS" onclick="return " id="btn_sign_in_student">Editar</button>
+                        <button class="submit-btn form-controlS" onclick="return UpdateStudent()" id="btn_sign_in_student">Editar</button>
 
                     </div>
 
