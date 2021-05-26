@@ -711,8 +711,14 @@ function AddCourse() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            alert("insertado con exito");
-            CleanCourses();
+
+            if (result != -1) {
+                alert("insertado con exito");
+                CleanCourses();
+            } else {
+                alert("Usuario ya existe");
+            }
+
         },
         error: function (errorMessage) {
             // alert("Error");
