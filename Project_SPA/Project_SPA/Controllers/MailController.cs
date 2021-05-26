@@ -72,15 +72,13 @@ namespace Project_SPA.Controllers
         }
 
         [HttpPost("sendRequestAppointmentAttendanceStudentEmail")]
-        public async Task<ActionResult> SendRequestAppointmentAttendanceEmail([FromBody] int appointmentAttendanceId)
+        public async Task<ActionResult> SendRequestAppointmentAttendanceEmail([FromBody] AppointmentAttendance appointmentAttendance)
         {
             try
             {
-                appointmentAttendanceDAO = new AppointmentAttendanceDAO(_context);
                 studentDAO = new StudentDAO(_context);
                 professorDAO = new ProfessorDAO(_context);
 
-                AppointmentAttendance appointmentAttendance = appointmentAttendanceDAO.GetById(appointmentAttendanceId);
                 Student student = studentDAO.GetStudentById(appointmentAttendance.StudentId);
                 Professor professor = professorDAO.GetProfessorById(appointmentAttendance.ProfessorId);
                 Course course = courseDAO.GetCourseById(appointmentAttendance.CourseId);
@@ -90,9 +88,10 @@ namespace Project_SPA.Controllers
                     ToEmail = student.Email,
                     Subject = "Sistema de chat UCR del Recinto de Paraíso",
                     Body = "Usted ha solicitado la hora de consulta con el profesor " + professor.Name +
-                    ". Curso :" + course.Name +
-                    ". Fecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
-                    ". Hora: " + appointmentAttendance.StartDateHour.Hour + ":" + appointmentAttendance.StartDateHour.Minute,
+                    ".\nCurso :" + course.Name +
+                    ".\nFecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
+                    ".\nHora: " + appointmentAttendance.StartDateHour.Hour + ":" + appointmentAttendance.StartDateHour.Minute +
+                    ".\nRecuerde que el profesor dispone de 1-3 días hábiles para responder su solicitud."
                     
                 };
 
@@ -114,15 +113,22 @@ namespace Project_SPA.Controllers
                 appointmentAttendanceDAO = new AppointmentAttendanceDAO(_context);
                 studentDAO = new StudentDAO(_context);
                 professorDAO = new ProfessorDAO(_context);
-                
+
                 AppointmentAttendance appointmentAttendance = appointmentAttendanceDAO.GetById(appointmentAttendanceId);
                 Student student = studentDAO.GetStudentById(appointmentAttendance.StudentId);
-                MailRequest mailRequest = new MailRequest
+                Professor professor = professorDAO.GetProfessorById(appointmentAttendance.ProfessorId);
+                Course course = courseDAO.GetCourseById(appointmentAttendance.CourseId);
 
+                MailRequest mailRequest = new MailRequest
                 {
-                    ToEmail = student.Email,
+                    ToEmail = professor.Email,
                     Subject = "Sistema de chat UCR del Recinto de Paraíso",
-                    Body = "El estudiante"
+                    Body = "Usted ha recibido una solicitud para hora de consulta con el estudiante " + student.Name +
+                    ".\nCurso :" + course.Name +
+                    ".\nFecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
+                    ".\nHora: " + appointmentAttendance.StartDateHour.Hour + ":" + appointmentAttendance.StartDateHour.Minute +
+                    ".\nPara poder hacer activa esta hora de consulta, debe aceptarla en el sistema, de lo contrario se descartará"
+
                 };
 
                 await mailService.SendEmailAsync(mailRequest);
@@ -136,8 +142,8 @@ namespace Project_SPA.Controllers
         }
 
 
-        [HttpPost("sendAppointmentAttendanceAcceptanceStudentMail")]
-        public async Task<IActionResult> SendAppointmentAttendanceAcceptanceStudentMail([FromBody] int appointmentAttendanceId)
+        [HttpPost("sendAcceptanceAppointmentAttendanceStudentMail")]
+        public async Task<IActionResult> SendAcceptanceAppointmentAttendanceStudentMail([FromBody] int appointmentAttendanceId)
         {
             try
             {
@@ -157,9 +163,9 @@ namespace Project_SPA.Controllers
                     ToEmail = student.Email,
                     Subject = "Sistema de chat UCR del Recinto de Paraíso",
                     Body = "Se ha confirmado la hora asistencia con el profesor " + professor.Name +
-                    ". Curso :" + course.Name +
-                    ". Fecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
-                    ". Hora: " + appointmentAttendance.StartDateHour.Hour +":"+ appointmentAttendance.StartDateHour.Minute,
+                    ".\nCurso :" + course.Name +
+                    ".\nFecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
+                    ".\nHora: " + appointmentAttendance.StartDateHour.Hour +":"+ appointmentAttendance.StartDateHour.Minute,
                 };
 
                 await mailService.SendEmailAsync(mailRequest);
