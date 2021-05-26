@@ -3,6 +3,7 @@
 
 // Write your JavaScript code.
 
+//student_list no se que deberia hacer
 
 $(document).ready(function () { //DOM cargado, siempre va 
     NotVisible();
@@ -24,9 +25,8 @@ function NotVisible() {
     document.getElementById('OnlySeeNotice').style.display = 'block';
     //admin
     document.getElementById('#tables').style.display = 'none';
+    document.getElementById('#NoticeA').style.display = 'none';
     document.getElementById('#add_functions').style.display = 'none';
-
-    document.getElementById('#newNot').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none'; 
     document.getElementById('sign_out').style.display = 'none';
@@ -37,6 +37,7 @@ function NotVisible() {
     document.getElementById('register_course').style.display = 'none';
     document.getElementById('register_professor').style.display = 'none';
      //professor
+    document.getElementById('#NoticeP').style.display = 'none';
     document.getElementById('#consultas_professor').style.display = 'none';
     document.getElementById('#edit_professor_profile').style.display = 'none'; 
     document.getElementById('edit_professor_profile').style.display = 'none'; 
@@ -49,10 +50,11 @@ function NotVisible() {
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
     //student/professor
+    document.getElementById('#NoticeS').style.display = 'none';
     document.getElementById('TableComments').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
     document.getElementById('chat').style.display = 'none';
-    ShowLogIn();
+    ShowLogIn(); 
 }
 
 
@@ -78,12 +80,15 @@ function ShowAdmin() {
     document.getElementById('home').style.display = 'none';
     document.getElementById('#log_in').style.display = 'none';
     document.getElementById('#sign_in_student').style.display = 'none';
-    document.getElementById('#Notice').style.display = 'block';
+    document.getElementById('#NoticeA').style.display = 'block';
+    document.getElementById('#Notice').style.display = 'none';
+    document.getElementById('#NoticeP').style.display = 'none';
+    document.getElementById('#NoticeS').style.display = 'none';
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
     //admin
-    document.getElementById('#tables').style.display = 'block';
+      document.getElementById('#tables').style.display = 'block';
     document.getElementById('#add_functions').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'block';
     document.getElementById('tbodyCommentsAdmin').style.display = 'block';
@@ -98,8 +103,6 @@ function seeNews() {
     document.getElementById('tables').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
     document.getElementById('register_professor').style.display = 'none';
-   
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('student_register_requests').style.display = 'none';
 }
@@ -108,9 +111,7 @@ function addProfessor() {
     document.getElementById('register_professor').style.display = 'block';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('tables').style.display = 'none';
-    
-    document.getElementById('edit_admin_profile').style.display = 'none';
+    document.getElementById('tables').style.display = 'none';   
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';  
@@ -118,15 +119,13 @@ function addProfessor() {
     document.getElementById('student_register_requests').style.display = 'none';
 }
 function addStudent() {
-    LoadDataTemporalStudent;
+    LoadDataTemporalStudent();
     document.getElementById('student_register_requests').style.display = 'block';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
     document.getElementById('register_professor').style.display = 'none';
-   
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
@@ -136,8 +135,6 @@ function addCourse() {
      document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none';
-    
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none'; 
@@ -149,19 +146,6 @@ function addNews() {
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
-    document.getElementById('OptionsNoticeAdmin').style.display = 'none';
-    document.getElementById('tbodyCommentsAdmin').style.display = 'none';
-    document.getElementById('register_course').style.display = 'none';
-    document.getElementById('register_professor').style.display = 'none';
-    document.getElementById('student_register_requests').style.display = 'none';
-}
-function edit_admin_profile() {
-    document.getElementById('newNot').style.display = 'none';
-    document.getElementById('Notice').style.display = 'none';
-    document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('tables').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -177,7 +161,6 @@ function TeachersOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -193,7 +176,6 @@ function StudentsOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -209,7 +191,6 @@ function CoursesOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -225,42 +206,122 @@ function ShowProfessor() {
     document.getElementById('home').style.display = 'none';
     document.getElementById('#log_in').style.display = 'none';
     document.getElementById('#sign_in_student').style.display = 'none';
-    document.getElementById('#Notice').style.display = 'block';
+    document.getElementById('#NoticeA').style.display = 'none';
+    document.getElementById('#Notice').style.display = 'none';
+    document.getElementById('#NoticeP').style.display = 'block';
+    document.getElementById('#NoticeS').style.display = 'none';
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
     //professor
     document.getElementById('#consultas_professor').style.display = 'block';
     document.getElementById('#edit_professor_profile').style.display = 'block';
-    document.getElementById('edit_professor_profile').style.display = 'block';
-    document.getElementById('active_professor_consult').style.display = 'block';
-    document.getElementById('student_list').style.display = 'block';
-    document.getElementById('TableComments').style.display = 'block';
     document.getElementById('OptionsNotice').style.display = 'block';
-    document.getElementById('chat').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
 }
 
+function seeNewsP() {
+    document.getElementById('Notice').style.display = 'block';
+    document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
+    document.getElementById('chat').style.display = 'none';
+}
+function chatCall() {
+    document.getElementById('chat').style.display = 'block';
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+}
+function active_professor_consult() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'block';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+function edit_professor_profile() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('edit_professor_profile').style.display = 'block';
+    document.getElementById('active_professor_consult').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+
+//---------------------------------------------------------------------------------------------
 function ShowStudent() {
-    document.getElementById('#top').style.display = 'none'; 
+    document.getElementById('#top').style.display = 'none';
     document.getElementById('home').style.display = 'none';
     document.getElementById('#log_in').style.display = 'none';
     document.getElementById('#sign_in_student').style.display = 'none';
-    document.getElementById('#Notice').style.display = 'block';
+    document.getElementById('#NoticeA').style.display = 'none';
+    document.getElementById('#Notice').style.display = 'none';
+    document.getElementById('#NoticeP').style.display = 'none';
+    document.getElementById('#NoticeS').style.display = 'block';
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
          //student
     document.getElementById('#consultas_student').style.display = 'block';
     document.getElementById('#edit_student_profile').style.display = 'block';
-    document.getElementById('edit_student_profile').style.display = 'block';
-    document.getElementById('request_consult').style.display = 'block';
-    document.getElementById('active_student_consult').style.display = 'block';
-
-    document.getElementById('TableComments').style.display = 'block';
     document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
+}
+function seeNewsS() {
+    document.getElementById('Notice').style.display = 'block';
+    document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
+    document.getElementById('edit_student_profile').style.display = 'none';
+    document.getElementById('request_consult').style.display = 'none';
+    document.getElementById('active_student_consult').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+function chatStudent() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('edit_student_profile').style.display = 'none';
+    document.getElementById('request_consult').style.display = 'none';
+    document.getElementById('active_student_consult').style.display = 'none';
     document.getElementById('chat').style.display = 'block';
 }
-
+function request_consult() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('edit_student_profile').style.display = 'none';
+    document.getElementById('request_consult').style.display = 'block';
+    document.getElementById('active_student_consult').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+function active_student_consult() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('edit_student_profile').style.display = 'none';
+    document.getElementById('request_consult').style.display = 'none';
+    document.getElementById('active_student_consult').style.display = 'block';
+    document.getElementById('chat').style.display = 'none';
+}
+function edit_student_profile() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
+    document.getElementById('edit_student_profile').style.display = 'block';
+    document.getElementById('request_consult').style.display = 'none';
+    document.getElementById('active_student_consult').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+//---------------------------------------------------------------------------------------------------------
 function ShowLogIn() {
     ShowStudentSignIn();
     document.getElementById('#log_in').style.display = 'block';
@@ -392,23 +453,7 @@ function CleanCourses() {
 
 }
 
-//////////////////////////////////////////////////// ON CLICK ////////////////////////////////////////////////////
 
-function GetTemporalStudentsOnClick() {
-    document.getElementById('student_register_requests').style.display = 'block';
-    LoadDataTemporalStudent();
-
-    document.getElementById('tables').style.display = 'none';
-    document.getElementById('students').style.display = 'none';
-    document.getElementById('edit_student').style.display = 'none';
-    document.getElementById('edit_professor').style.display = 'none';
-    document.getElementById('edit_course').style.display = 'none';
-    document.getElementById('register_professor_course').style.display = 'none';
-    document.getElementById('courses').style.display = 'none';
-    document.getElementById('teachers').style.display = 'none';
-    document.getElementById('newNot').style.display = 'none';
-    document.getElementById('newNot').style.display = 'none';
-}
 
 //////////////////////////////////////////////////// API ////////////////////////////////////////////////////
 function PreviewFile() {
@@ -567,6 +612,28 @@ function GetStudentsById(id) { //llame al controlador home
     });
 }
 
+function GetStudent(id) { //llame al controlador home
+    document.getElementById('edit_student_profile').style.display = 'block';
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Student/GetById",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            document.getElementById("idS").value = result.id;
+            document.getElementById("nameUP").value = result.name;
+            document.getElementById("codeUP").value = result.code;
+            document.getElementById("emailUP").value = result.email;
+            document.getElementById("passwordUP").value = result.password;
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 function LoadDataStudent() {
     $.ajax({
         url: "/Student/GetEF",
@@ -581,7 +648,7 @@ function LoadDataStudent() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#edit_student_profile" onclick="GetStudent(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#edit_student_profile" onclick="return GetStudent(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
         },
@@ -610,50 +677,26 @@ function RemoveStudent(id) {
     }
 }
 
-
-function GetStudent(id) { //llame al controlador home
-
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Student/GetById",
-        data: JSON.stringify(id),
-        type: "PUT", //Put trae y pone 
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            document.getElementById("idS").value = result.id;
-            document.getElementById("codeS").value = result.code;
-            document.getElementById("nameS").value = result.name;
-            document.getElementById("emailS").value = result.email;
-            document.getElementById("passwordS").value = result.password;
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
-}
-
 function UpdateStudent() {
 
     var student = {
-        id: parseInt($('#idS').val()),  // TODO: Load state from previously suspended application
-        code: $('#codeS').val(),
-        name: $('#nameS').val(),
-        email: $('#emailS').val(),
-        password: $('#passwordS').val()
+        id: parseInt($('#idS').val()),  
+        code: $('#codeUP').val(),
+        name: $('#nameUP').val(),
+        email: $('#emailUP').val(),
+        password: $('#passwordUP').val()
     };
 
     $.ajax({
         url: "/Student/Edit",
         data: JSON.stringify(student),
-        type: "POST",
+        type: "PUT",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             alert("Actualizo");
            // LoadData();
-           // CloseEdit()
+           // CloseEdit();
         },
         error: function (errorMessage) {
             alert("Error");
@@ -827,7 +870,7 @@ function AddCourse() {
 function LoadDataCourse() {
 
     $.ajax({
-        url: "/Course/GetEF", //DUDA CUAL GET ES 
+        url: "/Course/GetEF", 
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -852,19 +895,18 @@ function LoadDataCourse() {
 }
 
 
-function RemoveCourse(id) { //DISTINTA AL PROFE
+function RemoveCourse(id) { 
 
     var respuesta = confirm("¿Quieres eliminar a este curso?");
     if (respuesta) {
 
-        $.ajax({ //Simbolo de dolar todo lo de jquery
+        $.ajax({ 
             url: "/Course/Remove",
             data: JSON.stringify(id),
             type: "DELETE",
             contentType: "application/json;charset=utf-8",
             dataType: "json",
             success: function (result) {
-                //aca recibo el resultafo del backend (datos,objetos,mensajes)
                 LoadDataCourse();
             },
             error: function (errorMessage) {
@@ -876,16 +918,15 @@ function RemoveCourse(id) { //DISTINTA AL PROFE
 
 }
 
-function GetCourse(id) { //llame al controlador home
+function GetCourse(id) { 
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/Course/GetCourse",
         data: JSON.stringify(id),
         type: "PUT", //Put trae y pone 
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
             document.getElementById("idC").value = result.id;
             document.getElementById("EditcodeC").value = result.code;
             document.getElementById("EditnameC").value = result.name;
@@ -1093,7 +1134,7 @@ function LoadDataNews() {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
                 document.getElementById("SecretIdNews").value = item.id;
-                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#TableComments" onclick="return tablesSee()">Ver comentarios</a></td>';
+                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#TableComments" onclick="return LoadDataComment(' + item.id + ')">Ver comentarios</a></td>';
             });
             $('.tbodyOptionsNotice').html(html);
         },
@@ -1103,16 +1144,6 @@ function LoadDataNews() {
     })
 }
 
-function tablesSee() {
-    LoadDataComment();
-    document.getElementById('TableComments').style.display = 'block';
-    document.getElementById('OptionsNotice').style.display = 'none';
-}
-
-function tablesOriginSee() {
-    document.getElementById('TableComments').style.display = 'none';
-    document.getElementById('OptionsNotice').style.display = 'block';
-}
 
 function OnlySeeNotice() {
     $.ajax({
@@ -1160,17 +1191,17 @@ function AddComment() {
     });
 }
 
-function DeleteComment(id) { //llame al controlador home
+function DeleteComment(id) { 
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/CommentsAPI/Delete",
         data: JSON.stringify(id),
         type: "DELETE",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
             alert("ELIMINADO");
+
         },
         error: function (errorMessage) {
             alert("Error");
@@ -1179,16 +1210,16 @@ function DeleteComment(id) { //llame al controlador home
     });
 }
 
-function DeleteNews(id) { //llame al controlador home
+function DeleteNews(id) { 
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/NewsAPI/Delete",
         data: JSON.stringify(id),
         type: "DELETE",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+
             alert("ELIMINADO");
         },
         error: function (errorMessage) {
@@ -1211,6 +1242,7 @@ function GetCommentsByNews(id) {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.comment + '</td>';
+                html += '<td> <a href="#" onclick="return DeleteComment(' + item.idComment + ')">Eliminar comentario</a></td>';
             });
             $('.tbodyCommentsAdmin').html(html);
         },
@@ -1221,17 +1253,18 @@ function GetCommentsByNews(id) {
     });
 }
 
-function LoadDataComment() {
+function LoadDataComment(id) {
     $.ajax({
-        url: "/CommentsAPI/Get",
-        type: "GET",
+        url: "/Comment/GetCommentsByNews",
+        data: JSON.stringify(id),
+        type: "PUT",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             var html = '';
             $.each(result, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.comment1 + '</td>';
+                html += '<td>' + item.comment + '</td>';
             });
             $('.tbodyComments').html(html);
         },
@@ -1252,7 +1285,7 @@ function LoadDataNewsAdmin() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
-                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return GetCommentsByNews(' + item.id + ')">Ver Noticia</a></td>';
+                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return GetCommentsByNews(' + item.id + ')">Ver comentarios</a></td>';
             });
             $('.tbodyOptionsNoticeAdmin').html(html);
         },

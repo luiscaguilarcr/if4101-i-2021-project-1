@@ -32,7 +32,7 @@ namespace Project_SPA.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44336/api/Comments/");//CAMBIAR URL
+                    client.BaseAddress = new Uri("https://localhost:44336/api/Comments/");
                     var responseTask = client.GetAsync("GetComments");
                     responseTask.Wait();
 
@@ -42,7 +42,7 @@ namespace Project_SPA.Controllers
                     {
                         var readTask = result.Content.ReadAsAsync<IList<Comment>>();
                         readTask.Wait();
-                        //lee los estudiantes provenientes de la API
+
                         comment = readTask.Result;
                     }
                     else
@@ -88,7 +88,6 @@ namespace Project_SPA.Controllers
 
                     client.BaseAddress = new Uri("https://localhost:44336/api/Comments/" + id);
 
-                    //HTTP POST
                     var putTask = client.PutAsJsonAsync("student", comment);
                     putTask.Wait();
 
@@ -143,7 +142,8 @@ namespace Project_SPA.Controllers
 
         }
 
-        // DELETE: api/ApiWithActions/5[Route("[action]")]
+        // DELETE: api/ApiWithActions/5
+        [Route("[action]")]
         [HttpDelete]
         public JsonResult Delete([FromBody] int id)
         {
@@ -152,7 +152,6 @@ namespace Project_SPA.Controllers
             {
                 client.BaseAddress = new Uri("https://localhost:44336/api/Comments/");
 
-                //HTTP DELETE
                 var deleteTask = client.DeleteAsync("DeleteComment/" + id.ToString());
                 deleteTask.Wait();
 
@@ -164,7 +163,6 @@ namespace Project_SPA.Controllers
                 }
                 else
                 {
-                    //camino del error
                     return new JsonResult(result);
 
                 }

@@ -74,13 +74,13 @@
                         <li>
                             <a href="#" id="#add_functions" class="smoothScroll">Agregar</a>
                             <ul>
-                                <li><a href="#addProfessor" onclick="addProfessor()">Profesor</a></li>
+                                <li><a href="#register_professor" onclick="addProfessor()">Profesor</a></li>
 
-                                <li><a href="#add_students" onclick="addStudent()">Estudiante</a></li>
+                                <li><a href="#student_register_requests" onclick="addStudent()">Estudiante</a></li>
 
-                                <li><a href="#add_courses" onclick="addCourse()">Curso</a></li>
+                                <li><a href="#register_course" onclick="addCourse()">Curso</a></li>
 
-                                <li><a href="#add_newNot" onclick="addNews()">Noticia</a></li>
+                                <li><a href="#newNot" onclick="addNews()">Noticia</a></li>
                             </ul>
                         </li>
 
@@ -94,39 +94,39 @@
                                 <li><a href="#courses" onclick="CoursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
-
+                        <li><a href="#Notice" id="#NoticeA" class="smoothScroll" onclick="seeNews()">Noticias</a></li>
 
                         <!-- PROFESSOR VIEW -->
                         <li>
                             <a href="#" id="#consultas_professor" class="smoothScroll">Consultas</a>
                             <ul>
-                                <li><a href="#chat_professor" onclick="">Enviar mensaje</a></li>
+                                <li><a href="#chat" onclick="chatCall()">Enviar mensaje</a></li><!--duda-->
 
-                                <li><a href="#active_professor_consult" onclick="">Consultas activas</a></li>
+                                <li><a href="#active_professor_consult" onclick="active_professor_consult()">Consultas activas</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
-
+                        <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="edit_professor_profile()" class="smoothScroll">Editar información personal</a></li>
+                        <li><a href="#Notice" id="#NoticeP" class="smoothScroll" onclick="seeNewsP()">Noticias</a></li>
 
                         <!-- STUDENT VIEW -->
                         <li>
                             <a href="#" id="#consultas_student" class="smoothScroll">Consultas</a>
                             <ul>
-                                <li><a href="#chat" onclick="">Enviar mensaje</a></li>
+                                <li><a href="#chat" onclick="chatStudent()">Enviar mensaje</a></li>
 
-                                <li><a href="#request_consult" onclick="StudentsOnClick()">Solicitar cita de consult</a></li>
+                                <li><a href="#request_consult" onclick="request_consult()">Solicitar cita de consulta</a></li>
 
-                                <li><a href="#active_student_consult" onclick="">Consultas activas</a></li>
+                                <li><a href="#active_student_consult" onclick="active_student_consult()">Consultas activas</a></li>
                             </ul>
                         </li>
-
-                        <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
+                        <li><a href="#Notice" id="#NoticeS" class="smoothScroll" onclick="seeNewsS()">Noticias</a></li>
+                        <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="edit_student_profile()" class="smoothScroll">Editar información personal</a></li>
 
                         <!-- GENERAL VIEW -->
-                        <li><a href="#Notice" id="#Notice" class="smoothScroll" onclick="seeNews()">Noticias</a></li>
+                        <li><a href="#Notice" id="#Notice" class="smoothScroll">Noticias</a></li>
 
-                      
+
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -740,17 +740,15 @@
                     <div class="entry-form">
 
                         <h2>Editar informacion personal</h2>
-                        <input type="text" id="idS" name="code" class="form-control" placeholder="Id" required="" autocomplete="off">
+                        <input type="text" id="idS" name="code" class="form-control" placeholder="Id" required="" autocomplete="off" disabled>
 
-                        <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
+                        <input type="text" id="nameUP" name="code" class="form-control" placeholder="Nombre Completo" required="" autocomplete="off">
 
-                        <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
+                        <input type="text" id="codeUP" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
 
-                        <input type="email" id="emailS" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
+                        <input type="email" id="emailUP" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
 
-                        <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
-
-                        <!-- <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off"> -->
+                        <input type="password" id="passwordUP" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
 
                         <button class="submit-btn form-controlS" onclick="return UpdateStudent()" id="btn_sign_in_student">Editar</button>
 
@@ -822,7 +820,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        Noticias
+                                        Novedades
                                     </th>
                                     <th>
                                         Opciones
@@ -839,21 +837,19 @@
 
         <div id="tbodyCommentsAdmin" class="container">
             <div class="row">
-                <div class="section-title">
-                    <h2>Comentarios</h2>
-                </div>
+               
                 <div class="col-md-12 col-sm-12">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover" id="table">
 
                             <thead>
                                 <tr>
-
                                     <th>
                                         Comentarios
                                     </th>
-
-
+                                    <th>
+                                        Opciones
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="tbodyCommentsAdmin">
@@ -876,7 +872,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        Noticias
+                                        Novedades
                                     </th>
                                 </tr>
                             </thead>
@@ -901,7 +897,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        Noticias
+                                        Novedades
                                     </th>
                                     <th>
                                         Opciones
@@ -920,9 +916,7 @@
 
         <div id="TableComments" class="container">
             <div class="row">
-                <div class="section-title">
-                    <h2>Comentarios</h2>
-                </div>
+               
                 <div class="col-md-12 col-sm-12">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover" id="table">
@@ -936,7 +930,7 @@
                             </thead>
                             <tbody class="tbodyComments">
                             </tbody>
-                            <td><button class="submit-btn form-control" onclick="return tablesOriginSee()" id="cancel">Cerrar comentarios</button></td>
+              
                         </table>
 
                     </div>
@@ -1068,30 +1062,37 @@
             <div class="row">
                 <div class="section-title">
                     <h2>Consultas activas</h2>
-                    <th>
-                        Grupo
-                    </th>
-
-                    <th>
-                        Curso
-                    </th>
-                    <th>
-                        Profesor
-                    </th>
-                    <th>
-                        Hora
-                    </th>
-                    </tr>
-                    </thead>
-                    <tbody class="tbodyConsult">
-                    </tbody>
-                    </table>
-
                 </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Grupo
+                                    </th>
+
+                                    <th>
+                                        Curso
+                                    </th>
+                                    <th>
+                                        Profesor
+                                    </th>
+                                    <th>
+                                        Hora
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyConsult">
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
             </div>
-
-
-        </div>
         </div>
     </section>
 
