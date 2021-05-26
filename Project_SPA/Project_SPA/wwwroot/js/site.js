@@ -380,9 +380,15 @@ function AddProfessor() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            alert("insertado con exito");
-            CleanProfessor();
+            if (result != -1) {
+                alert("insertado con exito");
+                CleanProfessor();
+
+            } else {
+                alert("profesor ya exite ");
+            }
         },
+        
         error: function (errorMessage) {
             // alert("Error");
             alert(errorMessage.responseText);
@@ -576,27 +582,32 @@ function AddTemporalStudent() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            CleanStudent();
 
-            $.ajax({
-                url: "/api/mail/sendRequestEmail/",
-                data: JSON.stringify(temporalStudent.email),
-                type: "POST",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-                    document.getElementById("information").style.color = "green";
-                    alert("Su solicitud se ha enviado correctamente");
-                }
+            if (result != -1) {
+                CleanStudent();
 
-            });
-
+                $.ajax({
+                    url: "/api/mail/sendRequestEmail/",
+                    data: JSON.stringify(temporalStudent.email),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+                        document.getElementById("information").style.color = "green";
+                        alert("Su solicitud se ha enviado correctamente");
+                    },
+                });
+            } else {
+                alert("usuario ya existe");
+                document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
+                document.getElementById("information").style.color = "red";
+            }
         },
         error: function (errorMessage) {
-            document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
-            document.getElementById("information").style.color = "red";
+            
             alert(errorMessage.responseText);
+
         }
     });
 }
@@ -700,8 +711,14 @@ function AddCourse() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            alert("insertado con exito");
-            CleanCourses();
+
+            if (result != -1) {
+                alert("insertado con exito");
+                CleanCourses();
+            } else {
+                alert("Usuario ya existe");
+            }
+
         },
         error: function (errorMessage) {
             // alert("Error");
