@@ -94,20 +94,20 @@
                                 <li><a href="#courses" onclick="CoursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
-
+                        <li><a href="#Notice" id="#NoticeA" class="smoothScroll" onclick="seeNews()">Noticias</a></li>
 
                         <!-- PROFESSOR VIEW -->
                         <li>
                             <a href="#" id="#consultas_professor" class="smoothScroll">Consultas</a>
                             <ul>
-                                <li><a href="#chat_professor" onclick="">Enviar mensaje</a></li>
+                                <li><a href="#chat" onclick="chat()">Enviar mensaje</a></li><!--duda-->
 
-                                <li><a href="#active_professor_consult" onclick="">Consultas activas</a></li>
+                                <li><a href="#active_professor_consult" onclick="active_professor_consult()">Consultas activas</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
-
+                        <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="edit_professor_profile()" class="smoothScroll">Editar información personal</a></li>
+                        <li><a href="#Notice" id="#NoticeP" class="smoothScroll" onclick="seeNewsP()">Noticias</a></li>
 
                         <!-- STUDENT VIEW -->
                         <li>
@@ -124,9 +124,9 @@
                         <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
                         <!-- GENERAL VIEW -->
-                        <li><a href="#Notice" id="#Notice" class="smoothScroll" onclick="seeNews()">Noticias</a></li>
+                        <li><a href="#Notice" id="#Notice" class="smoothScroll">Noticias</a></li>
 
-                      
+
                     </ul>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -1066,30 +1066,37 @@
             <div class="row">
                 <div class="section-title">
                     <h2>Consultas activas</h2>
-                    <th>
-                        Grupo
-                    </th>
-
-                    <th>
-                        Curso
-                    </th>
-                    <th>
-                        Profesor
-                    </th>
-                    <th>
-                        Hora
-                    </th>
-                    </tr>
-                    </thead>
-                    <tbody class="tbodyConsult">
-                    </tbody>
-                    </table>
-
                 </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Grupo
+                                    </th>
+
+                                    <th>
+                                        Curso
+                                    </th>
+                                    <th>
+                                        Profesor
+                                    </th>
+                                    <th>
+                                        Hora
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyConsult">
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
             </div>
-
-
-        </div>
         </div>
     </section>
 

@@ -24,6 +24,7 @@ function NotVisible() {
     document.getElementById('OnlySeeNotice').style.display = 'block';
     //admin
     document.getElementById('#tables').style.display = 'none';
+    document.getElementById('#NoticeA').style.display = 'none';
     document.getElementById('#add_functions').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none'; 
@@ -35,6 +36,7 @@ function NotVisible() {
     document.getElementById('register_course').style.display = 'none';
     document.getElementById('register_professor').style.display = 'none';
      //professor
+    document.getElementById('#NoticeP').style.display = 'none';
     document.getElementById('#consultas_professor').style.display = 'none';
     document.getElementById('#edit_professor_profile').style.display = 'none'; 
     document.getElementById('edit_professor_profile').style.display = 'none'; 
@@ -76,7 +78,9 @@ function ShowAdmin() {
     document.getElementById('home').style.display = 'none';
     document.getElementById('#log_in').style.display = 'none';
     document.getElementById('#sign_in_student').style.display = 'none';
-    document.getElementById('#Notice').style.display = 'block';
+    document.getElementById('#NoticeA').style.display = 'block';
+    document.getElementById('#Notice').style.display = 'none';
+    document.getElementById('#NoticeP').style.display = 'none';
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
@@ -112,7 +116,7 @@ function addProfessor() {
     document.getElementById('student_register_requests').style.display = 'none';
 }
 function addStudent() {
-    LoadDataTemporalStudent;
+    LoadDataTemporalStudent();
     document.getElementById('student_register_requests').style.display = 'block';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
@@ -199,21 +203,53 @@ function ShowProfessor() {
     document.getElementById('home').style.display = 'none';
     document.getElementById('#log_in').style.display = 'none';
     document.getElementById('#sign_in_student').style.display = 'none';
-    document.getElementById('#Notice').style.display = 'block';
+    document.getElementById('#NoticeA').style.display = 'none';
+    document.getElementById('#Notice').style.display = 'none';
+    document.getElementById('#NoticeP').style.display = 'block';
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
     //professor
     document.getElementById('#consultas_professor').style.display = 'block';
     document.getElementById('#edit_professor_profile').style.display = 'block';
-    document.getElementById('edit_professor_profile').style.display = 'block';
-    document.getElementById('active_professor_consult').style.display = 'block';
-    document.getElementById('student_list').style.display = 'block';
-    document.getElementById('TableComments').style.display = 'block';
     document.getElementById('OptionsNotice').style.display = 'block';
-    document.getElementById('chat').style.display = 'block';
 }
 
+function seeNewsP() {
+    document.getElementById('Notice').style.display = 'block';
+    document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('chat').style.display = 'none';
+}
+function chat() {
+    document.getElementById('chat').style.display = 'block';
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+   
+}
+function active_professor_consult() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('edit_professor_profile').style.display = 'none';
+    document.getElementById('active_professor_consult').style.display = 'block';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+function edit_professor_profile() {
+    document.getElementById('Notice').style.display = 'none';
+    document.getElementById('edit_professor_profile').style.display = 'block';
+    document.getElementById('active_professor_consult').style.display = 'none';
+    document.getElementById('student_list').style.display = 'none';
+    document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('chat').style.display = 'none';
+}
+
+//---------------------------------------------------------------------------------------------
 function ShowStudent() {
     document.getElementById('#top').style.display = 'none'; 
     document.getElementById('home').style.display = 'none';
@@ -1077,7 +1113,7 @@ function LoadDataNewsAdmin() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
-                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return GetCommentsByNews(' + item.id + ')">Ver Noticia</a></td>';
+                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return GetCommentsByNews(' + item.id + ')">Ver comentarios</a></td>';
             });
             $('.tbodyOptionsNoticeAdmin').html(html);
         },
