@@ -83,7 +83,6 @@ function ShowAdmin() {
     //admin
       document.getElementById('#tables').style.display = 'block';
     document.getElementById('#add_functions').style.display = 'block';
-    document.getElementById('#edit_admin_profile').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'block';
     document.getElementById('tbodyCommentsAdmin').style.display = 'block';
 }
@@ -97,8 +96,6 @@ function seeNews() {
     document.getElementById('tables').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
     document.getElementById('register_professor').style.display = 'none';
-   
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('student_register_requests').style.display = 'none';
 }
@@ -107,9 +104,7 @@ function addProfessor() {
     document.getElementById('register_professor').style.display = 'block';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('tables').style.display = 'none';
-    
-    document.getElementById('edit_admin_profile').style.display = 'none';
+    document.getElementById('tables').style.display = 'none';   
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';  
@@ -124,8 +119,6 @@ function addStudent() {
     document.getElementById('tables').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
     document.getElementById('register_professor').style.display = 'none';
-   
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
@@ -135,8 +128,6 @@ function addCourse() {
      document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none';
-    
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none'; 
@@ -148,19 +139,6 @@ function addNews() {
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
-    document.getElementById('OptionsNoticeAdmin').style.display = 'none';
-    document.getElementById('tbodyCommentsAdmin').style.display = 'none';
-    document.getElementById('register_course').style.display = 'none';
-    document.getElementById('register_professor').style.display = 'none';
-    document.getElementById('student_register_requests').style.display = 'none';
-}
-function edit_admin_profile() {
-    document.getElementById('newNot').style.display = 'none';
-    document.getElementById('Notice').style.display = 'none';
-    document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('tables').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -176,7 +154,6 @@ function TeachersOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -192,7 +169,6 @@ function StudentsOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
@@ -208,7 +184,6 @@ function CoursesOnClick() {
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none';
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
     document.getElementById('register_course').style.display = 'none';
