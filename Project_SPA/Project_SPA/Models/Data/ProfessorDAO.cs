@@ -10,6 +10,7 @@ namespace Project_SPA.Models.Data
     public class ProfessorDAO
     {
         private readonly IF4101_2021_SPAContext _context;
+        
 
         public ProfessorDAO(IF4101_2021_SPAContext context)
         {
@@ -131,6 +132,7 @@ namespace Project_SPA.Models.Data
         {
             return _context.Professors.Any(e => e.Id == id);
         }
+
     }
 }
 
