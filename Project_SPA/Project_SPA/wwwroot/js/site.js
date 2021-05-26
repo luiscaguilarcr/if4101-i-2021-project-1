@@ -119,6 +119,7 @@ function addProfessor() {
     document.getElementById('student_register_requests').style.display = 'none';
 }
 function addStudent() {
+    LoadDataTemporalStudent;
     document.getElementById('student_register_requests').style.display = 'block';
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
@@ -394,15 +395,6 @@ function CleanCourses() {
 
 //////////////////////////////////////////////////// ON CLICK ////////////////////////////////////////////////////
 
-/////////////// GENERAL ///////////////
-function RegisterOnClick() {
-    document.getElementById('register_professor_course').style.display = 'block';
-    document.getElementById('tables').style.display = 'none';
-    document.getElementById('newNot').style.display = 'none';
-}
-
-/////////////// STUDENT ///////////////
-
 
 function TemporalStudentsOnClick() {
     document.getElementById('student_register_requests').style.display = 'block';
@@ -421,11 +413,6 @@ function TemporalStudentsOnClick() {
     document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
 
-}
-
-function EditStudentOnClick() {
-    document.getElementById('#edit_student').style.display = 'block';
-    document.getElementById('edit_student').style.display = 'block';
 }
 
 //////////////////////////////////////////////////// API ////////////////////////////////////////////////////
