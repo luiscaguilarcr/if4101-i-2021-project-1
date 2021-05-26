@@ -10,10 +10,14 @@ namespace Project_SPA.Controllers
     [Route("api/[controller]")]
     public class MailController : ControllerBase
     {
-        private readonly IF4101_2021_SPAContext _context;
-        StudentDAO studentDAO;
-
         private readonly IMailService mailService;
+        private readonly IF4101_2021_SPAContext _context;
+
+        StudentDAO studentDAO;
+        ProfessorDAO professorDAO;
+        CourseDAO courseDAO;
+        AppointmentAttendanceDAO appointmentAttendanceDAO;
+
         public MailController(IMailService mailService)
         {
             this.mailService = mailService;
@@ -66,6 +70,107 @@ namespace Project_SPA.Controllers
             }
 
         }
-        
+
+        [HttpPost("sendRequestAppointmentAttendanceStudentEmail")]
+        public async Task<ActionResult> SendRequestAppointmentAttendanceEmail([FromBody] int appointmentAttendanceId)
+        {
+            try
+            {
+                appointmentAttendanceDAO = new AppointmentAttendanceDAO(_context);
+                studentDAO = new StudentDAO(_context);
+                professorDAO = new ProfessorDAO(_context);
+
+                AppointmentAttendance appointmentAttendance = appointmentAttendanceDAO.GetById(appointmentAttendanceId);
+                Student student = studentDAO.GetStudentById(appointmentAttendance.StudentId);
+                Professor professor = professorDAO.GetProfessorById(appointmentAttendance.ProfessorId);
+                Course course = courseDAO.GetCourseById(appointmentAttendance.CourseId);
+
+                MailRequest mailRequest = new MailRequest
+                {
+                    ToEmail = student.Email,
+                    Subject = "Sistema de chat UCR del Recinto de Paraíso",
+                    Body = "Usted ha solicitado la hora de consulta con el profesor " + professor.Name +
+                    ". Curso :" + course.Name +
+                    ". Fecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
+                    ". Hora: " + appointmentAttendance.StartDateHour.Hour + ":" + appointmentAttendance.StartDateHour.Minute,
+                    
+                };
+
+                await mailService.SendEmailAsync(mailRequest);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        [HttpPost("sendRequestAppointmentAttendanceProfessorEmail")]
+        public async Task<ActionResult> SendRequestAppointmentAttendanceProfessorEmail([FromBody] int appointmentAttendanceId)
+        {
+            try
+            {
+                appointmentAttendanceDAO = new AppointmentAttendanceDAO(_context);
+                studentDAO = new StudentDAO(_context);
+                professorDAO = new ProfessorDAO(_context);
+                
+                AppointmentAttendance appointmentAttendance = appointmentAttendanceDAO.GetById(appointmentAttendanceId);
+                Student student = studentDAO.GetStudentById(appointmentAttendance.StudentId);
+                MailRequest mailRequest = new MailRequest
+
+                {
+                    ToEmail = student.Email,
+                    Subject = "Sistema de chat UCR del Recinto de Paraíso",
+                    Body = "El estudiante"
+                };
+
+                await mailService.SendEmailAsync(mailRequest);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+
+        [HttpPost("sendAppointmentAttendanceAcceptanceStudentMail")]
+        public async Task<IActionResult> SendAppointmentAttendanceAcceptanceStudentMail([FromBody] int appointmentAttendanceId)
+        {
+            try
+            {
+                appointmentAttendanceDAO = new AppointmentAttendanceDAO(_context);
+                studentDAO = new StudentDAO(_context);
+                professorDAO = new ProfessorDAO(_context);
+                courseDAO = new CourseDAO(_context);
+
+                AppointmentAttendance appointmentAttendance = appointmentAttendanceDAO.GetById(appointmentAttendanceId);
+
+                Student student = studentDAO.GetStudentById(appointmentAttendance.StudentId);
+                Professor professor = professorDAO.GetProfessorById(appointmentAttendance.ProfessorId);
+                Course course = courseDAO.GetCourseById(appointmentAttendance.CourseId);
+                
+                MailRequest mailRequest = new MailRequest
+                {
+                    ToEmail = student.Email,
+                    Subject = "Sistema de chat UCR del Recinto de Paraíso",
+                    Body = "Se ha confirmado la hora asistencia con el profesor " + professor.Name +
+                    ". Curso :" + course.Name +
+                    ". Fecha: " + appointmentAttendance.StartDateHour.Day + "/" + appointmentAttendance.StartDateHour.Month + "/" + appointmentAttendance.StartDateHour.Year +
+                    ". Hora: " + appointmentAttendance.StartDateHour.Hour +":"+ appointmentAttendance.StartDateHour.Minute,
+                };
+
+                await mailService.SendEmailAsync(mailRequest);
+                return Ok(1);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
     }
 }

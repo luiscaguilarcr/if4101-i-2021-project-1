@@ -9,6 +9,7 @@ namespace Project_SPA.Models.Entities
     {
         public Course()
         {
+            AttendanceProfessorCourseGroups = new HashSet<AttendanceProfessorCourseGroup>();
             Groups = new HashSet<Group>();
         }
 
@@ -23,6 +24,7 @@ namespace Project_SPA.Models.Entities
         public DateTime UpdateDate { get; set; }
         public string UpdateUser { get; set; }
 
+        public virtual ICollection<AttendanceProfessorCourseGroup> AttendanceProfessorCourseGroups { get; set; }
         public virtual ICollection<Group> Groups { get; set; }
     }
 }

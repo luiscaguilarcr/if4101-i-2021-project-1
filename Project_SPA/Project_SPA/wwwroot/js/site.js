@@ -25,11 +25,11 @@ function NotVisible() {
     //admin
     document.getElementById('#tables').style.display = 'none';
     document.getElementById('#add_functions').style.display = 'none';
-    document.getElementById('#edit_admin_profile').style.display = 'none';
+
+    document.getElementById('#newNot').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none'; 
     document.getElementById('sign_out').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
     document.getElementById('OptionsNoticeAdmin').style.display = 'none'; 
     document.getElementById('tbodyCommentsAdmin').style.display = 'none';
@@ -85,7 +85,6 @@ function ShowAdmin() {
     //admin
     document.getElementById('#tables').style.display = 'block';
     document.getElementById('#add_functions').style.display = 'block';
-    document.getElementById('#edit_admin_profile').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'block';
     document.getElementById('tbodyCommentsAdmin').style.display = 'block';
 }
@@ -395,14 +394,12 @@ function CleanCourses() {
 
 //////////////////////////////////////////////////// ON CLICK ////////////////////////////////////////////////////
 
-
-function TemporalStudentsOnClick() {
+function GetTemporalStudentsOnClick() {
     document.getElementById('student_register_requests').style.display = 'block';
     LoadDataTemporalStudent();
 
     document.getElementById('tables').style.display = 'none';
     document.getElementById('students').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('edit_student').style.display = 'none';
     document.getElementById('edit_professor').style.display = 'none';
     document.getElementById('edit_course').style.display = 'none';
@@ -410,9 +407,7 @@ function TemporalStudentsOnClick() {
     document.getElementById('courses').style.display = 'none';
     document.getElementById('teachers').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
     document.getElementById('newNot').style.display = 'none';
-
 }
 
 //////////////////////////////////////////////////// API ////////////////////////////////////////////////////
@@ -458,9 +453,15 @@ function AddProfessor() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            alert("insertado con exito");
-            CleanProfessor();
+            if (result != -1) {
+                alert("insertado con exito");
+                CleanProfessor();
+
+            } else {
+                alert("profesor ya exite ");
+            }
         },
+        
         error: function (errorMessage) {
             // alert("Error");
             alert(errorMessage.responseText);
@@ -678,27 +679,32 @@ function AddTemporalStudent() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            CleanStudent();
 
-            $.ajax({
-                url: "/api/mail/sendRequestEmail/",
-                data: JSON.stringify(temporalStudent.email),
-                type: "POST",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-                    document.getElementById("information").style.color = "green";
-                    alert("Su solicitud se ha enviado correctamente");
-                }
+            if (result != -1) {
+                CleanStudent();
 
-            });
-
+                $.ajax({
+                    url: "/api/mail/sendRequestEmail/",
+                    data: JSON.stringify(temporalStudent.email),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+                        document.getElementById("information").style.color = "green";
+                        alert("Su solicitud se ha enviado correctamente");
+                    },
+                });
+            } else {
+                alert("usuario ya existe");
+                document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
+                document.getElementById("information").style.color = "red";
+            }
         },
         error: function (errorMessage) {
-            document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
-            document.getElementById("information").style.color = "red";
+            
             alert(errorMessage.responseText);
+
         }
     });
 }
@@ -802,8 +808,14 @@ function AddCourse() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            alert("insertado con exito");
-            CleanCourses();
+
+            if (result != -1) {
+                alert("insertado con exito");
+                CleanCourses();
+            } else {
+                alert("Usuario ya existe");
+            }
+
         },
         error: function (errorMessage) {
             // alert("Error");
