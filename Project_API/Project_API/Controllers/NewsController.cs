@@ -63,9 +63,21 @@ namespace Project_API.Controllers
         }
 
         // DELETE api/<ViewsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+
+        [Route("[action]/{id}")]
+        [HttpDelete]
+        public async Task<ActionResult<News>> DeleteNews(int id)
         {
+            var news = await _context.News.FindAsync(id);
+            if (news == null)
+            {
+                return NotFound();
+            }
+
+            _context.News.Remove(news);
+            await _context.SaveChangesAsync();
+
+            return news;
         }
     }
 }
