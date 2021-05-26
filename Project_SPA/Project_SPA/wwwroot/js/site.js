@@ -54,7 +54,7 @@ function NotVisible() {
     document.getElementById('TableComments').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
     document.getElementById('chat').style.display = 'none';
-    ShowLogIn();
+    ShowLogIn(); 
 }
 
 
@@ -217,6 +217,7 @@ function ShowProfessor() {
     document.getElementById('#consultas_professor').style.display = 'block';
     document.getElementById('#edit_professor_profile').style.display = 'block';
     document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
 }
 
 function seeNewsP() {
@@ -225,6 +226,7 @@ function seeNewsP() {
     document.getElementById('active_professor_consult').style.display = 'none';
     document.getElementById('student_list').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
     document.getElementById('chat').style.display = 'none';
 }
 function chatCall() {
@@ -234,7 +236,7 @@ function chatCall() {
     document.getElementById('active_professor_consult').style.display = 'none';
     document.getElementById('student_list').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
-   
+    document.getElementById('TableComments').style.display = 'none';
 }
 function active_professor_consult() {
     document.getElementById('Notice').style.display = 'none';
@@ -242,6 +244,7 @@ function active_professor_consult() {
     document.getElementById('active_professor_consult').style.display = 'block';
     document.getElementById('student_list').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
     document.getElementById('chat').style.display = 'none';
 }
 function edit_professor_profile() {
@@ -250,6 +253,7 @@ function edit_professor_profile() {
     document.getElementById('active_professor_consult').style.display = 'none';
     document.getElementById('student_list').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
     document.getElementById('chat').style.display = 'none';
 }
 
@@ -270,10 +274,12 @@ function ShowStudent() {
     document.getElementById('#consultas_student').style.display = 'block';
     document.getElementById('#edit_student_profile').style.display = 'block';
     document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
 }
 function seeNewsS() {
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OptionsNotice').style.display = 'block';
+    document.getElementById('TableComments').style.display = 'block';
     document.getElementById('edit_student_profile').style.display = 'none';
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
@@ -282,6 +288,7 @@ function seeNewsS() {
 function chatStudent() {
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none';
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
@@ -290,6 +297,7 @@ function chatStudent() {
 function request_consult() {
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none';
     document.getElementById('request_consult').style.display = 'block';
     document.getElementById('active_student_consult').style.display = 'none';
@@ -298,6 +306,7 @@ function request_consult() {
 function active_student_consult() {
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none';
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'block';
@@ -306,6 +315,7 @@ function active_student_consult() {
 function edit_student_profile() {
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
+    document.getElementById('TableComments').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'block';
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
@@ -979,7 +989,7 @@ function LoadDataNews() {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
                 document.getElementById("SecretIdNews").value = item.id;
-                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#TableComments" onclick="return tablesSee()">Ver comentarios</a></td>';
+                html += '<td><a href="#ModalNewComment" data-toggle="modal" data-target="#ModalNewComment">Agregar comentarios</a> | <a href="#TableComments" onclick="return LoadDataComment(' + item.id + ')">Ver comentarios</a></td>';
             });
             $('.tbodyOptionsNotice').html(html);
         },
@@ -989,16 +999,6 @@ function LoadDataNews() {
     })
 }
 
-function tablesSee() {
-    LoadDataComment();
-    document.getElementById('TableComments').style.display = 'block';
-    document.getElementById('OptionsNotice').style.display = 'none';
-}
-
-function tablesOriginSee() {
-    document.getElementById('TableComments').style.display = 'none';
-    document.getElementById('OptionsNotice').style.display = 'block';
-}
 
 function OnlySeeNotice() {
     $.ajax({
@@ -1097,6 +1097,7 @@ function GetCommentsByNews(id) {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.comment + '</td>';
+                html += '<td> <a href="#" onclick="return DeleteComment(' + item.id + ')">Eliminar comentario</a></td>';
             });
             $('.tbodyCommentsAdmin').html(html);
         },
@@ -1107,17 +1108,18 @@ function GetCommentsByNews(id) {
     });
 }
 
-function LoadDataComment() {
+function LoadDataComment(id) {
     $.ajax({
-        url: "/CommentsAPI/Get",
-        type: "GET",
+        url: "/Comment/GetCommentsByNews",
+        data: JSON.stringify(id),
+        type: "PUT",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             var html = '';
             $.each(result, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.comment1 + '</td>';
+                html += '<td>' + item.comment + '</td>';
             });
             $('.tbodyComments').html(html);
         },
