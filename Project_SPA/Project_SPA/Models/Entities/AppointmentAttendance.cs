@@ -10,7 +10,7 @@ namespace Project_SPA.Models.Entities
         public int Id { get; set; }
         public int AttendanceId { get; set; }
         public DateTime StartDateHour { get; set; }
-        public DateTime EndDateHout { get; set; }
+        public DateTime EndDateHour { get; set; }
         public int StudentId { get; set; }
         public int ProfessorId { get; set; }
         public int GroupId { get; set; }

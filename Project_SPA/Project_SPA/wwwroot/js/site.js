@@ -1064,20 +1064,74 @@ function RemoveCourse(id) { //DISTINTA AL PROFE
 
 }
 
-function GetCourse(id) { //llame al controlador home
+function GetCoursesByStudent(id) { //llame al controlador home
 
     $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Course/GetCourse",
+        url: "/AppointmentAttendance/GetCourseByStudent",
         data: JSON.stringify(id),
         type: "PUT", //Put trae y pone 
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            document.getElementById("idC").value = result.id;
-            document.getElementById("EditcodeC").value = result.code;
-            document.getElementById("EditnameC").value = result.name;
-            document.getElementById("EditcreditC").value = result.credits;
+
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function GetCoursesByProfessor(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/AppointmentAttendance/GetCourseByProfessor",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function GetGroupByStudent(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/AppointmentAttendance/GetGroupByStudent",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+           
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function GetGroupByProfessor(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/AppointmentAttendance/GetGroupByProfessor",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+
         },
         error: function (errorMessage) {
             alert("Error");
@@ -1090,8 +1144,6 @@ function GetCourse(id) { //llame al controlador home
 function CloseEdit() {
     document.getElementById("edit").style.display = 'none';
 }
-
-
 
 //-------------------------------------------------------------------------------------------
 

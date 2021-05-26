@@ -96,9 +96,9 @@ namespace Project_SPA.Models.Entities
 
                 entity.Property(e => e.CourseId).HasColumnName("Course_Id");
 
-                entity.Property(e => e.EndDateHout)
+                entity.Property(e => e.EndDateHour)
                     .HasColumnType("date")
-                    .HasColumnName("End_Date_Hout");
+                    .HasColumnName("End_Date_Hour");
 
                 entity.Property(e => e.GroupId).HasColumnName("Group_Id");
 
@@ -442,18 +442,6 @@ namespace Project_SPA.Models.Entities
                     .HasMaxLength(50)
                     .HasColumnName("Update_User")
                     .HasDefaultValueSql("('DBA')");
-
-                entity.HasOne(d => d.Course)
-                    .WithMany()
-                    .HasForeignKey(d => d.CourseId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Student_Course_Group_Group");
-
-                entity.HasOne(d => d.Student)
-                    .WithMany()
-                    .HasForeignKey(d => d.StudentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Student_Course_Group_Student");
             });
 
             modelBuilder.Entity<TemporalAppointmentAttendance>(entity =>

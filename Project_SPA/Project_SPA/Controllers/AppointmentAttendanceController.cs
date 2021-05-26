@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using Project_SPA.Models.Data;
 using Project_SPA.Models.Domain;
 using Project_SPA.Models.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace Project_SPA.Controllers
 {
@@ -13,6 +15,9 @@ namespace Project_SPA.Controllers
 
         private readonly IF4101_2021_SPAContext _context;
         StudentDAO studentDAO;
+        CourseDAO courseDAO;
+        StudentCourseGroupDAO studentCourseGroupDAO;
+        ProfessorCourseGroupDAO professorCourseGroupDAO;
         AppointmentAttendanceDAO appointmentAttendanceDAO;
 
 
@@ -31,7 +36,7 @@ namespace Project_SPA.Controllers
         {
             return View();
         }
-
+        
         // GET: AppointmentController/Create
         public ActionResult Create([FromBody] AppointmentAttendance appointment )
         {
@@ -47,24 +52,88 @@ namespace Project_SPA.Controllers
             return Ok(response);
         }
 
-        public List<Entities.Student> GetCourse()
+        public List<Course> GetCourseByStudent(Student student)
         {
-            List<Entities.Student> students = null;
+            studentCourseGroupDAO = new StudentCourseGroupDAO(_context);
+            courseDAO = new CourseDAO(_context);
+            List<StudentCourseGroup> studentCourseGroups = studentCourseGroupDAO.GetStudentsCourseGroup();
+            List<Course> courses = new List<Course>();
 
-            using (var context = new IF4101_2021_SPAContext())
+            foreach(StudentCourseGroup studentCourseGroup in studentCourseGroups)
             {
-                students = context.Students.Select(studentItem => new Entities.Student()
+                if (studentCourseGroup.StudentId.Equals(student.Id))
                 {
-                    Id = studentItem.Id,
-                    Code = studentItem.Code,
-                    Name = studentItem.Name,
-                    Email = studentItem.Email,
-                    Password = studentItem.Password
+                    courses.Add(courseDAO.GetCourseById(studentCourseGroup.CourseId));
+                }
+            }
+            return courses;
+        }
 
-                }).ToList<Entities.Student>();
+        public List<Group> GetGroupByStudent(Student student)
+        {
+            try
+            {
+                studentCourseGroupDAO = new StudentCourseGroupDAO(_context);
+                List<StudentCourseGroup> studentCourseGroups = studentCourseGroupDAO.GetStudentsCourseGroup();
+                List<Group> groups = new List<Group>();
+
+                foreach (StudentCourseGroup studentCourseGroup in studentCourseGroups)
+                {
+                    if (studentCourseGroup.StudentId.Equals(student.Id))
+                    {
+                        groups.Add(studentCourseGroupDAO.GetGroupById(studentCourseGroup.CourseId));
+                    }
+                }
+
+                return groups;
+            }
+            catch
+            {
+                return null;
             }
 
-            return students;
+        }
+
+        public List<Course> GetCourseByProfessor(Professor professor)
+        {
+            professorCourseGroupDAO = new ProfessorCourseGroupDAO(_context);
+            courseDAO = new CourseDAO(_context);
+            List<ProfessorCourseGroup> professorCourseGroups = professorCourseGroupDAO.GetProfessorCourseGroup();
+            List<Course> courses = new List<Course>();
+
+            foreach (ProfessorCourseGroup professorCourseGroup in professorCourseGroups)
+            {
+                if (professorCourseGroup.ProfessorId.Equals(professor.Id))
+                {
+                    courses.Add(courseDAO.GetCourseById(professorCourseGroup.CourseId));
+                }
+            }
+            return courses;
+        }
+
+        public List<Group> GetGroupByProfessor(Professor professor)
+        {
+            try
+            {
+                professorCourseGroupDAO = new ProfessorCourseGroupDAO(_context);
+                List<ProfessorCourseGroup> professorCourseGroups = professorCourseGroupDAO.GetProfessorCourseGroup();
+                List<Group> groups = new List<Group>();
+
+                foreach (ProfessorCourseGroup professorCourseGroup in professorCourseGroups)
+                {
+                    if (professorCourseGroup.Professor.Equals(professor.Id))
+                    {
+                        groups.Add(studentCourseGroupDAO.GetGroupById(professorCourseGroup.CourseId));
+                    }
+                }
+
+                return groups;
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
         // GET: AppointmentController/Edit/5
