@@ -40,8 +40,13 @@ namespace Project_SPA.Controllers
 
         public ActionResult Add([FromBody] Professor professor)
         {
+            if (ValidateProfessor(professor)) { 
             professorDAO = new ProfessorDAO(_context);
             return Ok(professorDAO.Add(professor));
+            
+            }
+
+            return Ok(-1);
         }
 
 
@@ -58,8 +63,19 @@ namespace Project_SPA.Controllers
             return Ok(professorDAO.Remove(id));
         }
 
- 
+        public Boolean ValidateProfessor(Professor professor)
+        {
 
-        
+            professorDAO = new ProfessorDAO(_context);
+            List<Professor> professors = professorDAO.GetProfessor();
+            foreach (Professor profesor in professors)
+            {
+                if (profesor.Code.Equals(profesor.Code))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

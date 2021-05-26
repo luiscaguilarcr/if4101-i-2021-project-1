@@ -9,7 +9,6 @@ namespace Project_SPA.Models.Data
 {
     public class CourseDAO
     {
-
         private readonly IF4101_2021_SPAContext _context;
 
         public CourseDAO(IF4101_2021_SPAContext context)
@@ -40,6 +39,31 @@ namespace Project_SPA.Models.Data
                 }).ToList<Entities.Course>();
             }
             return courses;
+        }
+
+        public Entities.Course GetCourseById(int id)
+        {
+            List<Entities.Course> courses = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                courses = context.Courses.Select(courseItem => new Entities.Course()
+                {
+                    Id = courseItem.Id,
+                    Code = courseItem.Code,
+                    Name = courseItem.Name,
+
+                }).ToList<Entities.Course>();
+            }
+
+            foreach (Entities.Course course in courses)
+            {
+                if (course.Id == id)
+                {
+                    return course;
+                }
+            }
+            return null;
         }
 
         public IEnumerable<Entities.Course> GetEF()

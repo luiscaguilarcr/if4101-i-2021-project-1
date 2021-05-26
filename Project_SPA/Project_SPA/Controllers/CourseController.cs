@@ -18,7 +18,7 @@ namespace Project_SPA.Controllers
         {
             _context = context;
         }
-         
+
         public ActionResult Index()
         {
             return View();
@@ -38,8 +38,12 @@ namespace Project_SPA.Controllers
 
         public ActionResult Add([FromBody] Course course)
         {
+            if (ValidateNewCurse(course)) { 
             courseDAO = new CourseDAO(_context);
             return Ok(courseDAO.Add(course));
+            }
+            return Ok(-1);
+            
         }
 
 
@@ -54,6 +58,21 @@ namespace Project_SPA.Controllers
         {
             courseDAO = new CourseDAO(_context);
             return Ok(courseDAO.Remove(id));
+        }
+
+        public Boolean ValidateNewCurse(Course course)
+        {
+            courseDAO = new CourseDAO(_context);
+            List<Course> courses = courseDAO.GetCourse();
+            foreach (Course coursee in courses)
+            {
+
+                if (course.Code.Equals(course.Code))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

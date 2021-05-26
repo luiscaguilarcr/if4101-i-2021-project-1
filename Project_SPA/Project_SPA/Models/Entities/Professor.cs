@@ -7,6 +7,12 @@ namespace Project_SPA.Models.Entities
 {
     public partial class Professor
     {
+        public Professor()
+        {
+            AttendanceProfessorCourseGroups = new HashSet<AttendanceProfessorCourseGroup>();
+            Messages = new HashSet<Message>();
+        }
+
         public int Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
@@ -17,5 +23,8 @@ namespace Project_SPA.Models.Entities
         public string CreationUser { get; set; }
         public DateTime UpdateDate { get; set; }
         public string UpdateUser { get; set; }
+
+        public virtual ICollection<AttendanceProfessorCourseGroup> AttendanceProfessorCourseGroups { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
     }
 }
