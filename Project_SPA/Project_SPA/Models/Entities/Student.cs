@@ -9,6 +9,7 @@ namespace Project_SPA.Models.Entities
     {
         public Student()
         {
+            DateAttendances = new HashSet<DateAttendance>();
             Messages = new HashSet<Message>();
         }
 
@@ -22,6 +23,7 @@ namespace Project_SPA.Models.Entities
         public DateTime UpdateDate { get; set; }
         public string UpdateUser { get; set; }
 
+        public virtual ICollection<DateAttendance> DateAttendances { get; set; }
         public virtual ICollection<Message> Messages { get; set; }
     }
 }
