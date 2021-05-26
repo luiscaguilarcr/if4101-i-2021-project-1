@@ -39,8 +39,25 @@ namespace Project_SPA.Controllers
 
         public ActionResult GetById([FromBody] int id)
         {
+
             studentDAO = new StudentDAO(_context);
-            return Ok(studentDAO.GetStudentById(id));
+            if (studentDAO.GetStudentById(id) != null)
+            {
+                Student student = studentDAO.GetStudentById(id);
+
+                Student student1 = new Student
+                {
+                    Id = student.Id,
+                    Name = student.Name,
+                    Email = student.Email,
+                    Code = student.Code,
+                    Password = student.Password
+                };
+
+                return Ok(student1);
+            }
+
+            return Ok(0);
         }
 
         public ActionResult GetTemporal()

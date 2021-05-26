@@ -579,6 +579,28 @@ function GetStudentsById(id) { //llame al controlador home
     });
 }
 
+function GetStudent(id) { //llame al controlador home
+    document.getElementById('edit_student_profile').style.display = 'block';
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Student/GetById",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            document.getElementById("idS").value = result.id;
+            document.getElementById("nameUP").value = result.name;
+            document.getElementById("codeUP").value = result.code;
+            document.getElementById("emailUP").value = result.email;
+            document.getElementById("passwordUP").value = result.password;
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 function LoadDataStudent() {
     $.ajax({
         url: "/Student/GetEF",
@@ -593,7 +615,7 @@ function LoadDataStudent() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#edit_student_profile" onclick="GetStudent(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#edit_student_profile" onclick="return GetStudent(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
         },
@@ -622,50 +644,26 @@ function RemoveStudent(id) {
     }
 }
 
-
-function GetStudent(id) { //llame al controlador home
-
-    $.ajax({ //Simbolo de dolar todo lo de jquery
-        url: "/Student/GetById",
-        data: JSON.stringify(id),
-        type: "PUT", //Put trae y pone 
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
-            document.getElementById("idS").value = result.id;
-            document.getElementById("codeS").value = result.code;
-            document.getElementById("nameS").value = result.name;
-            document.getElementById("emailS").value = result.email;
-            document.getElementById("passwordS").value = result.password;
-        },
-        error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
-        }
-    });
-}
-
 function UpdateStudent() {
 
     var student = {
-        id: parseInt($('#idS').val()),  // TODO: Load state from previously suspended application
-        code: $('#codeS').val(),
-        name: $('#nameS').val(),
-        email: $('#emailS').val(),
-        password: $('#passwordS').val()
+        id: parseInt($('#idS').val()),  
+        code: $('#codeUP').val(),
+        name: $('#nameUP').val(),
+        email: $('#emailUP').val(),
+        password: $('#passwordUP').val()
     };
 
     $.ajax({
         url: "/Student/Edit",
         data: JSON.stringify(student),
-        type: "POST",
+        type: "PUT",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
             alert("Actualizo");
            // LoadData();
-           // CloseEdit()
+           // CloseEdit();
         },
         error: function (errorMessage) {
             alert("Error");
