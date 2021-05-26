@@ -14,8 +14,6 @@ namespace Project_SPA.Controllers
         private readonly IF4101_2021_SPAContext _context;
         StudentDAO studentDAO;
        
-        
-
         public StudentController(IF4101_2021_SPAContext context)
         {
             _context = context;

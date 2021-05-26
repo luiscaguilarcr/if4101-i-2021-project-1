@@ -41,7 +41,7 @@ namespace Project_SPA.Models.Data
             return courses;
         }
 
-        public Entities.Course GetcourseById(int id)
+        public Entities.Course GetCourseById(int id)
         {
             List<Entities.Course> courses = null;
 
