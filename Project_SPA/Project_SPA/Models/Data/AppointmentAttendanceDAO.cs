@@ -39,7 +39,7 @@ namespace Project_SPA.Models.Data
             return appointmentAttendance;
         }
 
-        public Entities.AppointmentAttendance GetById(int id)
+   /*     public Entities.AppointmentAttendance GetById(int id)
         {
             List<Entities.AppointmentAttendance> appointmentAttendances = null;
 
@@ -67,7 +67,7 @@ namespace Project_SPA.Models.Data
                 }
             }
             return null;
-        }
+        }*/
 
         public Entities.TemporalAppointmentAttendance GetTemporalById(int id)
         {

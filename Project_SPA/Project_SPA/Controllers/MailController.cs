@@ -105,7 +105,7 @@ namespace Project_SPA.Controllers
 
         }
 
-        [HttpPost("sendRequestAppointmentAttendanceProfessorEmail")]
+    /*    [HttpPost("sendRequestAppointmentAttendanceProfessorEmail")]
         public async Task<ActionResult> SendRequestAppointmentAttendanceProfessorEmail([FromBody] int appointmentAttendanceId)
         {
             try
@@ -139,10 +139,10 @@ namespace Project_SPA.Controllers
                 throw;
             }
 
-        }
+        }*/
 
 
-        [HttpPost("sendAcceptanceAppointmentAttendanceStudentMail")]
+     /*  [HttpPost("sendAcceptanceAppointmentAttendanceStudentMail")]
         public async Task<IActionResult> SendAcceptanceAppointmentAttendanceStudentMail([FromBody] int appointmentAttendanceId)
         {
             try
@@ -176,7 +176,7 @@ namespace Project_SPA.Controllers
                 throw;
             }
 
-        }
+        }*/
 
     }
 }
