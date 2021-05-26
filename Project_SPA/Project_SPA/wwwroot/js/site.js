@@ -870,7 +870,7 @@ function AddCourse() {
 function LoadDataCourse() {
 
     $.ajax({
-        url: "/Course/GetEF", //DUDA CUAL GET ES 
+        url: "/Course/GetEF", 
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -895,19 +895,18 @@ function LoadDataCourse() {
 }
 
 
-function RemoveCourse(id) { //DISTINTA AL PROFE
+function RemoveCourse(id) { 
 
     var respuesta = confirm("¿Quieres eliminar a este curso?");
     if (respuesta) {
 
-        $.ajax({ //Simbolo de dolar todo lo de jquery
+        $.ajax({ 
             url: "/Course/Remove",
             data: JSON.stringify(id),
             type: "DELETE",
             contentType: "application/json;charset=utf-8",
             dataType: "json",
             success: function (result) {
-                //aca recibo el resultafo del backend (datos,objetos,mensajes)
                 LoadDataCourse();
             },
             error: function (errorMessage) {
@@ -919,16 +918,15 @@ function RemoveCourse(id) { //DISTINTA AL PROFE
 
 }
 
-function GetCourse(id) { //llame al controlador home
+function GetCourse(id) { 
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/Course/GetCourse",
         data: JSON.stringify(id),
         type: "PUT", //Put trae y pone 
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
             document.getElementById("idC").value = result.id;
             document.getElementById("EditcodeC").value = result.code;
             document.getElementById("EditnameC").value = result.name;
@@ -1046,17 +1044,17 @@ function AddComment() {
     });
 }
 
-function DeleteComment(id) { //llame al controlador home
+function DeleteComment(id) { 
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/CommentsAPI/Delete",
         data: JSON.stringify(id),
         type: "DELETE",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
             alert("ELIMINADO");
+
         },
         error: function (errorMessage) {
             alert("Error");
@@ -1065,16 +1063,16 @@ function DeleteComment(id) { //llame al controlador home
     });
 }
 
-function DeleteNews(id) { //llame al controlador home
+function DeleteNews(id) { 
 
-    $.ajax({ //Simbolo de dolar todo lo de jquery
+    $.ajax({ 
         url: "/NewsAPI/Delete",
         data: JSON.stringify(id),
         type: "DELETE",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+
             alert("ELIMINADO");
         },
         error: function (errorMessage) {
@@ -1097,7 +1095,7 @@ function GetCommentsByNews(id) {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.comment + '</td>';
-                html += '<td> <a href="#" onclick="return DeleteComment(' + item.id + ')">Eliminar comentario</a></td>';
+                html += '<td> <a href="#" onclick="return DeleteComment(' + item.idComment + ')">Eliminar comentario</a></td>';
             });
             $('.tbodyCommentsAdmin').html(html);
         },

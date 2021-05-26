@@ -26,7 +26,7 @@ namespace Project_SPA.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44336/api/News/");//CAMBIAR URL
+                    client.BaseAddress = new Uri("https://localhost:44336/api/News/");
                     var responseTask = client.GetAsync("GetNews");
                     responseTask.Wait();
 
@@ -36,7 +36,7 @@ namespace Project_SPA.Controllers
                     {
                         var readTask = result.Content.ReadAsAsync<IList<News>>();
                         readTask.Wait();
-                        //lee los estudiantes provenientes de la API
+                       
                         news = readTask.Result;
                     }
                     else
