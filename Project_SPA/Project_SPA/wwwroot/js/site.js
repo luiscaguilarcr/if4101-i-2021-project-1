@@ -25,8 +25,6 @@ function NotVisible() {
     //admin
     document.getElementById('#tables').style.display = 'none';
     document.getElementById('#add_functions').style.display = 'none';
-
-    document.getElementById('#newNot').style.display = 'none';
     document.getElementById('edit_professor_student_course').style.display = 'none';
     document.getElementById('tables').style.display = 'none'; 
     document.getElementById('sign_out').style.display = 'none';
@@ -83,8 +81,9 @@ function ShowAdmin() {
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
     //admin
-    document.getElementById('#tables').style.display = 'block';
+      document.getElementById('#tables').style.display = 'block';
     document.getElementById('#add_functions').style.display = 'block';
+    document.getElementById('#edit_admin_profile').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'block';
     document.getElementById('tbodyCommentsAdmin').style.display = 'block';
 }
