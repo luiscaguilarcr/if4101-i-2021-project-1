@@ -9,7 +9,8 @@ namespace Project_SPA.Models.Entities
     {
         public AttendanceProfessorCourseGroup()
         {
-            DateAttendances = new HashSet<DateAttendance>();
+            AppointmentAttendances = new HashSet<AppointmentAttendance>();
+            TemporalAppointmentAttendances = new HashSet<TemporalAppointmentAttendance>();
         }
 
         public int AttendanceScheduleId { get; set; }
@@ -22,6 +23,7 @@ namespace Project_SPA.Models.Entities
         public virtual Course Course { get; set; }
         public virtual Group Group { get; set; }
         public virtual Professor Professor { get; set; }
-        public virtual ICollection<DateAttendance> DateAttendances { get; set; }
+        public virtual ICollection<AppointmentAttendance> AppointmentAttendances { get; set; }
+        public virtual ICollection<TemporalAppointmentAttendance> TemporalAppointmentAttendances { get; set; }
     }
 }

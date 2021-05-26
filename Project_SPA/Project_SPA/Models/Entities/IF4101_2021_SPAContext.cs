@@ -18,16 +18,17 @@ namespace Project_SPA.Models.Entities
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<AppointmentAttendance> AppointmentAttendances { get; set; }
         public virtual DbSet<AttendanceProfessorCourseGroup> AttendanceProfessorCourseGroups { get; set; }
         public virtual DbSet<AttendanceSchedule> AttendanceSchedules { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<DateAttendance> DateAttendances { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Professor> Professors { get; set; }
         public virtual DbSet<ProfessorCourseGroup> ProfessorCourseGroups { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentCourseGroup> StudentCourseGroups { get; set; }
+        public virtual DbSet<TemporalAppointmentAttendance> TemporalAppointmentAttendances { get; set; }
         public virtual DbSet<TemporalStudent> TemporalStudents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -85,6 +86,41 @@ namespace Project_SPA.Models.Entities
                     .HasMaxLength(50)
                     .HasColumnName("Update_User")
                     .HasDefaultValueSql("('DBA')");
+            });
+
+            modelBuilder.Entity<AppointmentAttendance>(entity =>
+            {
+                entity.ToTable("Appointment_Attendance");
+
+                entity.Property(e => e.AttendanceId).HasColumnName("Attendance_Id");
+
+                entity.Property(e => e.CourseId).HasColumnName("Course_Id");
+
+                entity.Property(e => e.EndDateHout)
+                    .HasColumnType("date")
+                    .HasColumnName("End_Date_Hout");
+
+                entity.Property(e => e.GroupId).HasColumnName("Group_Id");
+
+                entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
+
+                entity.Property(e => e.StartDateHour)
+                    .HasColumnType("date")
+                    .HasColumnName("Start_Date_Hour");
+
+                entity.Property(e => e.StudentId).HasColumnName("Student_Id");
+
+                entity.HasOne(d => d.Attendance)
+                    .WithMany(p => p.AppointmentAttendances)
+                    .HasForeignKey(d => d.AttendanceId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Appointment_Attendance_Attendance_Professor_Course_Group1");
+
+                entity.HasOne(d => d.Student)
+                    .WithMany(p => p.AppointmentAttendances)
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Appointment_Attendance_Student");
             });
 
             modelBuilder.Entity<AttendanceProfessorCourseGroup>(entity =>
@@ -170,35 +206,6 @@ namespace Project_SPA.Models.Entities
                     .HasMaxLength(50)
                     .HasColumnName("Update_User")
                     .HasDefaultValueSql("('DBA')");
-            });
-
-            modelBuilder.Entity<DateAttendance>(entity =>
-            {
-                entity.ToTable("Date_Attendance");
-
-                entity.Property(e => e.AttendanceId).HasColumnName("Attendance_Id");
-
-                entity.Property(e => e.EndDateHout)
-                    .HasColumnType("date")
-                    .HasColumnName("End_Date_Hout");
-
-                entity.Property(e => e.StartDateHour)
-                    .HasColumnType("date")
-                    .HasColumnName("Start_Date_Hour");
-
-                entity.Property(e => e.StudentId).HasColumnName("Student_Id");
-
-                entity.HasOne(d => d.Attendance)
-                    .WithMany(p => p.DateAttendances)
-                    .HasForeignKey(d => d.AttendanceId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Date_Attendance_Attendance_Professor_Course_Group");
-
-                entity.HasOne(d => d.Student)
-                    .WithMany(p => p.DateAttendances)
-                    .HasForeignKey(d => d.StudentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Date_Attendance_Student");
             });
 
             modelBuilder.Entity<Group>(entity =>
@@ -447,6 +454,35 @@ namespace Project_SPA.Models.Entities
                     .HasForeignKey(d => d.StudentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Student_Course_Group_Student");
+            });
+
+            modelBuilder.Entity<TemporalAppointmentAttendance>(entity =>
+            {
+                entity.ToTable("TemporalAppointment_Attendance");
+
+                entity.Property(e => e.AttendanceId).HasColumnName("Attendance_Id");
+
+                entity.Property(e => e.CourseId).HasColumnName("Course_Id");
+
+                entity.Property(e => e.EndDateHour)
+                    .HasColumnType("date")
+                    .HasColumnName("End_Date_Hour");
+
+                entity.Property(e => e.GroupId).HasColumnName("Group_Id");
+
+                entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
+
+                entity.Property(e => e.StartDateHour)
+                    .HasColumnType("date")
+                    .HasColumnName("Start_Date_Hour");
+
+                entity.Property(e => e.StudentId).HasColumnName("Student_Id");
+
+                entity.HasOne(d => d.Attendance)
+                    .WithMany(p => p.TemporalAppointmentAttendances)
+                    .HasForeignKey(d => d.AttendanceId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_TemporalAppointment_Attendance_Attendance_Professor_Course_Group");
             });
 
             modelBuilder.Entity<TemporalStudent>(entity =>

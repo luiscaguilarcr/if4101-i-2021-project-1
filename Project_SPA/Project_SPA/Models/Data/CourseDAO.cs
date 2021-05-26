@@ -41,6 +41,31 @@ namespace Project_SPA.Models.Data
             return courses;
         }
 
+        public Entities.Course GetcourseById(int id)
+        {
+            List<Entities.Course> courses = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                courses = context.Courses.Select(courseItem => new Entities.Course()
+                {
+                    Id = courseItem.Id,
+                    Code = courseItem.Code,
+                    Name = courseItem.Name,
+
+                }).ToList<Entities.Course>();
+            }
+
+            foreach (Entities.Course course in courses)
+            {
+                if (course.Id == id)
+                {
+                    return course;
+                }
+            }
+            return null;
+        }
+
         public IEnumerable<Entities.Course> GetEF()
         {
             var courses = _context.Courses;

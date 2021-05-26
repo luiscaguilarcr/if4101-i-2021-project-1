@@ -76,7 +76,7 @@
                             <ul>
                                 <li><a href="#register_professor_course" onclick="RegisterOnClick()">Profesor</a></li>
 
-                                <li><a href="#add_students" onclick="AddTemporalStudentsOnClick()">Estudiante</a></li>
+                                <li><a href="#add_students" onclick="GetTemporalStudentsOnClick()">Estudiante</a></li>
 
                                 <li><a href="#add_courses" onclick="">Curso</a></li>
 
@@ -94,8 +94,6 @@
                                 <li><a href="#courses" onclick="GetCoursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
-
-                        <li><a href="#edit_admin_profile" id="#edit_admin_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
 
                         <!-- PROFESSOR VIEW -->
@@ -685,36 +683,6 @@
                     </div>
                 </div>
 
-
-            </div>
-        </div>
-
-    </section>
-
-    <!-- EDIT ADMIN PROFILE -->
-    <section id="edit_admin_profile">
-
-        <div id="edit_admin_profile" class="container">
-            <div class="col-md-offset-1 col-md-4 col-sm-12">
-                <div class="row">
-                    <div class="entry-form">
-
-                        <h2>Editar informacion personal</h2>
-                        <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
-
-                        <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
-
-                        <input type="email" id="emailS" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
-
-                        <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
-
-                        <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
-
-                        <button class="submit-btn form-controlS" id="btn_register_admin" onclick="return ">Editar</button>
-
-                    </div>
-
-                </div>
 
             </div>
         </div>
