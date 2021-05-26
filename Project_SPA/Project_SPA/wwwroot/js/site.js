@@ -898,6 +898,153 @@ function GetCourse(id) { //llame al controlador home
     });
 }
 
+/////////////// APPOINTEMENT ATTENDANCE ///////////////
+function AddTemporalAppointmentAttendace() {
+
+    var appointmentAttendance = {
+        startDateHour: $('#').val(),
+        professorId: parseInt($('#').val()),
+        groupId: $('#').val(),
+        courseId: parseInt($('#').val()),
+    };
+
+    $.ajax({
+        url: "/AppointmentAttendance/Create",
+        data: JSON.stringify(appointmentAttendance),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            CleanTemporalAppintmentAttendance();
+
+            $.ajax({
+                url: "/api/mail/sendRequestAppointmentAttendanceStudentEmail/",
+                data: JSON.stringify(appointmentAttendance),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    //document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+                    //document.getElementById("information").style.color = "green";
+                },
+            });
+
+            $.ajax({
+                url: "/api/mail/sendRequestAppointmentAttendanceProfessorEmail/",
+                data: JSON.stringify(appointmentAttendance),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                },
+            });
+           
+        }
+        
+    });
+}
+
+function LoadTemporalAppointmentAttence() {
+
+    $.ajax({
+        url: "/Course/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.credits + '</td>';
+                html += '<td>' + item.semester + '</td>';
+                html += '<td>' + item.year + '</td>';
+                html += '<td><a href="#" onclick="return GetStudent(' + item.id + ')">Edit</a> | <a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
+            });
+            $('.tbodyCourse').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function LoadAppointmentAttence() {
+
+    $.ajax({
+        url: "/Course/GetEF", //DUDA CUAL GET ES 
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.code + '</td>';
+                html += '<td>' + item.name + '</td>';
+                html += '<td>' + item.credits + '</td>';
+                html += '<td>' + item.semester + '</td>';
+                html += '<td>' + item.year + '</td>';
+                html += '<td><a href="#" onclick="return GetStudent(' + item.id + ')">Edit</a> | <a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
+            });
+            $('.tbodyCourse').html(html);
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+        }
+    })
+}
+
+function RemoveCourse(id) { //DISTINTA AL PROFE
+
+    var respuesta = confirm("¿Quieres eliminar a este curso?");
+    if (respuesta) {
+
+        $.ajax({ //Simbolo de dolar todo lo de jquery
+            url: "/Course/Remove",
+            data: JSON.stringify(id),
+            type: "DELETE",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //aca recibo el resultafo del backend (datos,objetos,mensajes)
+                LoadDataCourse();
+            },
+            error: function (errorMessage) {
+                alert("Error");
+                alert(errorMessage.responseText);
+            }
+        });
+    }
+
+}
+
+function GetCourse(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Course/GetCourse",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            document.getElementById("idC").value = result.id;
+            document.getElementById("EditcodeC").value = result.code;
+            document.getElementById("EditnameC").value = result.name;
+            document.getElementById("EditcreditC").value = result.credits;
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 //////////////////////////////////////////////////// GENERAL FUNCTIONS ////////////////////////////////////////////////////
 function CloseEdit() {
     document.getElementById("edit").style.display = 'none';

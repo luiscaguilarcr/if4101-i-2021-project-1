@@ -7,7 +7,7 @@ using Project_SPA.Models.Entities;
 
 namespace Project_SPA.Controllers
 {
-    public class AppointmentController : Controller
+    public class AppointmentAttendanceController : Controller
     {
         // GET: AppointmentController
 
@@ -16,7 +16,7 @@ namespace Project_SPA.Controllers
         AppointmentAttendanceDAO appointmentAttendanceDAO;
 
 
-        public AppointmentController(IF4101_2021_SPAContext context)
+        public AppointmentAttendanceController(IF4101_2021_SPAContext context)
         {
             _context = context;
         }
@@ -43,7 +43,28 @@ namespace Project_SPA.Controllers
             appointmentAttendanceDAO = new AppointmentAttendanceDAO(_context);
 
             int response = appointmentAttendanceDAO.Add(appointment);
+
             return Ok(response);
+        }
+
+        public List<Entities.Student> GetCourse()
+        {
+            List<Entities.Student> students = null;
+
+            using (var context = new IF4101_2021_SPAContext())
+            {
+                students = context.Students.Select(studentItem => new Entities.Student()
+                {
+                    Id = studentItem.Id,
+                    Code = studentItem.Code,
+                    Name = studentItem.Name,
+                    Email = studentItem.Email,
+                    Password = studentItem.Password
+
+                }).ToList<Entities.Student>();
+            }
+
+            return students;
         }
 
         // GET: AppointmentController/Edit/5
