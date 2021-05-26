@@ -580,7 +580,7 @@ function LoadDataStudent() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#myModalEliminate" data-toggle="modal" data-target="#myModalEliminate">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#edit_student_profile" onclick="GetStudent(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
         },
@@ -609,26 +609,50 @@ function RemoveStudent(id) {
     }
 }
 
+
+function GetStudent(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Student/GetById",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            document.getElementById("idS").value = result.id;
+            document.getElementById("codeS").value = result.code;
+            document.getElementById("nameS").value = result.name;
+            document.getElementById("emailS").value = result.email;
+            document.getElementById("passwordS").value = result.password;
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 function UpdateStudent() {
 
     var student = {
-        id: parseInt($('#id_update').val()),  // TODO: Load state from previously suspended application
-        code: $('#code').val(),
-        name: $('#name').val(),
-        email: $('#email').val(),
-        password: $('#password').val()
+        id: parseInt($('#idS').val()),  // TODO: Load state from previously suspended application
+        code: $('#codeS').val(),
+        name: $('#nameS').val(),
+        email: $('#emailS').val(),
+        password: $('#passwordS').val()
     };
 
     $.ajax({
-        url: "/Student/Update",
+        url: "/Student/Edit",
         data: JSON.stringify(student),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-
-            LoadData();
-            CloseEdit()
+            alert("Actualizo");
+           // LoadData();
+           // CloseEdit()
         },
         error: function (errorMessage) {
             alert("Error");
@@ -805,7 +829,7 @@ function LoadDataCourse() {
                 html += '<td>' + item.credits + '</td>';
                 html += '<td>' + item.semester + '</td>';
                 html += '<td>' + item.year + '</td>';
-                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Edit</a> | <a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
+                html += '<td><a href="#" onclick="return GetStudent(' + item.id + ')">Edit</a> | <a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
             });
             $('.tbodyCourse').html(html);
         },
@@ -838,6 +862,28 @@ function RemoveCourse(id) { //DISTINTA AL PROFE
         });
     }
 
+}
+
+function GetCourse(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/Course/GetCourse",
+        data: JSON.stringify(id),
+        type: "PUT", //Put trae y pone 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            document.getElementById("idC").value = result.id;
+            document.getElementById("EditcodeC").value = result.code;
+            document.getElementById("EditnameC").value = result.name;
+            document.getElementById("EditcreditC").value = result.credits;
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
 }
 
 //////////////////////////////////////////////////// GENERAL FUNCTIONS ////////////////////////////////////////////////////
