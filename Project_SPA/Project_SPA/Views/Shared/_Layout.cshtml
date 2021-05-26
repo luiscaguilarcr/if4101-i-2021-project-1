@@ -100,7 +100,7 @@
                         <li>
                             <a href="#" id="#consultas_professor" class="smoothScroll">Consultas</a>
                             <ul>
-                                <li><a href="#chat" onclick="chat()">Enviar mensaje</a></li><!--duda-->
+                                <li><a href="#chat" onclick="chatCall()">Enviar mensaje</a></li><!--duda-->
 
                                 <li><a href="#active_professor_consult" onclick="active_professor_consult()">Consultas activas</a></li>
                             </ul>
@@ -113,15 +113,15 @@
                         <li>
                             <a href="#" id="#consultas_student" class="smoothScroll">Consultas</a>
                             <ul>
-                                <li><a href="#chat" onclick="">Enviar mensaje</a></li>
+                                <li><a href="#chat" onclick="chatStudent()">Enviar mensaje</a></li>
 
-                                <li><a href="#request_consult" onclick="StudentsOnClick()">Solicitar cita de consult</a></li>
+                                <li><a href="#request_consult" onclick="request_consult()">Solicitar cita de consulta</a></li>
 
-                                <li><a href="#active_student_consult" onclick="">Consultas activas</a></li>
+                                <li><a href="#active_student_consult" onclick="active_student_consult()">Consultas activas</a></li>
                             </ul>
                         </li>
-
-                        <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
+                        <li><a href="#Notice" id="#NoticeS" class="smoothScroll" onclick="seeNewsS()">Noticias</a></li>
+                        <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="edit_student_profile()" class="smoothScroll">Editar información personal</a></li>
 
                         <!-- GENERAL VIEW -->
                         <li><a href="#Notice" id="#Notice" class="smoothScroll">Noticias</a></li>
