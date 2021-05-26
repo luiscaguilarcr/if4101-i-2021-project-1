@@ -102,9 +102,32 @@ namespace Project_SPA.Controllers
         }
 
         // DELETE api/<NewsAPIController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [Route("[action]")]
+        [HttpDelete]
+        public JsonResult Delete([FromBody] int id)
         {
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44336/api/News/");
+
+                //HTTP DELETE
+                var deleteTask = client.DeleteAsync("DeleteNews/" + id.ToString());
+                deleteTask.Wait();
+
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    return new JsonResult(result);
+                }
+                else
+                {
+                    //camino del error
+                    return new JsonResult(result);
+
+                }
+            }
         }
     }
 }
