@@ -71,55 +71,59 @@
                         <li><a href="#sign_in_student" id="#sign_in_student" class="smoothScroll">Nuevo estudiante</a></li>
 
                         <!-- ADMIN VIEW -->
-                        <li><a href="#register_professor_course" id="#register_professor_course" onclick="RegisterOnClick()" class="smoothScroll">Agregar</a></li>
                         <li>
-                            <a href="#tables" id="#tables" class="smoothScroll">Tablas</a>
+                            <a href="#" id="#add_functions" class="smoothScroll">Agregar</a>
                             <ul>
-                                <li><a href="#teachers" onclick="TeachersOnClick()">Profesor</a></li>
+                                <li><a href="#register_professor_course" onclick="RegisterOnClick()">Profesor</a></li>
 
-                                <li><a href="#students" onclick="StudentsOnClick()">Estudiante</a></li>
+                                <li><a href="#add_students" onclick="AddTemporalStudentsOnClick()">Estudiante</a></li>
 
-                                <li><a href="#courses" onclick="CoursesOnClick()">Curso</a></li>
+                                <li><a href="#add_courses" onclick="">Curso</a></li>
+
+                                <li><a href="#add_newNot" onclick="">Noticia</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#consultas" id="#consultas" class="smoothScroll">Consultas</a>
+                            <a href="#tables" id="#tables" class="smoothScroll">Ver-editar-eliminar</a>
                             <ul>
-                                <li><a href="#teachers" onclick="TeachersOnClick()">Profesor</a></li>
+                                <li><a href="#teachers" onclick="GetProfessorsOnClick()">Profesor</a></li>
 
-                                <li><a href="#students" onclick="StudentsOnClick()">Estudiante</a></li>
+                                <li><a href="#students" onclick="GetStudentsOnClick()">Estudiante</a></li>
 
-                                <li><a href="#courses" onclick="CoursesOnClick()">Curso</a></li>
+                                <li><a href="#courses" onclick="GetCoursesOnClick()">Curso</a></li>
                             </ul>
                         </li>
-
-                        <li><a href="#student_register_requests" id="#student_register_requests" onclick="TemporalStudentsOnClick()" class="smoothScroll">Solicitudes de registro</a></li>
 
                         <li><a href="#edit_admin_profile" id="#edit_admin_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
 
 
-
                         <!-- PROFESSOR VIEW -->
+                        <li>
+                            <a href="#" id="#consultas_professor" class="smoothScroll">Consultas</a>
+                            <ul>
+                                <li><a href="#chat_professor" onclick="">Enviar mensaje</a></li>
+
+                                <li><a href="#active_professor_consult" onclick="">Consultas activas</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="#edit_professor_profile" id="#edit_professor_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
-
-                        <li><a href="#student_list" id="#student_list" onclick="student_list" class="smoothScroll">Lista de estudiantes</a></li>
-
-                        <li><a href="#active_professor_consult" id="#active_professor_consult" onclick="active_student_consult" class="smoothScroll">Consultas activas</a></li>
 
 
                         <!-- STUDENT VIEW -->
+                        <li>
+                            <a href="#" id="#consultas_student" class="smoothScroll">Consultas</a>
+                            <ul>
+                                <li><a href="#chat" onclick="">Enviar mensaje</a></li>
+
+                                <li><a href="#request_consult" onclick="StudentsOnClick()">Solicitar cita de consult</a></li>
+
+                                <li><a href="#active_student_consult" onclick="">Consultas activas</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="#edit_student_profile" id="#edit_student_profile" onclick="StudentProfileOnClick()" class="smoothScroll">Editar información personal</a></li>
-
-                        <li><a href="#request_consult" id="#request_consult" onclick="request_consult" class="smoothScroll">Solicitar cita de consulta</a></li>
-
-                        <li><a href="#active_student_consult" id="#active_student_consult" onclick="active_student_consult" class="smoothScroll">Consultas activas</a></li>
-
-                        <li><a href="#chat" id="#chat" onclick="chat" class="smoothScroll">Nuevo mensaje</a></li>
-
-
-
-
 
                         <!-- GENERAL VIEW -->
                         <li><a href="#notice" id="#notice" class="smoothScroll">Noticias</a></li>
@@ -252,49 +256,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div id="logFirst" class="feature-thumb">
 
-                        <button class="submit-btn form-control" id="btn-sign_out_admin" onclick="return HideAdmin()">Cerrar sesión</button>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="sign_out_professor" class="container">
-            <div class="row">
-
-                <div class="col-md-6 col-sm-4">
-                    <div id="UCRLog" height="10">
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="feature-thumb">
-
-                        <button class="submit-btn form-control" id="btn-sign_out_professor" onclick="return HideProfessor()">Cerrar sesión</button>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="sign_out_student" class="container">
-            <div class="row">
-
-                <div class="col-md-6 col-sm-4">
-                    <div id="UCRLog" height="10">
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4 col-sm-4">
-                    <div class="feature-thumb">
-
-                        <button class="submit-btn form-control" id="btn-sign_out_student" onclick="return HideStudent()">Cerrar sesión</button>
+                        <button class="submit-btn form-control" id="btn-sign_out_admin" onclick="return NotVisible()">Cerrar sesión</button>
 
                     </div>
                 </div>
