@@ -5,7 +5,7 @@
 
 
 $(document).ready(function () { //DOM cargado, siempre va 
-
+    NotVisible();
     LoadDataNews();
     OnlySeeNotice();
     LoadDataNewsAdmin();
@@ -16,65 +16,22 @@ $(document).ready(function () { //DOM cargado, siempre va
 });
 
 //////////////////////////////////////////////////// HIDE ////////////////////////////////////////////////////
-function HideAdmin() {
-    document.getElementById('sign_out_admin').style.display = 'none';
 
-    document.getElementById('edit_student').style.display = 'none';
-    document.getElementById('edit_professor').style.display = 'none';
-    document.getElementById('edit_course').style.display = 'none';
+function NotVisible() {
 
     document.getElementById('#register_professor_course').style.display = 'none';
-    document.getElementById('register_professor_course').style.display = 'none';
-
     document.getElementById('#tables').style.display = 'none';
-    document.getElementById('students').style.display = 'none';
-    document.getElementById('teachers').style.display = 'none';
-    document.getElementById('courses').style.display = 'none';
-
+    document.getElementById('#consultas').style.display = 'none';
     document.getElementById('#student_register_requests').style.display = 'none';
-    document.getElementById('student_register_requests').style.display = 'none';
-
     document.getElementById('#edit_admin_profile').style.display = 'none';
-    document.getElementById('edit_admin_profile').style.display = 'none';
-
-    document.getElementById('#newNot').style.display = 'none';
-    document.getElementById('newNot').style.display = 'none';
-
-    ShowLogIn();
-}
-
-function HideProfessor() {
-    document.getElementById('sign_out_professor').style.display = 'none';
-
-    /*document.getElementById('#professor_chat').style.display = 'none';
-    document.getElementById('professor_chat').style.display = 'none';
-
-    document.getElementById('#student_list').style.display = 'none';
-    document.getElementById('student_list').style.display = 'none';
-
-    document.getElementById('#active_professor_consult').style.display = 'none';
-    document.getElementById('active_professor_consult').style.display = 'none';*/
-
     document.getElementById('#edit_professor_profile').style.display = 'none';
-    document.getElementById('edit_professor_profile').style.display = 'none';
-
-    ShowLogIn();
-}
-
-function HideStudent() {
-    document.getElementById('sign_out_student').style.display = 'none';
-
-    /*document.getElementById('#student_chat').style.display = 'none';
-    document.getElementById('student_chat').style.display = 'none';
-
-    document.getElementById('#request_consult').style.display = 'none';
-    document.getElementById('request_consult').style.display = 'none';
-
-    document.getElementById('#active_student_consult').style.display = 'none';
-    document.getElementById('active_student_consult').style.display = 'none';*/
-
+    document.getElementById('#student_list').style.display = 'none';
+    document.getElementById('#active_professor_consult').style.display = 'none';
     document.getElementById('#edit_student_profile').style.display = 'none';
-    document.getElementById('edit_student_profile').style.display = 'none';
+    document.getElementById('#request_consult').style.display = 'none';
+    document.getElementById('#active_student_consult').style.display = 'none';
+    document.getElementById('#chat').style.display = 'none';
+    document.getElementById('#newNot').style.display = 'none';
 
     ShowLogIn();
 }
@@ -816,18 +773,6 @@ function CloseEdit() {
 
 function AddNews() {
 
-    /* var
- 
-     function unpack(str) {
-         var bytes = [];
-         for (var i = 0; i < str.length; i++) {
-             var char = str.charCodeAt(i);
-             bytes.push(char >>> 8);
-             bytes.push(char & 0xFF);
-         }
-         return bytes;
-     }*/
-
     var news = {
 
         newstitle: $('#title').val(),
@@ -934,9 +879,27 @@ function AddComment() {
 
 function DeleteComment(id) { //llame al controlador home
 
-
     $.ajax({ //Simbolo de dolar todo lo de jquery
         url: "/CommentsAPI/Delete",
+        data: JSON.stringify(id),
+        type: "DELETE",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            //aca recibo el resultafo del backend (datos,objetos,mensajes)
+            alert("ELIMINADO");
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
+function DeleteNews(id) { //llame al controlador home
+
+    $.ajax({ //Simbolo de dolar todo lo de jquery
+        url: "/NewsAPI/Delete",
         data: JSON.stringify(id),
         type: "DELETE",
         contentType: "application/json;charset=utf-8",
@@ -983,7 +946,7 @@ function LoadDataNewsAdmin() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
-                html += '<td><a href="#">Eliminar publicación</a> | <a href="#tbodyCommentsAdmin" onclick="return tablesSeeAdmin()">Ver comentarios</a></td>';
+                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return tablesSeeAdmin()">Ver comentarios</a></td>';
             });
             $('.tbodyOptionsNoticeAdmin').html(html);
         },
