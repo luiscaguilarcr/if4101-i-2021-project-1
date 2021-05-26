@@ -958,6 +958,29 @@ function DeleteNews(id) { //llame al controlador home
     });
 }
 
+function GetCommentsByNews(id) { 
+
+    $.ajax({ 
+        url: "/Comment/GetCommentsByNews",
+        data: JSON.stringify(id),
+        type: "PUT", 
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.comment + '</td>';
+            });
+            $('.tbodyCommentsAdmin').html(html);
+        },
+        error: function (errorMessage) {
+            alert("Error");
+            alert(errorMessage.responseText);
+        }
+    });
+}
+
 function LoadDataComment() {
     $.ajax({
         url: "/CommentsAPI/Get",
@@ -989,7 +1012,7 @@ function LoadDataNewsAdmin() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
-                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return tablesSeeAdmin()">Ver comentarios</a></td>';
+                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#" onclick="return GetCommentsByNews(' + item.id + ')">Ver</a></td>';
             });
             $('.tbodyOptionsNoticeAdmin').html(html);
         },
@@ -1031,6 +1054,7 @@ function LoadDataCommentsAdmin() {
         }
     })
 }
+
 
 ///////////////////////////////////////////////////////////CHAT/////////////////////////////////////////////////
 
