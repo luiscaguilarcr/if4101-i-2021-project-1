@@ -45,7 +45,7 @@ namespace Project_SPA.Controllers
 
         }
 
-        
+        [Route("[action]")]
         [HttpPost("sendAcceptanceMail")]
         public async Task<IActionResult> SendAcceptanceMail([FromBody] int id)
         {

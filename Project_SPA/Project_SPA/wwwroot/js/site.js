@@ -762,7 +762,7 @@ function AcceptStudent(id) {
         success: function (response) {
             if (response != 0) {
                 $.ajax({
-                    url: "/api/mail/sendAcceptanceMail/",
+                    url: "/api/Mail/sendAcceptanceMail",
                     data: JSON.stringify(id),
                     type: "POST",
                     contentType: "application/json;charset=utf-8",

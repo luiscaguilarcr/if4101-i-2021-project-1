@@ -20,7 +20,6 @@ namespace Project_SPA.Controllers
             _context = context;
         }
 
-        // GET: ProfessorController
         public ActionResult Index()
         {
             return View();
@@ -57,7 +56,7 @@ namespace Project_SPA.Controllers
         }
 
 
-        public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
+        public ActionResult Remove([FromBody] int id) 
         {
             professorDAO = new ProfessorDAO(_context);
             return Ok(professorDAO.Remove(id));
@@ -70,7 +69,7 @@ namespace Project_SPA.Controllers
             List<Professor> professors = professorDAO.GetProfessor();
             foreach (Professor profesor in professors)
             {
-                if (profesor.Code.Equals(profesor.Code))
+                if (profesor.Code.Equals(professor.Code))
                 {
                     return false;
                 }
