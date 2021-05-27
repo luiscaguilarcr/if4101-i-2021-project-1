@@ -94,7 +94,9 @@ namespace Project_SPA.Models.Data
                     Code = studentItem.Code,
                     Name = studentItem.Name,
                     Email = studentItem.Email,
-                    Password = studentItem.Password
+                    Password = studentItem.Password,
+                    UpdateUser = studentItem.UpdateUser,
+                    CreationUser = studentItem.CreationUser
 
                 }).ToList<Entities.Student>();
             }
@@ -148,8 +150,9 @@ namespace Project_SPA.Models.Data
                     Code = studentItem.Code,
                     Name = studentItem.Name,
                     Email = studentItem.Email,
-                    Password = studentItem.Password
-
+                    Password = studentItem.Password,
+                    UpdateUser = studentItem.UpdateUser,
+                    CreationUser = studentItem.CreationUser
                 }).ToList<Entities.Student>();
             }
 
@@ -176,6 +179,7 @@ namespace Project_SPA.Models.Data
                     Name = studentItem.Name,
                     Email = studentItem.Email,
                     Password = studentItem.Password
+                    
 
                 }).ToList<Entities.TemporalStudent>();
             }
@@ -262,12 +266,8 @@ namespace Project_SPA.Models.Data
 
             try
             {
-                if (!StudentExists(student.Id))
-                {
-                    _context.Update(student);
-                    resultToReturn = _context.SaveChangesAsync().Result;
-                }
-
+                _context.Update(student);
+                resultToReturn = _context.SaveChangesAsync().Result;
             }
             catch (DbUpdateException)
             {

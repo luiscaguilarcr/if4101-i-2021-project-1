@@ -52,7 +52,7 @@ namespace Project_SPA.Controllers
             return Ok(response);
         }
 
-        public List<Course> GetCourseByStudent(Student student)
+        public List<Course> GetCourseByStudent(int id)
         {
             studentCourseGroupDAO = new StudentCourseGroupDAO(_context);
             courseDAO = new CourseDAO(_context);
@@ -61,7 +61,7 @@ namespace Project_SPA.Controllers
 
             foreach(StudentCourseGroup studentCourseGroup in studentCourseGroups)
             {
-                if (studentCourseGroup.StudentId.Equals(student.Id))
+                if (studentCourseGroup.StudentId == id)
                 {
                     courses.Add(courseDAO.GetCourseById(studentCourseGroup.CourseId));
                 }
@@ -69,7 +69,7 @@ namespace Project_SPA.Controllers
             return courses;
         }
 
-        public List<Group> GetGroupByStudent(Student student)
+        public List<Group> GetGroupByStudent(int id)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace Project_SPA.Controllers
 
                 foreach (StudentCourseGroup studentCourseGroup in studentCourseGroups)
                 {
-                    if (studentCourseGroup.StudentId.Equals(student.Id))
+                    if (studentCourseGroup.StudentId == id)
                     {
                         groups.Add(studentCourseGroupDAO.GetGroupById(studentCourseGroup.CourseId));
                     }
@@ -94,7 +94,7 @@ namespace Project_SPA.Controllers
 
         }
 
-        public List<Course> GetCourseByProfessor(Professor professor)
+        public List<Course> GetCourseByProfessor(int id)
         {
             professorCourseGroupDAO = new ProfessorCourseGroupDAO(_context);
             courseDAO = new CourseDAO(_context);
@@ -103,7 +103,7 @@ namespace Project_SPA.Controllers
 
             foreach (ProfessorCourseGroup professorCourseGroup in professorCourseGroups)
             {
-                if (professorCourseGroup.ProfessorId.Equals(professor.Id))
+                if (professorCourseGroup.ProfessorId == id)
                 {
                     courses.Add(courseDAO.GetCourseById(professorCourseGroup.CourseId));
                 }
@@ -111,7 +111,7 @@ namespace Project_SPA.Controllers
             return courses;
         }
 
-        public List<Group> GetGroupByProfessor(Professor professor)
+        public List<Group> GetGroupByProfessor(int id)
         {
             try
             {
@@ -121,7 +121,7 @@ namespace Project_SPA.Controllers
 
                 foreach (ProfessorCourseGroup professorCourseGroup in professorCourseGroups)
                 {
-                    if (professorCourseGroup.Professor.Equals(professor.Id))
+                    if (professorCourseGroup.ProfessorId == id)
                     {
                         groups.Add(studentCourseGroupDAO.GetGroupById(professorCourseGroup.CourseId));
                     }

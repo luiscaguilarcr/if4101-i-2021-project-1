@@ -227,7 +227,8 @@
                         <h3>Contraseña</h3>
                         <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="Ingrese su Contraseña" required="required" autocomplete="off">
                         <button class="submit-btn form-control" id="btn_Sign" onclick="return LogIn()">Ingresar</button>
-                        <label typeof="text" name="informationLogIn" id="informationLogIn" align="center"></label>
+
+                        <p type="text" id="informationLogIn" style="visibility:hidden" ></p>
                     </div>
                 </div>
 
@@ -307,7 +308,7 @@
 
                         <button class="submit-btn form-controlS" onclick="return AddTemporalStudent()" id="btn_sign_in_student">Registrar</button>
 
-                        <label typeof="text" name="information" id="informationSignIn" align="center"></label>
+                        <p typeof="text" id="text_add_student"name="text_add_student" class="form-control" style="visibility:hidden"></p>
 
                     </div>
                 </div>
@@ -350,7 +351,8 @@
 
                                 <button class="submit-btn form-control" onclick="return AddProfessor()" id="btn_register_professor">Registrar profesor</button>
 
-                                <label typeof="text" name="informationProfessor" id="informationProfessor" align="center"></label>
+                                <p typeof="text" id="text_add_professor" name="text_add_professor" class="form-control" style="visibility:hidden"></p>
+
                             </div>
                             </div>
                         </div>
@@ -400,7 +402,7 @@
 
                                 <button class="submit-btn form-control" onclick="return AddCourse()" id="btn_register_curse">Registrar curso</button>
 
-                                <label typeof="text" name="informationCourse" id="informationCourse" align="center"></label>
+                                <p typeof="text" id="text_add_professor" name="text_add_professor" class="form-control" style="visibility:hidden"></p>
 
                             </div>
 
@@ -712,17 +714,14 @@
                     <div class="entry-form">
 
                         <h2>Editar informacion personal</h2>
-                        <input type="text" id="codeS" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
 
-                        <input type="text" id="nameS" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
+                        <input type="text" id="namePP" name="name" class="form-control" placeholder="Nombre completo" required="" autocomplete="off">
 
-                        <input type="email" id="emailS" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
+                        <input type="password" id="passwordPP" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
 
-                        <input type="password" id="passwordS" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
+                        <button class="submit-btn form-controlS" onclick="return UpdateProfessorProfile()" id="btn_register_professor">Editar</button>
 
-                        <input type="password" name="repeatpasswordS" id="repeatpasswordS" class="form-control" placeholder="Digite de nuevo la contraseña" required="" autocomplete="off">
-
-                        <button class="submit-btn form-controlS" onclick="return " id="btn_register_professor">Editar</button>
+                        <p type="text" class="form-control" id="text_edit_professor_profile" style="visibility:hidden"></p>
 
                     </div>
 
@@ -744,17 +743,13 @@
                     <div class="entry-form">
 
                         <h2>Editar informacion personal</h2>
-                        <input type="text" id="idS" name="code" class="form-control" placeholder="Id" required="" autocomplete="off" disabled>
+                        <input type="text" id="nameSP" name="code" class="form-control" placeholder="Nombre Completo" required="" autocomplete="off">
 
-                        <input type="text" id="nameUP" name="code" class="form-control" placeholder="Nombre Completo" required="" autocomplete="off">
+                        <input type="password" id="passwordSP" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
 
-                        <input type="text" id="codeUP" name="code" class="form-control" placeholder="Carnet" required="" autocomplete="off">
+                        <button class="submit-btn form-controlS" onclick="return UpdateStudentProfile()" id="btn_sign_in_student">Editar</button>
 
-                        <input type="email" id="emailUP" name="email" class="form-control" placeholder="Correo electrónico" required="" autocomplete="off">
-
-                        <input type="password" id="passwordUP" name="password" class="form-control" placeholder="Contraseña" required="" autocomplete="off">
-
-                        <button class="submit-btn form-controlS" onclick="return UpdateStudent()" id="btn_sign_in_student">Editar</button>
+                        <p type="text" class="form-control" id="text_edit_student_profile" style="visibility:hidden"></p>
 
                     </div>
 

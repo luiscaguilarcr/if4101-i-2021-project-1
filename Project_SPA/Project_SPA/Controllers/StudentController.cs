@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Project_SPA.Models.Data;
+using Project_SPA.Models.Domain;
 using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -65,6 +67,13 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.GetTemporal());
         }
 
+        public ActionResult LoadProfile()
+        {
+            studentDAO = new StudentDAO(_context);
+
+            return Ok(studentDAO.GetStudentByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code));
+        }
+
         public ActionResult Add([FromBody] Student student)
         {
             
@@ -109,6 +118,24 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.Edit(student));
         }
 
+        public ActionResult EditProfile([FromBody] Student student)
+        {
+            if (ValidateEditProfile(student)) { 
+                studentDAO = new StudentDAO(_context);
+                Student student1 = studentDAO.GetStudentByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code);
+
+                student.Id = student1.Id;
+                student.Code = student1.Code;
+                student.Email = student1.Email;
+                student.CreationUser = student1.CreationUser;
+                student.UpdateUser = student1.Code;
+
+   
+                return Ok(studentDAO.Edit(student));
+            }
+            return Ok();
+        }
+
         public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
         {
             studentDAO = new StudentDAO(_context);
@@ -122,37 +149,49 @@ namespace Project_SPA.Controllers
         }
 
         // Validation
-        public Boolean ValidateNewStudent(TemporalStudent temporalStudent)
+        public Boolean ValidateNewStudent(TemporalStudent newTemporalStudent)
         {
-
             studentDAO = new StudentDAO(_context);
             List<Student> students = studentDAO.GetStudents();
             foreach (Student student in students)
             {
-
-                if (student.Code.Equals(temporalStudent.Code))
+                if(newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
                 {
-
+                    return false;
+                }else if (student.Code.Equals(newTemporalStudent.Code))
+                {
                     return false;
                 }
             }
             return true;
         }
 
-        public Boolean ValidateNewTemporalStudent(TemporalStudent temporalStudent)
+        public Boolean ValidateNewTemporalStudent(TemporalStudent newTemporalStudent)
         {
+            if (newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
+            {
+                return false;
+            }
 
             studentDAO = new StudentDAO(_context);
-            List<TemporalStudent> students = studentDAO.GetTemporalStudents();
-            foreach (TemporalStudent student in students)
+            List<TemporalStudent> temporalStudents = studentDAO.GetTemporalStudents();
+            foreach (TemporalStudent temoporalStudent in temporalStudents)
             {
-
-                if (student.Code.Equals(temporalStudent.Code))
+                if (temoporalStudent.Code.Equals(newTemporalStudent.Code))
                 {
-
                     return false;
                 }
             }
+            return true;
+        }
+
+        public Boolean ValidateEditProfile(Student student)
+        {
+            if (student.Name == null || student.Password == null)
+            {
+                return false;
+            }
+            
             return true;
         }
     }
