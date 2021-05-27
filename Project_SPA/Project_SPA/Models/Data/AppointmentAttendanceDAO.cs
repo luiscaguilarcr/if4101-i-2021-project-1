@@ -50,7 +50,6 @@ namespace Project_SPA.Models.Data
                     Id = appointmentAttendanceItem.Id,
                     AttendanceId = appointmentAttendanceItem.AttendanceId,
                     StartDateHour = appointmentAttendanceItem.StartDateHour,
-                    EndDateHout = appointmentAttendanceItem.EndDateHout,
                     StudentId = appointmentAttendanceItem.StudentId,
                     ProfessorId = appointmentAttendanceItem.ProfessorId,
                     GroupId = appointmentAttendanceItem.GroupId,
