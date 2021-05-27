@@ -12,8 +12,5 @@ namespace Project_SPA.Models.Entities
         public string Text { get; set; }
         public DateTime CreationDate { get; set; }
         public string CreationUser { get; set; }
-
-        public virtual Professor User { get; set; }
-        public virtual Student UserNavigation { get; set; }
     }
 }

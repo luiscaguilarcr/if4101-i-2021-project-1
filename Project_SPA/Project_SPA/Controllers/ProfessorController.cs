@@ -64,14 +64,22 @@ namespace Project_SPA.Controllers
         }
         public ActionResult EditProfile([FromBody] Professor professor)
         {
-            professorDAO = new ProfessorDAO(_context);
-            Professor professor1 = professorDAO.GetProfessorByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code);
-            professor.Id = professor1.Id;
-            if(professor.AcademicDegreeId == 0)
-            {
-                professor.AcademicDegreeId = professor1.AcademicDegreeId;
+            if (ValidateEditProfile(professor)) { 
+                professorDAO = new ProfessorDAO(_context);
+                Professor professor1 = professorDAO.GetProfessorByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code);
+                professor.Id = professor1.Id;
+                professor.Code = professor1.Code;
+                professor.Email = professor1.Email;
+                professor.CreationUser = professor1.CreationUser;
+                professor.UpdateUser = professor1.Code;
+
+                if(professor.AcademicDegreeId == 0)
+                {
+                    professor.AcademicDegreeId = professor1.AcademicDegreeId;
+                }
+                return Ok(professorDAO.Edit(professor));
             }
-            return Ok(professorDAO.Edit(professor));
+            return Ok();
         }
 
         public ActionResult Remove([FromBody] int id) 
@@ -82,19 +90,31 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateProfessor(Professor newProfessor)
         {
+            if (newProfessor.Code == null || newProfessor.Name == null || newProfessor.Password == null)
+            {
+                return false;
+            }
             professorDAO = new ProfessorDAO(_context);
             List<Professor> professors = professorDAO.GetProfessor();
-            foreach (Professor profesor in professors)
+            foreach (Professor professor in professors)
             {
-                if(newProfessor == null)
-                {
-                    return false;
-                }else if (profesor.Code.Equals(newProfessor.Code))
+                if (professor.Email.Equals(newProfessor.Email))
                 {
                     return false;
                 }
             }
             return true;
         }
+
+        public Boolean ValidateEditProfile(Professor professor)
+        {
+            if (professor.Name == null || professor.Password == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
+
 }

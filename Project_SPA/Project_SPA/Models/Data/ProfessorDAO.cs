@@ -55,7 +55,9 @@ namespace Project_SPA.Models.Data
                     Code = professorItem.Code,
                     Name = professorItem.Name,
                     Email = professorItem.Email,
-                    Password = professorItem.Password
+                    Password = professorItem.Password,
+                    UpdateUser = professorItem.UpdateUser,
+                    CreationUser = professorItem.CreationUser
 
                 }).ToList<Entities.Professor>();
             }
@@ -139,12 +141,8 @@ namespace Project_SPA.Models.Data
 
             try
             {
-                if (!ProfessorExists(professor.Id))
-                {
-                    _context.Update(professor);
-                    resultToReturn = _context.SaveChangesAsync().Result;
-                }
-
+                _context.Update(professor);
+                resultToReturn = _context.SaveChangesAsync().Result;
             }
             catch (DbUpdateException)
             {

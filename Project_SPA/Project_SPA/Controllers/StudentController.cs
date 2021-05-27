@@ -120,11 +120,20 @@ namespace Project_SPA.Controllers
 
         public ActionResult EditProfile([FromBody] Student student)
         {
-            studentDAO = new StudentDAO(_context);
+            if (ValidateEditProfile(student)) { 
+                studentDAO = new StudentDAO(_context);
+                Student student1 = studentDAO.GetStudentByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code);
 
-            student.Id = studentDAO.GetStudentByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code).Id;
+                student.Id = student1.Id;
+                student.Code = student1.Code;
+                student.Email = student1.Email;
+                student.CreationUser = student1.CreationUser;
+                student.UpdateUser = student1.Code;
 
-            return Ok(studentDAO.Edit(student));
+   
+                return Ok(studentDAO.Edit(student));
+            }
+            return Ok();
         }
 
         public ActionResult Remove([FromBody] int id) //DISTINTA AL PROFE
@@ -159,20 +168,30 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateNewTemporalStudent(TemporalStudent newTemporalStudent)
         {
+            if (newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
+            {
+                return false;
+            }
+
             studentDAO = new StudentDAO(_context);
             List<TemporalStudent> temporalStudents = studentDAO.GetTemporalStudents();
             foreach (TemporalStudent temoporalStudent in temporalStudents)
             {
-                if (newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
-                {
-                    return false;
-                }
-                
                 if (temoporalStudent.Code.Equals(newTemporalStudent.Code))
                 {
                     return false;
                 }
             }
+            return true;
+        }
+
+        public Boolean ValidateEditProfile(Student student)
+        {
+            if (student.Name == null || student.Password == null)
+            {
+                return false;
+            }
+            
             return true;
         }
     }

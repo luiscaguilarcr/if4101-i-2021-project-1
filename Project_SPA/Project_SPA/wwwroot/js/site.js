@@ -23,6 +23,9 @@ function NotVisible() {
     document.getElementById('#Notice').style.display = 'block';
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'block';
+    document.getElementById('informationLogIn').style.visibility = 'hidden';
+    document.getElementById('text_add_student').style.visibility = 'hidden';
+    
     //admin
     document.getElementById('#tables').style.display = 'none';
     document.getElementById('#NoticeA').style.display = 'none';
@@ -250,6 +253,8 @@ function active_professor_consult() {
 }
 function edit_professor_profile() {
     LoadProfessorProfile();
+    document.getElementById('text_edit_professor_profile').style.visibility = 'hidden';
+
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_profile').style.display = 'block';
     document.getElementById('active_professor_consult').style.display = 'none';
@@ -318,6 +323,7 @@ function active_student_consult() {
 function edit_student_profile() {
     LoadStudentProfile();
     document.getElementById('edit_student_profile').style.display = 'block';
+    document.getElementById('text_edit_student_profile').style.visibility = 'hidden';
 
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
@@ -396,6 +402,8 @@ function LoginStudent(user) {
         success: function (response) {
             if (response == 1) {
                 LoginStudentValidate(true);
+            } else {
+                LoginStudentValidate(false);
             }
         }
     });
@@ -403,14 +411,14 @@ function LoginStudent(user) {
 
 //////////////////////////////////////////////////// LOG IN VALIDATE ////////////////////////////////////////////////////
 function LoginAdminValidate(response) {
-    if (response == true) {
+    if (response) {
         HideLogIn();
         ShowAdmin();
     }
 }
 
 function LoginProfessorValidate(response) {
-    if (response == true) {
+    if (response) {
         HideLogIn();
         ShowProfessor();
     }
@@ -420,7 +428,6 @@ function LoginStudentValidate(response) {
     if (response == true) {
         HideLogIn();
         ShowStudent();
-
     } else {
         document.getElementById("informationLogIn").innerHTML = "Error al ingresar, compruebe su código y contraseña";
         document.getElementById("informationLogIn").style.color = "red";
@@ -440,9 +447,11 @@ function CleanStudent() {
     document.getElementById("emailS").value = "";
     document.getElementById("passwordS").value = "";
     document.getElementById("repeatpasswordS").value = "";
+
 }
 
 function CleanProfessor() {
+    document.getElementById('text_add_professor').style.visibility = 'hidden';
     document.getElementById("nameP").value = "";
     document.getElementById("codeP").value = "";
     document.getElementById("emailP").value = "";
@@ -518,7 +527,6 @@ function AddProfessor() {
                 document.getElementById('text_add_professor').style.visibility = 'visible';
             }
         },
-        
         error: function (errorMessage) {
             // alert("Error");
             alert(errorMessage.responseText);
@@ -559,12 +567,8 @@ function LoadProfessorProfile() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            document.getElementById("codePP").value = result.code;
             document.getElementById("namePP").value = result.name;
-            document.getElementById("emailPP").value = result.email;
             document.getElementById("passwordPP").value = result.password;
-            document.getElementById("academicdegreePP").value = result.academicDegreeId;
-
         },
         error: function (errorMessage) {
             alert("Error al cargar el usuario, vuelva a intentarlo más tarde");
@@ -576,11 +580,8 @@ function LoadProfessorProfile() {
 function UpdateProfessorProfile() {
 
     var professor = {
-        code: $('#codePP').val(),
         name: $('#namePP').val(),
-        email: $('#emailPP').val(),
         password: $('#passwordPP').val(),
-        //academicDegreeId: parseInt($('#academicdegreePP').val())
     };
 
     $.ajax({
@@ -730,9 +731,7 @@ function LoadStudentProfile() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            document.getElementById("nameSP").value = result.code;
-            document.getElementById("codeSP").value = result.name;
-            document.getElementById("emailSP").value = result.email;
+            document.getElementById("nameSP").value = result.name;
             document.getElementById("passwordSP").value = result.password;
         },
         error: function (errorMessage) {
@@ -745,10 +744,8 @@ function LoadStudentProfile() {
 function UpdateStudentProfile() {
 
     var student = {
-        code: $('#codeSP').val(),
         name: $('#nameSP').val(),
-        email: $('#emailSP').val(),
-        password: $('#passwordSP').val()
+        password: $('#passwordSP').val(),
     };
 
     $.ajax({
