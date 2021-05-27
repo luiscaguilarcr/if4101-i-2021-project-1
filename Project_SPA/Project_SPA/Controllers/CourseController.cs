@@ -47,7 +47,6 @@ namespace Project_SPA.Controllers
             
         }
 
-
         public ActionResult Edit([FromBody] Course course)
         {
             courseDAO = new CourseDAO(_context);
@@ -61,18 +60,24 @@ namespace Project_SPA.Controllers
             return Ok(courseDAO.Remove(id));
         }
 
-        public Boolean ValidateNewCurse(Course course)
+        public Boolean ValidateNewCurse(Course newCourse)
         {
+            if (newCourse == null || newCourse.Code == null || newCourse.Credits == 0 || newCourse.Name == null || newCourse.Semester == null || newCourse.Year == 0)
+            {
+                return false;
+            }
             courseDAO = new CourseDAO(_context);
             List<Course> courses = courseDAO.GetCourse();
             foreach (Course coursee in courses)
             {
-                if (coursee.Code.Equals(course.Code))
+                if (coursee.Code.Equals(newCourse.Code))
                 {
                     return false;
                 }
             }
             return true;
         }
+
+
     }
 }

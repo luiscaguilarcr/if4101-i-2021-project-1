@@ -109,18 +109,6 @@ namespace Project_SPA.Models.Entities
                     .HasColumnName("Start_Date_Hour");
 
                 entity.Property(e => e.StudentId).HasColumnName("Student_Id");
-
-                entity.HasOne(d => d.Attendance)
-                    .WithMany(p => p.AppointmentAttendances)
-                    .HasForeignKey(d => d.AttendanceId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Appointment_Attendance_Attendance_Professor_Course_Group1");
-
-                entity.HasOne(d => d.Student)
-                    .WithMany(p => p.AppointmentAttendances)
-                    .HasForeignKey(d => d.StudentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Appointment_Attendance_Student");
             });
 
             modelBuilder.Entity<AttendanceProfessorCourseGroup>(entity =>
@@ -134,30 +122,6 @@ namespace Project_SPA.Models.Entities
                 entity.Property(e => e.GroupId).HasColumnName("Group_Id");
 
                 entity.Property(e => e.ProfessorId).HasColumnName("Professor_Id");
-
-                entity.HasOne(d => d.AttendanceSchedule)
-                    .WithMany(p => p.AttendanceProfessorCourseGroups)
-                    .HasForeignKey(d => d.AttendanceScheduleId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Schedule_Group_Schedule_Professor_AttendanceSchedule");
-
-                entity.HasOne(d => d.Course)
-                    .WithMany(p => p.AttendanceProfessorCourseGroups)
-                    .HasForeignKey(d => d.CourseId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Schedule_Group_Schedule_Professor_Course");
-
-                entity.HasOne(d => d.Group)
-                    .WithMany(p => p.AttendanceProfessorCourseGroups)
-                    .HasForeignKey(d => d.GroupId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Schedule_Group_Schedule_Professor_Group");
-
-                entity.HasOne(d => d.Professor)
-                    .WithMany(p => p.AttendanceProfessorCourseGroups)
-                    .HasForeignKey(d => d.ProfessorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Attendance_Professor_Course_Group_Professor");
             });
 
             modelBuilder.Entity<AttendanceSchedule>(entity =>
@@ -239,11 +203,6 @@ namespace Project_SPA.Models.Entities
                     .HasMaxLength(50)
                     .HasColumnName("Update_User")
                     .HasDefaultValueSql("('DBA')");
-
-                entity.HasOne(d => d.Course)
-                    .WithMany(p => p.Groups)
-                    .HasForeignKey(d => d.CourseId)
-                    .HasConstraintName("FK_Group_Course");
             });
 
             modelBuilder.Entity<Message>(entity =>
@@ -266,18 +225,6 @@ namespace Project_SPA.Models.Entities
                     .HasMaxLength(200);
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Messages)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Message_Professor");
-
-                entity.HasOne(d => d.UserNavigation)
-                    .WithMany(p => p.Messages)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Message_Student");
             });
 
             modelBuilder.Entity<Professor>(entity =>
@@ -289,11 +236,6 @@ namespace Project_SPA.Models.Entities
                 entity.Property(e => e.Code)
                     .IsRequired()
                     .HasMaxLength(6);
-
-                entity.Property(e => e.CreationDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Creation_Date")
-                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.CreationUser)
                     .IsRequired()
@@ -312,11 +254,6 @@ namespace Project_SPA.Models.Entities
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(30);
-
-                entity.Property(e => e.UpdateDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Update_Date")
-                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.UpdateUser)
                     .IsRequired()
@@ -374,11 +311,6 @@ namespace Project_SPA.Models.Entities
                     .IsRequired()
                     .HasMaxLength(6);
 
-                entity.Property(e => e.CreationDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Creation_Date")
-                    .HasDefaultValueSql("(getdate())");
-
                 entity.Property(e => e.CreationUser)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -396,11 +328,6 @@ namespace Project_SPA.Models.Entities
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(30);
-
-                entity.Property(e => e.UpdateDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Update_Date")
-                    .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.UpdateUser)
                     .IsRequired()
@@ -465,12 +392,6 @@ namespace Project_SPA.Models.Entities
                     .HasColumnName("Start_Date_Hour");
 
                 entity.Property(e => e.StudentId).HasColumnName("Student_Id");
-
-                entity.HasOne(d => d.Attendance)
-                    .WithMany(p => p.TemporalAppointmentAttendances)
-                    .HasForeignKey(d => d.AttendanceId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_TemporalAppointment_Attendance_Attendance_Professor_Course_Group");
             });
 
             modelBuilder.Entity<TemporalStudent>(entity =>
