@@ -67,7 +67,10 @@ namespace Project_SPA.Controllers
             professorDAO = new ProfessorDAO(_context);
             Professor professor1 = professorDAO.GetProfessorByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code);
             professor.Id = professor1.Id;
-
+            if(professor.AcademicDegreeId == 0)
+            {
+                professor.AcademicDegreeId = professor1.AcademicDegreeId;
+            }
             return Ok(professorDAO.Edit(professor));
         }
 

@@ -41,13 +41,11 @@ function NotVisible() {
     document.getElementById('#consultas_professor').style.display = 'none';
     document.getElementById('#edit_professor_profile').style.display = 'none'; 
     document.getElementById('edit_professor_profile').style.display = 'none'; 
-    document.getElementById('text_edit_professor_profile').style.display = 'none';
     document.getElementById('active_professor_consult').style.display = 'none'; 
     document.getElementById('student_list').style.display = 'none';
      //student
     document.getElementById('#consultas_student').style.display = 'none';
     document.getElementById('#edit_student_profile').style.display = 'none';
-    document.getElementById('text_edit_student_profile').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none'; 
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
@@ -90,7 +88,7 @@ function ShowAdmin() {
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
     //admin
-      document.getElementById('#tables').style.display = 'block';
+    document.getElementById('#tables').style.display = 'block';
     document.getElementById('#add_functions').style.display = 'block';
     document.getElementById('OptionsNoticeAdmin').style.display = 'block';
     document.getElementById('tbodyCommentsAdmin').style.display = 'block';
@@ -215,6 +213,7 @@ function ShowProfessor() {
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
+    document.getElementById('edit_professor_profile').style.display = 'none';
     //professor
     document.getElementById('#consultas_professor').style.display = 'block';
     document.getElementById('#edit_professor_profile').style.display = 'block';
@@ -273,6 +272,7 @@ function ShowStudent() {
     document.getElementById('Notice').style.display = 'block';
     document.getElementById('OnlySeeNotice').style.display = 'none';
     document.getElementById('sign_out').style.display = 'block';
+    document.getElementById('edit_student_profile').style.display = 'none';
          //student
     document.getElementById('#consultas_student').style.display = 'block';
     document.getElementById('#edit_student_profile').style.display = 'block';
@@ -316,10 +316,12 @@ function active_student_consult() {
     document.getElementById('chat').style.display = 'none';
 }
 function edit_student_profile() {
+    LoadStudentProfile();
+    document.getElementById('edit_student_profile').style.display = 'block';
+
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('OptionsNotice').style.display = 'none';
     document.getElementById('TableComments').style.display = 'none';
-    document.getElementById('edit_student_profile').style.display = 'block';
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
     document.getElementById('chat').style.display = 'none';
@@ -345,11 +347,12 @@ function LogIn() {
         password: $('#userPassword').val()
     }
 
-    LoginStudent(user);
+   
+    LoginAdmin(user);
 
     LoginProfessor(user);
 
-    LoginAdmin(user);
+    LoginStudent(user);
 
 }
 
@@ -419,8 +422,9 @@ function LoginStudentValidate(response) {
         ShowStudent();
 
     } else {
-        document.getElementById("informationLogIn").innerHTML = "Error al ingresar, compruebe su carné y contraseña";
+        document.getElementById("informationLogIn").innerHTML = "Error al ingresar, compruebe su código y contraseña";
         document.getElementById("informationLogIn").style.color = "red";
+        document.getElementById('informationLogIn').style.visibility = 'visible';
     }
 }
 
@@ -574,7 +578,7 @@ function UpdateProfessorProfile() {
         name: $('#namePP').val(),
         email: $('#emailPP').val(),
         password: $('#passwordPP').val(),
-        academicDegreeId: $('#academic_degreePP').val()
+        //academicDegreeId: parseInt($('#academicdegreePP').val())
     };
 
     $.ajax({
@@ -586,13 +590,13 @@ function UpdateProfessorProfile() {
         success: function (result) {
             document.getElementById("text_edit_professor_profile").innerHTML = "Perfil actualizado con éxito";
             document.getElementById("text_edit_professor_profile").style.color = "green";
-            document.getElementById('text_edit_professor_profile').style.display = 'block';
+            document.getElementById('text_edit_professor_profile').style.visibility = 'visible';
         },
 
         error: function (errorMessage) {
             document.getElementById("text_edit_professor_profile").innerHTML = "Error al actualizar el perfil";
             document.getElementById("text_edit_professor_profile").style.color = "red";
-            document.getElementById('text_edit_professor_profile').style.display = 'block';
+            document.getElementById('text_edit_professor_profile').style.visibility = 'visible';
         }
     });
 }
@@ -754,14 +758,12 @@ function UpdateStudentProfile() {
         success: function (result) {
             document.getElementById("text_edit_student_profile").innerHTML = "Perfil actualizado con éxito";
             document.getElementById("text_edit_student_profile").style.color = "green";
-            document.getElementById('text_edit_student_profile').style.display = 'block';
-
-
+            document.getElementById('text_edit_student_profile').style.visibility = 'visible';
         },
         error: function (errorMessage) {
             document.getElementById("text_edit_student_profile").innerHTML = "Error al actualizar el perfil";
             document.getElementById("text_edit_student_profile").style.color = "red";
-            document.getElementById('text_edit_student_profile').style.display = 'block';
+            document.getElementById('text_edit_student_profile').style.visibility = 'visible';
 
         }
     });
@@ -1078,8 +1080,8 @@ function AddTemporalAppointmentAttendace() {
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    //document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-                    //document.getElementById("information").style.color = "green";
+                    document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
+                    document.getElementById("information").style.color = "green";
                 },
             });
 
