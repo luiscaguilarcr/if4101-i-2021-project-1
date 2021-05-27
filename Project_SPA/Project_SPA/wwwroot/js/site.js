@@ -499,11 +499,14 @@ function AddProfessor() {
         dataType: "json",
         success: function (result) {
             if (result != -1) {
-                alert("insertado con exito");
+
                 CleanProfessor();
+                document.getElementById("informationProfessor").innerHTML = "Profesor agregado con éxito";
+                document.getElementById("informationProfessor").style.color = "green";
 
             } else {
-                alert("profesor ya exite ");
+                document.getElementById("informationProfessor").innerHTML = "Error al insertar profesor";
+                document.getElementById("informationProfessor").style.color = "red";
             }
         },
         
@@ -726,22 +729,23 @@ function AddTemporalStudent() {
             if (result != -1) {
                 CleanStudent();
 
+                document.getElementById("informationSignIn").innerHTML = "Su solicitud se ha enviado correctamente";
+                document.getElementById("informationSignIn").style.color = "green";
+
                 $.ajax({
                     url: "/api/mail/sendRequestEmail/",
                     data: JSON.stringify(temporalStudent.email),
                     type: "POST",
                     contentType: "application/json;charset=utf-8",
                     dataType: "json",
-                    success: function (response) {
-                        document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-                        document.getElementById("information").style.color = "green";
-                        alert("Su solicitud se ha enviado correctamente");
+                    success: function (result) {
+                        
                     },
                 });
             } else {
                 alert("usuario ya existe");
-                document.getElementById("information").innerHTML = "El usuario ya está registrado en el sistema";
-                document.getElementById("information").style.color = "red";
+                document.getElementById("informationSignIn").innerHTML = "El usuario ya está registrado en el sistema";
+                document.getElementById("informationSignIn").style.color = "red";
             }
         },
         error: function (errorMessage) {
@@ -853,15 +857,18 @@ function AddCourse() {
         success: function (result) {
 
             if (result != -1) {
-                alert("insertado con exito");
+                
                 CleanCourses();
+                document.getElementById("informationCourse").innerHTML = "Curso agregado con éxito";
+                document.getElementById("informationCourse").style.color = "green";
             } else {
-                alert("Usuario ya existe");
+                document.getElementById("informationCourse").innerHTML = "Error al insertar curso";
+                document.getElementById("informationCourse").style.color = "red";
             }
 
         },
         error: function (errorMessage) {
-            // alert("Error");
+            
             alert(errorMessage.responseText);
         }
     });
