@@ -80,14 +80,16 @@ namespace Project_SPA.Controllers
             return Ok(professorDAO.Remove(id));
         }
 
-        public Boolean ValidateProfessor(Professor professor)
+        public Boolean ValidateProfessor(Professor newProfessor)
         {
-
             professorDAO = new ProfessorDAO(_context);
             List<Professor> professors = professorDAO.GetProfessor();
             foreach (Professor profesor in professors)
             {
-                if (profesor.Code.Equals(professor.Code))
+                if(newProfessor == null)
+                {
+                    return false;
+                }else if (profesor.Code.Equals(newProfessor.Code))
                 {
                     return false;
                 }

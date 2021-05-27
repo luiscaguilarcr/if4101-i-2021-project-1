@@ -508,12 +508,14 @@ function AddProfessor() {
             if (result != -1) {
 
                 CleanProfessor();
-                document.getElementById("informationProfessor").innerHTML = "Profesor agregado con éxito";
-                document.getElementById("informationProfessor").style.color = "green";
+                document.getElementById("text_add_professor").innerHTML = "Profesor agregado con éxito";
+                document.getElementById("text_add_professor").style.color = "green";
+                document.getElementById('text_add_professor').style.visibility = 'visible';
 
             } else {
-                document.getElementById("informationProfessor").innerHTML = "Error al insertar profesor";
-                document.getElementById("informationProfessor").style.color = "red";
+                document.getElementById("text_add_professor").innerHTML = "Compruebe que los datos ingresados sean correctos y que no se haya registrado el profesor anteriormente";
+                document.getElementById("text_add_professor").style.color = "red";
+                document.getElementById('text_add_professor').style.visibility = 'visible';
             }
         },
         
@@ -837,8 +839,9 @@ function AddTemporalStudent() {
             if (result != -1) {
                 CleanStudent();
 
-                document.getElementById("informationSignIn").innerHTML = "Su solicitud se ha enviado correctamente";
-                document.getElementById("informationSignIn").style.color = "green";
+                document.getElementById("text_add_student").innerHTML = "Su solicitud se ha enviado correctamente";
+                document.getElementById("text_add_student").style.color = "green";
+                document.getElementById('text_add_student').style.visibility = 'visible';
 
                 $.ajax({
                     url: "/api/mail/sendRequestEmail/",
@@ -852,8 +855,9 @@ function AddTemporalStudent() {
                 });
             } else {
                 alert("usuario ya existe");
-                document.getElementById("informationSignIn").innerHTML = "El usuario ya está registrado en el sistema";
-                document.getElementById("informationSignIn").style.color = "red";
+                document.getElementById("text_add_student").innerHTML = "Compruebe que los datos ingresados sean correctos y que no se haya registrado anteriormente";
+                document.getElementById("text_add_student").style.color = "red";
+                document.getElementById('text_add_student').style.visibility = 'visible';
             }
         },
         error: function (errorMessage) {
@@ -967,11 +971,13 @@ function AddCourse() {
             if (result != -1) {
                 
                 CleanCourses();
-                document.getElementById("informationCourse").innerHTML = "Curso agregado con éxito";
-                document.getElementById("informationCourse").style.color = "green";
+                document.getElementById("text_add_course").innerHTML = "Curso agregado con éxito";
+                document.getElementById("text_add_course").style.color = "green";
+                document.getElementById('text_add_course').style.visibility = 'visible';
             } else {
-                document.getElementById("informationCourse").innerHTML = "Error al insertar curso";
-                document.getElementById("informationCourse").style.color = "red";
+                document.getElementById("text_add_course").innerHTML = "Compruebe que los datos ingresados sean correctos y el curso no se haya registrado anteriormente";
+                document.getElementById("text_add_course").style.color = "red";
+                document.getElementById('text_add_course').style.visibility = 'visible';
             }
 
         },
@@ -1080,8 +1086,9 @@ function AddTemporalAppointmentAttendace() {
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    document.getElementById("information").innerHTML = "Su solicitud se ha enviado correctamente";
-                    document.getElementById("information").style.color = "green";
+                    document.getElementById("text_add_apppointment").innerHTML = "Su solicitud se ha enviado correctamente";
+                    document.getElementById("text_add_apppointment").style.color = "green";
+                    document.getElementById('text_add_apppointment').style.visibility = 'visible';
                 },
             });
 

@@ -140,34 +140,36 @@ namespace Project_SPA.Controllers
         }
 
         // Validation
-        public Boolean ValidateNewStudent(TemporalStudent temporalStudent)
+        public Boolean ValidateNewStudent(TemporalStudent newTemporalStudent)
         {
-
             studentDAO = new StudentDAO(_context);
             List<Student> students = studentDAO.GetStudents();
             foreach (Student student in students)
             {
-
-                if (student.Code.Equals(temporalStudent.Code))
+                if(newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
                 {
-
+                    return false;
+                }else if (student.Code.Equals(newTemporalStudent.Code))
+                {
                     return false;
                 }
             }
             return true;
         }
 
-        public Boolean ValidateNewTemporalStudent(TemporalStudent temporalStudent)
+        public Boolean ValidateNewTemporalStudent(TemporalStudent newTemporalStudent)
         {
-
             studentDAO = new StudentDAO(_context);
-            List<TemporalStudent> students = studentDAO.GetTemporalStudents();
-            foreach (TemporalStudent student in students)
+            List<TemporalStudent> temporalStudents = studentDAO.GetTemporalStudents();
+            foreach (TemporalStudent temoporalStudent in temporalStudents)
             {
-
-                if (student.Code.Equals(temporalStudent.Code))
+                if (newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
                 {
-
+                    return false;
+                }
+                
+                if (temoporalStudent.Code.Equals(newTemporalStudent.Code))
+                {
                     return false;
                 }
             }
