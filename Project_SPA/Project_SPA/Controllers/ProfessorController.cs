@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Project_SPA.Models.Data;
+using Project_SPA.Models.Domain;
 using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -48,13 +50,26 @@ namespace Project_SPA.Controllers
             return Ok(-1);
         }
 
+        public ActionResult LoadProfile()
+        {
+            professorDAO = new ProfessorDAO(_context);
+
+            return Ok(professorDAO.GetProfessorByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code));
+        }
 
         public ActionResult Edit([FromBody] Professor professor)
         {
             professorDAO = new ProfessorDAO(_context);
             return Ok(professorDAO.Edit(professor));
         }
+        public ActionResult EditProfile([FromBody] Professor professor)
+        {
+            professorDAO = new ProfessorDAO(_context);
+            Professor professor1 = professorDAO.GetProfessorByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code);
+            professor.Id = professor1.Id;
 
+            return Ok(professorDAO.Edit(professor));
+        }
 
         public ActionResult Remove([FromBody] int id) 
         {

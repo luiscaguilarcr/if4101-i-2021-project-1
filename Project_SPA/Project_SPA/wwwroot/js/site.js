@@ -41,11 +41,13 @@ function NotVisible() {
     document.getElementById('#consultas_professor').style.display = 'none';
     document.getElementById('#edit_professor_profile').style.display = 'none'; 
     document.getElementById('edit_professor_profile').style.display = 'none'; 
+    document.getElementById('text_edit_professor_profile').style.display = 'none';
     document.getElementById('active_professor_consult').style.display = 'none'; 
     document.getElementById('student_list').style.display = 'none';
      //student
     document.getElementById('#consultas_student').style.display = 'none';
     document.getElementById('#edit_student_profile').style.display = 'none';
+    document.getElementById('text_edit_student_profile').style.display = 'none';
     document.getElementById('edit_student_profile').style.display = 'none'; 
     document.getElementById('request_consult').style.display = 'none';
     document.getElementById('active_student_consult').style.display = 'none';
@@ -248,6 +250,7 @@ function active_professor_consult() {
     document.getElementById('chat').style.display = 'none';
 }
 function edit_professor_profile() {
+    LoadProfessorProfile();
     document.getElementById('Notice').style.display = 'none';
     document.getElementById('edit_professor_profile').style.display = 'block';
     document.getElementById('active_professor_consult').style.display = 'none';
@@ -542,6 +545,58 @@ function LoadDataProfessor() {
     });
 }
 
+function LoadProfessorProfile() {
+
+    $.ajax({
+        url: "/Professor/LoadProfile",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            document.getElementById("codePP").value = result.code;
+            document.getElementById("namePP").value = result.name;
+            document.getElementById("emailPP").value = result.email;
+            document.getElementById("passwordPP").value = result.password;
+            document.getElementById("academicdegreePP").value = result.academicDegreeId;
+
+        },
+        error: function (errorMessage) {
+            alert("Error al cargar el usuario, vuelva a intentarlo más tarde");
+            document.getElementById('edit_professor_profile').style.display = 'none'; 
+        }
+    });
+}
+
+function UpdateProfessorProfile() {
+
+    var professor = {
+        code: $('#codePP').val(),
+        name: $('#namePP').val(),
+        email: $('#emailPP').val(),
+        password: $('#passwordPP').val(),
+        academicDegreeId: $('#academic_degreePP').val()
+    };
+
+    $.ajax({
+        url: "/Professor/EditProfile",
+        data: JSON.stringify(professor),
+        type: "PUT",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            document.getElementById("text_edit_professor_profile").innerHTML = "Perfil actualizado con éxito";
+            document.getElementById("text_edit_professor_profile").style.color = "green";
+            document.getElementById('text_edit_professor_profile').style.display = 'block';
+        },
+
+        error: function (errorMessage) {
+            document.getElementById("text_edit_professor_profile").innerHTML = "Error al actualizar el perfil";
+            document.getElementById("text_edit_professor_profile").style.color = "red";
+            document.getElementById('text_edit_professor_profile').style.display = 'block';
+        }
+    });
+}
+
 function RemoveProfessor(id) { //DISTINTA AL PROFE
 
     var respuesta = confirm("¿Quieres eliminar a este profesor?");
@@ -657,6 +712,57 @@ function LoadDataStudent() {
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
+        }
+    });
+}
+
+function LoadStudentProfile() {
+
+    $.ajax({
+        url: "/Student/LoadProfile",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            document.getElementById("nameSP").value = result.code;
+            document.getElementById("codeSP").value = result.name;
+            document.getElementById("emailSP").value = result.email;
+            document.getElementById("passwordSP").value = result.password;
+        },
+        error: function (errorMessage) {
+            alert("Error al cargar el usuario, vuelva a intentarlo más tarde");
+            document.getElementById('edit_professor_profile').style.display = 'none';
+        }
+    });
+}
+
+function UpdateStudentProfile() {
+
+    var student = {
+        code: $('#codeSP').val(),
+        name: $('#nameSP').val(),
+        email: $('#emailSP').val(),
+        password: $('#passwordSP').val()
+    };
+
+    $.ajax({
+        url: "/Student/EditProfile",
+        data: JSON.stringify(student),
+        type: "PUT",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            document.getElementById("text_edit_student_profile").innerHTML = "Perfil actualizado con éxito";
+            document.getElementById("text_edit_student_profile").style.color = "green";
+            document.getElementById('text_edit_student_profile').style.display = 'block';
+
+
+        },
+        error: function (errorMessage) {
+            document.getElementById("text_edit_student_profile").innerHTML = "Error al actualizar el perfil";
+            document.getElementById("text_edit_student_profile").style.color = "red";
+            document.getElementById('text_edit_student_profile').style.display = 'block';
+
         }
     });
 }

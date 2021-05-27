@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Project_SPA.Models.Data;
+using Project_SPA.Models.Domain;
 using Project_SPA.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -65,6 +67,13 @@ namespace Project_SPA.Controllers
             return Ok(studentDAO.GetTemporal());
         }
 
+        public ActionResult LoadProfile()
+        {
+            studentDAO = new StudentDAO(_context);
+
+            return Ok(studentDAO.GetStudentByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code));
+        }
+
         public ActionResult Add([FromBody] Student student)
         {
             
@@ -106,6 +115,15 @@ namespace Project_SPA.Controllers
         public ActionResult Edit([FromBody] Student student)
         {
             studentDAO = new StudentDAO(_context);
+            return Ok(studentDAO.Edit(student));
+        }
+
+        public ActionResult EditProfile([FromBody] Student student)
+        {
+            studentDAO = new StudentDAO(_context);
+
+            student.Id = studentDAO.GetStudentByCode(JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("SessionUser")).Code).Id;
+
             return Ok(studentDAO.Edit(student));
         }
 
