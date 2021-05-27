@@ -62,7 +62,7 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateNewCurse(Course newCourse)
         {
-            if (newCourse.Code == null || newCourse.Credits == 0 || newCourse.Name == null || newCourse.Semester == null || newCourse.Year == 0)
+            if (newCourse == null || newCourse.Code == null || newCourse.Credits == 0 || newCourse.Name == null || newCourse.Semester == null || newCourse.Year == 0)
             {
                 return false;
             }

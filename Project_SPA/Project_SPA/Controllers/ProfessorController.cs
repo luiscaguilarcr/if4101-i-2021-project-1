@@ -90,7 +90,7 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateProfessor(Professor newProfessor)
         {
-            if (newProfessor.Code == null || newProfessor.Name == null || newProfessor.Password == null)
+            if (newProfessor == null || newProfessor.Code == null || newProfessor.Name == null || newProfessor.Password == null)
             {
                 return false;
             }
@@ -108,7 +108,7 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateEditProfile(Professor professor)
         {
-            if (professor.Name == null || professor.Password == null)
+            if (professor == null || professor.Name == null || professor.Password == null)
             {
                 return false;
             }

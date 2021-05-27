@@ -155,7 +155,7 @@ namespace Project_SPA.Controllers
             List<Student> students = studentDAO.GetStudents();
             foreach (Student student in students)
             {
-                if(newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
+                if(newTemporalStudent == null || newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
                 {
                     return false;
                 }else if (student.Code.Equals(newTemporalStudent.Code))
@@ -168,7 +168,7 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateNewTemporalStudent(TemporalStudent newTemporalStudent)
         {
-            if (newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
+            if (newTemporalStudent == null || newTemporalStudent.Code == null || newTemporalStudent.Email == null || newTemporalStudent.Name == null || newTemporalStudent.Password == null)
             {
                 return false;
             }
@@ -187,7 +187,7 @@ namespace Project_SPA.Controllers
 
         public Boolean ValidateEditProfile(Student student)
         {
-            if (student.Name == null || student.Password == null)
+            if (student == null || student.Name == null || student.Password == null)
             {
                 return false;
             }

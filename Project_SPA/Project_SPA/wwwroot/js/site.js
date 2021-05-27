@@ -549,7 +549,7 @@ function LoadDataProfessor() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#" onclick="return Get(' + item.id + ')">Edit</a> | <a href="#teachers" onclick="RemoveProfessor(' + item.id + ')">Delete</a></td>';
+                html += '<td><a href="#teachers" onclick="RemoveProfessor(' + item.id + ')">Delete</a></td>';
             });
             $('.tbodyProfessor').html(html);
         },
@@ -713,7 +713,7 @@ function LoadDataStudent() {
                 html += '<td>' + item.code + '</td>';
                 html += '<td>' + item.name + '</td>';
                 html += '<td>' + item.email + '</td>';
-                html += '<td><a href="#edit_student_profile" onclick="return GetStudent(' + item.id + ')">Editar</a> | <a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
+                html += '<td><a href="#students" onclick="RemoveStudent(' + item.id + ')">Eliminar</a></td>';
             });
             $('.tbodyStudent').html(html);
         },
@@ -1002,7 +1002,7 @@ function LoadDataCourse() {
                 html += '<td>' + item.credits + '</td>';
                 html += '<td>' + item.semester + '</td>';
                 html += '<td>' + item.year + '</td>';
-                html += '<td><a href="#" onclick="return GetStudent(' + item.id + ')">Edit</a> | <a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
+                html += '<td><a href="#courses" onclick="RemoveCourse(' + item.id + ')">Delete</a></td>';
             });
             $('.tbodyCourse').html(html);
         },
@@ -1284,11 +1284,13 @@ function AddNews() {
         dataType: "json",
         success: function (result) {
             //  Clean_student();
-            alert("inserto");
+            alert("Su noticia se ha enviado correctamente");
+
         },
         error: function (errorMessage) {
             // alert("Error");
-            alert(errorMessage.responseText);
+            alert("Su noticia no se ha enviado");
+
         }
     });
 }
@@ -1353,10 +1355,14 @@ function AddComment() {
         dataType: "json",
         success: function (result) {
             //  Clean_student();
-            alert("inserto");
+            document.getElementById("text_add_comment").innerHTML = "Su comentario se ha enviado correctamente";
+            document.getElementById("text_add_comment").style.color = "green";
+            document.getElementById('text_add_comment').style.visibility = 'visible';
         },
         error: function (errorMessage) {
-            // alert("Error");
+            document.getElementById("text_add_comment").innerHTML = "No se ha enviado su comentario";
+            document.getElementById("text_add_comment").style.color = "red";
+            document.getElementById('text_add_comment').style.visibility = 'visible';
             alert(errorMessage.responseText);
         }
     });
@@ -1371,12 +1377,13 @@ function DeleteComment(id) {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            alert("ELIMINADO");
+            alert("Se ha eliminado el comentario");
+            LoadDataNewsAdmin();
+            document.getElementById('tbodyCommentsAdmin').style.display = 'none';
 
         },
         error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
+            alert("No se ha eliminado el comentario");
         }
     });
 }
@@ -1390,12 +1397,11 @@ function DeleteNews(id) {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-
-            alert("ELIMINADO");
+            alert("Se ha eliminado la noticia");
+            LoadDataNewsAdmin();
         },
         error: function (errorMessage) {
-            alert("Error");
-            alert(errorMessage.responseText);
+            alert("No ha eliminado el comentario");
         }
     });
 }
@@ -1413,7 +1419,7 @@ function GetCommentsByNews(id) {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.comment + '</td>';
-                html += '<td> <a href="#" onclick="return DeleteComment(' + item.idComment + ')">Eliminar comentario</a></td>';
+                html += '<td> <a href="#OptionsNoticeAdmin" onclick="return DeleteComment(' + item.idComment + ')">Eliminar comentario</a></td>';
             });
             $('.tbodyCommentsAdmin').html(html);
         },
@@ -1456,7 +1462,7 @@ function LoadDataNewsAdmin() {
             $.each(result, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + '<h3>' + '<b>' + item.newsTitle + '</b>' + '</h3>' + '<br/>' + item.descrip + '</td>';
-                html += '<td><a href="#" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return GetCommentsByNews(' + item.id + ')">Ver comentarios</a></td>';
+                html += '<td><a href="#OptionsNoticeAdmin" onclick="DeleteNews(' + item.id + ')">Eliminar Noticia</a> | <a href="#tbodyCommentsAdmin" onclick="return GetCommentsByNews(' + item.id + ')">Ver comentarios</a></td>';
             });
             $('.tbodyOptionsNoticeAdmin').html(html);
         },
